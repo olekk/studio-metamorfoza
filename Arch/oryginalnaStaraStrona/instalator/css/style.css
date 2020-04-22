@@ -1,0 +1,81 @@
+html { height: 100%; }
+body { height: 100%; overflow-y:scroll; background:url('../obrazki/tlo_strony.gif'); margin:0px; font-family: Arial, Tahoma, Verdana, sans-serif; font-size: 12px; color:#323232; }
+img { border:0px; }
+.cl { clear:both; }
+.lf { float:left; }
+.rg { float:right; }
+a { color:#323232; text-decoration:none; }
+a:hover { color:#ff0000; }
+
+h3 { font-size: 16px; padding-bottom: 20px;}
+
+#logo { margin-left:10px; margin-top:3px; float:left;}
+#linki { margin-right:10px; margin-top:3px; float:right;}
+#str_glowna { width:1020px; min-height: 85%; margin:0px auto; background:#fff; margin-top:20px; padding:7px; padding-bottom:15px; -moz-box-shadow: 0 0 5px 5px #131313; -webkit-box-shadow: 0 0 5px 5px #131313; box-shadow: 0 0 5px 5px #131313; -moz-border-radius:15px; -webkit-border-radius:15px; -khtml-border-radius:15px; border-radius:15px; }
+
+#naglowek { display:block; height:75px; background:url('../obrazki/gradient.png') repeat-x left bottom; border-bottom:1px dotted #929292; margin-bottom:15px;}
+
+.TytluStrony { font-size:140%; font-weight: bold; margin-bottom:20px; }
+.SubTytluStrony { font-size:120%; font-weight: bold; margin-bottom:10px; border-top:1px dotted #c3c3c3; line-height:40px;}
+
+#KrokiInstalacji {width:220px; display:table-cell; vertical-align:top; padding-right:15px; }
+#TrescInstalacji {width:740px; display:table-cell; vertical-align:top;}
+
+.InstalacjaKrok { width:170px; height:65px; border:1px solid #c3c3c3; padding:10px; margin-bottom:10px; opacity:0.6; filter:alpha(opacity=60); }
+.InstalacjaKrok.aktywny { background: #e7e7e7; opacity:1; filter:alpha(opacity=100); }
+.InstalacjaKrok.aktywny h5 {background:url('../obrazki/ok.png') no-repeat top left;  margin: 0 0 5px; padding-left:20px; line-height: 16px;}
+.InstalacjaKrok h5 { background:url('../obrazki/ok_off.png') no-repeat top left; font-size:120%; margin: 0 0 5px;  padding-left:20px; line-height: 16px}
+.InstalacjaKrok p { font-size:110%; margin: 0 0 5px; }
+.InstalacjaKrok a { font-size:100%; }
+
+.TestOk { float: left; margin-right: 15px;margin-bottom: 15px; height: 24px;}
+.TestOpis { font-size:100%; margin-bottom: 15px; line-height: 24px;}
+
+.ZgodnoscOK { text-align: left; font-size:110%; font-weight: bold; background: url('../obrazki/ok.png') no-repeat scroll 15px 21px #B7E2A7; padding: 20px 20px 20px 38px; border: 1px solid #85C10C; margin-top:20px;}
+.ZgodnoscBrak { text-align: left; font-size:110%; font-weight: bold; background: url('../obrazki/ostrzezenie.png') no-repeat scroll 15px 21px #fcbedd; padding: 20px 20px 20px 38px; border: 1px solid #8a134e;margin-top:20px;}
+
+
+/* pasek exportu i importu */
+#import { width:600px; margin:10px; margin-top:20px; }
+#suwak { width:500px; height:12px; background:#fff; border:1px solid #b3b3b3; overflow:hidden; }
+#suwak #suwak_aktywny { background:url('../obrazki/_loader_newsletter.png') left center; width:0px; height:10px; }
+#procent { line-height:20px; margin-top:10px; font-weight:bold; text-decoration:none; }
+#procent span { color:#ff0000; font-size:12px; }
+#postep { display:block; text-align:left; margin-bottom:3px; color:#8a8a8a; text-decoration:none; }
+#wynik_dzialania { padding-left:40px; line-height:32px; font-weight:bold; text-decoration:none; }
+#wynik_dzialania_baza { padding-left:40px; line-height:32px; font-weight:bold; text-decoration:none; }
+#wynik_dzialania_plik { padding-left:40px; line-height:32px; font-weight:bold; text-decoration:none; }
+
+.sukces { font-size:110%; margin:10px; background:url('../obrazki/ok.png') no-repeat left center; color:#04a001; text-decoration:none; }
+.blad { font-size:100%; margin:10px; background:url('../obrazki/ostrzezenie.png') no-repeat left center; color:red; text-decoration:none; }
+
+#wynik_dzialania span, #zaimportowano span { color:#ff0000; text-decoration:none; }
+#wynik_dzialania a, #zaimportowano a { color:#ff0000; text-decoration:none; }
+#wynik_dzialania a:hover, #zaimportowano a:hover { text-decoration:none; }
+#wynik_dzialania strong { font-weight:bold; text-decoration:none; }
+#wynik_dzialania strong a { font-weight:bold; color:#1d439b; text-decoration:none; }
+#wynik_dzialania strong a:hover { font-weight:bold; color:#ff0000; text-decoration:none; }
+#wynik_dzialania img { float:left; margin-top:5px; margin-right:10px; }
+
+.przycisk { cursor:pointer; padding:8px 20px 8px 20px; background:url('formularze/img/tlo_przycisku.png') repeat-x center center; border:1px solid #dedede; color:#636363; font-weight:bold; font-family: Arial, Tahoma, Verdana, sans-serif; -moz-border-radius:6px; -webkit-border-radius:6px; -khtml-border-radius:6px; border-radius:6px; }
+.przycisk:hover { color:#fff; background:url('formularze/img/tlo_przycisku_wl.png') repeat-x center center; }
+
+#loaderSpace{display:none;z-index: 100;position: absolute;top: 0;left: 0;height: 100%;width: 100%;background:transparent url(../obrazki/bg_loader.png) repeat 0 0;}
+div#loader{display:none;margin: 300px 0 0 440px;height:128px;width:128px;color:#fff;background-image:url(../obrazki/ajax-loader.gif);}
+
+.infosBlock { background: url("../obrazki/infos.png") no-repeat scroll 10px 13px #F8F8F8; border: 1px solid #CCCCCC; font-size: 13px; font-weight: normal; line-height: 18px; padding: 14px 25px 14px 35px;}
+
+.blockInfoEnd { background: url("../obrazki/bg_block.png") repeat-x scroll 0 0 #FFFFFF; border: 1px solid #CCCCCC; border-radius: 5px 5px 5px 5px; box-shadow: 0 1px #D9D9D9; cursor: pointer; float: left; margin: 34px 0px 22px 0; padding: 10px; width: 330px;}
+.blockInfoEnd img { float: left; margin: 0 10px 5px 0; }
+.blockInfoEnd p { color: #666666; font: italic 11px/14px Arial,Sans-serif; min-height: 58px;}
+
+.blockInfoEnd a.BO, .blockInfoEnd a.FO { background: url("../obrazki/przycisk_koniec.png") no-repeat scroll top right; border-radius: 6px 6px 6px 6px; color: #FFFFFF; float: right; height: 33px; line-height: 33px; padding: 0 0 0 10px;}
+
+#Licencja {height:310px; border:1px solid #ccc; margin-bottom:8px; padding:10px; background:#fff; overflow: auto; overflow-x:hidden; overflow-y:scroll; }
+#TrescLicencji { text-align:center; font-weight:bold; }
+.Paragraf { text-align:left; font-weight:bold; margin-top:10px; margin-bottom:15px; font-size:14px;}
+#Licencja ul {list-style-type:circle; text-align:justify; margin-left:20px; margin-bottom:10px;} 
+#Licencja li {margin-bottom:10px;} 
+#Licencja p {text-align:justify; margin-bottom:10px;} 
+
+#Licencja ol {list-style-type:decimal; text-align:justify; margin-left:20px; margin-bottom:10px;}

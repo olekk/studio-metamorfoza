@@ -1,0 +1,22 @@
+/* formularze */
+.cmxform { font-family: Arial, Tahoma, sans-serif; font-size:12px; }
+
+input, select, textarea { font-size:100%; font-family: Arial, Tahoma, Verdana, sans-serif; }
+.cmxform input, .cmxform select, .cmxform textarea, .InputIlosc { color:#504f4f; border:1px solid #d3d2d2; padding:5px; -moz-border-radius:4px; -webkit-border-radius:4px; -khtml-border-radius:4px; border-radius:4px; }
+.cmxform label { vertical-align:top; font-weight:normal; display: inline-block; line-height: 1.2; width:220px; padding-left:0px; padding-top:4px; padding-bottom:4px;}
+.cmxform label.required { font-weight:normal; display: inline-block; line-height: 1.2; background:transparent url('img/gwiazdka.png') no-repeat scroll center right;}
+.cmxform p { margin-bottom:16px; }
+.cmxform span { display:block; margin-bottom:5px; }
+.cmxform .error { color:#ff0000; }
+.cmxform label.error { font-weight: normal; background:transparent url('img/blad.png') no-repeat left center; display:block; margin:4px 0px 0px 0px; padding:2px 0px 2px 25px;margin-left:230px; width:400px;}
+.cmxform em.required { vertical-align: top; width:5px; height:5px; display:inline-block; background:transparent url('img/gwiazdka.png') no-repeat scroll center right; }
+.cmxform .przycisk { cursor:pointer; padding:8px 20px 8px 20px; background:url('img/tlo_przycisku.png') repeat-x center center; border:1px solid #dedede; color:#636363; font-weight:bold; font-family: Arial, Tahoma, Verdana, sans-serif; -moz-border-radius:6px; -webkit-border-radius:6px; -khtml-border-radius:6px; border-radius:6px; }
+.cmxform .przycisk:hover { color:#fff; background:url('img/tlo_przycisku_wl.png') repeat-x center center; }
+.cmxform .przyciskWylaczony { opacity:0.6; filter:alpha(opacity=60); padding:8px 20px 8px 20px; background:url('img/tlo_przycisku.png') repeat-x center center; border:1px solid #dedede; color:#9d9c9c; font-weight:bold; font-family: Arial, Tahoma, Verdana, sans-serif; -moz-border-radius:6px; -webkit-border-radius:6px; -khtml-border-radius:6px; border-radius:6px; }
+.cmxform a.przycisk { cursor:pointer; padding:8px 20px 8px 20px; background:url('img/tlo_przycisku.png') repeat-x center center; border:1px solid #dedede; color:#636363; font-weight:bold; font-family: Arial, Tahoma, Verdana, sans-serif; -moz-border-radius:6px; -webkit-border-radius:6px; -khtml-border-radius:6px; border-radius:6px; }
+.cmxform span.tresc { display:inline; font-weight:bold; margin-bottom:5px; }
+.cmxform span.opis { display:inline; font-weight:normal; margin-bottom:5px; }
+
+/* wyglad przyciskow */
+.Prawy { float:right; margin-top:20px; margin-right:20px;}
+.Lewy { float:left; margin-top:20px; margin-left:20px; }

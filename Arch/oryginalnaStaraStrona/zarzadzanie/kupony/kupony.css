@@ -1,0 +1,47 @@
+/* uzywane w statystykach */
+.nr_kuponu { font-size:17px; }
+.pozycja_bez_form { padding:8px; padding-bottom:12px; }
+.pozycja_bez_form p { list-style: none; margin: 0; padding: 3px 10px 4px; }
+
+.tbl_poz { color: #3f5d6b; }
+.tbl_poz td { padding:2px; text-decoration:none; text-align:center; }
+.tbl_poz_naglowek { font-weight:bold; color:#3f5d6b; text-decoration:none; }
+.pozi_nagl span { display:block; padding:5px; background:#e5e5e5; font-weight:normal; color:#3f5d6b; text-decoration:none; }
+.pozi td { padding:8px; }
+
+#link_csv { margin:6px; margin-top:15px; background:url('../obrazki/csv.png') no-repeat left center; display:inline-block; line-height:50px; height:50px; padding-left:50px; padding-right:0px; font-weight:normal; text-decoration:none; }
+#link_csv:hover { color:#ff0000; text-decoration:none; }
+#link_csv span { font-weight:normal; color:#939393; text-decoration:none; }
+
+div .export { background:url('../obrazki/export.png') no-repeat left center; line-height:16px; display:inline-block; padding-left:22px; font-weight:bold; color:#016f24; text-decoration:none; }
+div .export:hover { color:#ff0000; text-decoration:none; }
+
+div .import { background:url('../obrazki/import.png') no-repeat left center; line-height:16px; display:inline-block; padding-left:22px; font-weight:bold; color:#016f24; text-decoration:none; }
+div .import:hover { color:#ff0000; text-decoration:none; }
+
+.naglowek_export { font-weight:bold; text-decoration:none; padding:8px; }
+.inputy td { padding:4px }
+
+.ramkaWarunki { border-top:1px dotted #ccc; border-bottom:1px dotted #ccc; padding:8px 0px 8px 0px; margin:8px 10px 8px 10px; } 
+.ramkaWarunki p { padding-left:0px !important; }
+.ramkaWarunki b { font-weight:bold; color:#3f5d6b; text-decoration:none; display:block; margin-top:5px; margin-bottom:10px; }
+.ramkaWarunki strong { padding:5px; padding-left:0px; display:inline-block; }
+
+#producenci { line-height:1.4; margin-left:165px; border:1px solid #c1c1c1; padding:10px; width:530px; max-height:400px; overflow-y:scroll; }
+#produkty { line-height:1.4; margin-left:165px; border:1px solid #c1c1c1; padding:10px; width:530px; max-height:400px; overflow-y:scroll; }
+
+#listaWarunkow { display:block; line-height:1.5; color:#0e7379; margin-left:165px; border:1px solid #c1c1c1; padding:10px; width:530px; max-height:400px; overflow-y:scroll; }
+
+#genMail { margin:0px 5px 10px 5px; }
+#genMail .dodaj { background:url('../obrazki/mail.png') no-repeat left center !important; }
+
+strong.nagl { display:block; margin:10px; margin-bottom:20px; font-size:14px; color:#3f5d6b; }
+
+#kupon_mail { margin:10px; }
+#kupon_mail div { display:block; text-align:left; margin-bottom:8px; font-weight:normal; text-decoration:none; }
+#kupon_mail span { font-weight:bold; color:#0c617d; }
+
+.adEmail { padding:5px; padding-left:0px; display:inline-block; color:#03700b; font-weight:bold; }
+
+.legnedaKuponow { padding:12px; }
+.legnedaKuponow .ostrzezenie { padding-top:5px; padding-bottom:2px; }

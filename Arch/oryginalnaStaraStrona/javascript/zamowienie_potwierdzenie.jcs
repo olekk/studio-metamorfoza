@@ -1,0 +1,71 @@
+$(document).ready(function() {
+
+  $("#potwierdzenie").validate({
+    rules: {
+      regulamin_santander: {required: true},
+      regulamin: {required: true},
+      produkty_uslugi: {required: true},
+      produkty_online: {required: true},
+      produkty_niestandardowe: {required: true}
+    },
+    messages: {
+      regulamin_santander: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+      regulamin: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+      produkty_uslugi: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+      produkty_online: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+      produkty_niestandardowe: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' }
+    },
+    errorPlacement: function(error, element) {
+      if (element.hasClass('usluga')){
+          error.appendTo('#error-usluga');
+      } else if (element.hasClass('online')){
+          error.appendTo('#error-online');
+      } else if (element.hasClass('raty')){
+          error.appendTo('#error-potwierdzenie-raty');
+      } else if (element.hasClass('niestandardowy')){
+          error.appendTo('#error-niestandardowy');
+      } else {      
+          error.appendTo('#error-potwierdzenie');
+      }
+    },
+    
+  });
+
+  $('body').on('change', "input:radio[name='lokalizacja']", function() {
+	   var checked = $(this).prop('checked');
+	   if(checked) {
+		  var value = $(this).val();
+      PreloadWlacz();
+		  $.post("{__SSL:inne/zmiana_lokalizacji_dostawy.php}?tok={__TOKEN_ZAMOWIENIE_POTWIERDZENIE}", { value:value }, function(data) { PreloadWylaczSzybko() });
+	   }
+	});
+
+  $('body').on('change', "input:radio[name='dokument']", function() {
+	   var checked = $(this).prop('checked');
+	   if(checked) {
+		  var value = $(this).val();
+      PreloadWlacz();
+		  $.post("{__SSL:inne/zmiana_dokumentu_zakupu.php}?tok={__TOKEN_ZAMOWIENIE_POTWIERDZENIE}", { value:value }, function(data) { PreloadWylaczSzybko() });
+	   }
+	});
+
+  $('body').on('change', '#potwierdzenie select', function() {
+		var select = $(this);
+		var value = select.val();
+    PreloadWlacz();
+		$.post("{__SSL:inne/zmiana_lokalizacji_dostawy.php}?tok={__TOKEN_ZAMOWIENIE_POTWIERDZENIE}", { value:value }, function(data) { PreloadWylaczSzybko() });
+	});
+  
+  if ($('.datefields').length) {
+      $('input.datefields').Zebra_DatePicker({
+        format: 'd-m-Y',
+        inside: false,
+        readonly_element: true,
+        show_icon: true
+      });
+  }      
+
+	//wlacza przycisk submit jesli dziala u klienta javascript
+    //$('#submitButton').removeAttr('disabled');
+    //$("#submitButton").attr('class', 'przycisk');
+});

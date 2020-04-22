@@ -1,0 +1,36 @@
+$(document).ready(function() {
+    //wlacza przycisk submit jesli dziala u klienta javascript
+    $('#submitButton').removeAttr('disabled');
+    $("#submitButton").attr('class', 'przycisk');    
+});
+
+// do wyszukiwania zaawansowanego - sprawdza dlugosc wpisanego wyrazenia
+function sprSzukajZaawansowane(){
+    //
+    Formularz = $('#WyszukiwanieZaawansowane');
+
+    Formularz.find('input').each(function() {
+        if ($(this).val() == '') {
+          $(this).attr('disabled', true);
+        }      
+    });
+    
+    Formularz.find('select').each(function() {
+        if ($(this).val() == '0') {
+          $(this).attr('disabled', true);
+        }
+    });    
+    //
+    
+    var SzukanyCiag = $.trim($('#SzukanaFraza').val());
+    if (SzukanyCiag.length < 2) {
+        //
+        $.colorbox( { html:'<div id="PopUpInfo">{__TLUMACZ:BLAD_ZA_MALO_ZNAKOW} <b>2</b></div>', maxWidth:'90%', maxHeight:'90%' } );
+        Formularz.find(':input').attr('disabled', false);
+        $('#SzukanaFraza').focus();
+        return false;
+        //
+      }
+    return true;
+    
+}

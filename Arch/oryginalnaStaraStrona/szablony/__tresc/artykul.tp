@@ -1,0 +1,36 @@
+<!-- wyglad naglowka strony -->
+
+<h1 class="StrNaglowek">
+    <span>{__NAGLOWEK_ARTYKULU}</span>  
+</h1>
+
+<!-- tresc strony -->
+
+<section class="StrTresc">
+
+    <!-- data dodania artykilu i ilosc odslon (wyswietlane jezeli sa wlaczona w konfiguracji) -->
+
+    <span class="DaneAktualnosci">
+        {__TRESC_ARTYKULU_DATA_DODANIA}
+        {__TRESC_ARTYKULU_ILOSC_ODSLON}
+    </span>  
+
+    <!-- tresc skrocona artykulu (wyswietla sie jezeli jest wlaczona w konfiguracji) -->
+
+    {__TRESC_ARTYKULU_KROTKI}
+    
+    <!-- tresc pelna artykulu -->
+
+    {__TRESC_ARTYKULU}
+    
+    <br />
+    
+    <!-- przycisk powrotu do strony glownej -->
+
+    <a href="/" class="przycisk Prawy">{__TLUMACZ:PRZYCISK_DO_STRONY_GLOWNEJ}</a>   
+    
+    <div class="cl"></div>
+
+</section>
+
+

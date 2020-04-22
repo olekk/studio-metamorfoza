@@ -1,0 +1,13 @@
+<!-- wyglad boxu kategorii wysuwanych -->
+
+<!-- wyglad naglowka boxu - sprawdza czy box ma miec naglowek -->
+
+<?php if ($__pA['box_header'] == '1') { ?>
+    <h4 class="BoxNaglowek">{__NAGLOWEK_BOXU}</h4>
+<?php } ?>
+
+<!-- tresc boxu kategorii -->
+
+<div class="BoxKategorieWysuwane">
+    {__TRESC_BOXU}
+</div>

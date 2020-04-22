@@ -1,0 +1,5 @@
+.ramkaSystem { width:50%; padding:5px; border:1px solid #ccc; padding-left:20px; }
+.ramkaEdy { width:50%; padding:5px; border:1px solid #ccc; }
+.ramkaEdy span:first-child { display:inline; float:left; margin-left:5px; }
+.ramkaEdy span:last-child, .InfoSpan span:last-child { float:right; cursor:pointer; margin-right:15px; margin-top:2px; display:inline-block; }
+.ramkaEdy span form { display:inline-block; margin-top:-12px; }

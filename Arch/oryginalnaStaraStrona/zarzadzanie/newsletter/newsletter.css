@@ -1,0 +1,16 @@
+/* link do klienta */
+.klient { background:url('../obrazki/klient.png') no-repeat left center; display:inline-block; padding:2px; padding-left:24px; font-weight:normal; text-decoration:none; }
+.klient:hover { text-decoration:none; }
+
+div .export { background:url('../obrazki/export.png') no-repeat left center; line-height:16px; display:inline-block; padding-left:22px; font-weight:bold; color:#016f24; text-decoration:none; }
+div .export:hover { color:#ff0000; text-decoration:none; }
+
+div .import { background:url('../obrazki/import.png') no-repeat left center; line-height:16px; display:inline-block; padding-left:22px; font-weight:bold; color:#016f24; text-decoration:none; }
+div .import:hover { color:#ff0000; text-decoration:none; }
+
+#dane_newslettera { margin:10px; }
+#dane_newslettera div { display:block; text-align:left; margin-bottom:8px; font-weight:normal; text-decoration:none; }
+#dane_newslettera span { font-weight:bold; color:#0c617d; }
+
+#grupy_newslettera { padding:10px; }
+#grupy_newslettera td { padding-right:3px; }

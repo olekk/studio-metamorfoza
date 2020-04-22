@@ -1,0 +1,653 @@
+body{
+    overflow-x: hidden;
+    font-family: 'Kalam', cursive;
+    padding: 70px 0 64px 0;
+
+}
+
+@mixin fixed($x, $y) {
+    position: fixed !important;
+    left: $x;
+    top: $y;
+}
+
+
+
+a
+{
+    color: inherit;
+    text-decoration: none !important;
+
+}
+.navbar
+{
+    @include fixed(0, 0);
+    width: 100vw;
+    min-height: 64px;
+    z-index: 100; 
+    font-size: 25px;
+    overflow: hidden;
+    padding: 0;
+        -webkit-box-shadow: 0px 1px 15px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 1px 15px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 1px 15px 0px rgba(0,0,0,0.75);
+
+
+    img
+    {
+        height: 65px;
+    }
+
+    .navbar-nav
+    {
+        flex-direction: row;
+        align-items: stretch;
+        flex-wrap: wrap;
+    }
+    .nav-item
+    {
+        flex-grow: 1;
+        position: relative;
+        a 
+        {
+            margin: 0 !important;
+            padding: 10px !important;
+            width: 100%;
+            height: 100%;
+            //font-weight: normal;
+        }
+    }
+
+    & *
+    {
+        outline: none !important;
+    }
+
+    #fb, #insta
+    {
+        color: rgba(0,0,0,0.5);
+        margin: 0 15px;
+        font-size: 34px;
+        height: 35px;
+    }
+    #fb
+    {
+        font-size: 28px;
+        margin-top: 3px;
+        padding-left: 10px;
+        &:hover
+        {
+            color: #0056b3;
+        }
+    }
+    #insta:hover
+    {
+        color: #d6249f;
+    }
+
+    transition: min-height .4s cubic-bezier(.57,-1.56,.43,2.29);
+    &:hover{
+        min-height: 60px;
+    }
+
+}
+
+.page
+{
+    width: 100vw;
+    //height: calc(100vh - 70px);
+    //overflow: hidden;
+    background-color: white;
+}
+
+.home
+{
+    background-image: url(img/biglogo.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: calc(100vh - 70px);
+    &:hover
+    {
+        cursor: pointer;
+    }
+}
+
+.kafel
+{
+
+    overflow: hidden;
+    transition: height .4s ease-in;
+
+    .kosmetyka { background-image: url(img/cover/kosmetyka.jpg); }
+    .wizaz { background-image: url(img/cover/wizaz.jpg); }
+    .makijaz { background-image: url(img/cover/makijaz.jpg); }
+    .cennik { background-image: url(img/cover/cennik.jpg); }
+    .kontakt { background-image: url(img/cover/kontakt.jpg);}
+    .mapa { background-image: url(img/cover/mapa.jpg);}
+
+
+    position: relative;
+    .cover
+    {
+        position: absolute;
+        z-index: 50;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+
+        box-sizing: border-box;
+
+        font-size: 70px;
+        color: white;
+        text-shadow: 0px 0px 10px black;
+        text-align: center;
+        transition: all .4s ease-in;
+
+        -webkit-box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
+        box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
+
+        //border: 100px white solid;
+
+        &:hover
+        {
+            cursor: pointer;
+
+            &::before
+            {
+                height: 40px;
+
+            }
+        }
+
+        &::before
+        {
+            height: 0;
+            transition: height .7s ease-out;
+
+            content: "Kliknij by rozwinąć";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ddd;
+            text-align: center;
+            font-size: 30px;
+            z-index: 90;
+            -webkit-box-shadow: inherit;
+            -moz-box-shadow: inherit;
+            box-shadow: inherit;
+        }
+        
+
+    }
+
+    article
+    {
+        position: relative;
+        z-index: 40;
+        padding: 140px 50px 50px 50px;
+        font-size: 21px;
+
+        #cennik-img
+        {
+            display: block;
+            width: 70vw;
+            margin: 0 auto;
+        }
+
+        .carousel 
+        {
+            margin-bottom: 100px;
+        
+            .carousel-cell 
+            {
+                width: 30vh;
+                height: 40vh;
+                margin-right: 30px;
+                border-radius: 5px;
+                overflow: hidden;
+        
+                img 
+                {
+                    width: 100%;
+                    display: block;
+                    transition: transform 1s ease;
+                }
+        
+                &:hover > img
+                {
+                    transform: scale(1.2);
+                }
+
+                &:hover div
+                {
+                    display: block;
+                }
+
+                position: relative;
+                div
+                {
+                    position: absolute;
+                    top:0;
+                    left: 0;
+                    z-index: 20;
+                    box-sizing: border-box;
+                    padding: 10px;
+                    background-color: #dddddd;;
+                    opacity: 0.7;
+                    width: 100%;
+                    height: 100%;
+                    display: none;
+                    color: black;
+                    text-align: center;
+                    font-size: 30px;
+                }
+
+            }
+        }
+
+        ul 
+        {
+            list-style-type: none;
+            li
+            {
+                margin-bottom: 20px;
+                span 
+                {
+                    padding-left: 50px;
+                    display: none;
+                    font-weight: normal;
+                    letter-spacing: normal !important;
+                }
+
+            }
+            a 
+            {
+                cursor: pointer;
+                font-weight: bold;
+                transition: letter-spacing .4s ease-out;
+                &:hover
+                {
+                    letter-spacing: 1px;
+                }
+            }
+
+            *
+            {
+                z-index: 41;
+            }
+        }
+
+        // i 
+        // {
+        //     display: block;
+        //     margin: 0 100px;
+        // }
+
+        #cellHeight
+        {
+            .carousel-cell
+            {
+                width: 40vh;
+                height: 30vh;
+            }
+        }
+
+        section 
+        {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            min-height: 35vh;
+            margin-bottom: 50px;
+            .pazn { background-image: url("img/pazn.jpg"); }
+            .maki { background-image: url("img/maki.jpg"); }
+            .upie { background-image: url("img/upie.jpg"); }
+            .styli { background-image: url("img/styli.jpg"); }
+            
+            .cover2
+            {
+                z-index: 45;
+                width: 100%;
+                height: 35vh;
+                overflow: hidden;
+                background-size: cover;
+                background-position: center;
+        
+                box-sizing: border-box;
+        
+                font-size: 50px;
+                color: white;
+                text-shadow: 0px 0px 10px black;
+                text-align: center;
+                transition: all .4s ease-out;
+        
+                -webkit-box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
+                -moz-box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
+                box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
+                
+                //border-bottom: 50px white solid;
+                //border: 100px white solid;
+        
+                &:hover
+                {
+                    cursor: pointer;
+                }
+            }
+
+            aside
+            {
+                transition: all 1s ease-out;
+                //display: none;
+                //position: absolute;
+                //margin-top: 110px;
+                z-index: 35;
+                //min-height: 35vh;
+                padding: 0 50px;
+                box-sizing: content-box !important;
+            }
+
+
+        }
+
+        #mapid
+        {
+            height: 60vh;
+            z-index: 40;
+        }
+
+        h1 
+        {
+            text-align: center;
+            font-size: 50px;
+            transition: font-size .4s cubic-bezier(.57,-1.56,.43,2.29);
+            &:hover
+            {
+                font-size: 47px;
+            }   
+        }
+
+        .side
+        {
+            float: left;
+            span, i
+            {
+                font-size: 30px;
+            }
+            margin-bottom: 50px;
+        }
+        .sid2
+        {
+            margin: 0 5%;
+            overflow-y: scroll;
+            height: 70vh;
+        }
+
+        .kosimgs
+        {
+            width: 700px;
+            box-sizing: border-box;
+            opacity: 0.5;
+            position: absolute;
+            top: 450px;
+            right: 0;
+            margin-top: 200px;
+            img 
+            {
+                display: block;
+                width: 400px;
+            }
+            img:nth-child(even)
+            {
+                margin: 100px 0 0 200px;
+            }
+        }
+
+    } //article
+} //kafel
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+.w-15
+{
+    width: 15% !important;
+}
+
+.karta
+{
+    margin-bottom: 65px;
+    article
+    {
+        padding: 5vw;
+        color: black;
+        font-size: 20px;
+
+        h3
+        {
+            font-size: 40px;
+        }
+    }
+
+    ul
+    {
+        list-style-type: circle;
+    }
+    
+    .gallery
+    {
+        text-align: center;
+        img 
+        {
+            height: 40vh;
+            border-radius: 20px;
+            margin: 30px;
+        }
+        a 
+        {
+            display: inline-block;
+            box-sizing: content-box; 
+            position: relative;
+            &:hover::before
+            {
+                content: "Kliknij by powiększyć";
+                display: block;
+                position: absolute;
+                top: 30px;
+                left: 30px;
+                height: calc(100% - 60px);
+                width: calc(100% - 60px);
+                //background-color: #ddd;
+                text-align: center;
+                 font-size: 30px;       
+                color: white;
+                text-shadow: 0px 0px 10px black;
+                z-index: 90;
+            }
+        }
+        
+        
+    }
+
+}
+
+
+
+footer
+{
+    height: 64px;
+    width: 100vw;
+    box-sizing: border-box;
+    color: white;
+    box-shadow: inset 0px 10px 35px 0px rgba(0,0,0,0.75);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+
+    padding: 20px 60px;
+    span 
+    {
+        float: right;
+    }
+
+    a 
+    {
+        text-decoration: none !important;
+        transition: 0.5s all ease;
+
+        &:hover
+        {
+            color: #fff;
+        }
+    }
+}
+
+@media(max-width: 1460px)
+{
+    .kafel
+    {
+        article
+        {
+            .side
+            {
+                span, i
+                {
+                    font-size: 25px;
+                }
+
+                & > img
+                {
+                    height: 70px;
+                }
+            }
+            .sid2
+            {
+                margin: 0 3%;
+            }
+        }
+    }
+}
+
+@media(max-width: 1258px)
+{
+    .navbar
+    {
+        .nav-item
+        {
+            a 
+            {
+                white-space: nowrap;
+            }
+        }
+    }
+    .kafel
+    {
+        .cenpad
+        {
+            padding: 90px 0 0 0;
+        }
+        article
+        {
+            
+            #cennik-img
+            {
+                width: 90vw;
+            }
+
+            .side 
+            {
+                text-align: center;
+                clear: both;
+                float: inherit;
+                width: 100%;
+                &>img 
+                {
+                    height: 90px;
+                }
+                span, i
+                {
+                    font-size: 40px;
+                }
+            }
+            .sid2
+            {
+
+                height: auto;
+                overflow: visible;
+                & > *
+                {
+                    display: inline !important;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 900px)
+{
+    .home
+    {
+        background-image: url(img/minlogo.jpg);
+    }
+}
+
+@media(max-width: 800px)
+{
+    #cennik-img
+    {
+        content: url(img/cennik-min.png);
+    }
+}
+
+
+@media(max-width: 641px)
+{
+    .kafel
+    {
+        //min-height: calc(100vh - 100px) !important;
+        .cover
+        {
+            // border 30px w quotes.js
+            font-size: 50px !important;
+            height: calc(100vh - 100px);
+            //border-bottom: 100px white solid !important;
+        }
+        article
+        {
+            padding: 140px 30px 30px 30px;
+            h1 
+            {
+                font-size: 28px;
+                &:hover
+                {
+                    font-size: 26px;
+                }   
+            }
+
+            .side 
+            {
+                margin: 0;
+                &>img 
+                {
+                    height: 55px;
+                }
+                span, i
+                {
+                    font-size: 22px;
+                }
+            }
+
+            .kosimgs
+            {
+                right: -50%;
+            }
+
+            >i 
+            {
+                font-size: 20px;
+            }
+        }
+    }
+}

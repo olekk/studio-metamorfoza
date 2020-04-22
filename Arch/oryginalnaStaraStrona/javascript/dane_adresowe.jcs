@@ -1,0 +1,94 @@
+$(document).ready(function() {
+
+    $.validator.addMethod(
+        "cyfryMyslnikRegex", function(value, element) {
+        return this.optional(element) || /^[0-9\A-Z\-\s]+$/i.test(value);
+    }, "{__TLUMACZ:BLAD_TYLKO_CYFRY_MYSLNIK}");
+    $.validator.addMethod("cyfryMyslnikPlusRegex", function(value, element) {
+        return this.optional(element) || /^[0-9\-+\s]+$/i.test(value);
+    }, "{__TLUMACZ:BLAD_TYLKO_CYFRY_MYSLNIK}");
+
+    $("#daneAdresowe").validate({
+      rules: {
+        nazwa_firmy: { required: function() {var wynik = true; if ( $("input[name='osobowosc']:checked", "#daneAdresowe").val() == "1" ) { wynik = false; } return wynik; }},
+        nip_firmy: { required: function() {var wynik = true; if ( $("input[name='osobowosc']:checked", "#daneAdresowe").val() == "1" ) { wynik = false; } return wynik;}, cyfryMyslnikRegex: true},
+        email: { email:true, required:true, remote: '{__SSL:inne/rejestracja.php?email}&klient=' + $('#id_klienta').val() + '&tok={__TOKEN_EMAIL}' },
+        nick: { remote: '{__SSL:inne/rejestracja.php?nick}&klient=' + $('#id_klienta').val() + '&tok={__TOKEN_NICK}' },
+        kod_pocztowy: { cyfryMyslnikRegex: true },
+        telefon: { cyfryMyslnikPlusRegex: true },
+        pesel: { digits: true, minlength: 11 }
+      },
+      messages: {
+        imie: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        nazwisko: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        data_urodzenia: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        email: { remote: '{__TLUMACZ:BLAD_EMAIL_ISTNIEJE}', required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        nick: { remote: '{__TLUMACZ:BLAD_NICK_ISTNIEJE}' },
+        platnik_nazwa_firmy: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        platnik_nip_firmy: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        ulica: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        kod_pocztowy: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        miasto: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        telefon: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        pesel: { digits: '{__TLUMACZ:BLAD_TYLKO_LICZBY}', minlength: '{__TLUMACZ:BLAD_ZA_MALO_ZNAKOW_FORM}' }
+      }     
+    });
+    
+    if ($('.datepicker').length) {
+        $('input.datepicker').Zebra_DatePicker({
+          view: 'years',
+          format: 'd-m-Y',
+          inside: false,
+          readonly_element: true,
+          show_icon: true
+        });
+    }    
+    
+    if ($('.datefields').length) {
+        $('input.datefields').Zebra_DatePicker({
+          format: 'd-m-Y',
+          inside: false,
+          readonly_element: true,
+          show_icon: true
+        });
+    }       
+
+    // sprawdza czy jest pole wojewodztwo
+    if ($('#selection').length) {
+        $("#selection").change( function() {
+          PreloadWlacz();
+          $.ajax({
+            type: "POST",
+            data: "data=" + $(this).val(),
+            url: "{__SSL:inne/wybor_wojewodztwa.php}?tok={__TOKEN_DANE_ADRESOWE}",
+            success: function(msg){
+              PreloadWylaczSzybko();
+              if (msg != '') { 
+                $("#selectionresult").html(msg).show(); 
+              } else { 
+                $("#selectionresult").html('<em>Brak</em>'); 
+              }
+            }
+          });
+        });
+    }
+
+    //wlacza przycisk submit jesli dziala u klienta javascript
+    $('#submitButton').removeAttr('disabled');
+    $("#submitButton").attr('class', 'przycisk');
+});
+
+function ZmienOsobowoscAdres(nr) {
+    //
+    if ( nr == 1 ) {
+         $('#p_pesel').slideDown();
+         $('#firma').slideUp();
+         $('#nip').slideUp();
+    }
+    if ( nr == 2 ) {
+         $('#p_pesel').slideUp();
+         $('#firma').slideDown();
+         $('#nip').slideDown();
+    }
+    //
+}

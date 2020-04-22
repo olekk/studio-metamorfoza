@@ -1,0 +1,100 @@
+<!-- wyglad naglowka strony -->
+
+<h1 class="StrNaglowek">
+    <span>{__TLUMACZ:NAGLOWEK_WYSZUKIWANIE_ZAAWANSOWANE}</span>
+</h1>
+
+<!-- tresc strony -->
+
+<section class="StrTresc">
+
+    <?php
+    $Pola = $__pA;
+    ?>
+
+    <form onsubmit="return sprSzukajZaawansowane()" action="szukaj.html" method="post" id="WyszukiwanieZaawansowane" class="cmxform"> 
+
+        <p class="Wybor WyszukajFraze">
+            <b>{__TLUMACZ:WYSZUKIWANIE_SZUKANY_PRODUKT}</b>
+            <input id="SzukanaFraza" type="text" name="szukaj" size="30" value="" />
+            <input type="hidden" name="postget" value="tak" />        
+        </p>
+        
+        <?php
+        if ( count($Pola) > 0 ) {
+            foreach ($Pola as $key => $val) {
+                ?>
+                <p class="Wybor">
+                    <b><?php echo $val; ?>:</b>
+                    <input type="checkbox" name="dodatkowe_<?php echo $key; ?>" value="tak" />
+                </p>
+                <?php
+            }
+        }
+        ?>
+        <p>
+            <b>{__TLUMACZ:WYSZUKIWANIE_W_OPISACH}</b> 
+            <input type="checkbox" name="opis" value="tak" />
+        </p> 
+
+        <p>
+            <b>{__TLUMACZ:WYSZUKIWANIE_FRAZY}</b> 
+            <input type="checkbox" name="fraza" value="tak" />
+        </p> 
+
+        <p>
+            <b>{__TLUMACZ:WYSZUKIWANIE_NR_KATALOGOWY}</b> 
+            <input type="checkbox" name="nrkat" value="tak" />
+        </p>          
+        
+        <p>
+            <b>{__TLUMACZ:WYSZUKIWANIE_KOD_PRODUCENTA}</b> 
+            <input type="checkbox" name="kodprod" value="tak" />
+        </p>  
+
+        <p>
+            <b>{__TLUMACZ:WYSZUKIWANIE_W_EAN}</b> 
+            <input type="checkbox" name="ean" value="tak" />
+        </p>         
+        
+        <p class="Wybor" style="margin-top:30px">
+            <b>{__TLUMACZ:WYSZUKIWANIE_ZAKRES_CEN}</b> 
+            <input type="text" size="4" value="" class="ulamek" name="ceno" /> {__TLUMACZ:LISTING_ZAKRES_CEN_DO} <input type="text" size="4" value="" class="ulamek" name="cend" />
+        </p>   
+
+        <p class="Wybor" style="margin-top:30px">
+            <b>{__TLUMACZ:WYSZUKIWANIE_KATEGORIA}</b> 
+            {__WYBOR_KATEGORIA}
+        </p> 
+
+        <p>
+            <b>{__TLUMACZ:WYSZUKIWANIE_W_PODKATEGORIACH}</b> 
+            <input type="checkbox" name="podkat" value="tak" />
+        </p>        
+
+        <p class="Wybor" style="margin-top:30px">
+            <b>{__TLUMACZ:WYSZUKIWANIE_PRODUCENT}</b> 
+            {__WYBOR_PRODUCENTA}
+        </p>   
+
+        <p>
+            <b>{__TLUMACZ:WYSZUKIWANIE_NOWOSCI}</b> 
+            <input type="checkbox" name="nowosci" value="tak" />
+        </p>  
+        
+        <p>
+            <b>{__TLUMACZ:WYSZUKIWANIE_PROMOCJE}</b> 
+            <input type="checkbox" name="promocje" value="tak" />
+        </p> 
+        
+        <!-- przycisk szukania -->
+
+        <p>
+            <input type="submit" style="margin-top:15px" id="submitButton" class="przyciskWylaczony" value="{__TLUMACZ:PRZYCISK_SZUKAJ}" disabled="disabled" />
+        </p>        
+
+    </form>
+
+</section>
+
+

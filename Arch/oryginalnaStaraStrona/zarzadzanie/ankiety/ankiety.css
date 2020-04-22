@@ -1,0 +1,10 @@
+/* generowanie slupka wykresu */
+.slupek { width:150px; }
+.slupek div { background:url('../obrazki/slupek_ankiety.png') no-repeat right center; width:100px; height:14px; }
+.odp { background:url('../obrazki/ankieta_tlo.png') no-repeat left bottom; padding-bottom:25px; width:450px; }
+.odp td { padding:0px; padding-bottom:3px; background:transparent; }
+.odpowiedz { width:180px; color:#818181; }
+.procent { width:120px; color:#357840; }
+.procent span { font-size:10px; color:#9e9b9b; }
+
+.ankieta_info { margin-bottom:15px; }

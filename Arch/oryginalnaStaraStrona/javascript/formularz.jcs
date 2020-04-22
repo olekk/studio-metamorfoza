@@ -1,0 +1,49 @@
+$(document).ready(function() {
+
+  if ($('.datepicker').length) {
+      $('input.datepicker').Zebra_DatePicker({
+        format: 'd-m-Y',
+        inside: false,
+        readonly_element: true,
+        show_icon: true
+      });
+  }
+
+});
+
+// zmienia przecinek na kropke
+function zamien_krp(wartosc) {
+    var wart = $(wartosc).val();
+    regexp = eval("/,/g");
+    wart = wart.replace(regexp,".");    
+    if (!isNaN(wart)) {
+        if (wart == 0) {
+            $(wartosc).val('');
+          } else {
+            wart = parseFloat(wart);
+            wart = wart.toFixed(2);
+            $(wartosc).val(wart);
+        }
+      } else {
+        $(wartosc).val('');
+    }    
+} 
+
+jQuery.validator.addMethod("extension", function(value, element, param) {
+	param = typeof param === "string" ? param.replace(/,/g, '|') : "png|jpe?g|gif";
+	return this.optional(element) || value.match(new RegExp(".(" + param + ")$", "i"));
+}, jQuery.format("Wprowadź wartość z prawidłowym rozszerzeniem."));
+
+jQuery.validator.addMethod('filesize', function(value, element, param) {
+    // param = wielkosc w bajtach 
+    // element = element do walidacji (<input>)
+    // value = value elementu (nazwa pliku)
+    return this.optional(element) || (element.files[0].size <= param) 
+}, jQuery.format("Zbyt duża wielkość pliku."));
+
+
+$(document).ready(function() {
+    //wlacza przycisk submit jesli dziala u klienta javascript
+    //$('#submitButton').removeAttr('disabled');
+    //$("#submitButton").attr('class', 'przycisk');
+});

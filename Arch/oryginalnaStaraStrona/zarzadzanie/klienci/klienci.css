@@ -1,0 +1,79 @@
+/* oznaczenie klienta firmy */
+.firma { display:inline-block; padding-bottom:2px; font-weight:bold; color:#098206; }
+
+.maly_telefon { background: url('../obrazki/maly_telefon.gif') left center no-repeat; padding:4px; padding-left:15px; color:#064661; display:block; }
+.maly_mail { background: url('../obrazki/maly_mail.gif') left center no-repeat; padding:4px; padding-left:15px; color:#064661; display:inline-block; }
+
+.gosc { font-style: italic; color:#7a7b7a; }
+
+/* cena */
+#lista_zamowien .infocena { color:#8f0a0a; font-weight:bold; display:block; text-align:right; }
+#lista_zamowien td { text-align:center; }
+#lista_zamowien td:nth-child(4) { text-align:left; }
+#lista_zamowien .div_naglowek td:nth-child(4) { text-align:center; }
+#lista_zamowien .tblZoom td { text-align:left; white-space:normal; }
+#lista_zamowien td:last-child { white-space:nowrap; }
+#lista_zamowien .tblZoom td:last-child { white-space:normal; }
+#lista_zamowien .podglad_zoom { width:723px; }
+#lista_zamowien .okno_zoom { width:723px; }
+
+/* mail przy rabatach producentow i kategorii */
+.maili { display:inline-block; background: url('../obrazki/maly_mail.gif') left center no-repeat; padding:4px; padding-left:15px; color:#064661; }
+.nazKatProd { color:#0f7795; font-weight:bold; }
+.sciezkaKat { color:#848383; }
+
+/* lista produktow */
+.wynik_naglowek { display:block; font-weight:bold; padding-left:3px; }
+.wynik_naglowek_dodanie { display:block; padding:10px; padding-left:5px; font-weight:bold; color:#ff0000; }
+.wynik_naglowek_brak { display:block; font-weight:bold; }
+#wynik_przewijany { width:540px; max-height:400px; overflow-y:scroll; border:1px solid #c1c1c1; }
+.tbl_produkt { color: #3f5d6b; width:100%; border:0px; }
+.tbl_produkt td { border:3px solid #fff; text-align:center; }
+.tbl_produkt .prot td { background:#f4f2f2; padding:4px; text-decoration:none; }
+.tbl_produkt span { white-space:nowrap; display:block; padding:5px; background:#e5e5e5; font-weight:normal; color:#3f5d6b; text-decoration:none; }
+.lista_klientow { width:800px; max-height:200px; overflow-y:scroll; margin:5px 0px 8px 2px; }
+.lista_klientow td:first-child, .lista_klientow td:nth-child(2) { text-align:center; }
+.lista_klientow td { text-align:left; }
+.lista_klientow .firma { font-weight:bold; color:#098206; display:block; margin-bottom:3px; }
+.lista_klientow .maly_mail { background: url('../obrazki/maly_mail.gif') left center no-repeat; padding:4px; padding-left:15px; color:#064661; display:inline-block; }
+.label_tbl { padding:0px 1px 0px 10px; }
+
+#wynik_produktow_rabat_produkty { margin-left:10px; width:560px; }
+#wynik_produktow_rabat_produkty span { display:block; padding-bottom:10px; font-weight:bold; }
+
+/* leganda ikon */
+#legenda { margin-right:0px; text-align:right; }
+#legenda span { line-height:16px; }
+#legenda .stalyklient { margin-left:20px; display:inline-block; background: url("../obrazki/medal.png") no-repeat left center; padding-left:25px; }
+#legenda .bez_kont { margin-left:20px; display:inline-block; background: url("../obrazki/gosc.png") no-repeat left center; padding-left:25px; }
+
+/* wyglad cechy w podgladzie koszyka i schowka klienta */
+.wgl_cecha { color:#828282; font-weight:normal; }
+.pozycja_off .znizki { text-align:right; font-weight:bold; color:#347f94; width:80px; }
+.pozycja_off .typ { text-align:center; font-weight:normal; color:#2e728f; width:100px; }
+/* uzywane w koszyku, podgladzie schowka do centrowania td */
+.ZaklCent td { text-align:center; }
+
+.daty { display:inline-block; line-height:1.5; padding-top:4px; padding-bottom:4px; font-weight:bold; }
+
+/* link do produktu w schowku, koszyku, punktach */
+.listPrd a { font-weight:bold; text-decoration:none; }
+.listPrd a:hover { font-weight:bold; color:#ff0000; text-decoration:none; }
+.listPkt a { font-weight:normal; text-decoration:none; }
+.listPkt a:hover { font-weight:normal; color:#ff0000; text-decoration:none; }
+.listPkt strong { color:#347f94; }
+
+/* ogolna ilosc punktow */
+#PktTbl { width:100%; margin-bottom:10px; }
+#ogolnaPkt { font-weight:bold; color:#016F24; text-decoration:none; }
+#ogolnaPkt span { font-size:14px; color:#356e81; }
+
+/* kolor statusu */
+.status_punktow_kolor { width:17px; height:17px; display:inline-block; }
+#akcja #statusy { padding-top:7px; font-weight:normal; text-decoration:none; display:block; float:right; text-align:right; }
+
+#grupy_newslettera { padding:10px; }
+#grupy_newslettera td { padding-right:3px; }
+
+/* klient gosc */
+.klient_gosc { background: url("../obrazki/gosc.png") no-repeat left center; padding:2px; padding-left:25px; font-size:12px; color:#ff0000; display:block; margin:12px; margin-top:0px; }

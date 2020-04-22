@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html lang="{__JEZYK_STRONY}">
+<head>
+    <meta charset="utf-8" />
+    <title>{__META_TYTUL}</title>
+    <meta name="keywords" content="{__META_SLOWA_KLUCZOWE}" />
+    <meta name="description" content="{__META_OPIS}" />
+    <meta name="robots" content="index,follow" />  
+
+    <?php if ( isset($_GET['idprod']) && $_GET['idprod'] != '' ) { ?>
+    <meta property="og:title" content="{__META_TYTUL}" />
+    <meta property="og:description" content="{__META_OPIS}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{__META_OG_ADRES_STRONY}" />
+    <meta property="og:image" content="{__META_OG_FOTO}" />
+    <?php } ?>
+
+    <base href="{__DOMENA}" />	
+    <link rel="stylesheet" type="text/css" href="szablony/standardowy/css/style.php?{__KOMPRESJA_CSS}=style,boxy,moduly{__CSS_PLIK_GLOWNY}{__CSS_PLIK}{__CSS_POPUP}" />
+    <script src="javascript/jquery.js"></script>
+    <script src="javascript/skrypty.php"></script>
+    
+    <!--[if lt IE 10]>
+    <script src="javascript/html5shiv.js"></script>
+    <![endif]-->
+            
+    {__JS_PLIK}
+    {__JS_POPUP}
+    {__GOOGLE_WERYFIKACJA}
+    {__GOOGLE_ANALYTICS}
+    {__LINK_CANONICAL}
+</head>
+
+<body {__TLO_SKLEPU}>
+
+<div id="Strona" style="width:{__SZEROKOSC_SKLEPU}px">
+
+    <header id="SchowekKoszyk">
+    
+        <?php if (PRODUKT_SCHOWEK_STATUS == 'tak') { ?>
+    
+        <div id="Schowek">
+            <b>{__TLUMACZ:SCHOWEK_NAGLOWEK}</b>
+            
+            <?php if ($GLOBALS['schowekKlienta']->IloscProduktow > 0) { ?>
+            
+            {__TLUMACZ:SCHOWEK_LISTA_PRODUKTOW} <span>{__ILOSC_PRODUKTOW_SCHOWKA}</span>
+            <a href="schowek.html">- {__TLUMACZ:SCHOWEK_ZOBACZ_PRODUKTY}</a>
+
+            <?php } else { ?>
+            
+            {__TLUMACZ:SCHOWEK_JEST_PUSTY}
+
+            <?php } ?>
+
+        </div>  
+
+        <?php } ?>
+    
+        <div id="Koszyk">
+            <?php if ($GLOBALS['koszykKlienta']->KoszykIloscProduktow() > 0) { ?>
+            
+            {__TLUMACZ:ILOSC_PRODUKTOW}: <span>{__ILOSC_PRODUKTOW_KOSZYKA}</span>, {__TLUMACZ:WARTOSC_PRODUKTOW}: <span>{__WARTOSC_KOSZYKA_BRUTTO}</span>
+            <a href="koszyk.html">{__TLUMACZ:PRZYCISK_PRZEJDZ_DO_KOSZYKA}</a>
+            
+            <?php } else { ?>
+            
+            <b>{__TLUMACZ:KOSZYK_JEST_PUSTY}</b>
+            
+            <?php } ?>
+        </div>     
+
+    </header>
+
+    {__LOGO_SKLEPU}
+
+    <nav id="GorneMenu">
+    
+        <div id="DomekMenu"><a href="/"><img src="szablony/standardowy/obrazki/szablon/domek.png" alt="" /></a></div>
+        
+        <div id="SamoMenu">
+            {__GORNE_MENU}
+        </div>
+        
+        <form onsubmit="return sprSzukaj(this,'InSzukaj')" method="post" action="szukaj.html" id="Wyszukiwanie">
+            <div>
+                <input id="ButSzukaj" type="image" src="szablony/standardowy/obrazki/szablon/szukaj.png" alt="{__TLUMACZ:PRZYCISK_SZUKAJ}" />
+                <input id="InSzukaj" type="text" name="szukaj" size="30" value="{__TLUMACZ:WPISZ_SZUKANA_FRAZE}" />
+                <input type="hidden" name="postget" value="tak" />
+                <input type="hidden" name="opis" value="tak" />
+                <input type="hidden" name="nrkat" value="tak" />
+                <input type="hidden" name="kodprod" value="tak" />
+            </div>
+        </form>
+        
+    </nav>
+    
+    <nav id="NawigMenu">
+        <div class="Bold">
+        
+            <?php 
+            if (isset($_SESSION['customer_id']) && (int)$_SESSION['customer_id'] > 0 && $_SESSION['gosc'] == '0' ) {
+                ?>
+                {__TLUMACZ:WITAJ_W_SKLEPIE_ZALOGOWANY} <strong><?php echo $_SESSION['customer_firstname']; ?></strong>
+                <a href="wylogowanie.html" rel="nofollow">{__TLUMACZ:WYLOGUJ_SIE}</a>
+                <a href="{__SSL:panel-klienta.html}" rel="nofollow">{__TLUMACZ:PANEL_KLIENTA}</a>            
+                <?php 
+            } else {
+                ?>
+                {__TLUMACZ:WITAJ_W_SKLEPIE}
+                <?php 
+                if ( !isset($_SESSION['customer_id']) || (int)$_SESSION['customer_id'] == 0 ) {
+                    ?>
+                    <a href="{__SSL:logowanie.html}" rel="nofollow">{__TLUMACZ:ZALOGUJ_SIE}</a>
+                    <a href="{__SSL:rejestracja.html}" rel="nofollow">{__TLUMACZ:ZALOZ_KONTO}</a>
+                    <?php 
+                }
+            } 
+            ?>
+            
+        </div>
+        <div class="Prawe">
+            <a href="wyszukiwanie-zaawansowane.html">{__TLUMACZ:WYSZUKIWANIE_ZAAWANSOWANE}</a>
+        </div>
+    </nav>
+    
+    {__MODULY_SRODKOWE_GORA}
+    
+    <div class="cl"></div>
+
+    <?php if (CZY_WLACZONA_LEWA_KOLUMNA == 'tak' && ($GLOBALS['kolumny'] == 'wszystkie' || $GLOBALS['kolumny'] == 'wszystkie_lewa')) { ?>
+    <div id="LewaKolumna" style="width:{__SZEROKOSC_LEWEJ_KOLUMNY}px">
+    
+        <div id="LewaKolumnaPrzerwa">
+            {__LEWA_KOLUMNA}
+        </div>
+        
+    </div>
+    <?php } ?>
+    
+    <div id="SrodekKolumna" style="width:{__SZEROKOSC_SRODKOWEJ_KOLUMNY}px">
+        <div id="Nawigacja">
+            {__BREADCRUMB}
+        </div>
+        
+        {__MODULY_SRODKOWE_PODSTRONA_GORA}
+
+        {__SRODKOWA_KOLUMNA}
+        
+        {__MODULY_SRODKOWE_PODSTRONA_DOL}
+        
+    </div>      
+    
+    <?php if (CZY_WLACZONA_PRAWA_KOLUMNA == 'tak' && ($GLOBALS['kolumny'] == 'wszystkie' || $GLOBALS['kolumny'] == 'wszystkie_prawa')) { ?>
+    <div id="PrawaKolumna" style="width:{__SZEROKOSC_PRAWEJ_KOLUMNY}px">
+    
+        <div id="PrawaKolumnaPrzerwa">
+            {__PRAWA_KOLUMNA}
+        </div>
+        
+    </div>    
+    <?php } ?>
+    
+    <div class="cl"></div>
+    
+    {__MODULY_SRODKOWE_DOL}
+    
+    <footer id="Stopka">
+    
+        <div class="KolumnaStopki">
+            
+            <strong>{__PIERWSZA_KOLUMNA_STOPKI_NAGLOWEK}</strong>
+            {__PIERWSZA_KOLUMNA_STOPKI_LINKI}
+
+        </div>
+        
+        <div class="KolumnaStopki">
+
+            <strong>{__DRUGA_KOLUMNA_STOPKI_NAGLOWEK}</strong>
+            {__DRUGA_KOLUMNA_STOPKI_LINKI}
+            
+        </div>
+
+        <div class="KolumnaStopki">
+            
+            <strong>{__TRZECIA_KOLUMNA_STOPKI_NAGLOWEK}</strong>
+            {__TRZECIA_KOLUMNA_STOPKI_LINKI}
+            
+        </div>
+
+        <div class="KolumnaStopki">
+            
+            <strong>{__CZWARTA_KOLUMNA_STOPKI_NAGLOWEK}</strong>
+            {__CZWARTA_KOLUMNA_STOPKI_LINKI}
+        
+        </div>        
+           
+    </footer>
+    
+    <div class="Copy">
+        {__INFO_SG}
+    </div>    
+
+</div>
+
+<!-- nie usuwac - wyswietla dodatkowe moduly stale - np informacje o cookie -->
+{__MODULY_STALE}
+
+<!-- nie usuwac - laduje preloader obrazkow -->
+{__FUNKCJA_PRELOADERA}
+
+<!-- nie usuwac - wyswietla bannery popup -->
+{__TRESC_POPUP}
+<!-- nie usuwac - wyswietla widgety -->
+{__WIDGET_CENEO}
+{__WIDGET_OKAZJE_INFO}
+{__WIDGET_OPINEO}
+
+</body>
+</html>

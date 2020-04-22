@@ -1,0 +1,42 @@
+Array.prototype.SzukajTbl = function(val){
+  for (var i in this) {
+    if (this[i] == val) return i;
+  }
+}
+
+$(document).ready(function() {
+    $('#SelPkt').change( function() {
+    
+        var wartosc = $(this).val();
+        var klasy = wartosc.split(',');
+        
+        $("#TabelaPkt tr").show();
+        
+        var ileWylaczonych = 0;
+        var ileWszystkich = 0;       
+
+        if ( wartosc != '' ) {
+
+            $("#TabelaPkt tr").each(function() {
+            
+                var pierwszaKlasa = $(this).attr("class").split(" ")[0];
+
+                if ( pierwszaKlasa != 'Naglowek' && !klasy.SzukajTbl( pierwszaKlasa ) ) {
+                     $(this).hide();
+                     ileWylaczonych++;
+                }
+                
+                ileWszystkich++;
+                
+            });
+
+        }
+        
+        if ( ileWszystkich - ileWylaczonych == 1 ) {
+             $('#Brak').show();
+           } else {
+             $('#Brak').hide();
+        }
+
+    });
+});

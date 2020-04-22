@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html lang="{__JEZYK_STRONY}">
+<head>
+    <meta charset="utf-8" />
+    <title>{__META_TYTUL}</title>
+    <meta name="keywords" content="{__META_SLOWA_KLUCZOWE}" />
+    <meta name="description" content="{__META_OPIS}" />
+    <meta name="robots" content="index,follow" />  
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <?php if ( isset($_GET['idprod']) && $_GET['idprod'] != '' ) { ?>
+    <meta property="og:title" content="{__META_TYTUL}" />
+    <meta property="og:description" content="{__META_OPIS}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{__META_OG_ADRES_STRONY}" />
+    <meta property="og:image" content="{__META_OG_FOTO}" />
+    <?php } ?>
+    
+    <base href="{__DOMENA}" />	
+    <link rel="stylesheet" type="text/css" href="szablony/standardowy.mobile/css/style.php?{__KOMPRESJA_CSS}=style,moduly_boxy,podstrony,listingi,produkt{__CSS_KALENDARZ}" />
+    <script src="javascript/jquery.js"></script>
+    <script src="javascript/skrypty.php"></script>
+    <script src="szablony/standardowy.mobile/menu_mobilne.js"></script>
+    
+    <!--[if lt IE 10]>
+    <script src="javascript/html5shiv.js"></script>
+    <![endif]-->
+            
+    {__JS_PLIK}
+    {__GOOGLE_WERYFIKACJA}
+    {__GOOGLE_ANALYTICS}
+    {__LINK_CANONICAL}
+</head>
+
+<body>
+
+<div id="Strona">
+
+    <div id="Koszyk">
+    
+        {__MOBILE_JEZYKI}
+        
+        <?php if ($GLOBALS['koszykKlienta']->KoszykIloscProduktow() > 0) { ?>
+        
+        <a href="koszyk.html">{__TLUMACZ:ILOSC_PRODUKTOW}: <span>{__ILOSC_PRODUKTOW_KOSZYKA}</span>, {__TLUMACZ:WARTOSC_PRODUKTOW}: <span>{__WARTOSC_KOSZYKA_BRUTTO}</span></a>
+        
+        <?php } else { ?>
+        
+        <a href="koszyk.html">{__TLUMACZ:KOSZYK_JEST_PUSTY}</a>
+        
+        <?php } ?>
+        
+    </div> 
+    
+    <?php if (PRODUKT_SCHOWEK_STATUS == 'tak' && $GLOBALS['schowekKlienta']->IloscProduktow > 0) { ?>
+
+    <div id="Schowek">
+
+        <a href="schowek.html">{__TLUMACZ:SCHOWEK_LISTA_PRODUKTOW} <span>{__ILOSC_PRODUKTOW_SCHOWKA}</span></a>
+
+    </div>  
+
+    <?php } ?>    
+
+    {__LOGO_SKLEPU_MOBILNE}
+    
+    <!-- gorne menu -->
+    
+    <?php if ( MOBILNY_GORNE_MENU == 'tak' ) { ?>
+
+    <div id="GorneMenu">
+    
+        {__GORNE_MENU}
+        <div class="cl"></div>
+        
+    </div>
+    
+    <?php } ?>
+    
+    <div id="LogowanieWyszukiwanie">
+    
+        <div id="Logowanie">
+            <?php 
+            if (isset($_SESSION['customer_id']) && (int)$_SESSION['customer_id'] > 0 && $_SESSION['gosc'] == '0' ) {
+                ?>
+                <a href="wylogowanie.html" rel="nofollow">{__TLUMACZ:WYLOGUJ_SIE}</a>
+                <a href="{__SSL:panel-klienta.html}" rel="nofollow">{__TLUMACZ:PANEL_KLIENTA}</a>            
+                <?php 
+            } else {
+                if ( !isset($_SESSION['customer_id']) || (int)$_SESSION['customer_id'] == 0 ) {
+                    ?>
+                    <a href="{__SSL:logowanie.html}" rel="nofollow">{__TLUMACZ:ZALOGUJ_SIE}</a>
+                    <a href="{__SSL:rejestracja.html}" rel="nofollow">{__TLUMACZ:ZALOZ_KONTO}</a>
+                    <?php 
+                }
+            } 
+            ?> 
+        </div>
+        
+        <form onsubmit="return sprSzukaj(this,'InBoxSzukaj')" method="post" action="szukaj.html" id="Wyszukiwanie">
+            <div>
+                <input id="ButSzukaj" type="image" src="szablony/standardowy.mobile/obrazki/szablon/szukaj.png" alt="{__TLUMACZ:PRZYCISK_SZUKAJ}" />
+                <input id="InBoxSzukaj" type="text" name="szukaj" size="10" value="{__TLUMACZ:WPISZ_SZUKANA_FRAZE}" />
+                <input type="hidden" name="postget" value="tak" />
+                <input type="hidden" name="opis" value="tak" />
+                <input type="hidden" name="nrkat" value="tak" />
+                <input type="hidden" name="kodprod" value="tak" />
+            </div>
+        </form>       
+    
+        <div class="cl"></div>
+        
+    </div>
+    
+    <div class="cl"></div>
+    
+    <div id="Nawigacja">
+        {__BREADCRUMB}
+    </div>    
+    
+    <?php if ( $GLOBALS['stronaGlowna'] == 'tak' ) { ?>
+    
+    <div id="LewaKolumna">
+    
+        <div id="LewaKolumnaPrzerwa">
+        
+            <!-- box kategorii glownych -->
+        
+            <h4 class="BoxNaglowek">Kategorie</h4>
+            
+            <div class="BoxKategorie">
+                {__MOBILE_BOX_KATEGORIE}
+            </div>
+            
+            <!-- box producentow -->
+            
+            <?php if ( PRODUCENCI_MOBILNE > 0 ) { ?>
+        
+            <h4 class="BoxNaglowek">{__TLUMACZ:NAGLOWEK_PRODUCENCI}</h4>
+            
+            <div class="BoxProducenci">
+                {__MOBILE_BOX_PRODUCENCI}
+            </div>  
+
+            <?php } ?>
+            
+        </div>
+        
+    </div>
+    
+    <?php } ?>
+        
+    <div id="PrawaKolumna" <?php echo (( $GLOBALS['stronaGlowna'] == 'tak' ) ? '' : 'style="width:100%"'); ?>>
+    
+        <?php if ( $GLOBALS['stronaGlowna'] == 'tak' ) { ?>
+    
+        <!-- modul aktualnosci -->
+        
+        <?php if ( AKTUALNOSCI_MOBILNE > 0 ) { ?>
+
+        <h4 class="StrNaglowek">{__TLUMACZ:NAGLOWEK_AKTUALNOSCI}</h4>
+        
+        <div class="ModulSekcji">
+            {__MOBILE_MODUL_AKTUALNOSCI}
+        </div>
+        
+        <?php } ?>
+        
+        <!-- modul hity -->
+        
+        <?php if ( HITY_MOBILNE > 0 ) { ?>
+
+        <h4 class="StrNaglowek">{__TLUMACZ:NAGLOWEK_HITY}</h4>
+        
+        <div class="ModulSekcji">
+            {__MOBILE_MODUL_HITY}
+        </div>     
+
+        <?php } ?>
+        
+        <!-- modul nowosci -->
+        
+        <?php if ( NOWOSCI_MOBILNE > 0 ) { ?>
+
+        <h4 class="StrNaglowek">{__TLUMACZ:NAGLOWEK_NOWOSCI}</h4>
+        
+        <div class="ModulSekcji">
+            {__MOBILE_MODUL_NOWOSCI}
+        </div>    
+        
+        <?php } ?>
+
+        <!-- modul promocje -->
+        
+        <?php if ( PROMOCJE_MOBILNE > 0 ) { ?>
+
+        <h4 class="StrNaglowek">{__TLUMACZ:NAGLOWEK_PROMOCJE}</h4>
+        
+        <div class="ModulSekcji">
+            {__MOBILE_MODUL_PROMOCJE}
+        </div>
+
+        <?php } ?>        
+
+        <!-- modul polecane -->
+        
+        <?php if ( POLECANE_MOBILNE > 0 ) { ?>
+
+        <h4 class="StrNaglowek">{__TLUMACZ:NAGLOWEK_POLECANE}</h4>
+        
+        <div class="ModulSekcji">
+            {__MOBILE_MODUL_POLECANE}
+        </div>
+
+        <?php } ?>   
+
+        <?php } else { ?>
+        
+        {__SRODKOWA_KOLUMNA}
+        
+        <?php } ?>
+
+    </div> 
+
+    <div class="cl"></div>
+    
+    <!-- dolne menu -->
+    
+    <?php if ( MOBILNY_DOLNE_MENU == 'tak' ) { ?>
+    
+    <div id="DolneMenu">
+        {__DOLNE_MENU}
+        <div class="cl"></div>
+    </div>    
+    
+    <?php } ?>
+    
+    <!-- formularz newslettera -->
+    
+    <?php if ( MOBILNY_NEWSLETTER == 'tak' ) { ?>
+    
+    <div id="DolNewsletter">
+    
+        <form action="/" onsubmit="return sprNewsletter(this)" method="post" class="cmxform" id="newsletter">
+    
+            <p>{__TLUMACZ:INFO_NEWSLETTER}</p>
+            
+            <div>
+              <input type="text" name="email" size="20" id="emailNewsletter" value="{__TLUMACZ:TWOJ_ADRES_EMAIL}" />
+              <input type="submit" id="submitNewsletter" class="przyciskWylaczony" value="{__TLUMACZ:PRZYCISK_ZAPISZ}" />
+              <input type="button" id="submitUnsubscribeNewsletter" class="przyciskWylaczony" onclick="wypiszNewsletter()" value="{__TLUMACZ:PRZYCISK_WYPISZ}" />
+            </div>
+            
+        </form>
+        
+    </div>
+    
+    <?php } ?>
+    
+    <!-- przejescie do pelnej wersji szablonu dla desktopow -->
+    
+    <div id="WersjaPelna">
+        <a href="/?nomobile" rel="nofollow">{__TLUMACZ:MOBILNY_ZMIANA}</a>
+    </div>
+    
+</div>
+
+<div class="Copy">
+    {__INFO_SG}
+</div>   
+
+<!-- nie usuwac - wyswietla dodatkowe moduly stale - np informacje o cookie -->
+{__MODULY_STALE}
+
+<!-- nie usuwac -->
+<div id="MobileWersja"></div>
+
+</body>
+</html>

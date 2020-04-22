@@ -1,0 +1,146 @@
+/* link do archiwizacji */
+div .archiwizuj { background:url('../obrazki/export.png') no-repeat left center; line-height:16px; display:inline-block; padding-left:22px; font-weight:bold; color:#016f24; text-decoration:none; }
+div .archiwizuj:hover { color:#ff0000; text-decoration:none; }
+
+/* brak mozliwosci wgrania */
+.bladUplad { background: url("../obrazki/uwaga.png") no-repeat left center; display:inline-block; padding:2px; padding-left:20px; }
+
+/* zarzadzanie plikami */
+#duzyFolder { margin-bottom:10px; display:table; width:100%; border-collapse: collapse; border-spacing:0; }
+#duzyFolder .nor { min-width:60px; max-width:110px; margin-left:10px; margin-right:10px; background:url('../obrazki/folder_duzy.png') no-repeat center top; padding-top:56px; text-align:center; display:table-cell; vertical-align:top; font-weight:normal; text-decoration:none; }
+#duzyFolder .nor:hover { color:#ff0000; text-decoration:none; }
+#duzyFolder .otw { min-width:60px; max-width:110px; margin-left:10px; margin-right:10px; background:url('../obrazki/folder_duzy_otwarty.png') no-repeat center top; padding-top:56px; text-align:center; display:table-cell; vertical-align:top; font-weight:normal; text-decoration:none; }
+#duzyFolder .otw:hover { color:#ff0000; text-decoration:none; }
+
+/* masowa zmiana */
+.tblEdycja { width:100%; margin:10px; }
+.tblEdycja td { padding:5px; }
+.tblEdycja .lewa { width:40%; vertical-align:top; color: #3f5d6b; }
+.tblEdycja .lewa label.error { margin-left:0px; width:130px; }
+.tblEdycja .prawa { width:60%; color: #3f5d6b; vertical-align:top; }
+
+/* tabela do opisu cen */
+.tbl_opis { border:1px solid #b3b3b3; width:90%; }
+.tbl_opis td { padding:6px; padding-left:8px; text-decoration:none; border-bottom:1px dotted #b3b3b3; }
+.tbl_opis_naglowek td { padding:2px; font-weight:bold; color:#3f5d6b; text-decoration:none; border:0px; }
+.tbl_opis span { display:block; padding:7px; background:#e5e5e5; font-weight:bold; color:#3f5d6b; text-decoration:none; }
+
+.prawa .przyklad { display:block; padding-bottom:8px; }
+
+#dodWarunki { margin:0px auto; }
+#dodWarunki td { vertical-align:top; }
+#dodWarunki #drzewo { width:320px; margin-left:0px; }
+#dodWarunki #producent { margin-left:10px; margin-bottom:10px; width:280px; border:1px solid #c1c1c1; padding-bottom:10px; padding-top:5px; background:#f6f7f6; }
+#dodWarunki #inne { width:330px; margin-left:10px; margin-bottom:10px; border:1px solid #c1c1c1; padding-bottom:10px; padding:9px; background:#f6f7f6; line-height:28px; }
+
+#ciagZnakow td { vertical-align:middle; line-height:17px; }
+#sukcesAktualizacji { margin:10px; margin-left:15px; background:url('../obrazki/newsletter_wyslano.png') no-repeat left center; padding:5px; padding-left:40px; line-height:20px; display:inline-block; font-weight:bold; color:#04a001; text-decoration:none; }
+#sukcesAktualizacji strong { color:#ff0000; font-size:14px; }
+
+/* statusy */
+.tblEdycja .lewaStatus { vertical-align:top; color: #3f5d6b; line-height:23px; font-weight:normal; width:50%; }
+.tblEdycja .prawaStatus { vertical-align:top; font-weight:normal; width:50%; }
+
+.PodgladFix { }
+.fixed { position: fixed; margin-top:-430px; margin-left:0px; }
+.static { position: static; }
+
+/* wyglad listy plikow */
+#statp .lista_plikow { margin:10px; }
+#statp .tblLista { margin:0px; width:700px; }
+#statp .tblPodglad { width:270px; margin-left:20px; border:1px solid #eaeaea; }
+
+#statp #sciezka_plikow { margin:5px 17px 17px 17px; }
+
+/* wyglad listy produktow w menadzerze produktow */
+.tblProdukty { margin:0px; width:100%; }
+.tblProdukty td { padding:2px 8px 2px 8px; height:34px; border:2px solid #fff; border-bottom:0px; }
+.tblProdukty tr:nth-child(odd) { background:#f1f1f1; }
+.tblProdukty #listaPrd { padding:0px !important; border:0px !important; }
+.tblProdukty .TyNaglowek td { white-space:nowrap;  background:#f1f1f1; padding:2px 8px 2px 8px !important; font-family: Tahoma, Verdana, Arial, sans-serif; font-size: 11px; font-weight:bold; color:#ca0000; text-decoration:none; }
+.tblProdukty em { font-style:normal; color:#757575; font-weight:normal; }
+.tblProdukty td:nth-child(1), .tblProdukty .TyNaglowek td:nth-child(1) { width:45%; text-align:left;}
+.tblProdukty td:nth-child(2), .tblProdukty .TyNaglowek td:nth-child(2) { width:5%; text-align:center;}
+.tblProdukty td:nth-child(3), .tblProdukty .TyNaglowek td:nth-child(3) { width:12%; text-align:center; }
+.tblProdukty td:nth-child(4), .tblProdukty .TyNaglowek td:nth-child(4) { width:15%; text-align:center; }
+.tblProdukty td:nth-child(5), .tblProdukty .TyNaglowek td:nth-child(5) { width:10%; text-align:center; }
+.tblProdukty td:nth-child(6), .tblProdukty .TyNaglowek td:nth-child(6) { width:5%; text-align:center; }
+.tblProdukty td:nth-child(7), .tblProdukty .TyNaglowek td:nth-child(7) { width:5%; text-align:center; }
+.tblProdukty td:nth-child(8), .tblProdukty .TyNaglowek td:nth-child(8) { width:3%; text-align:center; }
+.tblProdukty .produkt { background:url('../obrazki/plik.png') no-repeat left center; padding:2px 0px 2px 22px; }
+.tblProdukty .kategoria { background:url('../obrazki/folder.png') no-repeat left center; padding:4px 0px 0px 22px; font-weight:bold; color:#055d70; display:block; cursor:pointer; }
+.tblProdukty .kategoria:hover { color:#ff0000; }
+.tblProdukty .powrot { background:url('../obrazki/folder_powrot.png') no-repeat left center; padding:4px 0px 0px 22px; font-weight:bold; color:#055d70; font-size:12px; display:block; cursor:pointer; }
+.tblProdukty .zaznaczPrd { background:#fff; border-top:1px solid #dcdcdc; }
+.tblProdukty .zaznaczPrd div { margin:15px 8px 20px 0px; padding-right:25px; text-align:right; }
+.tblProdukty .zaznaczPrd div:first-child { background:url('../obrazki/strzalka.png') no-repeat right center; }
+.tblProdukty .zaznaczPrd div:first-child span { cursor:pointer; }
+.tblProdukty .zaznaczPrd div:first-child span:hover { color:#ff0000; }
+.tblProdukty .zaznaczPrd div span { display:inline-block; margin:0px 8px 0px 8px; color:#6e6e6e; }
+.tblProdukty .zaznaczPrd div .przyciskNon { margin:0px 8px 0px 8px; }
+
+#sciezka { margin:15px 5px 15px 5px; color:#1a8843; font-weight:bold; }
+#sciezka span { color:#1a6d88; display:inline-block; margin:0px 4px 0px 4px; cursor:pointer; }
+#sciezka span:hover { color:#ff0000; }
+
+#wyszukaj_ajax { color:#696969; padding:15px 0px 0px 5px; font-weight:bold; }
+#wyszukaj_ajax span { display:inline-block; margin-right:5px; }
+#wyszukaj_ajax .wyszukaj_przycisk input { border: 0px none; padding: 0px; border-radius: 0px; }
+.zaznacz_fraze { font-weight:bold; color:#ff0000; }
+
+.akcja { display:none; }
+
+/* harmonogram */
+.obramowanie_tabeliSpr { border:1px solid #c1c1c1; padding:2px; margin-top:10px; }
+.cron .div_naglowek td { padding-left:10px; }
+.cron_opis div { float:left; padding:8px; width:70%; }
+.cron_opis img { float:right; padding:8px; }
+.cron .pozycja_off label { width:220px; padding-left:0px; }
+.cron .pozycja_off label.error { display:block; margin-left: 0px; }
+.cron_opis a { font-weight:bold; text-decoration:none; }
+.cron_opis a:hover { font-weight:bold; color:#ff0000; text-decoration:none; }
+
+.div_naglowek span { font-weight:normal; display:block; margin-top:5px; }
+.div_naglowek b { font-size:12px; color:#ff0000; }
+
+/* przekierowania */
+.url { text-align:center; }
+.url input { margin:8px; width:450px; }
+.url img { float:right; margin-top:12px; margin-right:8px; }
+.polowa { width:50%; text-align:center; }
+.przekierowanie { margin:10px; padding:10px; padding-left:40px; background:url('../obrazki/przekierowanie.png') no-repeat left center; }
+
+/* kto jest online */
+.odswiezenie { text-align:right; margin:8px; }
+.odswiezenie span { display:inline; background:url('../obrazki/allegro_czeka.png') no-repeat left center; padding:2px; padding-left:22px; color:#824504; font-size:12px; }
+.nagsrodek td { text-align:center; }
+.lista td { text-align:center; padding-left:10px; padding-right:10px; }
+.lista td:nth-last-child(2) { text-align:left; }
+.lista td:nth-child(3) { white-space: nowrap; }
+.robot { display:inline; background:url('../obrazki/robot.png') no-repeat left center; padding:2px; padding-left:22px; color:#5b820b; }
+.robot span { display:inline-block; }
+.klient { display:inline; background:url('../obrazki/klient.png') no-repeat left center; padding:2px; padding-left:22px; padding-right:10px; color:#025d63; text-align:left; }
+.klient span { display:inline-block; }
+.cur { cursor:pointer; }
+.cur:hover { color:#ff0000; }
+.nazwaProd { font-size:11px; font-weight:bold; display:block; margin-bottom:5px; color:#084a5b; }
+.sumaKoszyka { font-size:15px; font-weight:bold !important; color:#116330; }
+.nagZawKosz { font-size:18px; color:#017576; display:block; margin-bottom:14px; }
+.referer { border-top:2px solid #fff; border-right:2px solid #fff; }
+.referer td { display:none; }
+.referer div { display:none; overflow:hidden; margin-right:1px; padding:5px; padding-top:10px; padding-bottom:10px; background:#e2e1e0; font-weight:normal; }
+.referer div a { background:url('../obrazki/link.png') no-repeat left center; padding:2px; padding-left:22px; }
+.urh { background:url('../obrazki/strzalka_mala.png') no-repeat left center; padding:2px; padding-left:18px; display:inline-block; text-align:left; }
+.ip { background:url('../obrazki/info_male.png') no-repeat left center; padding:2px; padding-left:20px; display:inline; text-align:left; }
+
+/* szczegoly ip */
+#laduje_dane { padding:8px; }
+#laduje_dane span { padding:4px; padding-left:30px; background:url('../obrazki/_loader_small.gif') no-repeat left center; text-decoration:none; }
+.id_wyglad { position:absolute; margin-top:15px; margin-left:0px; padding:8px; border:1px dotted #ce0f0f; display:none; background:#fff; z-index:999; text-align:left; }
+#tb_ip span { border:0px; width:auto; padding:1px; }
+#tb_ip .opis { width:90px; display:inline-block; padding:3px; text-decoration:none; }
+#tb_ip .wartosc { display:inline-block; padding:3px; color:#0b6121; text-decoration:none; font-weight:bold; }
+.zamknijIp { background:url('../obrazki/zamknij.png') no-repeat left center; text-align:left; display:block; margin-top:8px; padding-left:18px !important; cursor:pointer; color:#ff0000; text-decoration:none; }
+.zamknijIp:hover { color:#323232; text-decoration:none; }
+
+.usunMiniaturki { background: url('../obrazki/kasuj.png') left center no-repeat; padding:0px 0px 0px 25px; color:#b74f05; display:inline-block; font-weight:bold; margin:5px 0px 0px 15px; height:35px; line-height:35px; }

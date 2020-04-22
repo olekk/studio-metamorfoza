@@ -1,0 +1,286 @@
+/* wyglad produktu no 1 */
+.ProduktProsty { display: table-cell; vertical-align:top; text-align:center; padding:10px 5px 10px 5px; }
+.ProduktProsty:last-child { border-right:0px; }
+.ProduktProsty .Foto { display:inline-block; }
+.ProduktProsty .Foto a { padding:0px !important; position:relative; }
+.ProduktProsty .Zdjecie { margin:0px 0px 10px 0px; }
+.ProduktProsty .Opis { text-align:left; display:block; margin:10px !important; padding:5px; }
+.ProduktProsty .DataDostepnosci { text-align:center; display:block; margin:10px !important; padding:10px 10px 5px 10px; }
+.ProduktProsty .DataDostepnosci b { text-align:center; display:block; margin:5px; font-size:110%; }
+.ProduktProsty .Zakup { display:inline-block; margin:0px auto; margin-top:10px; }
+.ProduktProsty .Zakup .InputIlosc { float:left; text-align:center; width:30px; margin:4px 5px 4px 0px; }
+.ProduktProsty .Zakup em { display:inline-block; float:left; font-style:normal; margin:10px 15px 5px 0px; }
+/* wyskakujacy z gory napis zobacz szczegoly z lupa */
+.ProduktProsty .AnimacjaZobacz { overflow:hidden; position:relative; }
+.ProduktProsty a { padding:7px 10px 10px 10px; display:inline-block; }
+.ProduktProsty .Zobacz { margin:-60px 0px 0px 0px; position:absolute; display:none; z-index:100; }
+.ProduktProsty .Zobacz strong { margin:0px auto; width:90%; display:inline-block; background:url('../obrazki/szablon/tlo_zobacz_szczegoly_modul.png') repeat-x; 
+                                    -moz-box-shadow: 0 8px 6px -6px #929090; -webkit-box-shadow: 0 8px 6px -6px #929090; box-shadow: 0 8px 6px -6px #929090; 
+                                    -moz-border-radius:4px; -webkit-border-radius:4px; -khtml-border-radius:4px; border-radius:4px; }
+.ProduktProsty .Zobacz a { color:#648d1c; font-weight:bold; background:url('../obrazki/szablon/lupa_modul.png') no-repeat left center; margin-left:10px; padding:15px 10px 10px 30px !important; font-family: Arial, Tahoma, Verdana, sans-serif; }
+.ProduktProsty .Zobacz a:hover { color:#444444; }
+
+/* przyciski do modulu wszystkich produktow */
+#LadowanieWszystkie { display:none; z-index:100; position:absolute; width:100px; height:150px; background:url('../obrazki/nawigacja/loader_maly.gif') no-repeat center center; }
+#WszystkieProdukty { z-index:1; }
+#WszystkieProdukty .SekcjaRowna:nth-last-child(2) { border-bottom:0px; }
+#WszystkieProdukty .ModulPrzyciski { margin:20px 0px 10px 0px; text-align:center; }
+#WszystkieProdukty .ModulPrzyciski b { display:inline-block; cursor:pointer; background:#b7b7b7; margin:0px 2px 0px 2px; padding:4px 6px 6px 6px; color:#e6e6e6; font-weight:bold; -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px; -khtml-border-radius:4px; }
+#WszystkieProdukty .ModulPrzyciski b:hover { background:#626262; }
+#WszystkieProdukty .ModulPrzyciski .On { background:#626262; }
+#WszystkieProdukty .ModulPrzyciski span { display:inline-block; margin:0px 5px 0px 5px; font-weight:bold; }
+
+/* wyglad produktu no 2 */
+.ProduktZlozony { display: table-cell; vertical-align:top; text-align:center; padding:10px 5px 5px 5px; }
+.ProduktZlozony:last-child { border-right:0px; }
+.ProduktZlozony .Foto { float:left; margin-left:15px; }
+.ProduktZlozony .ProdCena { text-align:left; padding-right:5px; }
+.ProduktZlozony .ProdCena a { padding:0px 10px 10px 0px; display:inline-block; }
+.ProduktZlozony .Opis { text-align:left; display:block; margin:10px !important; padding:5px; }
+.ProduktZlozony .Opis .Dostepnosc { font-style:normal; display:block; padding:5px 0px 5px 0px; font-weight:bold; }
+.ProduktZlozony .Opis .Dostepnosc em { font-style:normal; color:#929090; font-weight:normal; }
+.ProduktZlozony .ProdCena .Producent { margin-top:8px; display:block; }
+.ProduktZlozony .ProdCena .Producent a { color:#648d1c; font-weight:bold; }
+.ProduktZlozony .ProdCena .Producent a:hover { color:#d6000a; }
+.ProduktZlozony .ProdCena .Producent em { font-style:normal; color:#929090; font-weight:normal; }
+.ProduktZlozony .cl { height:10px; }
+.ProduktZlozony .Ocena { text-align:left; margin-top:10px; line-height:1.5; }
+.ProduktZlozony .Ocena img { display:block; margin:5px 0px 5px 0px; }
+.ProduktZlozony .Ocena strong { display:inline-block; margin-left:3px; font-size:110%; }
+.ProduktZlozony .Zakup { display:inline-block; margin-top:5px; }
+.ProduktZlozony .Zakup .InputIlosc { float:left; text-align:center; width:30px; margin:4px 5px 4px 0px; }
+.ProduktZlozony .Zakup em { display:inline-block; float:left; font-style:normal; margin:10px 15px 5px 0px; }
+
+/* wyglad produktu no 3 - modul promocje z zegarem */
+.ProduktWiersz { margin-bottom:5px; position:relative; padding-top:10px; }
+.ProduktWiersz .Foto { float:left; margin:5px 0px 0px 15px; }
+.ProduktWiersz .ProdOpis { text-align:left; margin:5px 40px 10px 0px; }
+.ProduktWiersz .ProdOpis a { padding:0px 10px 10px 0px; display:inline-block; }
+.ProduktWiersz .Zdjecie { margin:0px 0px 10px 0px; }
+.ProduktWiersz .OpisKrotki { margin:10px 0px 10px 0px; display:block; }
+.ProduktWiersz .Odliczanie { display:block; text-align:left; font-size:110%; color:#d6000a; font-weight:bold; margin:12px 0px 8px 0px; }
+.ProduktWiersz .Odliczanie span { display:block; color:#444444; margin-bottom:5px; font-size:19px; font-weight:bold; font-family: Arial, Tahoma, Verdana, sans-serif; }
+.ProduktWiersz .Odliczanie span em { display:inline-block; background:#444444; color:#ffffff; font-style:normal; padding:2px 5px 2px 5px; margin:1px; 
+                                  -webkit-border-radius:4px; -moz-border-radius:4px; border-radius: 4px; -khtml-border-radius:4px; }
+.ProduktWiersz .Bestseller_pl { right:0px; top:0px; position:absolute; background:url('../obrazki/ikony/pl/bestseller.png') no-repeat; width:185px; height:111px; }
+.ProduktWiersz .Bestseller_en { right:0px; top:0px; position:absolute; background:url('../obrazki/ikony/en/bestseller.png') no-repeat; width:185px; height:111px; }
+.ProduktWiersz .Zakup { margin-right:10px; }
+.ProduktWiersz .Zakup .InputIlosc { float:left; text-align:center; width:30px; margin:4px 5px 4px 0px; }
+.ProduktWiersz .Zakup em { display:inline-block; float:left; font-style:normal; margin:10px 15px 5px 0px; }
+
+/* wyglad kategorii na stronie glownej */
+.KategoriaGl { display:table-cell; vertical-align:top; text-align:left; padding:5px 8px 10px 8px; }
+.KategoriaGl:last-child { border-right:0px; }
+.KategoriaGl .Kategoria { margin-right:60px; }
+.KategoriaGl h3 a { padding:7px 10px 10px 3px; display:inline-block; }
+.KategoriaGl .Foto { float:right; }
+.KategoriaGl .Zdjecie { margin:0px 0px 10px 0px; }
+.KategoriaGl ul { list-style-type: none; padding: 0; margin: 0; }
+.KategoriaGl li { margin:0px; }
+.KategoriaGl li a { background:url('../obrazki/szablon/menu_kategorii_str_glowna.png') no-repeat left center; display:block; padding:3px 10px 3px 24px; }
+.KategoriaPusta { display:table-cell; }
+
+/* wyglad producentow na stronie glownej */
+#ProducenciAnimacja { margin:10px 28px 10px 28px; overflow:hidden; }
+#ProducenciAnimacjaStrzalkaLewa { display:none; opacity:0.6; filter:alpha(opacity=60); cursor:pointer; float:left; width:28px; height:30px; margin-top:30px; background:url('../obrazki/nawigacja/strzalka_poprzedni.png') no-repeat center center; }
+#ProducenciAnimacjaStrzalkaLewa:hover { opacity:1; filter:alpha(opacity=100); }
+#ProducenciAnimacjaStrzalkaPrawa { opacity:0.6; filter:alpha(opacity=60); cursor:pointer; float:right; width:28px; height:30px; margin-top:30px; background:url('../obrazki/nawigacja/strzalka_nastepny.png') no-repeat center center; }
+#ProducenciAnimacjaStrzalkaPrawa:hover { opacity:1; filter:alpha(opacity=100); }
+#ProducenciAnimacjaSrodek ul { list-style-type: none; padding: 0; margin: 0; display:table; border-collapse:collapse; border-spacing:0; }
+#ProducenciAnimacjaSrodek li { display:table-cell; vertical-align:middle; text-align:center; margin:0px; }
+
+/* wyglad bannerow statycznych */
+.BanneryStatyczne { display:block; text-align:center; margin:5px; }
+
+/* wyglad modulu produktow z jedynym zdjeciem */
+.ProduktZdjecieLista { display:table; width:100%; border-collapse:collapse; border-spacing:0; }
+.ProduktZdjecieLista .FotoJedno { display:table-cell; vertical-align:middle; text-align:left; padding-left:30px; }
+.ProduktZdjecieLista .FotoJedno ul { list-style-type:none; padding:0px; }
+.ProduktZdjecieLista .FotoJedno li { display:none; }
+.ProduktZdjecieLista .FotoJedno li:first-child { display:block; }
+.ProduktZdjecieLista .NazwyProduktow { display:table-cell; vertical-align:middle; text-align:left; }
+.ProduktZdjecieLista .NazwyProduktow h3 { display:table; width:100%; }
+.ProduktZdjecieLista .NazwyProduktow h3:nth-child(odd) { background:#f3f3f3; }
+.ProduktZdjecieLista .NazwyProduktow h3 .wyswietlany { color:#d6000a; }
+.ProduktZdjecieLista .NazwyProduktow a { padding:6px 10px 6px 10px; display:table-cell; vertical-align:middle; text-align:left; }
+.ProduktZdjecieLista .NazwyProduktow .Ceny { vertical-align:middle; display:table-cell; padding:6px 10px 6px 0px; text-align:right; }
+
+/* modul animowany - przewijane produkty lewo / prawo lub przenikanie */
+.AnimModul ul { list-style-type:none; padding:0px; width:100%; }
+.AnimModul li { float:left; width:100%; overflow:hidden; }
+.AnimModul li:first-child { display:block; }
+.AnimModul .StronyAnim { float:right; padding:4px 2px 4px 2px; display:inline-block; -moz-border-radius:5px; -webkit-border-radius:5px; -khtml-border-radius:5px; border-radius:5px; }
+.AnimModul .StronyAnim b { background:#b7b7b7; margin:0px 2px 0px 2px; padding:3px 7px 3px 7px; display:inline-block; cursor:pointer; color:#ffffff; -moz-border-radius:4px; -webkit-border-radius:4px; -khtml-border-radius:4px; border-radius:4px; }
+.AnimModul .StronyAnim b:hover { background:#626262; }
+.AnimModul .StronyAnim b.On { background:#626262; }
+
+/* modul animowany - jeden produkt na cala szerokosc szeroki na cala kolumne - przenikanie - hity */
+.AnimModulJeden { list-style-type:none; padding:0px; margin:0px; overflow:hidden; }
+.AnimModulJeden .Kont { margin:0px 5px 0px 5px; display:table; width:100%; border-collapse:collapse; border-spacing:0; }
+.AnimModulJeden .Foto { display:table-cell; vertical-align:top; padding:5px 0px 0px 15px; }
+.AnimModulJeden .ProdOpis { display:table-cell; vertical-align:top; text-align:left; padding:5px 20px 0px 20px; }
+.AnimModulJeden .ProdOpis a { font-size:19px; font-weight:normal; padding:0px 10px 10px 0px; display:inline-block; }
+.AnimModulJeden .Zdjecie { margin:0px 0px 10px 0px; }
+.AnimModulJeden .OpisKrotki { margin:5px 0px 10px 0px; display:block; }
+.AnimModulJeden .Zakup { display:block; margin-top:10px; }
+.AnimModulJeden .Zakup .InputIlosc { float:left; text-align:center; width:30px; margin:4px 5px 4px 0px; }
+.AnimModulJeden .Zakup em { display:inline-block; float:left; font-style:normal; margin:10px 15px 5px 0px; }
+
+/* modul animowany - jeden produkt na cala szerokosc szeroki na cala kolumne - przenikanie - promocje */
+.AnimModulJeden .FotoPrawe { float:right; margin:5px 15px 0px 15px; }
+.AnimModulJeden .ProdOpisSrodek { text-align:left; margin:5px 20px 0px 10px; }
+.AnimModulJeden .ProdOpisSrodek a { font-size:22px; font-weight:normal; padding:0px 10px 10px 0px; display:inline-block; }
+.AnimModulJeden .ProdOpisSrodek .Znikanie { position:relative; margin:0px; }
+.AnimModulJeden .FotoPrawe .Skakanie { position:relative; margin:0px; }
+.AnimModulJeden .FotoPrawe .Zdjecie { border:0px; -moz-box-shadow:none; -webkit-box-shadow:none; box-shadow:none; }
+
+.ModulPrzyciski { text-align:right; }
+.ModulPrzyciskiSrodek { text-align:center; }
+.ModulPrzyciski b, .ModulPrzyciskiSrodek b { display:inline-block; cursor:pointer; background:#dbdbdb; margin:0px 2px 0px 2px; width:12px; height:12px; color:#dbdbdb; -webkit-border-radius:6px; -moz-border-radius:6px; border-radius:6px; -khtml-border-radius:6px; }
+.ModulPrzyciski b:hover, .ModulPrzyciskiSrodek b:hover { background:#444444; }
+.ModulPrzyciski .On, .ModulPrzyciskiSrodek .On { background:#444444; }
+
+/* producenci chmura */
+.ProducenciChmuraModul { text-align:center; }
+.ProducenciChmuraModul a { display:inline-block; margin:5px; font-size:130%; }
+
+/* aktualnosci na stronie glownej */
+.AktProsta { display:table-cell; vertical-align:top; text-align:left; position:relative; padding:10px; }
+.AktProsta:last-child { border-right:0px; }
+.AktProsta h2 { text-align:right; }
+.AktProsta h2 a { text-align:left; padding:0px; display:block; margin-bottom:5px; font-weight:bold; font-size:110%; }
+.AktProsta .DaneAktualnosci { float:none; text-align:left; margin-bottom:8px; display:block; }
+.AktProsta .DaneAktualnosci em { display:inline-block; margin:2px 2px 2px 0px; padding-right:15px; color:#929090; font-style:normal; }
+.AktProsta .DataDodania { background:url('../obrazki/nawigacja/kalendarz.png') no-repeat left center; padding:2px 0px 2px 22px; }
+.AktProsta .IloscOdslon { padding:0px; }
+
+/* newsletter */
+.ModulNewsletter { border:1px solid #dbdbdb; background:#ebebeb; line-height:1.5; margin:10px 0px 10px 0px; }
+.ModulNewsletter strong { display:table-cell; vertical-align:middle; font-size:170%; padding:10px 20px 10px 25px; text-transform:uppercase; }
+.ModulNewsletter #newsletterModul { display:table-cell; vertical-align:middle; text-align:left; }
+.ModulNewsletter p { display:table-cell; vertical-align:middle; padding:5px 10px 5px 10px; text-align:left; }
+.ModulNewsletter p:last-child { text-align:right; white-space:nowrap; }
+.ModulNewsletter #emailNewsletterModul { width:90%; margin:0px auto; padding:6px; min-width:150px; }
+
+/* animowane bannery na stronie glownej - modul coin slider */
+.coin-slider { overflow:hidden; zoom:1; position:relative; margin-bottom:10px; }
+.coin-slider a { text-decoration:none; outline:none; border:none; }
+.cs-buttons { font-size:0px; padding:10px 10px 0px 10px; float:left; }
+.cs-buttons a { margin-left:5px; height:12px; width:12px; float:left; background:url('../obrazki/animacja_bannery/przycisk.png') no-repeat; text-indent:-1000px; }
+.cs-active { background:url('../obrazki/animacja_bannery/przycisk_aktywny.png') no-repeat !important; color:#ffffff; }
+.cs-title { width:100%; background-color:#000000; color:#ffffff; text-align:center; }
+.cs-title b { font-weight:normal; display:inline-block; padding:10px; }
+.cs-prev { background:url('../obrazki/animacja_bannery/strzalka_lewa.png') no-repeat; height:56px; width:36px; }
+.cs-next { background:url('../obrazki/animacja_bannery/strzalka_prawa.png') no-repeat; height:56px; width:36px; }
+
+/* animowane bannery na stronie glownej - modul fancy */
+#fancy-slider { overflow:hidden; position:relative; margin-bottom:10px; }
+.ft-title { width:100%; text-align:center; }
+.ft-title b { font-weight:normal; display:inline-block; padding:10px; }
+.ft-prev { background:url('../obrazki/animacja_bannery/strzalka_lewa.png') no-repeat; height:56px; width:36px; opacity:0.5; filter:alpha(opacity=50); }
+.ft-next { background:url('../obrazki/animacja_bannery/strzalka_prawa.png') no-repeat; height:56px; width:36px; opacity:0.5; filter:alpha(opacity=50); }
+.ft-prev:hover { opacity:1; filter:alpha(opacity=100); }
+.ft-next:hover { opacity:1; filter:alpha(opacity=100); }
+
+/* animowane bannery na stronie glownej - modul przewijany */
+#AnimacjaPrzewijanaKontener { position:relative; overflow:hidden; margin-bottom:15px; }
+#BanneryAnimacjaPrzewijanaLewaStrzalka, #BanneryAnimacjaPrzewijanaPrawaStrzalka { opacity:0; filter:alpha(opacity=0);
+  transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -webkit-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+}
+#BanneryAnimacjaPrzewijana { width:50000px; list-style-type:none; padding:0px; margin:0px; }
+#BanneryAnimacjaPrzewijana img { max-width:100%; height:auto; }
+#BanneryAnimacjaPrzewijana li { float:left; overflow:hidden; position:relative; }
+#BanneryAnimacjaPrzewijana li span { display:none; background:#000000; text-align:center; color:#ffffff; position:absolute; top:0px; padding:10px; opacity:0; filter:alpha(opacity=0); width:100%; }
+#BanneryAnimacjaPrzewijana li:first-child span { display:block; opacity:0.7; filter:alpha(opacity=70); }
+#AnimacjaPrzewijanaKontener:hover #BanneryAnimacjaPrzewijanaLewaStrzalka, #AnimacjaPrzewijanaKontener:hover #BanneryAnimacjaPrzewijanaPrawaStrzalka { opacity:0.7; filter:alpha(opacity=70); }
+#BanneryAnimacjaPrzewijanaLewaStrzalka { cursor:pointer; z-index:14; position:absolute; left:0px; top:50%; margin-top:-28px; width:36px; height:56px; background:url('../obrazki/animacja_bannery/strzalka_lewa.png') no-repeat; }
+#BanneryAnimacjaPrzewijanaPrawaStrzalka { cursor:pointer; z-index:14; position:absolute; right:0px; top:50%; margin-top:-28px; width:36px; height:56px; background:url('../obrazki/animacja_bannery/strzalka_prawa.png') no-repeat; }
+#BanneryAnimacjaPrzewijanaNumer { display:none; }
+#BanneryAnimacjaPrzewijanaPrzyciski { margin:10px 0px 15px 0px; text-align:center; }
+#BanneryAnimacjaPrzewijanaPrzyciski span { display:inline-block; cursor:pointer; background:#b7b7b7; margin:0px 2px 0px 2px; width:14px; height:14px; font-size:1px; overflow:hidden; line-height:100; -webkit-border-radius:7px; -moz-border-radius:7px; border-radius:7px; -khtml-border-radius:7px; }
+#BanneryAnimacjaPrzewijanaPrzyciski span:hover { background:#626262; }
+#BanneryAnimacjaPrzewijanaPrzyciski span.On { background:#626262; }
+
+/* animowane bannery na stronie glownej - modul przenikania */
+#AnimacjaPrzenikanieKontener { position:relative; overflow:hidden; margin-bottom:15px; }
+#BanneryAnimacjaPrzenikanieLewaStrzalka, #BanneryAnimacjaPrzenikaniePrawaStrzalka { opacity:0; filter:alpha(opacity=0);
+  transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -webkit-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+}
+#BanneryAnimacjaPrzenikanie { width:50000px; list-style-type:none; padding:0px; margin:0px; }
+#BanneryAnimacjaPrzenikanie img { max-width:100%; height:auto; }
+#BanneryAnimacjaPrzenikanie li { position:absolute; overflow:hidden; display:none; }
+#BanneryAnimacjaPrzenikanie li span { display:none; background:#000000; text-align:center; color:#ffffff; position:absolute; top:0px; padding:10px; opacity:0; filter:alpha(opacity=0); width:100%; }
+#BanneryAnimacjaPrzenikanie li:first-child span { display:block; opacity:0.7; filter:alpha(opacity=70); }
+#BanneryAnimacjaPrzenikanie li:first-child { display:block; }
+#AnimacjaPrzenikanieKontener:hover #BanneryAnimacjaPrzenikanieLewaStrzalka, #AnimacjaPrzenikanieKontener:hover #BanneryAnimacjaPrzenikaniePrawaStrzalka { opacity:0.7; filter:alpha(opacity=70); }
+#BanneryAnimacjaPrzenikanieLewaStrzalka { cursor:pointer; z-index:14; position:absolute; left:0px; top:50%; margin-top:-28px; width:36px; height:56px; background:url('../obrazki/animacja_bannery/strzalka_lewa.png') no-repeat; }
+#BanneryAnimacjaPrzenikaniePrawaStrzalka { cursor:pointer; z-index:14; position:absolute; right:0px; top:50%; margin-top:-28px; width:36px; height:56px; background:url('../obrazki/animacja_bannery/strzalka_prawa.png') no-repeat; }
+#BanneryAnimacjaPrzenikanieNumer { display:none; }
+#BanneryAnimacjaPrzenikaniePrzyciski { margin:10px 0px 15px 0px; text-align:center; }
+#BanneryAnimacjaPrzenikaniePrzyciski span { display:inline-block; cursor:pointer; background:#b7b7b7; margin:0px 2px 0px 2px; width:14px; height:14px; font-size:1px; overflow:hidden; line-height:100; -webkit-border-radius:7px; -moz-border-radius:7px; border-radius:7px; -khtml-border-radius:7px; }
+#BanneryAnimacjaPrzenikaniePrzyciski span:hover { background:#626262; }
+#BanneryAnimacjaPrzenikaniePrzyciski span.On { background:#626262; }
+
+/* animowane bannery na stronie glownej - modul mieszany */
+#AnimacjaMieszanaKontener { overflow:hidden; position:relative; margin-bottom:10px; }
+#AnimacjaMieszanaKontener img { max-width:100%; height:auto; }
+#AnimacjaMieszanaKontener ul { list-style-type:none; padding:0px; margin:0px; width:100000px; position:relative; }
+#AnimacjaMieszanaKontener li { position:relative; float:left; }
+#AnimacjaMieszanaKontener span { padding:10px; position:absolute; top:0px; display:block; width:100%; background:#000000; color:#ffffff; text-align:center; opacity:0; filter:alpha(opacity=0); }
+#BanneryAnimacjaMieszanaPrzyciski { text-align:center; margin:10px; }
+#BanneryAnimacjaMieszanaPrzyciski span { display:inline-block; cursor:pointer; background:#b7b7b7; margin:0px 2px 0px 2px; width:14px; height:14px; font-size:1px; overflow:hidden; line-height:100; -webkit-border-radius:7px; -moz-border-radius:7px; border-radius:7px; -khtml-border-radius:7px; }
+#BanneryAnimacjaMieszanaPrzyciski span:hover { background:#626262; }
+#BanneryAnimacjaMieszanaPrzyciski span.On { background:#626262; }
+
+/* ostatnio ogladane - modul staly - przyklejony */
+#PrzyklejOstatnieProd { position:fixed; left:0px; bottom:0px; width:100%; background:#000000; border-top:1px solid #ffffff; z-index:1002; opacity:0.5; filter:alpha(opacity=50); text-align:center; }
+#PrzyklejOstatnieProd .Rozwiniecie { cursor:pointer; background:url('../obrazki/moduly_stale/ostatnio_ogladane_strzalka.png') no-repeat left center; padding:12px 10px 12px 35px; display:inline-block; font-size:110%; color:#ffffff; font-weight:bold; }
+#PrzyklejOstatnieProd .Zamknij { left:0px; position:absolute; margin:10px; cursor:pointer; background:url('../obrazki/moduly_stale/zamknij.png') no-repeat left center; width:20px; height:20px; display:inline-block; }
+#PrzyklejOstatnieProd ul { display:none; list-style-type: none; padding:0px 0px 10px 0px; margin:0px; }
+#PrzyklejOstatnieProd li { margin:0px; text-align:center; }
+#PrzyklejOstatnieProd li a { color:#ffffff; font-weight:normal; font-size:110%; margin:4px 0px 4px 0px; display:inline-block; }
+#PrzyklejOstatnieProd li a:hover { text-decoration:underline; }
+
+/* informacje o cookie - modul staly - przyklejony */
+#InfoCookie { position:fixed; left:0px; bottom:0px; padding:10px 0px 10px 0px; width:100%; background:#000000; color:#dbdbdb; border-top:1px solid #ffffff; z-index:10003; opacity:0.9; filter:alpha(opacity=90); text-align:center; }
+#InfoCookie .CookieTekst { font-size:110%; }
+#InfoAkcept { background:url('../obrazki/moduly_stale/zamknij.png') no-repeat left center; display:inline-block; cursor:pointer; color:#ffffff; padding:7px 0px 7px 27px; }
+
+/* blokada 18 + - modul staly - przyklejony */
+#Blokada18 { position:fixed; left:0px; top:0px; width:100%; height:100%; background:#000000; z-index:1002; opacity:0.8; filter:alpha(opacity=80); }
+#BlokadaOkno { position:fixed; left:50%; top:30%; width:500px; background:#ffffff; margin:0px auto; margin-left:-250px; z-index:1003; border:4px solid #242424; -moz-border-radius:12px; -webkit-border-radius:12px; border-radius:12px; -khtml-border-radius:12px; text-align:center; }
+#BlokadaOkno strong { background:url('../obrazki/moduly_stale/info18plus.png') no-repeat left center; font-size:110%; color:#ff0000; display:inline-block; padding:25px 25px 25px 55px; text-align:center; }
+#BlokadaOkno .BlokadaTekst { line-height:1.5; text-align:center; margin:0px 30px 0px 30px; }
+#BlokadaOkno .BlokadaPrzyciski { padding:25px 0px 25px 0px; }
+#BlokadaOkno .BlokadaPrzyciski .przycisk18plus { cursor:pointer; padding:5px 12px 5px 12px; font-weight:bold; font-size:110%; font-family: Arial, Tahoma, Verdana, sans-serif; -moz-border-radius:5px; -webkit-border-radius:5px; -khtml-border-radius:5px; border-radius:5px; }
+#BlokadaOkno .BlokadaPrzyciski .przycisk18plus:hover { color:#ffffff; background:#929090; }
+#BlokadaOkno .BlokadaPrzyciski .wejdz { background:#d6000a; color:#ffffff; }
+#BlokadaOkno .BlokadaPrzyciski .zrezygnuj { background:#cccccc; color:#ffffff; }
+#BlokadaOkno .BlokadaPrzyciski span { margin:0px 5px 0px 5px; }
+
+/* informacja na gorze sklepu */
+#InfoTop { position:fixed; left:0px; top:0px; width:100%; background:#d6000a; border-bottom:2px solid #ffffff; z-index:1005; opacity:0.8; filter:alpha(opacity=80); text-align:center; }
+#InfoTop span { background:url('../obrazki/oknoPop/uwaga.png') no-repeat left center; font-size:110%; color:#ffffff; display:inline-block; padding:25px 25px 25px 55px; }
+
+/* newsletter popup */
+#InfoNewsletter { position:fixed; left:0px; top:0px; width:100%; height:100%; background:#000000; z-index:1002; opacity:0.8; filter:alpha(opacity=80); }
+#InfoNewsletterOkno { position:fixed; left:50%; top:35%; width:460px; padding:20px; background:#ffffff; margin:0px auto; margin-left:-250px; z-index:1003; border:4px solid #242424; -moz-border-radius:12px; -webkit-border-radius:12px; border-radius:12px; -khtml-border-radius:12px; text-align:center; }
+#InfoNewsletterOkno h4 { margin:10px 0px 15px 0px; font-size:140%; }
+#InfoNewsletterOkno b { font-size:120%; }
+#InfoNewsletterOkno small { margin:10px 0px 10px 0px; }
+#InfoNewsletterOkno #newsletterPopup { margin:15px 0px 10px 0px; }
+#InfoNewsletterOkno #NewsletterZamknij { cursor:pointer; float:right; color:#fff; font-family: Arial, Tahoma, Verdana, sans-serif; font-size:11px; width:30px; height:15px; }
+#InfoNewsletterOkno #NewsletterZamknij span { position:absolute; margin:-30px 0px 0px 0px; right:-15px; width:30px; height:30px; background:url('../obrazki/nawigacja/zamknij_banner_popup.png'); display:inline-block; }
+#InfoNewsletterOkno p { text-align:center; margin:10px 0px 0px 0px; }
+#InfoNewsletterOkno #emailNewsletterPopup { font-size:120%; padding:10px; width:300px; text-align:center; }
+#InfoNewsletterOkno #submitNewsletterPopup { font-size:110%; padding:7px 30px 7px 30px; }
+#InfoNewsletterOkno #BladDanych { display:none; }
+#InfoNewsletterOkno #BladDanych span { max-width:300px; text-align:left; color:#ff0000; font-size:110%; font-weight:normal; background:transparent url('../obrazki/formularz/blad.png') no-repeat left center; display:inline-block; margin:10px 0px 0px 0px; padding:2px 0px 2px 25px; }
+#InfoNewsletterOkno #BladDanych strong { text-align:center; color:#ff0000; font-size:120%; font-weight:normal; display:inline-block; margin:10px 0px 10px 0px; }
+#InfoNewsletterOkno #ZgodaPopup { margin:10px 0px 5px 0px; font-size:80%; opacity:0.6; filter:alpha(opacity=60); }

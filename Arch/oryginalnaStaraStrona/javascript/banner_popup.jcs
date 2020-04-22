@@ -1,0 +1,204 @@
+(function($) {
+
+	$.fn.popup = function(settings, callback) {
+		var config = {
+			selfclose          : 0,
+			popup_div          : 'oknoPopUp',
+			overlay_div        : 'tloPopUp',
+			close_id           : 'banerZamknij',
+			overlay            : 'nie',
+			opacity_level      : 1,
+			overlay_cc         : 'nie', 
+			cookie_name        : 'popup_shopGold',
+			cookie_timeout     : 0,
+			cookie_views       : 0,
+			popup_appear       : 'standard',
+			popup_disappear    : 'standard',
+	};
+
+    if (settings) $.extend(config, settings);
+
+    var popup_content = '';                     //zawartosc okna
+    var popup_object;
+    var $popup = $('#'+config.popup_div);       //DIV okna
+    var $overlay = $('#'+config.overlay_div);   //DIV tla
+    var cookie_timer = 0;
+    this.each(function() {
+       popup_object = $(this);
+       $(this).hide();
+     });
+
+    $(document).ready(function(){
+        if ( BylModulStaly == false ) {
+            setTimeout(function() { show_popup(callback) }, 500);
+        }
+    });
+    
+    return this;
+    
+    // funkcja wyswietlaja okno PopUp
+    function show_popup(callback) {
+        hidePopup(true);
+        popup_content = popup_object.html();
+        // nie wyswietla okna jezeli jest cookie
+        cookieValue = getCookie(config.cookie_name);
+        if (cookieValue != "") {
+            if (config.cookie_views == 0) return false;
+            cookieValue = cookieValue -1;
+            if (cookieValue <= 0) {
+                setCookie(config.cookie_name, config.cookie_views, config.cookie_timeout);
+                setCookie(config.cookie_name + '_time', 'czas', config.cookie_timeout);
+            } else {
+                setCookie(config.cookie_name, cookieValue, config.cookie_timeout);
+                setCookie(config.cookie_name + '_time', 'czas', config.cookie_timeout);
+                return false;
+            }
+        }
+        // wyswietlenie tla strony
+        if (config.overlay == 'tak') {
+            $("body").prepend('<div id="'+config.overlay_div+'"></div>');
+            $overlay = $('#'+config.overlay_div);
+            $overlay.css({'opacity': config.opacity_level }); //ustawienie przezroczystosci
+            if(config.overlay_cc == 'tak'){
+                // klikniecie w tlo zamyka okno
+                $overlay.click(function(){
+                    hidePopup(true);
+                });
+            }
+        }
+        
+        //wyswietlenie okna PopUp
+        $("body").prepend('<div id="'+config.popup_div+'">'+popup_content+'</div>');
+        $popup = $('#'+config.popup_div);
+        // wycentrowanie okna
+        config.top = ( $(window).height() - $popup.outerHeight() ) / 2;
+        config.left = ( $(window).width() - $popup.outerWidth() ) / 2;
+        config.top = Math.round(config.top);
+        config.left = Math.round(config.left);
+        var scrollTop = $(window).scrollTop();
+        $popup.css({'left': Math.round(config.left)});
+        $popup.css("top", config.top+"px");
+        
+        var cssTop = config.top;
+        
+        //zamkniecie okna po kliknieciu w warstwe zamykajaca
+        $('#'+config.close_id).click(
+            function() {
+                hidePopup(true);
+                return false;
+            }
+        );
+        
+        //W jakis sposob ma sie pokazywac okno PopUp
+        switch(config.popup_appear) {
+            case 'rozjasnianie':
+                $popup.fadeIn('slow');
+                break;
+            case 'rozwijanie':
+                $popup.slideDown();
+                break;
+            case 'spadanie':
+                $popup.css("top", "-" + cssTop + "px");
+                $popup.show();
+                $popup.animate({ top: cssTop + "px" }, 600, "CofniecieOut");
+                break;                
+            default: 
+                $popup.show();
+                break;
+        }
+        
+        $(window).resize(
+            function() {
+                config.top = ( $(window).height() - $popup.outerHeight() ) / 2;
+                config.left = ( $(window).width() - $popup.outerWidth() ) / 2;
+                config.top = Math.round(config.top);
+                config.left = Math.round(config.left);
+                var scrollTop = $(window).scrollTop();
+                $popup.css({'top': (config.top + scrollTop)});
+                $popup.css({'left': config.left});
+         }); 
+        
+        // autozamykanie okna
+        if(config.selfclose != 0) {
+            setTimeout(hidePopup, (config.selfclose * 1000));
+        }
+        
+        // ponowne ustawienie wartosci cookie
+        setCookie(config.cookie_name, config.cookie_views, config.cookie_timeout);
+        setCookie(config.cookie_name + '_time', 'czas', config.cookie_timeout);
+
+        if ($.isFunction(callback)) {
+            callback.call(this);
+        }
+    };
+    
+    // zamykanie okna
+    function hidePopup(force_close) {
+    
+        // w jakis sposob ma sie zamykac okno PopUp
+        switch(config.popup_disappear) {
+            case 'zanikanie':
+                $popup.fadeOut(500, function(){$popup.remove();});
+                break;                  
+            case 'zwijanie':
+                $popup.slideUp(500, function(){$popup.remove();});
+                break;  
+            default: //'hide' by default
+                $popup.hide(500, function(){$popup.remove();});
+                break;                  
+        }
+        if (config.overlay == 'tak') {
+            $overlay.remove();
+        }
+
+    }
+
+
+    // ustawienie cookie
+    function setCookie(c_name, value, expiredays) {
+        var exdate=new Date();
+        //
+        if ( value == 'czas' ) {
+             value = ((expiredays==null) ? "0" : parseInt((exdate.getTime() / 1000)) + (expiredays * 86400));
+        }
+        //        
+        if(expiredays == 0) expiredays = null;
+        exdate.setDate(exdate.getDate()+expiredays);
+        //
+        document.cookie=c_name+ "=" +escape(value)+
+        ((expiredays==null) ? "" : ";expires="+exdate.toGMTString())+
+        ";path=/";
+    };
+
+    //Pobranie cookie 
+    function getCookie(c_name){
+        if (document.cookie.length>0){
+          c_start=document.cookie.indexOf(c_name + "=");
+          if (c_start!=-1) {
+            c_start=c_start + c_name.length+1;
+            c_end=document.cookie.indexOf(";",c_start);
+            if (c_end==-1) c_end=document.cookie.length;
+            return unescape(document.cookie.substring(c_start,c_end));
+          }
+        }
+        return "";
+    }
+    
+   };
+
+ })(jQuery);
+
+$(function(){
+      $('#popupZawartosc').popup(
+        {
+          selfclose       : {__BANNER_POPUP_AUTOCLOSE},
+          cookie_timeout  : {__BANNER_POPUP_WAZNOSC_COOKIE},
+          cookie_views    : {__BANNER_POPUP_ILOSC_KLIKNIEC},
+          overlay         : '{__BANNER_POPUP_EKRAN_SCIEMNIAJ}',
+          overlay_cc      : '{__BANNER_POPUP_ZAMYKANIE}',
+          popup_appear    : '{__BANNER_POPUP_RODZAJ_OTWARCIA}',
+          popup_disappear : '{__BANNER_POPUP_RODZAJ_ZAMKNIECIA}',
+        }
+      );
+      
+});

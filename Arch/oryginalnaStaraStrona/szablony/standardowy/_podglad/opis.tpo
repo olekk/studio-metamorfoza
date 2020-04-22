@@ -1,0 +1,7 @@
+1. Szablon oparty o kolorystykę definiowaną w większości w plikach CSS.
+2. Możliwe jest działanie szablonu w układzie 2 lub 3-kolumnowym - wyłączenie lewej lub prawej kolumny z boxami.
+3. Preferowane tło szablonu - kolor biały (jasny) - kod FFFFFF. Po zmianie koloru zmienia się całe tło sklepu.
+4. Szablon dostosowuje się do ustalonej szerokości sklepu.
+5. Możliwe jest ustawienie dowolnej szerokości kolumn z boxami (środek sklepu ustawi się automatycznie w zależności od szerokości kolumn).
+6. W szablonie można definiować linki w górnym menu oraz w czterech kolumnach stopki. Nie jest aktywna piąta kolumna stopki oraz dolne menu.
+7. W szablonie można zastosować dowolny nagłówek, powinien on mieć szerokość taką jak szerokość sklepu - wysokość dowolna.

@@ -1,0 +1,147 @@
+<!-- wyglad naglowka strony -->
+
+<h1 class="StrNaglowek">
+    <span>{__TLUMACZ:NAGLOWEK_ZAMOWIENIE_LOGOWANIE}</span>
+</h1>
+
+<!-- tresc strony -->
+
+<section id="SzczegolyKoszyka">
+
+    <!--poszczegolne kroki zamowienia - tylko jezeli cos jest w koszyku -->
+
+    <div id="KrokiZamowienia">
+    
+        <div class="KoszykKrok">
+            <h5>{__TLUMACZ:KROK_1}</h5>
+            <p>
+                <a href="koszyk.html">{__TLUMACZ:KROK_1_OPIS}</a>
+            </p>
+        </div>
+        
+        <div class="KoszykKrok aktywny">
+            <h5>{__TLUMACZ:KROK_2}</h5>
+            <p>{__TLUMACZ:KROK_2_OPIS}</p>
+        </div>
+        
+        <div class="KoszykKrok">
+            <h5>{__TLUMACZ:KROK_3}</h5>
+            <p>{__TLUMACZ:KROK_3_OPIS}</p>
+        </div>
+        
+        <div class="KoszykKrok">
+            <h5>{__TLUMACZ:KROK_4}</h5>
+            <p>{__TLUMACZ:KROK_4_OPIS}</p>
+        </div>
+        
+        <div class="KoszykKrok">
+            <h5>{__TLUMACZ:KROK_5}</h5>
+            <p>{__TLUMACZ:KROK_5_OPIS}</p>
+        </div>
+        
+    </div>
+        
+    <div id="TrescKoszyka">
+    
+        <div class="StrTresc">
+
+            <div class="TabelaTbl">
+            
+                <!-- formularz logowania -->
+
+                <div class="RamkaProcent Ramka" style="padding-right:20px">
+                
+                    <h3>{__TLUMACZ:POWRACAJACY_KLIENT}</h3>
+
+                    <br />
+
+                    <form action="{__SSL:zamowienie-potwierdzenie.html}" method="post" id="logowanie" class="cmxform"> 
+            
+                        <p>
+                            <span>{__TLUMACZ:ADRES_EMAIL_LOGOWANIE} <em class="required"></em></span>
+                            <input type="text" size="35" style="width:80%" name="email" id="email" />
+                        </p>
+                    
+                        <p>
+                            <span>{__TLUMACZ:HASLO_LOGOWANIE} <em class="required"></em></span>
+                            <input type="password" size="35" style="width:80%" name="haslo" id="haslo" />
+                        </p>
+
+                        <p>
+                            <span>{__TLUMACZ:PRZYPOMNIENIE_HASLA} <a href="{__SSL:haslo-przypomnienie.html}"><b>{__TLUMACZ:PRZYPOMNIENIE_HASLA_LINK}</b></a></span>
+                        </p>
+
+                        <p>
+                            <input type="submit" id="submitButton" class="przyciskWylaczony" value="{__TLUMACZ:PRZYCISK_ZALOGUJ}" disabled="disabled" />
+                        </p>
+
+                    </form>
+                    
+                </div>
+                
+                <!-- nowy klient lub zakup bez zakladania konta -->
+                
+                <div class="RamkaProcent Ramka">
+                
+                    <!-- formularz bedzie widoczny tylko jezeli bedzie wlaczona automatyczna aktywacja konta klienta -->
+                
+                    <h3>{__TLUMACZ:NOWY_KLIENT}</h3>
+                    
+                    <br />
+                    
+                    <?php if ( KLIENT_AKTYWACJA == 'tak' ) { ?>
+                    
+                    <form action="{__SSL:zamowienie-rejestracja.html}" method="post" id="rejestracja" class="cmxform"> 
+                    
+                        <p>
+                            <span>{__TLUMACZ:ADRES_EMAIL_KLIENTA}: <em class="required" ></em></span>
+                            <input type="text" name="email_nowy" id="email_nowy" style="width:95%;" size="40" value="" class="required" />
+                        </p> 
+                        
+                        <!-- jezeli mozna kupowac bez zakladania konta -->
+
+                        <?php if ( KLIENT_ZAKUP_BEZ_REJESTRACJI == 'tak' && KLIENT_AKTYWACJA == 'tak' ) { ?>
+                        
+                            <div class="CheckSekcja" style="padding-bottom:10px;">
+                                <input type="checkbox" value="0" name="gosc" id="gosc" /> {__TLUMACZ:CHCE_ZALOZYC_KONTO}
+                            </div>
+                            
+                            <div class="cl"></div>
+                            
+                        <?php } else { ?>
+                        
+                            <!-- nie usuwac -->
+                            <input type="hidden" name="gosc" value="0" />
+                            
+                        <?php } ?>
+
+                        <p>
+                            <!-- nie usuwac -->
+                            <input type="hidden" name="adres_ip" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>" />
+                            <input type="hidden" name="nazwa_hosta" value="<?php echo gethostbyaddr($_SERVER['REMOTE_ADDR']); ?>" />
+                            <input type="submit" id="submitButtonNowyKlient" class="przyciskWylaczony" value="{__TLUMACZ:PRZYCISK_DALEJ}" disabled="disabled" />
+                        </p>
+
+                    </form>
+                    
+                    <?php } else { ?>
+                                        
+                    <a href="rejestracja.html"><b>{__TLUMACZ:ZALOZ_KONTO}</b></a>
+                    
+                    <br /><br />
+                    
+                    {__TLUMACZ:REJESTRACJA_KONTO_NIEAKTYWNE_INFO}
+                    
+                    <?php } ?>
+
+                </div>
+
+            </div>
+
+        </div>
+        
+    </div>
+    
+</section>
+
+

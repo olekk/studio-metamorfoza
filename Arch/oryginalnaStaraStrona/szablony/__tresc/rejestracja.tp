@@ -1,0 +1,254 @@
+<!-- wyglad naglowka strony -->
+
+<h1 class="StrNaglowek">
+    <span>{__TLUMACZ:NAGLOWEK_REJESTRACJA}</span>
+</h1>
+
+<!-- tresc strony -->
+
+<section class="StrTresc Ramka">
+
+    <!-- informacja zeby dokladnie wypelnic formularz -->
+
+    <p class="Informacja">
+        {__TLUMACZ:WYPELNIJ_DOKLADNIE_FORMULARZ}
+        
+        {__INFORMACJA_O_AKTYWACJI_KONTA}
+    </p>
+
+    <form action="{__SSL:rejestracja.html}" method="post" id="rejestracja" class="cmxform"> 
+    
+    <div class="TabelaTbl">
+    
+        <!-- czesc formularza z danymi uzytkownika -->
+
+        <div class="RamkaProcent Ramka" style="padding-right:20px">
+        
+            <strong class="CheckSekcja">{__TLUMACZ:NAGLOWEK_DANE_UZYTKOWNIKA}</strong>
+            
+            <br />
+            
+            <!-- czy pokazywac plec (zalezne od ustawien konfiguracji klienta) -->
+
+            <?php if ( KLIENT_POKAZ_PLEC == 'tak' ) { ?>
+            
+                <p>
+                    <span style="display:inline-block; margin-right:10px">{__TLUMACZ:PLEC_KLIENTA}:</span>
+                    <input type="radio" value="f" name="plec" checked="checked" /> {__TLUMACZ:PLEC_KLIENTA_KOBIETA}
+                    <input type="radio" value="m" name="plec"  /> {__TLUMACZ:PLEC_KLIENTA_MEZCZYZNA}
+                </p> 
+                
+            <?php } ?>
+
+            <p>
+                <span>{__TLUMACZ:IMIE_KLIENTA}: <em class="required"></em></span>
+                <input type="text" name="imie" id="imie" style="width:95%" size="40" value="" class="required" />
+            </p> 
+
+            <p>
+                <span>{__TLUMACZ:NAZWISKO_KLIENTA}: <em class="required"></em></span>
+                <input type="text" name="nazwisko" id="nazwisko" style="width:95%" size="40" value="" class="required" />
+            </p>
+            
+            <!-- czy pokazywac date urodzenia (zalezne od ustawien konfiguracji klienta) -->
+
+            <?php if ( KLIENT_POKAZ_DATE_URODZENIA == 'tak' ) { ?>
+            
+                <p>
+                    <span>{__TLUMACZ:DATA_URODZENIA_KLIENTA}: <em class="required"></em></span>
+                    <input type="text" name="data_urodzenia" id="data_urodzenia" size="32" value="" class="required datepicker" />
+                </p> 
+                
+            <?php } ?>
+
+            <!-- jezeli rejestrowac moze sie dowolny klient -->
+        
+            <?php if ( KLIENT_TYLKO_FIRMA == 'dowolny' ) { ?> 
+            
+            <p class="OsobowoscPrawna"> 
+          
+                <b><input type="radio" value="1" name="osobowosc" onclick="ZmienOsobowosc(1)" checked="checked" /> {__TLUMACZ:OSOBOWOSC_PRAWNA_KLIENTA_FIZYCZNY}</b>
+                <b><input type="radio" value="0" name="osobowosc" onclick="ZmienOsobowosc(2)" /> {__TLUMACZ:OSOBOWOSC_PRAWNA_KLIENTA_FIRMA}</b>
+            
+            </p>
+            
+            <!-- jezeli rejestrowac moze sie tylko firma -->
+            
+            <?php } else { ?>
+            
+                <p style="display:none"><input type="radio" value="0" name="osobowosc" checked="checked" /></p>
+            
+            <?php } ?>
+
+            <!-- czy pokazywac pesel (zalezne od ustawien konfiguracji klienta) -->
+            
+            <div id="osobaFizyczna" {__CSS_FIZYCZNA}>
+
+                <?php if ( KLIENT_POKAZ_PESEL == 'tak' ) { ?>            
+
+                <p id="pesel">
+                    <span>{__TLUMACZ:NUMER_PESEL_KLIENTA}:</span>
+                    <input type="text" name="pesel" value="" size="32" style="width:40%" />
+                </p>
+                
+                <?php } ?>
+                
+            </div>
+            
+            <div id="osobaPrawna" {__CSS_FIRMA}>
+
+                <p>
+                    <span>{__TLUMACZ:NAZWA_FIRMY_KLIENTA}: <em class="required"></em></span>
+                    <input type="text" name="nazwa_firmy" id="nazwa_firmy" style="width:95%" value="" size="40" />
+                </p>
+
+                <p>
+                    <span>{__TLUMACZ:NUMER_NIP_FIRMY_KLIENTA}: <em class="required"></em></span>
+                    <input type="text" name="nip_firmy" id="nip_firmy" value="" size="32" />
+                </p>
+                
+            </div>
+
+            <p>
+                <span>{__TLUMACZ:ULICA_KLIENTA}: <em class="required"></em></span>
+                <input type="text" name="ulica" id="ulica" style="width:95%" size="40" value="" class="required" />
+            </p>
+
+            <p>
+                <span>{__TLUMACZ:KOD_POCZTOWY_KLIENTA}: <em class="required"></em></span>
+                <input type="text" name="kod_pocztowy" id="kod_pocztowy" size="22" value="" class="required" />
+            </p> 
+
+            <p>
+                <span>{__TLUMACZ:MIEJSCOWOSC_KLIENTA}: <em class="required"></em></span>
+                <input type="text" name="miasto" id="miasto" style="width:95%" size="40" value="" class="required" />
+            </p>
+
+            <p>
+                <span class="required">{__TLUMACZ:KRAJ_KLIENTA}:</span>
+                {__WYBOR_PANSTWA}
+            </p>
+            
+            <!-- czy pokazywac wojewodztwo (zalezne od ustawien konfiguracji klienta) -->
+
+            <?php if ( KLIENT_POKAZ_WOJEWODZTWO == 'tak' ) { ?>
+            
+                <p>
+                    <span>{__TLUMACZ:WOJEWODZTWO_KLIENTA}:</span>
+                    {__WYBOR_WOJEWODZTWA}
+                </p>
+                
+            <?php } ?>
+            
+            <!-- czy pokazywac telefon (zalezne od ustawien konfiguracji klienta) -->
+
+            <?php if ( KLIENT_POKAZ_TELEFON == 'tak' ) { ?>
+            
+                <p>
+                    <span>{__TLUMACZ:NUMER_TELEFONU_KLIENTA}: <em class="required"></em></span>
+                    <input type="text" name="telefon" id="telefon" style="width:95%" size="40" value="" class="required" />
+                </p>
+                
+            <?php } ?>
+            
+            <!-- czy pokazywac fax (zalezne od ustawien konfiguracji klienta) -->
+
+            <?php if ( KLIENT_POKAZ_FAX == 'tak' ) { ?>
+            
+                <p>
+                    <span>{__TLUMACZ:NUMER_FAXU_KLIENTA}:</span>
+                    <input type="text" name="fax" id="fax" style="width:95%" size="40" value="" />
+                </p>
+                
+            <?php } ?>
+
+        </div>
+        
+        <!-- czesc formularza z danymi do logowania -->
+        
+        <div class="RamkaProcent Ramka">
+        
+            <strong class="CheckSekcja">{__TLUMACZ:NAGLOWEK_DANE_DO_LOGOWANIA}</strong>
+            
+            <br />
+
+            <p>
+                <span class="required">{__TLUMACZ:ADRES_EMAIL_KLIENTA}: <em class="required"></em></span>
+                <input type="text" size="35" style="width:95%" name="email" id="email" class="required" />
+            </p>
+            
+            <!-- czy pokazywac nick (zalezne od ustawien konfiguracji klienta) -->
+
+            <?php if ( KLIENT_POKAZ_NICK == 'tak' ) { ?>            
+
+            <p>
+                <span>{__TLUMACZ:NICK_KLIENTA}:</span>
+                <input type="text" size="35" style="width:95%" name="nick" id="nick" />
+            </p>
+            
+            <?php } ?>
+
+            <p>
+                <span class="required">{__TLUMACZ:HASLO_KLIENTA}: <em class="required"></em></span>
+                <input type="password" size="35" style="width:95%" name="haslo" id="haslo" class="required" />
+            </p>
+
+            <p>
+                <span class="required">{__TLUMACZ:HASLO_KLIENTA_POWTORZENIE}: <em class="required"></em></span>
+                <input type="password" size="35" style="width:95%" name="haslopowtorz" id="haslopowtorz" class="required" />
+            </p>
+
+            <div>
+                {__DODATKOWE_POLA_KLIENTOW}
+            </div>
+            
+            <div class="CheckSekcja" style="margin-top:15px;">
+            
+                <div class="Lf"><input type="checkbox" value="1" name="biuletyn" id="biuletyn" /></div>
+                <div class="checkboxOpis">{__TLUMACZ:ZGODA_BIULETYN}</div>
+                
+            </div>
+            
+            <div class="cl"></div>
+
+            <div class="CheckSekcja">
+            
+                <div class="Lf"><input type="checkbox" value="1" name="regulamin" id="regulamin" class="regulamin" /><em class="required"></em></div>
+                <div class="checkboxOpis">{__TLUMACZ:ZGODA_REGULAMIN}</div>
+                
+            </div>
+            
+            <div class="cl"></div>
+            
+            <div id="error-regulamin"></div>
+
+            <div class="CheckSekcja">
+            
+                <div class="checkboxOpis">
+                    {__TLUMACZ:KOMPUTER_ADRES_IP} <?php echo $_SERVER['REMOTE_ADDR']; ?><br />
+                    {__TLUMACZ:KOMPUTER_HOST} <?php echo gethostbyaddr($_SERVER['REMOTE_ADDR']); ?>
+                </div>
+                
+            </div>
+            
+            <br /><br />
+            
+            <p style="text-align:center">
+            
+                <!-- nie usuwac -->
+                <input type="hidden" name="adres_ip" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>" />
+                <input type="hidden" name="nazwa_hosta" value="<?php echo gethostbyaddr($_SERVER['REMOTE_ADDR']); ?>" />
+                <input type="hidden" name="akcja" value="zapisz" />
+                
+                <!-- przycisk wyslania formularza -->
+                <input type="submit" id="submitButton" class="przyciskWylaczony" value="{__TLUMACZ:PRZYCISK_ZAREJESTRUJ}" disabled="disabled" />
+                
+            </p>                    
+
+        </div>
+
+    </div>
+
+    </form>
+
+</section>

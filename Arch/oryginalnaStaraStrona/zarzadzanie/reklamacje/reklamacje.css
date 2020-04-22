@@ -1,0 +1,31 @@
+/* kolor statusu */
+.status_reklamacji_kolor { width:17px; height:17px; display:inline-block; }
+
+/* oznaczenie klienta firmy */
+.firma { display:block; padding-bottom:2px; font-weight:bold; color:#098206; }
+
+/* wyglad opiekuna */
+.opiekun { font-weight: bold; color:#445b6e; text-decoration: none; display:block; text-align:center; }
+
+.pozycjaBold { font-weight: bold; } 
+
+.LinEdytuj { float:right; padding-left:20px; height:16px; background: url('../obrazki/edytuj.png') center left no-repeat; }
+.LinEdytuj a { font-weight: normal; color:#7a7b7a; text-decoration: none; }
+.LinEdytuj a:hover { font-weight: normal; color:#ff0000; text-decoration: none; }
+
+.maly_mail { background: url('../obrazki/maly_mail.gif') left center no-repeat; padding:2px; padding-left:15px; color:#064661; display:block; }
+
+#StatRekl td { text-align:center; }
+
+/* klientow */
+.lista_klientow { width:800px; max-height:200px; overflow-y:scroll; margin:5px 0px 8px 2px; }
+.tbl_produkt { color: #3f5d6b; width:100%; border:0px; }
+.tbl_produkt td { border:3px solid #fff; text-align:center; }
+.tbl_produkt span { white-space:nowrap; display:block; padding:5px; background:#e5e5e5; font-weight:normal; color:#3f5d6b; text-decoration:none; }
+.lista_klientow td:first-child, .lista_klientow td:nth-child(2) { text-align:center; }
+.lista_klientow td { text-align:left; }
+.lista_klientow .firma { font-weight:bold; color:#098206; display:block; margin-bottom:3px; }
+.lista_klientow .maly_mail { background: url('../obrazki/maly_mail.gif') left center no-repeat; padding:4px; padding-left:15px; color:#064661; display:inline-block; }
+.label_tbl { padding-left:12px; }
+
+#ladujKomentarz { display:none; position:absolute; margin:-27px 0px 5px 540px; }

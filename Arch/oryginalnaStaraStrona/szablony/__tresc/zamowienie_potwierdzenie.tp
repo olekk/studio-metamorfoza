@@ -1,0 +1,308 @@
+<!-- wyglad naglowka strony -->
+
+<h1 class="StrNaglowek">
+    <span>{__TLUMACZ:NAGLOWEK_ZAMOWIENIE_POTWIERDZENIE}</span>
+</h1>
+
+<!-- tresc strony -->
+
+<section id="SzczegolyKoszyka">
+
+    <!-- poszczegolne kroki zamowienia - tylko jezeli cos jest w koszyku -->
+
+    <div id="KrokiZamowienia">
+    
+        <div class="KoszykKrok">
+            <h5>{__TLUMACZ:KROK_1}</h5>
+            <p>
+                <a href="koszyk.html">{__TLUMACZ:KROK_1_OPIS}</a>
+            </p>
+        </div>
+        
+        <div class="KoszykKrok">
+            <h5>{__TLUMACZ:KROK_2}</h5>
+            <p>{__TLUMACZ:KROK_2_OPIS}</p>
+        </div>
+        
+        <div class="KoszykKrok">
+            <h5>{__TLUMACZ:KROK_3}</h5>
+            <p>{__TLUMACZ:KROK_3_OPIS}</p>
+        </div>
+        
+        <div class="KoszykKrok aktywny">
+            <h5>{__TLUMACZ:KROK_4}</h5>
+            <p>{__TLUMACZ:KROK_4_OPIS}</p>
+        </div>
+        
+        <div class="KoszykKrok">
+            <h5>{__TLUMACZ:KROK_5}</h5>
+            <p>{__TLUMACZ:KROK_5_OPIS}</p>
+        </div>
+        
+    </div>
+
+    <div id="TrescKoszyka">
+    
+        <div class="StrTresc">
+
+            <form action="/inne/zamowienie_realizacja.php" method="post" class="cmxform" id="potwierdzenie">
+            
+                <!-- prosba o sprawdzenie danych -->
+            
+                <div class="Informacja InfoDuze">
+                    {__TLUMACZ:INFO_PODSUMOWANIE}
+                </div>
+
+                <div class="KontenerDaneKlienta">
+                
+                    <!-- dane do wysylki z mozliwoscia zmiany -->
+
+                    <div class="DaneWysylki">
+
+                        <div class="ZmienDane">
+                            <a class="przycisk" href="{__SSL:zamowienie-zmien-dane.html}">{__TLUMACZ:ZMIEN_DANE}</a>
+                        </div>
+
+                        <h3>{__TLUMACZ:DANE_DO_WYSYLKI}</h3>
+
+                        <div class="Tekst">
+
+                            {__DANE_DO_WYSYLKI}
+
+                        </div>
+
+                    </div>
+
+                    <div class="Odstep"></div>
+                    
+                    <!-- dane do faktury z mozliwoscia zmiany -->
+
+                    <div class="DaneFaktura">
+
+                        <div class="ZmienDane">
+                            <a class="przycisk" href="{__SSL:zamowienie-zmien-dane.html}">{__TLUMACZ:ZMIEN_DANE}</a>
+                        </div>
+
+                        <h3>{__TLUMACZ:DANE_DO_FAKTURY}</h3>
+
+                        <div class="Tekst">
+
+                            {__DANE_DO_FAKTURY}
+
+                            <div {__CSS_DOKUMENT_SPRZEDAZY}>
+                                <b>{__TLUMACZ:DOKUMENT_SPRZEDAZY}</b>
+                                <input type="radio" name="dokument" value="1" <?php echo ( $_SESSION['adresFaktury']['dokument'] == '1' ? 'checked="checked"' : '' ); ?> />{__TLUMACZ:DOKUMENT_SPRZEDAZY_FAKTURA} 
+                                <input type="radio" name="dokument" value="0" <?php echo ( $_SESSION['adresFaktury']['dokument'] == '0' ? 'checked="checked"' : '' ); ?> />{__TLUMACZ:DOKUMENT_SPRZEDAZY_PARAGON} 
+                            </div>
+                        
+                        </div>
+                                                        
+                    </div>
+
+                </div>   
+                
+                <!-- informacje o formie dostawy -->
+
+                <div class="PotwierdzenieTekst">
+                
+                    {__TLUMACZ:FORMA_DOSTAWY}: <b><?php echo $_SESSION['rodzajDostawy']['wysylka_nazwa']; ?></b>
+                    
+                    <div class="OpisInfoItalic" id="WysylkaInformacjaPotwierdzenie">
+                        {__WYSYLKA_W_POTWIERDZENIU_INFORMACJA}
+                        <div class="OpisInfo" id="WysylkaLokalizacjaPotwierdzenie">{__WYSYLKA_W_POTWIERDZENIU}</div>
+                        
+                    </div>
+                </div>
+                
+                <!-- informacje o formie platnosci -->
+
+                <div class="PotwierdzenieTekst">
+                
+                    {__TLUMACZ:FORMA_PLATNOSCI}: <b><?php echo $_SESSION['rodzajPlatnosci']['platnosc_nazwa']; ?></b>
+                    
+                    <div class="OpisInfoItalic">{__PLATNOSC_W_POTWIERDZENIU}</div>
+                    
+                </div>  
+
+                <!-- lista produktow koszyka -->                
+
+                <table class="KoszykPotwierdzenie">
+                    
+                    <tr class="Naglowek">
+                        <th>{__TLUMACZ:NAZWA_PRODUKTU}</th>
+                        <th>{__TLUMACZ:CENA}</th>
+                        <th>{__TLUMACZ:ILOSC_PRODUKTOW}</th>
+                        <th>{__TLUMACZ:WARTOSC_PRODUKTOW}</th>
+                    </tr>
+                    
+                    <?php
+                    $ProduktyKoszyka = $__pA;
+                    
+                    foreach ($ProduktyKoszyka AS $ProduktKoszyka) {
+                    ?>
+                        
+                        <tr>
+                            <td>
+                                <h3>
+                                    <?php 
+                                    // nazwa produktu
+                                    echo $ProduktKoszyka['nazwa'];
+                                    ?>
+                                </h3>
+                                
+                                <?php                                
+                                // pola tekstowe do produktu
+                                echo $ProduktKoszyka['pola_txt']; 
+                                // komentarz do produktu
+                                echo $ProduktKoszyka['komentarz'];                                
+                                // informacja o producencie
+                                echo $ProduktKoszyka['producent'];
+                                // informacja o czasie wysylki
+                                echo $ProduktKoszyka['czas_wysylki'];
+                                // informacja o stanie produktu
+                                echo $ProduktKoszyka['stan_produktu'];                                
+                                // informacja o gwarancji
+                                echo $ProduktKoszyka['gwarancja'];                                
+                                // link do produktu - do opisu
+                                echo '<br />' . $ProduktKoszyka['link_opisu'] . '<br />&nbsp;';
+                                ?>
+                                
+                            </td>
+                            <td><?php echo $ProduktKoszyka['cena']; ?></td>
+                            <td><?php echo $ProduktKoszyka['ilosc']; ?></td>
+                            <td><?php echo $ProduktKoszyka['wartosc']; ?></td>
+                        </tr>
+
+                    <?php
+                    }    
+                    
+                    unset($ProduktyKoszyka);
+                    ?>
+             
+                    {__PODSUMOWANIE_ZAMOWIENIA}
+
+                </table>
+                
+                {__MAKSYMALNY_CZAS_WYSYLKI}
+                
+                <!-- komentarze do zamowienia -->    
+
+                <div class="UwagiZamowienie">
+                
+                    <b>{__TLUMACZ:UWAGI_DO_ZAMOWIENIA}</b>
+
+                    <textarea cols="60" rows="5" name="komentarz"></textarea>
+                    
+                </div>
+                
+                {__DODATKOWE_POLA_ZAMOWIENIA}
+                
+                <div class="PotwierdzenieAkceptacje">
+                
+                    <!-- zgoda na akceptacje regulaminu -->  
+
+                    <div class="Odstep">
+
+                        <div class="Rg"><input type="checkbox" value="1" name="regulamin" id="regulamin" class="regulamin" /><em class="required"></em></div>
+                        <div class="PotwierdzenieOpis">{__TLUMACZ:ZGODA_REGULAMIN}</div>
+
+                    </div>
+                    
+                    <div class="cl"></div>
+                    
+                    <div id="error-potwierdzenie" class="errorPotwierdzenie"></div>
+                    
+                    <div class="cl"></div>
+                    
+                    <!-- zgoda na produkty w formie uslug - brak mozliwosci odstapienia od umowy -->  
+                    
+                    <?php if ( $__Parametr['ProduktyUsluga'] == true ) { ?>
+                    
+                        <div class="Odstep">
+
+                            <div class="Rg"><input type="checkbox" value="1" name="produkty_uslugi" id="produkty_uslugi" class="usluga" /><em class="required"></em></div>
+                            <div class="PotwierdzenieOpis">{__TLUMACZ:ZGODA_SPRZEDAZ_USLUG}</div>
+
+                        </div>    
+                        
+                        <div class="cl"></div>
+
+                        <div id="error-usluga" class="errorPotwierdzenie"></div> 
+
+                        <div class="cl"></div>
+                    
+                    <?php } ?>
+                    
+                    <!-- zgoda na produkty w formie elektronicznej - brak mozliwosci odstapienia od umowy -->  
+                    
+                    <?php if ( $__Parametr['ProduktyOnline'] == true ) { ?>
+                    
+                        <div class="Odstep">
+
+                            <div class="Rg"><input type="checkbox" value="1" name="produkty_online" id="produkty_online" class="online" /><em class="required"></em></div>
+                            <div class="PotwierdzenieOpis">{__TLUMACZ:ZGODA_SPRZEDAZ_ELEKTRONICZNA}</div>
+
+                        </div> 
+                        
+                        <div class="cl"></div>
+
+                        <div id="error-online" class="errorPotwierdzenie"></div>
+                        
+                        <div class="cl"></div>
+                    
+                    <?php } ?>  
+                    
+                    <!-- zgoda na produkty w formie niestandardowej - brak mozliwosci odstapienia od umowy -->  
+                    
+                    <?php if ( $__Parametr['ProduktyNiestandardowe'] == true ) { ?>
+                    
+                        <div class="Odstep">
+
+                            <div class="Rg"><input type="checkbox" value="1" name="produkty_niestandardowe" id="produkty_niestandardowe" class="niestandardowy" /><em class="required"></em></div>
+                            <div class="PotwierdzenieOpis">{__TLUMACZ:ZGODA_SPRZEDAZ_NIESTANDARDOWA}</div>
+
+                        </div> 
+                        
+                        <div class="cl"></div>
+
+                        <div id="error-niestandardowy" class="errorPotwierdzenie"></div> 
+
+                        <div class="cl"></div>
+                    
+                    <?php } ?>                
+                    
+                    <div class="cl"></div>
+                    
+                    <!-- zgoda na przekazanie adresu email -->
+                    
+                    <?php if ( INTEGRACJA_CENEO_OPINIE_WLACZONY == 'tak' || INTEGRACJA_OKAZJE_WLACZONY == 'tak' || INTEGRACJA_OPINEO_OPINIE_WLACZONY == 'tak' ) { ?>
+                    
+                        <div class="Odstep">
+
+                            <div class="Rg"><input type="checkbox" value="1" name="zgoda_opinie" id="zgoda_opinie" /></div>
+                            <div class="PotwierdzenieOpis">{__TEKST_ZGODY}</div>
+
+                        </div>
+                        
+                    <?php } ?>
+
+                    <div class="cl"></div>
+                    
+                </div>
+                
+                <div class="cl"></div>
+
+                <!-- przycisk zlozenia zamowienia -->    
+
+                <div class="PrzyciskiPotwierdzenie">
+                   <a href="koszyk.html" class="przycisk Lf">{__TLUMACZ:PRZYCISK_COFNIJ}</a>  
+                   <input class="przyciskZamow" type="submit" id="submitButton" value="{__TLUMACZ:PRZYCISK_ZLOZ_ZAMOWIENIE}" />
+                </div>
+
+            </form>
+
+        </div>
+        
+    </div>
+    
+</section>

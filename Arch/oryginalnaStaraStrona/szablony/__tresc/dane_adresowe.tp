@@ -1,0 +1,193 @@
+<!-- wyglad naglowka strony -->
+
+<h1 class="StrNaglowek">
+    <span>{__TLUMACZ:NAGLOWEK_DANE_ADRESOWE}</span>
+</h1>
+
+<!-- tresc strony -->
+
+<section class="StrTresc Ramka">
+
+    <!-- sprawdza czy klient jest zalogowany - jezeli nie wyswietli okno logowania -->
+
+    <?php     
+    $Adresy = $__pA;
+    ?>
+        
+    <!-- formularz danych adresowych -->
+
+    <form action="{__SSL:dane-adresowe.html}" method="post" id="daneAdresowe" class="cmxform"> 
+    
+    <div class="DaneAdresowe">
+
+        <strong class="CheckSekcja">{__TLUMACZ:NAGLOWEK_MOJE_DANE}</strong>
+        
+        <br />
+        <br />
+        
+        <!-- jezeli klientem moze byc firma i osoba fizyczna -->
+    
+        <?php if ( KLIENT_TYLKO_FIRMA == 'dowolny' ) { ?>         
+
+        <p class="OsobowoscPrawna"> 
+            <b><input type="radio" value="1" name="osobowosc" onclick="ZmienOsobowoscAdres(1)" <?php echo ($Adresy['nazwa_firmy'] == '' ? 'checked="checked"' : ''); ?> /> {__TLUMACZ:OSOBOWOSC_PRAWNA_KLIENTA_FIZYCZNY}</b>
+            <b><input type="radio" value="0" name="osobowosc" onclick="ZmienOsobowoscAdres(2)" <?php echo ($Adresy['nazwa_firmy'] == '' ? '' : 'checked="checked"'); ?> /> {__TLUMACZ:OSOBOWOSC_PRAWNA_KLIENTA_FIRMA}</b>
+        </p> 
+        
+        <!-- jezeli klientem moze sie tylko firma -->
+        
+        <?php } else { ?>
+        
+            <p style="display:none"><input type="radio" value="0" name="osobowosc" checked="checked" /></p>
+        
+        <?php } ?>
+
+        <p>
+            <span>{__TLUMACZ:IMIE_KLIENTA}: <em class="required"></em></span>
+            <input type="text" name="imie" id="imie" style="width:95%" size="40" value="{__IMIE}" class="required" />
+        </p> 
+
+        <p>
+            <span>{__TLUMACZ:NAZWISKO_KLIENTA}: <em class="required"></em></span>
+            <input type="text" name="nazwisko" id="nazwisko" style="width:95%" size="40" value="{__NAZWISKO}" class="required" />
+        </p>
+        
+        <!-- czy pokazywac date urodzenia (zalezne od ustawien konfiguracji klienta) -->
+
+        <?php if ( KLIENT_POKAZ_DATE_URODZENIA == 'tak' ) { ?>
+        
+            <p>
+                <span>{__TLUMACZ:DATA_URODZENIA_KLIENTA}: <em class="required"></em></span>
+                <input type="text" name="data_urodzenia" id="data_urodzenia" size="32" value="{__DATA_URODZENIA}" class="required datepicker" />
+            </p> 
+            
+        <?php } ?>        
+        
+        <p>
+            <span>{__TLUMACZ:ADRES_EMAIL_KLIENTA}: <em class="required"></em></span>
+            <input type="text" name="email" id="email" style="width:95%" size="40" value="{__ADRES_EMAIL}" class="required" />
+        </p>       
+
+        <!-- czy pokazywac nick (zalezne od ustawien konfiguracji klienta) -->
+
+        <?php if ( KLIENT_POKAZ_NICK == 'tak' ) { ?>            
+
+        <p>
+            <span>{__TLUMACZ:NICK_KLIENTA}:</span>
+            <input type="text" name="nick" id="nick" style="width:95%" size="40" value="{__NICK}" />
+        </p>
+        
+        <?php } ?>        
+        
+        <?php if ( KLIENT_POKAZ_PESEL == 'tak' ) { ?> 
+
+            <p id="p_pesel" <?php echo (($Adresy['nazwa_firmy'] == '' && KLIENT_TYLKO_FIRMA != 'tylko firma') ? '' : 'style="display:none;"'); ?>>
+                <span>{__TLUMACZ:NUMER_PESEL_KLIENTA}:</span>
+                <input type="text" name="pesel" id="pesel" style="width:95%" value="{__PESEL}" size="40" />
+            </p>
+            
+        <?php } ?>
+
+        <p id="firma" <?php echo (($Adresy['nazwa_firmy'] != '' || KLIENT_TYLKO_FIRMA != 'dowolny') ? '' : 'style="display:none;"'); ?> class="required">
+            <span>{__TLUMACZ:NAZWA_FIRMY_KLIENTA}: <em class="required"></em></span>
+            <input type="text" name="nazwa_firmy" id="nazwa_firmy" style="width:95%" value="{__NAZWA_FIRMY}" size="40" />
+        </p>
+
+        <p id="nip" <?php echo (($Adresy['nazwa_firmy'] != '' || KLIENT_TYLKO_FIRMA != 'dowolny') ? '' : 'style="display:none;"'); ?> class="required">
+            <span>{__TLUMACZ:NUMER_NIP_FIRMY_KLIENTA}: <em class="required"></em></span>
+            <input type="text" name="nip_firmy" id="nip_firmy" value="{__NIP}" size="32" />
+        </p>
+
+        <p>
+            <span>{__TLUMACZ:ULICA_KLIENTA}: <em class="required"></em></span>
+            <input type="text" name="ulica" id="ulica" style="width:95%" size="40" value="{__ULICA}" class="required" />
+        </p>
+
+        <p>
+            <span>{__TLUMACZ:KOD_POCZTOWY_KLIENTA}: <em class="required"></em></span>
+            <input type="text" name="kod_pocztowy" id="kod_pocztowy" size="22" value="{__KOD_POCZTOWY}" class="required" />
+        </p> 
+
+        <p>
+            <span>{__TLUMACZ:MIEJSCOWOSC_KLIENTA}: <em class="required"></em></span>
+            <input type="text" name="miasto" id="miasto" style="width:95%" size="40" value="{__MIASTO}" class="required" />
+        </p>
+
+        <p>
+            <span class="required">{__TLUMACZ:KRAJ_KLIENTA}:</span>
+            {__LISTA_PANSTW}
+        </p>
+        
+        <!-- czy pokazywac wojewodztwo (zalezne od konfiguracji sklepu) -->
+
+        <?php
+        if ( KLIENT_POKAZ_WOJEWODZTWO == 'tak' ) {
+            ?>
+            <p>
+                <span>{__TLUMACZ:WOJEWODZTWO_KLIENTA}:</span>
+                {__LISTA_WOJEWODZTW}
+            </p>
+            <?php
+        }
+        ?>
+        
+        <!-- czy pokazywac telefon (zalezne od konfiguracji sklepu) -->
+
+        <?php
+        if ( KLIENT_POKAZ_TELEFON == 'tak' ) {
+            ?>
+            <p>
+                <span class="required">{__TLUMACZ:NUMER_TELEFONU_KLIENTA}: <em class="required"></em></span>
+                <input type="text" name="telefon" id="telefon" style="width:95%" size="40" value="{__TELEFON}" class="required" />
+            </p>
+            <?php
+        }
+        ?>
+        
+        <!-- czy pokazywac fax (zalezne od konfiguracji sklepu) -->
+
+        <?php
+        if ( KLIENT_POKAZ_FAX == 'tak' ) {
+            ?>
+            <p>
+                <span>{__TLUMACZ:NUMER_FAXU_KLIENTA}:</span>
+                <input type="text" name="fax" id="fax" style="width:95%" size="40" value="{__FAX}" />
+            </p>
+            <?php
+        }
+        ?>
+
+        <p>
+           <label>{__TLUMACZ:KLIENT_BIULETYN}:</label>
+           <input type="checkbox" value="1" name="biuletyn" id="biuletyn" <?php echo ( $Adresy['biuletyn'] == '1' ? 'checked="checked"' : '' ); ?> />
+        </p>                      
+
+        <div>
+           {__DODATKOWE_POLA_KLIENTOW}
+        </div>
+
+        <br />
+        
+        <p>
+        
+            <!-- nie kasowac -->
+            <input type="hidden" name="adres_id" value="{__ADRES_ID}" />
+            <input type="hidden" id="id_klienta" value="{__ID_KLIENTA}" />
+            <input type="hidden" name="tok" value="{__TOKEN}" />
+            <input type="hidden" name="akcja" value="zapisz" />
+            
+            <!-- przyciski -->
+            <a href="{__SSL:panel-klienta.html}" class="przycisk">{__TLUMACZ:PRZYCISK_ANULUJ}</a>     
+            <input class="przyciskWylaczony" type="submit" id="submitButton" value="{__TLUMACZ:PRZYCISK_AKTUALIZUJ_DANE}" disabled="disabled" />
+            
+        </p>                    
+    
+    </div>
+
+    </form>
+
+    <?php 
+    unset($Adresy);
+    ?>
+
+</section>

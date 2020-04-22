@@ -1,0 +1,93 @@
+<!-- wyglad naglowka strony -->
+
+<h1 class="StrNaglowek">
+    <span>{__TLUMACZ:NAGLOWEK_HISTORIA_ZAMOWIEN}</span>
+</h1>
+
+<!-- tresc strony -->
+
+<section class="StrTresc">
+
+    <!-- tablica z zamowieniami - sprawdzi czy sa jakies zamowienia klienta -->
+
+    <?php
+    $TablicaZamowien = $__pA;
+
+    if ( count($TablicaZamowien) > 0 ) {
+
+        foreach ( $TablicaZamowien as $Zamowienie ) {
+            ?>
+
+            <div class="LiniaPoziom" style="margin-bottom:10px">
+            
+                <div class="Tytul">{__TLUMACZ:KLIENT_NUMER_ZAMOWIENIA} <?php echo $Zamowienie['numer_zamowienia']; ?></div>
+                
+                <div class="SzczegolyData">
+                
+                    <em class="DataZlozenia"><b><?php echo date('d-m-Y H:i:s',strtotime($Zamowienie['data_zamowienia'])); ?></b></em> <br /> 
+                    <em class="StatusZamowienia">{__TLUMACZ:KLIENT_STATUS_ZAMOWIENIA}: <b><?php echo $Zamowienie['status_zamowienia']; ?></b></em>
+                    
+                </div>
+                
+                <div class="cl"></div>
+                
+                <div class="Adresat">
+                
+                    <strong>{__TLUMACZ:KLIENT_ADRES_WYSYLKI}</strong>
+                    
+                    <ul>
+                        <li><?php echo $Zamowienie['odbiorca']; ?></li>
+                        <?php if ( $Zamowienie['odbiorca_firma'] != '' ) echo '<li>' . $Zamowienie['odbiorca_firma'] . '</li>'; ?>
+                        <li><?php echo $Zamowienie['odbiorca_ulica']; ?></li>
+                        <li><?php echo $Zamowienie['odbiorca_kod']; ?> <?php echo $Zamowienie['odbiorca_miasto']; ?></li>
+                        <li><?php echo $Zamowienie['odbiorca_kraj']; ?></li>
+                    </ul>
+                    
+                </div>
+                <div class="Szczegoly">
+                
+                    <strong>{__TLUMACZ:KLIENT_SZCZEGOLY_ZAMOWIENIA}</strong>
+                    
+                    <ul>
+                        <li>{__TLUMACZ:KLIENT_WARTOSC_ZAMOWIENIA}: <b><?php echo $Zamowienie['wartosc']; ?></b></li>
+                        <li>{__TLUMACZ:KLIENT_ILOSC_PRODUKTOW}: <b><?php echo $Zamowienie['ilosc_produktow']; ?></b></li>
+                        <li>{__TLUMACZ:KLIENT_RODZAJ_PLATNOSCI}: <b><?php echo $Zamowienie['rodzaj_platnosci']; ?></b></li>
+                        <li>{__TLUMACZ:KLIENT_RODZAJ_DOSTAWY}: <b><?php echo $Zamowienie['rodzaj_wysylki']; ?></b></li>
+                    </ul>
+                    
+                </div>
+                
+                <a href="{__SSL:zamowienia-szczegoly-zs-<?php echo $Zamowienie['numer_zamowienia']; ?>.html}" class="przycisk PrawyBezMargin">{__TLUMACZ:PRZYCISK_SZCZEGOLY}</a>
+                
+                <div class="cl"></div>
+                
+            </div>
+                
+        <?php
+        }
+        unset($Zamowienie);
+
+    } else { ?>
+    
+        <!-- jezeli nie ma zamowien wyswietli komunikat -->
+    
+        <p class="Informacja">
+            {__TLUMACZ:BRAK_DANYCH_DO_WYSWIETLENIA}
+        </p>
+        
+    <?php }
+    
+    unset($TablicaZamowien);
+    ?>
+        
+    <div class="cl"></div>
+    
+    <!-- przycisk powrotu do panelu klienta -->
+
+    <a href="{__SSL:panel-klienta.html}" class="przycisk Lewy">{__TLUMACZ:PRZYCISK_PANEL_KLIENTA}</a>   
+    
+    <div class="cl"></div>
+
+</section>
+
+

@@ -1,0 +1,49 @@
+/* wyglad listy plikow */
+.lista_plikow { margin:10px; }
+.lista_plikow ul { list-style-type: none; margin:0px; padding:0px; }
+.lista_plikow li { margin:0px; padding:0px; }
+.lista_plikow span { display:inline-block; background:url('../obrazki/csv.gif') no-repeat left center; padding:5px; padding-left:22px; margin-left:5px; font-weight:normal; text-decoration:none; }
+
+.lista_plikow_xml { margin:10px; }
+.lista_plikow_xml span { display:inline-block; background:url('../obrazki/xml.gif') no-repeat left center; padding:5px; padding-left:22px; margin-left:5px; font-weight:normal; text-decoration:none; }
+
+.naglowek_csv { font-weight:bold; text-decoration:none; padding:8px; padding-top:14px; padding-bottom:4px; }
+.poli { margin:10px; margin-top:5px; }
+.sel select { font-size:12px !important; font-weight:bold !important; padding:8px !important; }
+
+#opisImportu { margin:15px; margin-top:5px; margin-bottom:10px; line-height:2.5 }
+#opisImportu span { display:block; margin-bottom:3px; font-weight:bold; color:#ff0000; }
+#opisImportu input { margin-left:15px; }
+
+.csvTbl { width:100%; }
+.csvTbl td { padding:12px; vertical-align:top; }
+
+.plikiTbl { width:100%; margin:0px; padding:0px; }
+.plikiTbl .Naglowek td { white-space:nowrap; background:#f1f1f1; padding:5px !important; font-family: Tahoma, Verdana, Arial, sans-serif; font-size: 11px; font-weight:bold; color:#ca0000; text-decoration:none; }
+.plikiTbl td { padding:1px 5px 1px 0px; vertical-align:middle; text-align:center; border-bottom:1px dotted #c0d9e6 }
+.plikiTbl td:first-child { text-align:left; }
+.plikiTbl .plikZew td { padding:10px 0px 10px 0px; border:0px; }
+
+.input_export { margin:5px; }
+.input_export td { vertical-align: middle; padding:3px; padding-left:5px; line-height:16px; }
+
+.lista_export { margin-top:15px; margin-left:5px; }
+.lista_export span { margin:6px; margin-top:5px; background:url('../obrazki/csv.png') no-repeat left center; display:inline-block; padding:10px; padding-left:50px; padding-right:0px; font-weight:normal; text-decoration:none; }
+
+.lista_export_xml { margin-top:15px; margin-left:5px; }
+.lista_export_xml span { margin:6px; margin-top:5px; background:url('../obrazki/xml.png') no-repeat left center; display:inline-block; padding:10px; padding-left:50px; padding-right:0px; font-weight:normal; text-decoration:none; }
+
+#producent { padding:15px; padding-top:8px; }
+.pkc td { padding:1px; }
+
+.lista_wgraj { margin-top:15px; margin-left:15px; }
+.lista_wgraj span { display:block; margin-bottom:10px; }
+.lista_wgraj div { margin-bottom:10px; }
+.lista_wgraj .przyciskNon { margin-bottom:10px; }
+
+#raport li span { color:#8a8a8a; }
+
+.export { padding:8px; line-height:1.8; }
+.export input { margin-right:5px; display:inline-block; }
+.export .przyciski_dolne { margin:10px 0px 5px -10px }
+.export .lf { width:48%; }

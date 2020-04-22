@@ -1,0 +1,116 @@
+<!-- wyglad naglowka strony -->
+
+<h1 class="StrNaglowek">
+    <span>{__TLUMACZ:NAGLOWEK_RECENZJE}</span>  
+</h1>
+
+<!-- tresc strony -->
+
+<section class="StrTresc">
+
+    <div class="Listing">
+    
+        <!-- tresc strony -->
+        
+        <nav class="ListingNawigacja LiniaCala">
+        
+            <!-- odnosniki do kolejnych stron listingu -->
+        
+            <div class="IndexStron">
+            
+                <b>{__TLUMACZ:LISTING_STRONA}</b> {__STRONICOWANIE}
+            
+            </div>
+            
+            <div class="cl"></div>
+            
+            <!-- sortowanie listingu -->
+            
+            <div class="Sortowanie">
+            
+                <form id="sposobsortowania" class="cmxform" action="{__AKTUALNY_LINK}" method="post">
+                    <div>
+                        <input type="hidden" name="sortowanie" id="sortowanie" value="" />
+                        <ul>
+                            <li>
+                                <b>{__TLUMACZ:LISTING_SORTUJ_WG}</b>
+                            </li>
+                            <li>
+                                <span title="{__TLUMACZ:LISTING_SORTOWANIE_MALEJACO}" onclick="sortow(1)" {__CSS_SORT_1}></span>
+                                <span>{__TLUMACZ:LISTING_SORTOWANIE_WG_DATY}</span>
+                                <span title="{__TLUMACZ:LISTING_SORTOWANIE_ROSNACO}" onclick="sortow(2)" {__CSS_SORT_2}></span>
+                            </li>
+                            <li>
+                                <span title="{__TLUMACZ:LISTING_SORTOWANIE_MALEJACO}" onclick="sortow(3)" {__CSS_SORT_3}></span>
+                                <span>{__TLUMACZ:LISTING_SORTOWANIE_WG_PRODUKTOW}</span>
+                                <span title="{__TLUMACZ:LISTING_SORTOWANIE_ROSNACO}" onclick="sortow(4)" {__CSS_SORT_4}></span>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            
+            </div>       
+
+            <!-- ilosc wynikow na stronie -->
+        
+            <div class="IloscProdStronie">
+                <form id="iloscprodstrony" class="cmxform" action="{__AKTUALNY_LINK}" method="post">
+                    <div>
+                        <input type="hidden" name="ilosc_na_stronie" id="ilosc_na_stronie" value="" />
+                        <b>{__TLUMACZ:LISTING_WYNIKOW_NA_STRONIE}</b>
+                        <span {__CSS_PRODSTR_1} onclick="str_prod({__LISTA_ILOSC_PROD_1})">{__LISTA_ILOSC_PROD_1}</span>
+                        <span {__CSS_PRODSTR_2} onclick="str_prod({__LISTA_ILOSC_PROD_2})">{__LISTA_ILOSC_PROD_2}</span>
+                        <span {__CSS_PRODSTR_3} onclick="str_prod({__LISTA_ILOSC_PROD_3})">{__LISTA_ILOSC_PROD_3}</span>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="cl"></div>
+        
+        </nav>
+        
+        <!-- listing recenzji -->
+
+        {__LISTA_RECENZJI}
+
+    </div>
+    
+    <!-- dodatkowa nawigacja na dole listingu -->    
+    
+    <br />
+     
+    <div class="Listing">
+    
+        <nav class="ListingNawigacja LiniaCala">
+        
+            <!-- odnosniki do kolejnych stron listingu -->    
+    
+            <div class="IndexStron">
+            
+                <b>{__TLUMACZ:LISTING_STRONA}</b> {__STRONICOWANIE}
+
+            </div>  
+            
+            <!-- ilosc wynikow na stronie -->
+            
+            <div class="IloscProdStronie">
+                <form id="iloscprodstrony_dol" class="cmxform" action="{__AKTUALNY_LINK}" method="post">
+                    <div>
+                        <input type="hidden" name="ilosc_na_stronie" id="ilosc_na_stronie_dol" value="" />
+                        <b>{__TLUMACZ:LISTING_WYNIKOW_NA_STRONIE}</b>
+                        <span {__CSS_PRODSTR_1} onclick="str_prod({__LISTA_ILOSC_PROD_1},'_dol')">{__LISTA_ILOSC_PROD_1}</span>
+                        <span {__CSS_PRODSTR_2} onclick="str_prod({__LISTA_ILOSC_PROD_2},'_dol')">{__LISTA_ILOSC_PROD_2}</span>
+                        <span {__CSS_PRODSTR_3} onclick="str_prod({__LISTA_ILOSC_PROD_3},'_dol')">{__LISTA_ILOSC_PROD_3}</span>
+                    </div>
+                </form>
+            </div>            
+
+            <div class="cl"></div>
+
+        </nav>
+            
+    </div>    
+
+</section>
+
+

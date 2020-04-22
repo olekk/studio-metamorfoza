@@ -1,0 +1,430 @@
+$(document).ready(function() {
+
+    var marginesGora = 60;
+    var iloscZakladekLewa = 0;
+    var iloscZakladekPrawa = 0;
+    var wysokoscLewa = 0;
+    var wysokoscPrawa = 0;
+    var szerokoscZakladek = 80;
+
+    // jezeli sa suwaki strony to obnizy zakladki
+    if ( parseInt($('#doGory').css('top')) > marginesGora ) {
+         marginesGora = parseInt($('#doGory').css('top')) + $('#doGory').height() + 15;
+    }
+
+    $("body").append('<div id="wysZakladki" style="z-index:1001;top:' + marginesGora + 'px;"></div>');
+
+    var stronaLewa = new Array();
+    var stronaPrawa = new Array();
+    
+    var fb_tryb = '{__ZAKLADKA_FACEBOOK_WLACZONA}';
+    if ( fb_tryb == 'tak' ) {
+        //
+        var fb_strona = '{__ZAKLADKA_FACEBOOK_STRONA}';
+        var fb_profil = '{__ZAKLADKA_FACEBOOK_PROFIL}';
+        //
+        if ( fb_strona == 'lewa' ) {
+             stronaLewa.push( '{__ZAKLADKA_FACEBOOK_SORT}_facebook' );
+           } else {
+             stronaPrawa.push( '{__ZAKLADKA_FACEBOOK_SORT}_facebook' );
+        }
+        //
+    }
+    
+    var gg_tryb =  '{__ZAKLADKA_GG_WLACZONA}';
+    if ( gg_tryb == 'tak' ) {
+        //
+        var gg_strona = '{__ZAKLADKA_GG_STRONA}';
+        var gg_id = '{__ZAKLADKA_GG_PROFIL}';
+        var gg_nr = '{__ZAKLADKA_GG_NUMER}';
+        var gg_online = '{__ZAKLADKA_GG_ONLINE}';
+        var gg_offline = '{__ZAKLADKA_GG_OFFLINE}';
+        //
+        if ( gg_strona == 'lewa' ) {
+             stronaLewa.push( '{__ZAKLADKA_GG_SORT}_gg' );
+           } else {
+             stronaPrawa.push( '{__ZAKLADKA_GG_SORT}_gg' );
+        }
+        //
+    }
+    
+    var nk_tryb = '{__ZAKLADKA_NK_WLACZONA}';
+    if ( nk_tryb == 'tak' ) {
+        //
+        var nk_strona = '{__ZAKLADKA_NK_STRONA}';
+        var nk_nr = '{__ZAKLADKA_NK_PROFIL}';
+        //
+        if ( nk_strona == 'lewa' ) {
+             stronaLewa.push( '{__ZAKLADKA_NK_SORT}_nk' );
+           } else {
+             stronaPrawa.push( '{__ZAKLADKA_NK_SORT}_nk' );
+        }
+        //
+    }
+
+    var yt_tryb = '{__ZAKLADKA_YOUTUBE_WLACZONA}';
+    if ( yt_tryb == 'tak' ) {
+        //
+        var yt_strona = '{__ZAKLADKA_YOUTUBE_STRONA}';
+        var youtube_profil = '{__ZAKLADKA_YOUTUBE_PROFIL}';
+        //
+        if ( yt_strona == 'lewa' ) {
+             stronaLewa.push( '{__ZAKLADKA_YOUTUBE_SORT}_youtube' );
+           } else {
+             stronaPrawa.push( '{__ZAKLADKA_YOUTUBE_SORT}_youtube' );
+        }
+        //
+    }
+
+    var go_tryb = '{__ZAKLADKA_GOOGLE_WLACZONA}';
+    if ( go_tryb == 'tak' ) {
+        //
+        var go_strona = '{__ZAKLADKA_GOOGLE_STRONA}';
+        var google_nr = '{__ZAKLADKA_GOOGLE_PROFIL}';
+        //
+        if ( go_strona == 'lewa' ) {
+             stronaLewa.push( '{__ZAKLADKA_GOOGLE_SORT}_google' );
+           } else {
+             stronaPrawa.push( '{__ZAKLADKA_GOOGLE_SORT}_google' );
+        }
+        //
+    }    
+
+    var tw_tryb = '{__ZAKLADKA_TWITTER_WLACZONA}';
+    if ( tw_tryb == 'tak' ) {
+        //
+        var tw_strona = '{__ZAKLADKA_TWITTER_STRONA}';
+        var twitter_profil = '{__ZAKLADKA_TWITTER_PROFIL}';
+        var twitter_widget = '{__ZAKLADKA_TWITTER_WIDGET}';
+        //
+        if ( tw_strona == 'lewa' ) {
+             stronaLewa.push( '{__ZAKLADKA_TWITTER_SORT}_twitter' );
+           } else {
+             stronaPrawa.push( '{__ZAKLADKA_TWITTER_SORT}_twitter' );
+        }
+        //
+    }    
+    
+    var allegro_tryb = '{__ZAKLADKA_ALLEGRO_WLACZONA}';
+    if ( allegro_tryb == 'tak' ) {
+        //
+        var allegro_strona = '{__ZAKLADKA_ALLEGRO_STRONA}';
+        //
+        if ( allegro_strona == 'lewa' ) {
+             stronaLewa.push( '{__ZAKLADKA_ALLEGRO_SORT}_allegro' );
+           } else {
+             stronaPrawa.push( '{__ZAKLADKA_ALLEGRO_SORT}_allegro' );
+        }
+        //
+    }     
+    
+    var pierwsza_tryb = '{__ZAKLADKA_PIERWSZA_WLACZONA}';
+    if ( pierwsza_tryb == 'tak' && ( '{__DOMYSLNY_JEZYK}' == '{__ZAKLADKA_PIERWSZA_JEZYK}' || '{__ZAKLADKA_PIERWSZA_JEZYK}' == 0 ) ) {
+        //
+        var pierwsza_strona = '{__ZAKLADKA_PIERWSZA_STRONA}';
+        var pierwsza_ikona = '<img src="{__KATALOG_ZDJEC}/{__ZAKLADKA_PIERWSZA_IKONA}" alt="" />';
+        var pierwsza_tresc = '{__ZAKLADKA_PIERWSZA_TRESC}';
+        var pierwsza_szerokosc = '{__ZAKLADKA_PIERWSZA_SZEROKOSC}';
+        //
+        if ( pierwsza_strona == 'lewa' ) {
+             stronaLewa.push( '{__ZAKLADKA_PIERWSZA_SORT}_pierwsza' );
+           } else {
+             stronaPrawa.push( '{__ZAKLADKA_PIERWSZA_SORT}_pierwsza' );
+        }
+        //
+    }      
+
+    var druga_tryb = '{__ZAKLADKA_DRUGA_WLACZONA}';
+    if ( druga_tryb == 'tak' && ( '{__DOMYSLNY_JEZYK}' == '{__ZAKLADKA_DRUGA_JEZYK}' || '{__ZAKLADKA_DRUGA_JEZYK}' == 0 ) ) {
+        //
+        var druga_strona = '{__ZAKLADKA_DRUGA_STRONA}';
+        var druga_ikona = '<img src="{__KATALOG_ZDJEC}/{__ZAKLADKA_DRUGA_IKONA}" alt="" />';
+        var druga_tresc = '{__ZAKLADKA_DRUGA_TRESC}';
+        var druga_szerokosc = '{__ZAKLADKA_DRUGA_SZEROKOSC}';
+        //
+        if ( druga_strona == 'lewa' ) {
+             stronaLewa.push( '{__ZAKLADKA_DRUGA_SORT}_druga' );
+           } else {
+             stronaPrawa.push( '{__ZAKLADKA_DRUGA_SORT}_druga' );
+        }
+        //
+    } 
+
+    var trzecia_tryb = '{__ZAKLADKA_TRZECIA_WLACZONA}';
+    if ( trzecia_tryb == 'tak' && ( '{__DOMYSLNY_JEZYK}' == '{__ZAKLADKA_TRZECIA_JEZYK}' || '{__ZAKLADKA_TRZECIA_JEZYK}' == 0 ) ) {
+        //
+        var trzecia_strona = '{__ZAKLADKA_TRZECIA_STRONA}';
+        var trzecia_ikona = '<img src="{__KATALOG_ZDJEC}/{__ZAKLADKA_TRZECIA_IKONA}" alt="" />';
+        var trzecia_tresc = '{__ZAKLADKA_TRZECIA_TRESC}';
+        var trzecia_szerokosc = '{__ZAKLADKA_TRZECIA_SZEROKOSC}';
+        //
+        if ( trzecia_strona == 'lewa' ) {
+             stronaLewa.push( '{__ZAKLADKA_TRZECIA_SORT}_trzecia' );
+           } else {
+             stronaPrawa.push( '{__ZAKLADKA_TRZECIA_SORT}_trzecia' );
+        }
+        //
+    }     
+    
+    stronaLewa.sort(); 
+    stronaPrawa.sort(); 
+    
+    if ( stronaLewa.length > 0 ) {
+        //
+        for (c = 0; c < stronaLewa.length; c++) {
+            var elem = stronaLewa[c].split('_');
+            eval('zakladka_' + elem[1] + '();');
+        }
+        //
+    }
+    
+    if ( stronaPrawa.length > 0 ) {
+        //
+        for (c = 0; c < stronaPrawa.length; c++) {
+            var elem = stronaPrawa[c].split('_');
+            eval('zakladka_' + elem[1] + '();');
+        }
+        //
+    }    
+    
+    // maksymalna szerokosc zakladki
+    $('#wysZakladki .zaklwys').each(function() {
+        idWys = $(this).attr('id');
+        if ( $('#' + idWys + '_ikona').width() > szerokoscZakladek ) {
+             szerokoscZakladek = $('#' + idWys + '_ikona').width();
+        }
+        //
+        szerokoscZakladek = szerokoscZakladek ;
+        delete idWys;
+    });
+
+    if ( pokazujZakladki == 'nie' ) {
+    
+        if ( $(window).width() > $('#Strona').width() + (szerokoscZakladek * 2) + 20 ) {    
+            $('#wysZakladki').show();
+           } else {
+            $('#wysZakladki').hide();          
+        }
+
+    }
+    
+    var pokazujZakladki = '{__WYSUWANE_ZAKLADKI_WYSWIETLANIE}';
+    
+    // usuwanie jezeli nie zmieszcza sie na ekranie
+    if ( pokazujZakladki == 'nie' ) {
+    
+        $(window).resize(function() {
+            if ( $(window).width() > $('#Strona').width() + (szerokoscZakladek * 2) + 20 ) {
+                $('#wysZakladki').show();
+               } else {
+                $('#wysZakladki').hide();          
+            }
+        });  
+
+    }
+    
+    /* -------------- funkcje wyswietlania zakladek ------------------ */
+
+    /* facebook */
+    function zakladka_facebook() {
+
+        var fb_kod = '<div id="ramkaFb"><iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2F' + fb_profil + '&amp;width=300&amp;height=300&amp;show_faces=true&amp;colorscheme=light&amp;stream=false&amp;border_color=%23ffffff&amp;header=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:300px;" allowTransparency="true"></iframe></div>';
+
+        $("#wysZakladki").append('<div class="zaklwys" id="fb"></div>');
+        $("#fb").html('<div id="fb_ikona"></div>' + fb_kod);  
+
+        konfig_zakladki( "#fb", "#fb_ikona", fb_strona );
+        
+    }
+    
+    /* gg */
+    function zakladka_gg() {
+      
+        var gg_kod = '<div id="ramkaGg"><iframe src="https://widget.gg.pl/widget/' + gg_id + '#uin=' + gg_nr + '|msg_online=' + gg_online + '|msg_offline=' + gg_offline + '|hash=' + gg_id + '" height="350" width="225" frameborder="0"></iframe></div>';
+        
+        $("#wysZakladki").append('<div class="zaklwys" id="gg"></div>');
+        $("#gg").html('<div id="gg_ikona"></div>' + gg_kod); 
+
+        konfig_zakladki( "#gg", "#gg_ikona", gg_strona );
+        
+    }
+    
+    /* nasza klasa */
+    function zakladka_nk() {
+
+        (function() {
+            var id = 'nk-widget-sdk';
+            var js, first_js = document.getElementsByTagName('script')[0];
+            if (document.getElementById(id)) return;
+            js = document.createElement('script'); 
+            js.id = id; js.async = true;
+            js.type = 'text/javascript';
+            js.src = 'http://nk.pl/script/packs/nk_widgets_all.js';
+            first_js.parentNode.insertBefore(js, first_js);
+        }());    
+                
+        var nk_kod = '<div id="ramkaNk"><div class="nk-group-box" data-nk-group-id="' + nk_nr + '" data-nk-width="300" data-nk-height="400" data-nk-border-color="#21537f" data-nk-bg="#2b608c" data-nk-header-footer-bg="#295880" data-nk-header-text-color="#ffffff" data-nk-group-desc-bg="#2e6694" data-nk-group-desc-color="#ffffff" data-nk-footer-link-color="#ffffff"></div</div>';
+        
+        $("#wysZakladki").append('<div class="zaklwys" id="nk"></div>');
+        $("#nk").html('<div id="nk_ikona"></div>' + nk_kod);
+
+        konfig_zakladki( "#nk", "#nk_ikona", nk_strona );        
+
+    }
+    
+    /* youtube */
+    function zakladka_youtube() {
+   
+        var youtube_kod = '<div id="ramkaYt"><iframe id="fr" src="https://www.youtube.com/subscribe_widget?p=' + youtube_profil + '" style="border:0 none;height:100px;overflow:hidden;width:290px;background:#fff" scrolling="no" frameBorder="0"></iframe></div>';
+        
+        $("#wysZakladki").append('<div class="zaklwys" id="yt"></div>');
+        $("#yt").html('<div id="yt_ikona"></div>' + youtube_kod);
+        
+        konfig_zakladki( "#yt", "#yt_ikona", yt_strona );        
+
+    }
+    
+    /* google plus */
+    function zakladka_google() {
+   
+        var google_kod = '<div id="ramkaGp" style="height:124px;overflow:hidden"><iframe src="https://sites.google.com/c/widgets/ProfileCard?uid=' + google_nr + '" height="122px" width="325px" scrolling="no"></iframe></div>';
+        
+        $("#wysZakladki").append('<div class="zaklwys" id="gp"></div>');
+        $("#gp").css('width','333px');
+        $("#gp").html('<div id="gp_ikona"></div>' + google_kod);
+
+        konfig_zakladki( "#gp", "#gp_ikona", go_strona );               
+
+    }
+    
+    /* twitter */
+    function zakladka_twitter() {
+    
+        !function(d,s,id){
+        var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+        if(!d.getElementById(id)){
+        js=d.createElement(s);
+        js.id=id;
+        js.src=p+"://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js,fjs);
+        }
+        }
+        (document,"script","twitter-wjs");    
+
+        var twitter_kod = '<div id="ramkaTw"><a class="twitter-timeline" width="302" height="300" data-dnt="true" href="https://twitter.com/' + twitter_profil + '" data-widget-id="' + twitter_widget + '">' + twitter_profil + '</a></div>';
+
+        $("#wysZakladki").append('<div class="zaklwys" id="tw"></div>');
+        $("#tw").html('<div id="tw_ikona"></div>' + twitter_kod); 
+
+        konfig_zakladki( "#tw", "#tw_ikona", tw_strona ); 
+
+    }
+    
+    /* allegro */
+    function zakladka_allegro() {
+    
+        var allegro_kod = '<div id="ramkaAg">Brak połączenia ...</div>';
+
+        $("#wysZakladki").append('<div class="zaklwys" id="allegro"></div>');
+        $("#allegro").html('<div id="allegro_ikona"></div>' + allegro_kod); 
+
+        konfig_zakladki( "#allegro", "#allegro_ikona", allegro_strona ); 
+
+        var idAl = '{__ZAKLADKA_ALLEGRO_ID}';
+        if ( idAl == '' ) {
+            idAl = 0;
+        }
+        
+        var ileAl = '{__ZAKLADKA_ALLEGRO_KOMENTARZE_ILOSC}';
+        if ( ileAl == '' ) {
+            ileAl = 10;
+        }
+
+        $.post("inne/allegro_komentarze.php", { limit: ileAl, id: idAl }, function(data) { 
+            $('#ramkaAg').html(data);
+        });        
+
+    }    
+    
+    function zakladka_pierwsza() {
+
+        $("#wysZakladki").append('<div class="zaklwys" id="pierwsza" style="position:fixed"></div>');
+        $("#pierwsza").html('<div id="pierwsza_ikona" style="position:absolute;width:{__ZAKLADKA_PIERWSZA_IKONA_SZEROKOSC}px;height:{__ZAKLADKA_PIERWSZA_IKONA_WYSOKOSC}px">' + pierwsza_ikona + '</div><div style="width:' + pierwsza_szerokosc + 'px;overflow:hidden">' + pierwsza_tresc + '</div>');  
+        
+        konfig_zakladki( "#pierwsza", "#pierwsza_ikona", pierwsza_strona );
+        
+    }   
+
+    function zakladka_druga() {
+
+        $("#wysZakladki").append('<div class="zaklwys" id="druga" style="position:fixed"></div>');
+        $("#druga").html('<div id="druga_ikona" style="position:absolute;width:{__ZAKLADKA_DRUGA_IKONA_SZEROKOSC}px;height:{__ZAKLADKA_DRUGA_IKONA_WYSOKOSC}px">' + druga_ikona + '</div><div style="width:' + druga_szerokosc + 'px;overflow:hidden">' + druga_tresc + '</div>');  
+        
+        konfig_zakladki( "#druga", "#druga_ikona", druga_strona );
+        
+    }
+
+    function zakladka_trzecia() {
+
+        $("#wysZakladki").append('<div class="zaklwys" id="trzecia" style="position:fixed"></div>');
+        $("#trzecia").html('<div id="trzecia_ikona" style="position:absolute;width:{__ZAKLADKA_TRZECIA_IKONA_SZEROKOSC}px;height:{__ZAKLADKA_TRZECIA_IKONA_WYSOKOSC}px">' + trzecia_ikona + '</div><div style="width:' + trzecia_szerokosc + 'px;overflow:hidden">' + trzecia_tresc + '</div>');  
+ 
+        konfig_zakladki( "#trzecia", "#trzecia_ikona", trzecia_strona );
+        
+    }    
+    
+    function konfig_zakladki( idElementu, idIkony, strona ) {
+    
+        if ( strona == 'lewa' ) {        
+            var wysokoscZakladek = wysokoscLewa;
+            var iloscZakladek = iloscZakladekLewa;
+           } else {
+            var wysokoscZakladek = wysokoscPrawa;
+            var iloscZakladek = iloscZakladekPrawa;
+        }    
+    
+        var wysZakladki = parseInt($(idIkony).height());
+        var szeZakladki = parseInt($(idIkony).width());
+
+        $(idElementu).css({ 'top' : (marginesGora + wysokoscZakladek) });
+
+        if ( strona == 'lewa' ) {
+        
+            var szerElementu = $(idElementu).width();
+            $(idElementu).css( { 'left' : '-' + szerElementu + 'px' } );
+            $(idIkony).css( { 'margin-left' : szerElementu + 'px', 'background-position' : 'left bottom' } ); 
+            
+            $(idElementu).hover(function(){             
+                $(this).animate( { left: "0px" } , 600);          
+            },
+            function(){ 
+                $(this).stop(true,false).animate( { left: '-' + szerElementu + 'px' } , 600 );
+            });        
+
+            wysokoscLewa += wysZakladki;   
+            iloscZakladekLewa++;
+            
+          } else {
+          
+            var szerElementu = $(idElementu).width();
+            $(idElementu).css( { 'right' : '-' + szerElementu + 'px' } );
+            $(idIkony).css( { 'margin-left' : '-' + szeZakladki + 'px', 'background-position' : 'left top' } );
+            
+            $(idElementu).hover(function(){             
+                $(this).animate( { right: "0px" } , 600);          
+            },
+            function(){ 
+                $(this).stop(true,false).animate( { right: '-' + szerElementu + 'px' } , 600 );
+            });  
+
+            wysokoscPrawa += wysZakladki;
+            iloscZakladekPrawa++;
+ 
+        }
+        
+        $(idElementu).css( { 'z-index' : 10000 - (iloscZakladek * 1000) } );
+        $(idIkony).css( { 'z-index' : 10001 - (iloscZakladek * 1000) } );     
+    
+    }    
+    
+}); 

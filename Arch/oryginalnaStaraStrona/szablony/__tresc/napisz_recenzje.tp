@@ -1,0 +1,121 @@
+<!-- wyglad naglowka strony -->
+
+<h1 class="StrNaglowek">
+    <span>{__TLUMACZ:NAPISZ_OPINIE_O_PRODUKCIE} {__NAZWA_PRODUKTU}</span>  
+</h1>
+
+<!-- tresc strony -->
+
+<section class="StrTresc">
+
+    <?php $Zalogowany = $__pA; ?>
+
+    <!-- wyswietlany komunikat po zapisaniu recenzji jezeli jest get = sukces -->
+
+    <?php if (isset($_GET['sukces'])) { ?>
+    
+    <p class="Informacja">
+        {__TLUMACZ:NAPISANIE_RECENZJI_SUKCES} <br />
+        {__TLUMACZ:INFO_O_ZATWIERDZENIU_RECENZJI}
+    </p>
+
+    <?php }  ?> 
+    
+    <!-- wyswietlanie formularza napisania recenzji -->
+    
+    <?php if (!isset($_GET['sukces'])) { ?>
+
+    <div class="Recenzja">
+    
+        <!-- formularz -->
+        
+        <div class="OpisTekst">
+
+            <!-- sprawdza czy recenzje sa tylko dla zarejestrowanych klientow -->
+            
+            <?php if ((RECENZJE_DODAWANIE == 'tak' && $Zalogowany == 'tak') || RECENZJE_DODAWANIE == 'nie') { ?>
+
+            <form action="{__LINK}" method="post" id="pisanie_recenzji" class="cmxform"> 
+            
+                <p>
+                    <span>{__TLUMACZ:AUTOR_RECENZJI}: <em class="required"></em></span>
+                    <input type="text" size="35" style="width:50%" value="{__IMIE_AUTORA}" name="autor" id="autor" />
+                </p>            
+
+                <p>
+                    <span>{__TLUMACZ:OPINIA_O_PRODUKCIE}: <em class="required"></em></span>
+                    <textarea rows="5" cols="35" style="width:90%" name="opinia" id="opinia" class="required"></textarea>
+                </p> 
+                
+                <p>
+                    <span>{__TLUMACZ:OCENA_PRODUKTU}: <em class="required"></em></span>
+                    <img alt="{__TLUMACZ:OCENA_PRODUKTU} 1/5" src="szablony/{__DOMYSLNY_SZABLON}/obrazki/recenzje/ocena_1.png" /> <input type="radio" value="1" name="ocena" /> <b>{__TLUMACZ:RECENZJA_OCENA_1}</b> <br />
+                    <img alt="{__TLUMACZ:OCENA_PRODUKTU} 2/5" src="szablony/{__DOMYSLNY_SZABLON}/obrazki/recenzje/ocena_2.png" /> <input type="radio" value="2" name="ocena" /> <b>{__TLUMACZ:RECENZJA_OCENA_2}</b> <br />
+                    <img alt="{__TLUMACZ:OCENA_PRODUKTU} 3/5" src="szablony/{__DOMYSLNY_SZABLON}/obrazki/recenzje/ocena_3.png" /> <input type="radio" value="3" name="ocena" /> <b>{__TLUMACZ:RECENZJA_OCENA_3}</b> <br />
+                    <img alt="{__TLUMACZ:OCENA_PRODUKTU} 4/5" src="szablony/{__DOMYSLNY_SZABLON}/obrazki/recenzje/ocena_4.png" /> <input type="radio" value="4" name="ocena" /> <b>{__TLUMACZ:RECENZJA_OCENA_4}</b> <br />
+                    <img alt="{__TLUMACZ:OCENA_PRODUKTU} 5/5" src="szablony/{__DOMYSLNY_SZABLON}/obrazki/recenzje/ocena_5.png" /> <input type="radio" value="5" name="ocena" checked="checked" />  <b>{__TLUMACZ:RECENZJA_OCENA_5}</b>               
+                </p>
+                
+                <div style="display:table;">
+                    <div style="display:table-cell; vertical-align:middle;"><input type="text" name="weryfikacja" id="weryfikacja" onblur="WeryfikacjaCaptcha(this.value)" onkeyup="WeryfikacjaCaptcha(this.value)" /></div>
+                    <div style="display:table-cell; vertical-align:middle;"><img src="inne/captcha.php" id="weryfikacjaImg" /></div>
+                    <div style="display:table-cell; vertical-align:middle;"><span class="InfoTip" onclick="OdswiezCaptcha()"><img src="images/odswiez.png" alt="" /></span></div>
+                </div>
+                <div class="cl"></div>
+
+                <p>
+                    <input type="hidden" name="akcja" value="zapisz" />
+                    <input type="hidden" name="id_produkt" value="{__ID_PRODUKTU}" />
+                    <input type="hidden" name="tok" value="{__TOKEN}" />
+                    <input type="submit" style="margin-top:15px" id="submitButton" class="przyciskWylaczony" value="{__TLUMACZ:PRZYCISK_WYSLIJ}" disabled="disabled" />
+                </p>
+
+                <p class="Informacja" style="margin-top:20px">
+                    {__TLUMACZ:INFO_O_ZATWIERDZENIU_RECENZJI}
+                </p>
+                
+            </form>    
+
+            <!-- jezeli formularz jest tylko dla zarejestrowanych klientow a klient nie jest zalogowany to wyswietli komunikat -->            
+
+            <?php } else { ?>
+            
+                {__TLUMACZ:INFO_RECENZJA_KONIECZNE_ZALOGOWANIE}
+                
+                <div style="margin-top:15px">
+                    <a href="{__SSL:logowanie.html}" class="przycisk">{__TLUMACZ:ZALOGUJ_SIE}</a> 
+                    <a href="{__SSL:rejestracja.html}" class="przycisk">{__TLUMACZ:ZALOZ_KONTO}</a> 
+                </div>
+                
+            <?php } ?>
+            
+            <!-- informacja o systemie punktow - ile klient otrzyma za napisanie recenzji -->
+            
+            <?php if ( SYSTEM_PUNKTOW_STATUS == 'tak' && (int)SYSTEM_PUNKTOW_PUNKTY_RECENZJE > 0 ) { ?>
+            
+            <p class="InformacjaOk" style="margin-top:20px">
+                {__INFO_O_PUNKTACH_RECENZJI}
+            </p>
+            
+            <?php } ?> 
+
+        </div>
+        
+    </div>
+    
+    <?php } 
+    
+    unset($Zalogowany);
+    ?>    
+    
+    <div class="cl"></div>
+    
+    <!-- przycisk powrotu do strony glownej -->
+    
+    <a href="/" class="przycisk Prawy">{__TLUMACZ:PRZYCISK_DO_STRONY_GLOWNEJ}</a>   
+    
+    <div class="cl"></div>
+
+</section>
+
+

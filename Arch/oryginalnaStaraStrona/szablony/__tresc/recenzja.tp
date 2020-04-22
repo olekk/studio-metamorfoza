@@ -1,0 +1,72 @@
+<!-- wyglad naglowka strony -->
+
+<h1 class="StrNaglowek">
+    <span>{__TLUMACZ:OPINIA_O_PRODUKCIE} {__NAZWA_PRODUKTU}</span>  
+</h1>
+
+<!-- tresc strony -->
+
+<section class="StrTresc">
+
+    <div class="Recenzja" itemscope itemtype="http://data-vocabulary.org/Review">
+    
+        <meta itemprop="itemreviewed" content="{__NAZWA_PRODUKTU}" />
+
+        <!-- tresc recenzji -->
+        
+        <div class="OpisTekst">
+        
+            <p>
+                {__TLUMACZ:DATA_NAPISANIA_RECENZJI}: <strong> <time itemprop="dtreviewed" datetime="{__DATA_DODANIA}">{__DATA_DODANIA}</time> </strong>
+            </p>        
+            
+            <p>
+                {__TLUMACZ:OPINIA_O_PRODUKCIE}: <strong> <span itemprop="description">{__TRESC_RECENZJI}</span> </strong>
+            </p>
+            
+            <p>
+                {__TLUMACZ:AUTOR_RECENZJI}: <span itemprop="reviewer"><strong> {__AUTOR_RECENZJI} </strong></span>
+            </p>
+            
+            <p>
+                {__TLUMACZ:OCENA_PRODUKTU}: {__OCENA_RECENZJI_GWIAZDKI}
+            </p>
+            
+            <p>
+                {__TLUMACZ:SREDNIA_OCENA_PRODUKTU} ({__OCENA_RECENZJI_TEKST}): {__SREDNIA_OCENA_RECENZJI_GWIAZDKI} <br />
+                {__TLUMACZ:ILOSC_WSZYSTKICH_RECENZJI}: <a href="{__LINK_DO_PRODUKTU}"><strong> {__ILOSC_WSZYSTKICH_RECENZJI}</strong></a> 
+            </p>
+            
+            <!-- informacja o systemie punktow - ile klient otrzyma za napisanie recenzji -->
+            
+            <?php if ( SYSTEM_PUNKTOW_STATUS == 'tak' && (int)SYSTEM_PUNKTOW_PUNKTY_RECENZJE > 0 ) { ?>
+            
+            <p class="InformacjaOk" style="margin-top:20px">
+                {__INFO_O_PUNKTACH_RECENZJI}
+            </p>
+            
+            <?php } ?>            
+            
+            <!-- przyciski -->
+
+            <p class="Przyciski">
+                <a href="{__LINK_DO_PRODUKTU}" class="przycisk">{__TLUMACZ:PRZYCISK_ZOBACZ_SZCZEGOLY_PRODUKTU}</a> 
+                <a href="{__LINK_DO_NAPISANIA_RECENZJI}" class="przycisk">{__TLUMACZ:PRZYCISK_NAPISZ_RECENZJE}</a> 
+            </p>
+                        
+
+        </div>
+        
+    </div>
+    
+    <div class="cl"></div>
+    
+    <!-- przycisk powrotu do strony glownej -->
+    
+    <a href="/" class="przycisk Prawy">{__TLUMACZ:PRZYCISK_DO_STRONY_GLOWNEJ}</a>   
+    
+    <div class="cl"></div>
+
+</section>
+
+

@@ -1,0 +1,138 @@
+<style type="text/css" media="screen">
+#TloStrony { color: #636363; width:100%; margin:0px; border:0px; background:#e0e0e0; font-family: Arial, Tahoma, Verdana, sans-serif; font-size:12px; }
+#TloStrony h4 { font-family: Arial, Tahoma, Verdana, sans-serif; }
+
+#Naglowek { width:990px; margin:0px auto; border:1px solid #cccccc; overflow:hidden; min-height:100px;
+           -webkit-border-bottom-left-radius: 5px; -moz-border-radius-bottomleft: 5px; border-bottom-left-radius: 5px; -khtml-border-bottom-left-radius:5px;
+           -webkit-border-bottom-right-radius: 5px; -moz-border-radius-bottomright: 5px; border-bottom-right-radius: 5px; -khtml-border-bottom-right-radius:5px; }
+
+#MenuPodNaglowkiem { overflow:hidden; z-index:2; height:85px; margin:-5px 0px 0px 0px; position:relative; background:url('[SERWER]/tlo_gornego_menu.png') repeat-x; border:1px solid #cccccc; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; -khtml-border-radius:5px; }
+
+/* menu pod naglowkiem */
+#LinkiGorneMenu { height:51px; display:table; width:100%; border-collapse:collapse; border-spacing:0; }
+#LinkiMenu { vertical-align:top; display:table-cell; }
+#LinkiMenu h3 { padding:0px; margin:0px; border-right:1px solid #cccccc; display:inline-block; }
+#LinkiMenu a { padding:0px 20px 0px 20px; height:51px; line-height:48px; color: #343333; font-size:14px; font-family: Verdana, Tahoma, Arial, sans-serif; font-weight:normal; display:inline-block; text-decoration:none; }
+#LinkiMenu a:hover { color:#ffffff; background:url('[SERWER]/tlo_menu_wlaczone.png') repeat-x left center; }
+
+#SrodekAukcji { width:990px; margin:0px auto; margin-top:15px; }
+#LewaKolumna { float:left; overflow:hidden; width:240px; }
+#LewaKolumnaPrzerwa { margin-right:15px; }
+#PrawaKolumna { float:left; overflow:hidden; width:750px; }
+
+.RamkaBox { border:1px solid #cccccc; -webkit-border-radius:6px; -moz-border-radius:6px; border-radius:6px; -khtml-border-radius:6px; margin-bottom:10px; overflow:hidden; }
+.BoxNaglowek { text-shadow:1px 1px 1px #000000; background:url('[SERWER]/tlo_naglowka_boxu.png') repeat-x; margin:0px; padding:12px 15px 12px 15px; color:#ffffff; font-size:16px; font-weight:normal; text-align:left; }
+.CienBox { background:url('[SERWER]/naglowek_boxu_cien.png') repeat-x #ffffff; height:5px; }
+.BoxTresc { padding:15px; background:#ffffff; }
+
+.StrNaglowek { margin:0px; color:#4e4d4d; font-size:18px; font-weight:normal; background:url('[SERWER]/tlo_naglowka_modulow.png') repeat-x; overflow:hidden; border:1px solid #cccccc;
+              -webkit-border-top-left-radius:6px; -moz-border-radius-topleft:6px; border-top-left-radius:6px; -khtml-border-top-left-radius:6px;
+              -webkit-border-top-right-radius:6px; -moz-border-radius-topright:6px; border-top-right-radius:6px; -khtml-border-top-right-radius:6px; 
+}
+.StrNaglowek span { text-shadow:1px 1px 1px #ffffff; display:inline-block; padding:12px 12px 12px 20px; }
+.StrTresc { text-align:center; border:1px solid #cccccc; border-top:0px; margin-bottom:10px; padding:15px; overflow:hidden; background:#ffffff; 
+            -webkit-border-bottom-left-radius:6px; -moz-border-radius-bottomleft:6px; border-bottom-left-radius:6px; -khtml-border-bottom-left-radius:6px;
+            -webkit-border-bottom-right-radius:6px; -moz-border-radius-bottomright:6px; border-bottom-right-radius:6px; -khtml-border-bottom-right-radius:6px; 
+}
+.StrTresc .NazwaProduktu { font-size:17px; margin-bottom:20px; }
+
+#Stopka { margin:10px 0px 15px 0px; height:58px; background:url('[SERWER]/tlo_gradient_stopki.png') repeat-x; border:1px solid #cccccc; overflow:hidden; -webkit-border-radius:6px; -moz-border-radius:6px; border-radius:6px; -khtml-border-radius:6px; line-height:56px; font-size:14px; }
+#Stopka h3 { display:inline-block; }
+#Stopka div { background:url('[SERWER]/stopka_info.png') no-repeat left center; width:73px; height:58px; float:left; margin-right:25px; }
+
+</style>
+
+<div id="TloStrony">
+
+    <!-- naglowek szablonu -->
+
+    <div id="Naglowek">
+         
+        <img src="[SERWER]/naglowek.jpg" alt="" />
+            
+        <!-- gorne menu -->
+        <div id="MenuPodNaglowkiem">
+            
+            <div id="LinkiMenu">
+                <h3><a href="http://www.allegro.pl/show_user_auctions.php?uid=[ID_ALLEGRO]&amp;showing_type=gal">Nasze aukcje</a></h3><h3><a href="http://www.allegro.pl/show_user.php?uid=[ID_ALLEGRO]">Komentarze</a></h3><h3><a href="http://www.allegro.pl/my_page.php?uid=[ID_ALLEGRO]">O nas</a></h3><h3><a href="http://www.allegro.pl/email_to_user.php?uid=[ID_ALLEGRO]">Napisz do nas</a></h3>
+            </div>
+
+        </div>
+
+    </div>
+    
+    <div id="SrodekAukcji">
+    
+        <!-- lewa kolumna z boxami -->
+    
+        <div id="LewaKolumna">
+        
+            <div id="LewaKolumnaPrzerwa">
+        
+                <!-- wyglad boxu -->
+                
+                <div class="RamkaBox">
+                  <h4 class="BoxNaglowek">Przykładowy nagłówek</h4>
+                  <div class="CienBox"></div>
+                  <div class="BoxTresc">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                      Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. 
+                      Cras vel lorem. Etiam pellentesque aliquet tellus. 
+                      Phasellus pharetra nulla ac diam. Quisque semper justo at risus.
+                  </div>
+                </div>
+
+                <!-- wyglad boxu -->
+                <div class="RamkaBox">
+                  <h4 class="BoxNaglowek">Przykładowy nagłówek</h4>
+                  <div class="CienBox"></div>
+                  <div class="BoxTresc">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                      Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. 
+                      Cras vel lorem. Etiam pellentesque aliquet tellus. 
+                      Phasellus pharetra nulla ac diam. Quisque semper justo at risus.
+                  </div>
+                </div>
+
+                <!-- wyglad boxu -->
+                <div class="RamkaBox">
+                  <h4 class="BoxNaglowek">Przykładowy nagłówek</h4>
+                  <div class="CienBox"></div>
+                  <div class="BoxTresc">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                      Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. 
+                      Cras vel lorem. Etiam pellentesque aliquet tellus. 
+                      Phasellus pharetra nulla ac diam. Quisque semper justo at risus.
+                  </div>
+                </div>
+
+            </div>
+        
+        </div>
+        
+        <div id="PrawaKolumna">
+        
+          <h2 class="StrNaglowek"><span>Dzisiaj na aukcji oferujemy</span></h2>
+          
+          <div class="StrTresc">
+          
+                <div class="NazwaProduktu">[NAZWA]</div>
+                [OPIS]
+                <br /><br /><br />
+                [ZDJECIA]
+                
+          </div>
+
+          <div class="CienBoxModul"></div>            
+        
+        </div>
+        
+        <div style="clear:both"></div>
+
+        <div id="Stopka"><div></div>... dziękujemy i zapraszamy ponownie ...</div>
+        
+    </div>
+
+</div>
+
+<div style="clear:both"></div>

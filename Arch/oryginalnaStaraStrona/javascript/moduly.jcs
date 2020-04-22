@@ -1,0 +1,375 @@
+// zmianna do okreslania czy byl juz wyswietlony jakis modul staly - zeby nie nakladaly sie na siebie moduly
+var BylModulStaly = false;
+var BylModulDolny = false;
+
+$(document).ready(function(){
+
+    // animacja wysuwanej zakladki - zobacz szczegoly
+    $('.AnimacjaZobacz').hover(
+    function(){        
+        var wyso = $(this).find('.Zobacz').outerHeight();
+        //
+        $(this).find('.Zobacz').show().css({ marginTop : wyso * -1, width : '100%' });
+        $(this).find('.Zobacz').stop().animate({ marginTop: '-5px' }, 300, "CofniecieOut");
+        },
+    function(){     
+        //
+        $(this).find('.Zobacz').show();
+        var wyso = $(this).find('.Zobacz').outerHeight();
+        //
+        $(this).find('.Zobacz').stop().animate({ marginTop: (wyso + 20) * -1 }, 300, "CofniecieOut", function() {
+            $(this).find('.Zobacz').hide();
+        });
+    }); 
+    
+    filtryObsluga();
+
+});
+
+// informacja o poprzednio ogladanych produktach
+(function($) {
+
+    $.OstatnioOgladane = function() {
+        //
+        // jezeli jest info o cookie to nie moze sie wyswietlac bo beda sie przykrywaly
+        $(document).ready(function(){
+            if ( BylModulStaly == true || BylModulDolny == true ) {
+                $('#PrzyklejOstatnieProd').hide();
+            }
+        });
+        //
+        // animacja produktow poprzednio ogladanych - przyklejone na dole strony
+        $('#PrzyklejOstatnieProd').click( function() {
+            if ( $('#PrzyklejOstatnieProd ul').css('display') == 'none' ) {
+                 $('#PrzyklejOstatnieProd ul').stop().slideDown( function() {
+                    $('#PrzyklejOstatnieProd').fadeTo('fast', 0.9);
+                    $('#PrzyklejOstatnieProd .Rozwiniecie').fadeTo('fast', 0.1);
+                 });
+               } else {
+                 $('#PrzyklejOstatnieProd ul').stop().slideUp( function() {
+                    $('#PrzyklejOstatnieProd').fadeTo('fast', 0.5);
+                    $('#PrzyklejOstatnieProd .Rozwiniecie').fadeTo('fast', 1);
+                 });
+            } 
+        });
+        
+        $('#PrzyklejOstatnieProd .Zamknij').click( function() {
+            document.cookie = 'oknoPoprzednie="nie"';
+            $('#PrzyklejOstatnieProd').stop().slideUp( function() {
+                $('#PrzyklejOstatnieProd').remove();
+            });
+        });
+        //
+    }
+
+})(jQuery);
+
+// blokada 18+
+(function($) {
+
+    $.Blokada18plus = function() {
+        //
+        // jezeli jest info o cookie to nie moze sie wyswietlac bo beda sie przykrywaly
+        //$(document).ready(function(){
+        //    if ( BylModulStaly == true ) {
+                 //$('#InfoCookie').hide();
+        //    }
+        //});
+        
+        $('.BlokadaPrzyciski .wejdz').click( function() {
+            document.cookie = 'akcept18plus=tak';
+            $('#BlokadaOkno').stop().slideUp( 'fast', function() {
+                $('#Blokada18').fadeOut( function() {
+                    window.location.reload();
+                });
+            });
+        });        
+        
+        $('.BlokadaPrzyciski .zrezygnuj').click( function() {
+            history.back(1);
+        }); 
+
+        BylModulStaly = true;
+     
+    }
+
+})(jQuery);
+
+// informacja o cookie
+(function($) {
+
+    $.InfoCookie = function() {
+        //
+        if ( !$('#InfoCookie').length ) {
+             $('body').append( '<div id="InfoCookie"><div class="CookieTekst">' + infoCookieTekst + '</div></div>' );
+             $('#InfoCookie').append('<span id="InfoAkcept">' + infoCookieAkcept + '</span>');
+             BylModulDolny = true;
+        }
+        //
+        $('#InfoAkcept').click( function() {
+            document.cookie = 'akceptCookie=tak;path=/';
+            $('#InfoCookie').stop().slideUp( function() {
+                $('#InfoCookie').remove();
+            });
+        });       
+    }
+
+})(jQuery);
+
+(function($) {
+
+    $.ProduktyListaZdjecie = function( idModulu ) {
+    
+        // produkty w wierszu i po najechaniu zmienia sie zdjecie z lewej - dla nowosci
+        $('#' + idModulu + ' h3:first-child a').addClass('wyswietlany');
+        
+        $('#' + idModulu + ' h3').hover(
+        function(){
+            var idm = $(this).attr("id");
+            $('#' + idModulu + ' li').css( { 'display':'none' });
+            $('#' + idModulu + ' .NazwyProduktow a').removeClass('wyswietlany');
+            $('#f' + idm).css( { 'display':'block' });
+            $('#' + idm + ' a').addClass('wyswietlany');
+        });
+        
+    }
+
+})(jQuery);        
+
+// licznik do odliczania promocji
+function odliczaj(o,sek,slowo_dni){
+
+    var dni = parseInt(sek / 86400);
+    var godziny = parseInt( sek / 3600 ) % 24;
+    var minuty = parseInt( sek / 60 ) % 60;
+    var sekundy = sek % 60;
+    var wynDni = '';
+    if (dni > 0) {
+        wynDni = dni + ' ' + slowo_dni + ' ';
+    }
+    
+    //wynik = wynik + (godziny < 10 ? "0" + godziny : godziny) + ":" + (minuty < 10 ? "0" + minuty : minuty) + " " + (sekundy  < 10 ? "0" + sekundy : sekundy) + " s";
+    var wynik = wynDni + (godziny < 10 ? "0" + godziny : godziny) + ":" + (minuty < 10 ? "0" + minuty : minuty) + " " + (sekundy  < 10 ? "0" + sekundy : sekundy);
+    var wyn = '';
+    for (r = 0; r < wynik.length; r++) {
+        if (parseInt(wynik.charAt(r)) > -1) {
+            wyn = wyn + '<em>'+wynik.charAt(r)+'</em>';
+          } else {
+            wyn = wyn + wynik.charAt(r);
+        }
+    }
+
+    $("#" + o).html(wyn);
+    if (sek > 0) { 
+        setTimeout(function(){odliczaj(o,--sek,slowo_dni)},1e3);
+      } else {
+        window.location.reload();
+    }
+
+}
+
+// chmura tagow
+function wyswietlTagi(ilosc) {
+
+  //pobranie danych z bazy
+  $.getJSON("inne/chmura.php?ilosc="+ilosc+"&powrot=?", function(data) {
+  
+    //tworzenie linkow
+    $('#tagCloud').html('');
+
+    //tworzenie tagow
+    var suma = 0;
+    $.each(data.tags, function(i, val) {
+      suma = parseInt(suma) + parseInt(val.freq);
+    });
+
+    var link = '';
+    var cssProcent = [ 0, 3, 5, 10, 15, 20, 50 ];
+    var cssFade = [ 60, 70, 70, 80, 80, 90, 100 ];
+    
+    $.each(data.tags, function(i, val) {
+      var CssKlasa = "";
+      var Procent = parseInt((val.freq / suma) * 100);
+
+      for ( i = Procent; i <= 100; i++ ) {
+        //
+        if (jQuery.inArray(i, cssProcent) > -1) {
+            CssKlasa = 'tag_'+i;
+            break;
+        }
+        //
+      }
+      
+      //tworzenie pojedynczego tagu
+      link = link + '<a class="'+CssKlasa+'" href="wyszukiwanie-'+val.tag+'.html" title="'+val.tag+'">' + val.tag + '</a>';
+
+    });
+    
+    $("#tagCloud").append(link);
+    
+    for ( i = 0; i < 7; i++ ) {
+          $("#tagCloud .tag_" + cssProcent[i]).css({ opacity: (cssFade[i] / 100) });
+    }
+
+  });
+
+}
+
+// wyswietlanie filtrow w boxie
+function filtryBox() {
+
+  // sprawdza czy jest formularz z filtrami
+  if ( $('#filtr').length ) {
+    //
+    wyswietlFiltrBox();
+    sposobWyswietlaniaFiltrow();
+    filtryObsluga();
+    //
+    // jezeli jest zmiana ekranu to sprawdzi czy wyswietlac dalej box czy nad listingiem
+    if ( TypRWD() ) {
+        //
+        $(window).resize(function() {            
+            //
+            sposobWyswietlaniaFiltrow();
+            //
+        });        
+        //
+    }    
+    //
+  } else {
+    //
+    $('#boxFiltry').remove();
+    //
+  }
+
+}
+
+function sposobWyswietlaniaFiltrow() {
+
+  // w zaleznosci czy klasa Rg jest float = none czy right - wyswietla w boxie lub module - w css right jest tylko dla duzych rozdzielczosci
+  if ( $('.ListingFiltry').find('.Rg').css('float') == 'none' ) {
+       //
+       wyswietlFiltrModul();
+       filtryObsluga();
+       //
+    } else {
+       //
+       wyswietlFiltrBox();
+       filtryObsluga();
+       //              
+  }
+
+}
+
+function wyswietlFiltrBox() {
+
+  // pobiera zawartosc filtrow listingu
+  var filtry = $('#filtr').html();
+
+  // ukrywa zawartosc filtrow nad listingiem
+  $('.ListingFiltry').hide();
+  
+  // wstawia w box
+  $('#filtryBox').html(filtry);
+
+  // usuwa naglowek 
+  $('#filtryBox .Lf strong').remove();
+  // ukrywa element gdzie byl naglowek
+  $('#filtryBox .Lf').hide();
+
+  $('#filtryBox').append('<div id="filtryWyswietl"></div>');
+  $('#filtryWyswietl').html( $('#filtryBox .Rg').html() );
+  $('#filtryBox .Rg').remove();
+  
+  // wyswietla filtry w boxie
+  $('#boxFiltry').show(); 
+  
+  // wyswietla opcje wyboru
+  $(".Multi").find('.Wybor').show();
+
+}
+
+function wyswietlFiltrModul() {
+
+  // pobiera zawartosc filtrow z boxu
+  var filtryBox = $('#filtryBox').html();
+
+  // czysci zawartosc filtrow w boxie
+  $('#filtryBox').html('');
+
+  // ukrywa box filtrow
+  $('#boxFiltry').hide();
+  
+  // wyswietla filtry nad listingiem
+  $('.ListingFiltry').show();
+  
+  // ukrywa opcje wyboru
+  $(".Multi").find('.Wybor').hide();
+  
+}
+
+function filtryObsluga() {
+
+  // rozwijanie okna filtrow przez klikniecie - dla rwd
+  $(".Multi span").off('click').click(     
+  function(){ 
+    if ( $(this).parent().find('.Wybor').css('display') == 'none' ) {
+         $(this).parent().find('.Wybor').stop().slideDown("fast");
+    } else {
+         $(this).parent().find('.Wybor').stop().slideUp("fast");
+    }
+  });       
+  
+  $(".Multi").off('click').click( function() { 
+      wlaczonyFiltr = false;
+      $(this).find('label').each(function() {
+          //
+          if ( $(this).attr('class') == 'Wlaczony' ) {
+               wlaczonyFiltr = true;
+          }
+          //
+      });
+      //
+      if ( wlaczonyFiltr == true ) {
+          $(this).find('b').addClass('Wlaczony');
+        } else {
+          $(this).find('b').removeClass('Wlaczony');
+      }
+  });  
+
+  $('.Wybor li').off('click').click( function() {
+      if ( $(this).find('label').attr('class') == 'Wlaczony' ) {
+          $(this).find('input').prop('checked', false); 
+          $(this).find('label').removeClass('Wlaczony');
+        } else {
+          $(this).find('input').prop('checked', true); 
+          $(this).find('label').addClass('Wlaczony');
+      }    
+  });
+      
+  // rozwijane okna filtrow - nie dziala przy malych rozdzielczosciach
+  $(".Multi").hover(     
+  function() { 
+    if ( $(this).find('.Wybor').css('position') == 'absolute' ) {
+         $(this).find('.Wybor').stop().slideDown("fast"); 
+    }
+  },function() { 
+    if ( $(this).find('.Wybor').css('position') == 'absolute' ) {
+         $(this).find('.Wybor').stop().slideUp("fast"); 
+    }
+  });  
+
+  if ( TypRWD() ) {
+      //
+      $(window).resize(function() {            
+          //
+          if ( !$('#filtryBox').length ) {
+              // ukrywa opcje wyboru
+              $(".Multi").find('.Wybor').hide();
+          }
+          //
+      });        
+      //
+  }  
+   
+}

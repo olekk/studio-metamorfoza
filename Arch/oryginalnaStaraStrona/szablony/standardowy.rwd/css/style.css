@@ -1,0 +1,517 @@
+/* kolor tla strony, tekstu na stronie oraz rozmiaru marginesu */
+BODY { color: #5f6162; font-size:75%; font-family: Arial, Tahoma, Verdana, sans-serif; margin: 0px; font-weight:normal; }
+h1, h2, h3, h4, h5, h6, p { margin:0px; padding:0px; font-size:1.0em; }
+img { border:0px; }
+table { border-collapse: collapse; border-spacing:0; font-family: Arial, Tahoma, Verdana, sans-serif; margin: 0px; font-weight:normal; }
+.cl { clear:both; }
+.Lf { float:left; }
+.Rg { float:right; }
+aside, article, nav, section, footer, header { display:block; margin:0px; padding:0px; }
+
+/* zdjecia produktow */
+@media only screen and (max-width:479px) { 
+  .Zdjecie, .BoxTresc img, .StrTresc .Zdjecie { max-width:100px; max-height:100px; }
+}
+@media only screen and (min-width:480px) and (max-width:799px) { 
+  .Zdjecie, .BoxTresc img, .StrTresc .Zdjecie { max-width:150px; max-height:150px; }
+}
+@media only screen and (min-width:800px) {
+  .Zdjecie, .BoxTresc img, .StrTresc .Zdjecie { max-width:100%; max-height:100%; }
+}
+
+/* inne grafiki w tresci strony */
+.StrTresc img { max-width:100%; height:auto; }
+
+/* definiowanie wygladu szablonu */
+#Strona, .Strona { margin:0px auto; overflow:hidden; }
+
+@media only screen and (max-width:479px) { 
+  #Strona, .Strona { width:320px; } 
+  .Kol-1 .OknoRwd, .Kol-2 .OknoRwd, .Kol-3 .OknoRwd, .Kol-4 .OknoRwd, .Kol-5 .OknoRwd { width:100%; }
+  .Kol-1 .OknoRwd:nth-child(1n+1), .Kol-2 .OknoRwd:nth-child(1n+1), .Kol-3 .OknoRwd:nth-child(1n+1), .Kol-4 .OknoRwd:nth-child(1n+1), .Kol-5 .OknoRwd:nth-child(1n+1) { clear:both; }   
+  .Kol-1 .OknoRwd:nth-child(1n), .Kol-2 .OknoRwd:nth-child(1n), .Kol-3 .OknoRwd:nth-child(1n), .Kol-4 .OknoRwd:nth-child(1n), .Kol-5 .OknoRwd:nth-child(1n) { border-right:0px; } 
+}
+@media only screen and (min-width:480px) and (max-width:799px) { 
+  #Strona, .Strona { width:440px; } 
+  .Kol-1 .OknoRwd, .Kol-2 .OknoRwd, .Kol-3 .OknoRwd, .Kol-4 .OknoRwd, .Kol-5 .OknoRwd { width:100%; }
+  .Kol-1 .OknoRwd:nth-child(1n+1), .Kol-2 .OknoRwd:nth-child(1n+1), .Kol-3 .OknoRwd:nth-child(1n+1), .Kol-4 .OknoRwd:nth-child(1n+1), .Kol-5 .OknoRwd:nth-child(1n+1) { clear:both; } 
+  .Kol-1 .OknoRwd:nth-child(1n), .Kol-2 .OknoRwd:nth-child(1n), .Kol-3 .OknoRwd:nth-child(1n), .Kol-4 .OknoRwd:nth-child(1n), .Kol-5 .OknoRwd:nth-child(1n) { border-right:0px; } 
+}
+@media only screen and (min-width:800px) and (max-width:1023px) { 
+  #Strona, .Strona { width:760px; } 
+  .Kol-1 .OknoRwd { width:100%; }  
+  .Kol-2 .OknoRwd, .Kol-3 .OknoRwd, .Kol-4 .OknoRwd, .Kol-5 .OknoRwd { width:50%; }     
+  .Kol-1 .OknoRwd:nth-child(1n+1) { clear:both; }
+  .Kol-2 .OknoRwd:nth-child(2n+1), .Kol-3 .OknoRwd:nth-child(2n+1), .Kol-4 .OknoRwd:nth-child(2n+1), .Kol-5 .OknoRwd:nth-child(2n+1) { clear:both; }
+  .Kol-1 .OknoRwd:nth-child(1n), .Kol-2 .OknoRwd:nth-child(2n), .Kol-3 .OknoRwd:nth-child(2n), .Kol-4 .OknoRwd:nth-child(2n), .Kol-5 .OknoRwd:nth-child(2n) { border-right:0px; } 
+}  
+@media only screen and (min-width:1024px) and (max-width:1279px) { 
+  #Strona, .Strona { width:980px; } 
+  .Kol-1 .OknoRwd { width:100%; }  
+  .Kol-2 .OknoRwd { width:50%; }  
+  .Kol-3 .OknoRwd, .Kol-4 .OknoRwd , .Kol-5 .OknoRwd { width:33.3333333%; }
+  .Kol-1 .OknoRwd:nth-child(1n+1) { clear:both; }
+  .Kol-2 .OknoRwd:nth-child(2n+1) { clear:both; }
+  .Kol-3 .OknoRwd:nth-child(3n+1), .Kol-4 .OknoRwd:nth-child(3n+1), .Kol-5 .OknoRwd:nth-child(3n+1) { clear:both; }
+  .Kol-1 .OknoRwd:nth-child(1n), .Kol-2 .OknoRwd:nth-child(2n), .Kol-3 .OknoRwd:nth-child(3n), .Kol-4 .OknoRwd:nth-child(3n), .Kol-5 .OknoRwd:nth-child(3n) { border-right:0px; }  
+}  
+@media only screen and (min-width:1280px) { 
+  #Strona, .Strona { width:1200px; }
+  .Kol-1 .OknoRwd { width:100%; }  
+  .Kol-2 .OknoRwd { width:50%; }  
+  .Kol-3 .OknoRwd { width:33.3333333%; }  
+  .Kol-4 .OknoRwd { width:25%; }  
+  .Kol-5 .OknoRwd { width:20%; } 
+  .Kol-1 .OknoRwd:nth-child(1n+1) { clear:both; }
+  .Kol-2 .OknoRwd:nth-child(2n+1) { clear:both; }
+  .Kol-3 .OknoRwd:nth-child(3n+1) { clear:both; }
+  .Kol-4 .OknoRwd:nth-child(4n+1) { clear:both; }
+  .Kol-5 .OknoRwd:nth-child(5n+1) { clear:both; }  
+  .Kol-1 .OknoRwd:nth-child(1n), .Kol-2 .OknoRwd:nth-child(2n), .Kol-3 .OknoRwd:nth-child(3n), .Kol-4 .OknoRwd:nth-child(4n), .Kol-5 .OknoRwd:nth-child(5n) { border-right:0px; }
+}
+
+/* link z logo sklepu */
+#LinkLogo { font-size:0px; display:block; }
+#LinkLogo img { max-width:100%; height:auto; }
+
+/* kolumny */
+#LewaKolumna, #PrawaKolumna, #SrodekKolumna { overflow:hidden; }
+@media only screen and (max-width: 799px) {
+  #LewaKolumnaPrzerwa { margin-bottom:15px; }
+  #PrawaKolumnaPrzerwa { margin-top:15px; }
+  #LewaKolumna, #PrawaKolumna, #SrodekKolumna { width:100% !important; }
+}
+@media only screen and (min-width: 800px) {
+  #LewaKolumna { float:left; }
+  #LewaKolumnaPrzerwa { margin-right:15px; }
+  #PrawaKolumna { float:left; }
+  #PrawaKolumnaPrzerwa { margin-left:15px; }
+  #SrodekKolumna { float:left; }
+}
+
+/* tlo gornego paska jezyk, logowanie, schowek */
+#GornaNawigacja { background:#ebebeb; }
+
+/* definiowanie flagi jezyka */
+#ZmianaJezyka { float:left; }
+#ZmianaJezyka .Flaga { padding:9px 7px 0px 0px; cursor:pointer; display:inline-block; }
+#ZmianaJezyka .FlagaOff { opacity:0.4; filter:alpha(opacity=40); }
+
+/* logowanie i zalozenie konta w naglowku */
+@media only screen and (max-width:479px) { 
+  #Logowanie { padding:5px 0px 10px 0px; text-align:center; }
+  #Logowanie a { font-size:130%; }
+  #Logowanie:before { content:" "; border-top:1px solid #cfcfcf; display:block; height:5px; clear:both; }
+}
+@media only screen and (min-width:480px) and (max-width:799px) {
+  #Logowanie { float:right; padding:5px 15px 5px 10px; border-right:1px solid #cfcfcf; }
+  #Logowanie a { float:left; font-size:110%; }
+}
+@media only screen and (min-width:800px) {
+  #Logowanie { float:right; background:url('../obrazki/szablon/logowanie.png') no-repeat left center; padding:5px 15px 5px 30px; border-right:1px solid #cfcfcf; }
+  #Logowanie a { float:left; font-size:110%; }
+  #Logowanie a:hover { padding:2px 8px 8px 8px; }
+}
+#Logowanie a { display:inline-block; padding:5px 8px 5px 8px; 
+  transition: all 0.20s ease-in-out;
+	-moz-transition: all 0.20s ease-in-out;
+	-webkit-transition: all 0.20s ease-in-out;
+	-o-transition: all 0.20s ease-in-out;
+}
+
+/* schowek w naglowku */
+@media only screen and (max-width:799px) {
+  #Schowek { float:right; padding:5px 0px 5px 0px; margin-left:10px; }
+}
+@media only screen and (min-width:800px) {
+  #Schowek { float:right; background:url('../obrazki/szablon/schowek.png') no-repeat left center; padding:5px 0px 5px 25px; margin-left:20px; }
+  #Schowek a:hover { padding:2px 0px 8px 8px; }
+}
+#Schowek a { float:left; display:inline-block; font-size:110%; padding:5px 0px 5px 8px; 
+  transition: all 0.20s ease-in-out;
+	-moz-transition: all 0.20s ease-in-out;
+	-webkit-transition: all 0.20s ease-in-out;
+	-o-transition: all 0.20s ease-in-out;
+}
+
+/* koszyk i wyszukiwanie w naglowku */
+#SzukanieKoszyk { background:#ebebeb; margin-bottom:5px; }
+
+/* wyszukiwanie w naglowku */
+@media only screen and (max-width:799px) {
+  #Wyszukiwanie { padding:5px; }
+  #Wyszukiwanie div:first-child { margin-bottom:8px; }
+  #Wyszukiwanie a { text-align:right; display:block; }
+  #Wyszukiwanie div:after { content:"."; display:block; clear:both; visibility:hidden; height:0px; }  
+}
+@media only screen and (max-width:480px) {
+  #InSzukaj { width:250px; }
+}
+@media only screen and (min-width:480px) and (max-width:799px) {
+  #InSzukaj { width:370px; }
+}
+@media only screen and (min-width:800px) {
+  #Wyszukiwanie { float:left; padding:7px; }
+  #Wyszukiwanie a, #Wyszukiwanie div:first-child { float:left; margin-right:10px; }
+  #Wyszukiwanie a { width:100px; padding-top:2px; line-height:1.5; }   
+}
+#InSzukaj { height:40px; float:right; border:0px; padding:0px 10px 0px 10px; color:#929090; font-size:110%; }
+#ButSzukaj { float:right; width:40px; height:40px; background:#e10101; 
+  transition: all 0.20s ease-in-out;
+	-moz-transition: all 0.20s ease-in-out;
+	-webkit-transition: all 0.20s ease-in-out;
+	-o-transition: all 0.20s ease-in-out;
+}
+#ButSzukaj:hover { background:#525252; }
+
+/* koszyk w naglowku */
+@media only screen and (min-width:800px) {
+  #Koszyk { float:right; }
+}
+#Koszyk { height:54px; background:#dddddd; }
+#Koszyk a { display:inline-block; padding-right:20px; 
+  transition: all 0.20s ease-in-out;
+	-moz-transition: all 0.20s ease-in-out;
+	-webkit-transition: all 0.20s ease-in-out;
+	-o-transition: all 0.20s ease-in-out;
+}
+#Koszyk span { float:left; display:inline-block; }
+#Koszyk span:first-child { width:54px; height:54px; background:#525252; 
+  transition: all 0.20s ease-in-out;
+	-moz-transition: all 0.20s ease-in-out;
+	-webkit-transition: all 0.20s ease-in-out;
+	-o-transition: all 0.20s ease-in-out;
+}
+#Koszyk:hover span:first-child { background:#e10101; }
+#Koszyk span:last-child { padding-left:20px; }
+#Koszyk strong { display:block; margin:5px 0px 5px 0px; text-transform:uppercase; font-size:140%; color:#525252; }
+#Koszyk b { color:#e10101; }
+
+/* --- gorne menu --- nie zmieniac nazwy styli, nie usuwac --- */
+
+#GorneMenu { background:#525252; font-family:Roboto, Arial, Tahoma, Verdana, sans-serif; margin-bottom:5px; }            
+#GorneMenu ul { list-style-type:none; padding:0px; margin:0px; }   
+#GorneMenu ul li { text-transform:uppercase; }
+
+/* wersja dla menu w pelnej wersji - glowne menu --- nie zmieniac nazwy styli, nie usuwac --- */
+.Rozwiniete ul li { display:inline-block; border-right:1px solid #676767; }
+.Rozwiniete ul li:hover > a, .Rozwiniete ul li:hover > span { background:#e10101; color:#ffffff; }
+.Rozwiniete a:hover, .Rozwiniete span:hover { background:#e10101 !important; color:#ffffff !important; }
+.Rozwiniete ul li ul li a { padding:6px 15px 6px 15px; color:#ffffff; display:block; text-transform:none; font-size:100%; }
+.Rozwiniete ul li ul li a:hover { background:#e10101; color:#ffffff; }
+
+/* wersja dla menu zwinietego - glowne menu --- nie zmieniac nazwy styli, nie usuwac --- */
+.Zwiniete ul li { display:block; border-top:1px solid #676767; }
+.Zwiniete ul li:hover > a, .Zwiniete ul li:hover > span { color:#ffffff; }
+.Zwiniete a:hover { color:#dbdbdb !important; }
+.Zwiniete ul li ul li a { background:#5f6162; padding:10px 35px 10px 35px; color:#ffffff; display:block; text-transform:none; font-size:120%; }
+.Zwiniete ul li ul li a:hover { color:#dbdbdb; }
+
+/* menu rozwiniete - podmenu --- nie zmieniac nazwy styli, nie usuwac --- */
+#GorneMenu ul li ul { display:none; background:#525252; z-index:100; overflow:hidden; } 
+.Rozwiniete ul li ul { position:absolute; max-width:250px; }
+.Zwiniete ul li ul { position:relative; }
+#GorneMenu ul li ul li { position:relative; border:0px; display:block; border-top:1px solid #676767; }
+
+/* ogolny wyglad linku w menu --- nie zmieniac nazwy styli, nie usuwac --- */
+.Zwiniete a, .Zwiniete span, .Rozwiniete a, .Rozwiniete span  { padding:12px 10px 12px 10px; color:#ffffff; font-weight:normal; display:inline-block; font-size:130%; 
+  transition: all 0.20s ease-in-out;
+	-moz-transition: all 0.20s ease-in-out;
+	-webkit-transition: all 0.20s ease-in-out;
+	-o-transition: all 0.20s ease-in-out;
+}
+
+/* ikona rozwijania dla submenu --- nie zmieniac nazwy styli, nie usuwac --- */
+#GorneMenu .IkonaSubMenu { background:url('../obrazki/nawigacja/menu_rozwijane.png') no-repeat right center; width:28px; height:20px; cursor:pointer; margin:13px 10px 0px 0px; float:right; display:inline-block; }
+
+/* ikona rozwijania dla glownego menu przy zwinieciu menu --- nie zmieniac nazwy styli, nie usuwac --- */
+.RozwinGorneMenu { padding:8px 10px 8px 10px; text-align:left; }
+.RozwinGorneMenu div { background:url('../obrazki/nawigacja/menu_rozwijane.png') no-repeat right center; color:#ffffff; font-size:160%; font-weight:bold; letter-spacing:4px; cursor:pointer; padding:2px 0px 2px 0px; }
+
+/* --- gorne menu --- koniec --- */
+
+@media only screen and (max-width:1023px) {
+  #Stopka { margin:20px 0px 20px 0px; }
+  .KolumnaStopki { padding:0px 0px 5px 0px; }  
+  .KolumnaStopki strong { cursor:pointer; margin:0px 0px 10px 0px; }
+  /* rozwijanie / zwijanie stopki --- nie zmieniac nazwy styli, nie usuwac --- */
+  .KolumnaStopki span.StopkaRozwin { background:url('../obrazki/nawigacja/strzalka_rozwin.png') no-repeat left center; float:right; margin:12px 1px 0px 0px; width:26px; height:10px; }
+  .KolumnaStopki span.StopkaZwin { background:url('../obrazki/nawigacja/strzalka_zwin.png') no-repeat left center; float:right; margin:12px 1px 0px 0px; width:26px; height:10px; }
+  .KolumnaStopki ul { display:none; padding:10px 0px 20px 0px; }
+  .KolumnaStopki ul li { margin:0px 0px 15px 15px; }
+}
+@media only screen and (min-width:1024px) {
+  #Stopka { margin:10px 0px 20px 0px; }
+  .KolumnaStopki { width:25%; float:left; padding:20px 0px 20px 0px; }
+  .KolumnaStopki strong { margin:0px 20px 15px 0px; }
+  .KolumnaStopki:nth-child(4) strong { margin-right:0px; }
+  .KolumnaStopki ul { padding:0px; }
+  .KolumnaStopki ul li { margin:0px 0px 5px 15px; }
+}
+.KolumnaStopki strong { display:block; font-size:180%; font-weight:normal; border-bottom:1px solid #dbdbdb; padding:0px 10px 10px 15px; font-family:Roboto, Arial, Tahoma, Verdana, sans-serif; }
+.KolumnaStopki ul { list-style-type:none; margin:0px; } 
+
+.Copy { padding:5px 0px 15px 0px; text-align:center; font-size:90%; }
+.Copy a { color:#929090; } 
+
+/*** elementy wspolne ***/
+
+/* ogolny wyglad linkow */
+a { text-decoration:none; color:#5f6162; font-weight:normal; }
+a:hover { text-decoration:none; color:#e10101; }
+
+/* linki produktow */
+h3 a { font-weight:normal; color:#5f6162; font-size:120%; font-family:Roboto, Arial, Tahoma, Verdana, sans-serif; }
+
+/* link pdf */
+.pdfIkona { background:url('../obrazki/pdf/pdf.png') no-repeat left center; padding:5px 0px 5px 25px; }
+
+/* divy jako tabela */
+.TabelaTbl { display:table; width:100%; border-collapse:collapse; border-spacing:0; }
+
+/* sekcja produktow lub elementow w modulach i listingach - rowna wysokosc elementow */
+.WierszTbl { display:table-row; }
+
+/* definicja zdjecia */
+.Zdjecie { padding:5px; }
+#ZoomChwilowe { position:absolute; background:url('../obrazki/przyciski/zoom_zdjecia.png') no-repeat; width:37px; height:37px; display:inline-block; }
+.Zoom { display:inline-block; }
+
+/* ramka foto animacji koszyka */
+#AnimacjaKoszyka { border:5px solid #929090; }
+
+/* wyglad ramki powiekszonego obrazka w listingu */
+.PowiekszoneZdjecie img { background:#ffffff; padding:5px; border:1px solid #dbdbdb; -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.22); -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.22); box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.22); }
+
+/* ikonki zdjec */
+.IkonkiProduktu { position:absolute; margin:0px; width:100px; height:100px; z-index:99; text-align:left; }
+.Ikona { display:block; height:23px; margin-bottom:3px; -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px; -khtml-border-radius:3px; }
+.Nowosc_pl { background:url('../obrazki/ikony/pl/nowosc.png') no-repeat; width:53px; z-index:99; }
+.Promocja_pl { background:url('../obrazki/ikony/pl/promocja.png') no-repeat; width:60px; z-index:99; }
+.Polecany_pl { background:url('../obrazki/ikony/pl/polecany.png') no-repeat; width:62px; z-index:99; }
+.Hit_pl { background:url('../obrazki/ikony/pl/hit.png') no-repeat; width:60px; z-index:99; }
+.Dostawa_pl { background:url('../obrazki/ikony/pl/darmowa_dostawa.png') no-repeat; width:108px; z-index:99; }
+.Nowosc_en { background:url('../obrazki/ikony/en/nowosc.png') no-repeat; width:34px; z-index:99; }
+.Promocja_en { background:url('../obrazki/ikony/en/promocja.png') no-repeat; width:54px; z-index:99; }
+.Polecany_en { background:url('../obrazki/ikony/en/polecany.png') no-repeat; width:58px; z-index:99; }
+.Hit_en { background:url('../obrazki/ikony/en/hit.png') no-repeat; width:35px; z-index:99; }
+.Dostawa_en { background:url('../obrazki/ikony/en/darmowa_dostawa.png') no-repeat; width:80px; z-index:99; }
+
+/* informacja */
+.Informacja { background:url('../obrazki/szablon/info.png') no-repeat left center; padding:7px 5px 7px 35px; } 
+.InformacjaOk { background:url('../obrazki/szablon/ok.png') no-repeat left center; padding:7px 5px 7px 35px; }
+span.Informacja { display:inline-block; } 
+
+/* ikonki przesuwania strony gora - dol */
+#doGory { position:fixed; right:20px; top:20px; cursor:pointer; width:44px; height:24px; background:url('../obrazki/nawigacja/scroll.png') no-repeat left top; opacity:0.4; filter:alpha(opacity=40); display:none; }
+#doGory:hover { opacity:1; filter:alpha(opacity=100); }
+#doDolu { position:fixed; right:20px; bottom:20px; cursor:pointer; width:44px; height:24px; background:url('../obrazki/nawigacja/scroll.png') no-repeat left bottom; opacity:0.4; filter:alpha(opacity=40); display:none; }
+#doDolu:hover { opacity:1; filter:alpha(opacity=100); }
+
+/*** wyglad czesci srodkowej ***/
+
+/* naglowek modulow i stron w czesci srodkowej */
+@media only screen and (max-width:799px) {
+  .StrNaglowek { font-size:160%; }
+}
+@media only screen and (min-width:800px) {
+  .StrNaglowek { font-size:190%; }
+}
+.StrNaglowek { margin-bottom:3px; color:#5f6162; font-weight:normal; font-family:Roboto, Arial, Tahoma, Verdana, sans-serif; text-transform:uppercase; }
+.StrNaglowek span { background:url('../obrazki/szablon/tlo_modulu.png') no-repeat right bottom; padding:7px 70px 7px 20px; display:inline-block; }
+.StrNaglowek span:first-letter { font-size:120%; color:#e10101; }
+
+.StrNaglowek a { color:#5f6162; }
+.StrNaglowek a:hover { color:#e10101; }
+
+/* podstrony i wyglad modulow - czesc srodkowa sklepu */
+.StrTresc { border:1px solid #e7e7e7; margin-top:1px; margin-bottom:10px; padding:10px; overflow:hidden; }
+
+/* okno porownywarki */
+#PorownywarkaTable { margin-bottom:8px; }
+#PorownywarkaTable td { padding:7px; width:250px; border:1px dotted #dbdbdb; text-align:center; vertical-align: top; }
+#PorownywarkaTable td:first-child { background:#f6f6f6; text-align:right; font-weight:bold; width:110px !important; }
+#PorownywarkaTable tr:nth-child(odd) { background:#f6f6f6; }
+#PorownywarkaTable .Opisy { text-align:left; margin:5px; }
+#PorownywarkaTable .DodatkowePola { text-align:left; margin-top:10px; }
+#PorownywarkaTable .DodatkowePola .PolaTbl { display:table; border-collapse: collapse; border-spacing:0; }
+#PorownywarkaTable .DodatkowePola .PolaTbl div { display:table-cell; vertical-align:middle; padding:2px 5px 2px 0px; }
+#PorownywarkaTable .Foto { position:relative; }
+
+/* formularze */
+input, select, textarea { font-size:100%; font-family: Arial, Tahoma, Verdana, sans-serif; }
+.cmxform input, .cmxform select, .cmxform textarea, .InputIlosc { color:#5f6162; border:1px solid #dbdbdb; padding:6px; }
+.cmxform label { vertical-align:top; font-weight:normal; display: inline-block; line-height: 1.2; width:160px; padding-left:0px; padding-top:4px; padding-bottom:4px; }
+.cmxform label.required { font-weight:normal; display: inline-block; line-height: 1.2; background:transparent url('../obrazki/formularz/gwiazdka.png') no-repeat scroll center right;}
+.cmxform p { margin-bottom:10px; }
+.cmxform span { display:block; margin-bottom:5px; }
+.cmxform .error { color:#ff0000; }
+.cmxform label.error { font-weight: normal; background:transparent url('../obrazki/formularz/blad.png') no-repeat left center; display:block; margin:4px 0px 0px 0px; padding:2px 0px 2px 25px; width:80%}
+.cmxform em.required { vertical-align: top; width:5px; height:5px; display:inline-block; background:transparent url('../obrazki/formularz/gwiazdka.png') no-repeat scroll center right; }
+#rejestracja .OsobowoscPrawna { margin:20px 0px 20px 0px; }
+#rejestracja .OsobowoscPrawna b { display:inline-block; margin-right:15px; }
+#error-regulamin label.error, #error-przetwarzanie label.error { text-align:left; margin-left:3px; width:300px !important; }
+#rejestracja div.checkboxOpis { margin-left:35px; }
+#rejestracja .CheckSekcja { margin:12px 0px 10px 0px; display:block; }
+.cmxform span.tresc { display:inline; font-weight:bold; margin-bottom:5px; }
+.cmxform span.opis { display:inline; font-weight:normal; margin-bottom:5px; }
+.KontenerKoszykButton a.przycisk, .przyciskZamow, .przyciskZaplac { cursor:pointer; padding:15px 30px 15px 30px !important; background:#e10101 !important; border:0px !important; color:#ffffff !important; font-size:180%; -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px; -khtml-border-radius:3px; 
+  transition: all 0.20s ease-in-out;
+	-moz-transition: all 0.20s ease-in-out;
+	-webkit-transition: all 0.20s ease-in-out;
+	-o-transition: all 0.20s ease-in-out;
+}
+.KontenerKoszykButton a.przycisk:hover, .przyciskZamow:hover, .przyciskZaplac:hover { background:#525252 !important; }
+
+/* wyglad przyciskow */
+.przycisk, .cmxform .przycisk, .cmxform .przyciskWylaczony { text-align:center; display:inline-block; font-family:Roboto, Arial, Tahoma, Verdana, sans-serif; text-transform:uppercase; cursor:pointer; margin-right:4px; padding:7px 12px 7px 12px; background:#525252; border:0px; color:#ffffff; font-weight:bold; border-left:5px solid #e10101; 
+  -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px; -khtml-border-radius:3px; 
+  transition: all 0.20s ease-in-out;
+	-moz-transition: all 0.20s ease-in-out;
+	-webkit-transition: all 0.20s ease-in-out;
+	-o-transition: all 0.20s ease-in-out;
+}
+.przycisk:hover { color:#ffffff; background:#e10101; border-left:5px solid #525252; }
+.przyciskWylaczony { opacity:0.6; filter:alpha(opacity=60); }
+.Prawy { float:right; margin-top:20px; }
+.MargGoraPrawy { margin:0px 10px 10px 0px; }
+.MargPrzycisk { margin-top:20px; }
+.PrawyBezMargin { float:right; margin-bottom:10px; }
+.Lewy { float:left; margin-top:20px; }
+
+/* do boxu ze strony informacyjnej i modulu srodkowego - link czytaj dalej */
+.StronaInfo { margin:5px; text-align:right; }
+
+/* do koszyka */
+.DoKoszyka { text-align:center; font-family:Roboto, Arial, Tahoma, Verdana, sans-serif; float:left; text-transform:uppercase; cursor:pointer; margin-top:4px; overflow:hidden; display:inline-block; padding:7px 10px 7px 40px; background:url('../obrazki/przyciski/tlo_przycisku_koszyka.png') #525252 no-repeat left center; border:0px; color:#ffffff; font-weight:bold; 
+  -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px; -khtml-border-radius:3px; 
+  transition: all 0.20s ease-in-out;
+	-moz-transition: all 0.20s ease-in-out;
+	-webkit-transition: all 0.20s ease-in-out;
+	-o-transition: all 0.20s ease-in-out;
+}
+.DoKoszyka:hover { padding:7px 40px 7px 10px; background:url('../obrazki/przyciski/tlo_przycisku_koszyka.png') #525252 no-repeat right center; }
+
+/* wyglad ceny */
+.Cena { color:#525252; font-size:160%; font-family:Roboto, Arial, Tahoma, Verdana, sans-serif; font-weight:normal; display:block; white-space:nowrap; }
+.CenaPromocyjna { color:#e10101; font-size:160%; font-family:Roboto, Arial, Tahoma, Verdana, sans-serif; font-weight:normal; display:block; white-space:nowrap; }
+.Cena .Brutto, .CenaPromocyjna .Brutto { font-style: normal; font-size:14px; display:block; white-space:nowrap; }
+.Cena .Netto, .CenaPromocyjna .Netto { font-style: normal; font-size:12px; display:block; color:#929090; white-space:nowrap; }
+.Cena small, .CenaPromocyjna small { white-space:nowrap; }
+.CenaPromocyjna .CenaPoprzednia { color:#929090; font-size:80%; text-decoration:line-through; font-weight:normal; display:block; font-style:normal; white-space:nowrap; }
+.BrakCeny { color:#ff0000; font-weight:normal; display:block; }
+.CenaDlaZalogowanych { color:#ff0000; font-weight:normal; display:block; }
+
+/* nawigacja breadcrumb */
+@media only screen and (max-width:800px) {
+  #Nawigacja { line-height:2; }
+}
+#Nawigacja { margin:5px 0px 10px 0px; padding:10px 0px 8px 0px; }
+#Nawigacja > span { display:inline-block; background:url('../obrazki/szablon/separator_nawigacja.png') no-repeat right center; padding:2px 25px 2px 5px }
+#Nawigacja > span:first-child a { background:url('../obrazki/szablon/domek_nawigacja.png') no-repeat left center; padding:4px 0px 0px 30px; margin-left:-5px; }
+#Nawigacja > span:last-child { background:none; }
+#Nawigacja span.Nawigacja { display:none; }
+#Nawigacja span.Nawigacja:last-child { color:#e10101; display:inline-block; }
+.NawigacjaLink { color:#7a7a7a; }
+.NawigacjaLink:hover { color:#e10101; }
+
+/* preloader strony */
+#Preload { display:none; position:fixed; width:100%; height:100%; top:0px; left:0px; z-index:99999; background:#ffffff; opacity:0.5; filter:alpha(opacity=50); }
+#StatusTlo { display:none; position:absolute; left:50%; top:50%; background:#ffffff; margin:-64px 0 0 -64px; }
+#IkonaLoader { background:url('../obrazki/nawigacja/loader_strony.gif') no-repeat center center; width:128px; height:128px; }
+
+/* wyskakujace okienko z komunikatami */
+#PopUpInfo { font-size:110%; background:url('../obrazki/oknoPop/info.png') no-repeat left center; padding:10px 10px 10px 45px; margin:0px 10px 0px 10px; max-width:500px; text-align:center; }
+#PopUpInfo h3 { text-align:center; margin:5px; font-weight:bold; }
+#PopUpDodaj { font-size:110%; background:url('../obrazki/oknoPop/dodaj.png') no-repeat left center; padding:10px 10px 10px 55px; margin:0px 20px 0px 20px; text-align:center; }
+#PopUpDodaj h3 { text-align:center; margin:5px; font-weight:bold; }
+#PopUpUsun { font-size:110%; background:url('../obrazki/oknoPop/kasuj.png') no-repeat left center; padding:10px 10px 10px 55px; margin:0px 20px 0px 20px; text-align:center; }
+#PopUpUsun h3 { text-align:center; margin:5px; font-weight:bold; }
+#PopUpPrzyciski { text-align:center; }
+@media only screen and (max-width:799px) {
+  #PopUpPrzyciski { max-width:200px; margin:0px auto; margin-top:15px; }
+}
+@media only screen and (min-width:800px) {
+  #PopUpPrzyciski { margin:20px 0px 0px 0px; white-space:nowrap; min-width:300px; }
+  #PopUpDodaj, #PopUpUsun { white-space:nowrap; }
+}
+#PopUpPrzyciski a, #PopUpPrzyciski span { display:inline-block; margin:7px 10px 7px 10px; }
+
+/* lista produktow w oknie popup po dodaniu do koszyka */
+@media only screen and (max-width:799px) { 
+  .ProduktyPopUp { display:none; }
+}
+@media only screen and (min-width:800px) { 
+  .ProduktyPopUp { display:table; max-width:700px; border-collapse:collapse; border-spacing:0; margin:0px auto; margin-top:10px; }
+}
+.ProduktyPopUp strong { color:#e10101; display:block; margin:10px 10px 5px 10px; font-size:140%; text-align:center; }
+.ProduktPopUp { display:table-cell; vertical-align:top; text-align:center; padding:15px 10px 15px 10px; }
+.ProduktPopUp h3 { margin:0px 0px 5px 0px; }
+.ProduktPopUp .Zakup { display:inline-block; margin:0px auto; margin-top:10px; }
+.ProduktPopUp .Zakup .IloscProduktu { display:none; }
+.ProduktPopUp .Zakup .InputIlosc { float:left; text-align:center; width:30px; margin:4px 5px 4px 0px; }
+.ProduktPopUp .Zakup em { display:inline-block; float:left; font-style:normal; margin:10px 15px 5px 0px; }
+
+/* wysuwane zakladki */
+#wysZakladki { position:fixed; display:block; left:0; }
+/* facebook */
+#fb { width:304px; background:#ffffff; padding:0px; position:fixed; }
+#fb_ikona { position:absolute; width:45px; height:45px; background:url('../obrazki/zakladki/fb.png') no-repeat; }
+#ramkaFb { border:2px solid #0070cf; font-size:0px; }
+/* gg */
+#gg { width:230px; background:#dadada; padding:0px; position:fixed; }
+#gg_ikona { position:absolute; width:45px; height:45px; background:url('../obrazki/zakladki/gg.png') no-repeat; }
+#ramkaGg { border:2px solid #c1c1c1; font-size:0px; }
+/* nasza klasa */
+#nk { width:304px; background:#21537f; padding:0px; position:fixed; }
+#nk_ikona { position:absolute; width:45px; height:45px; background:url('../obrazki/zakladki/nk.png') no-repeat; }
+#ramkaNk { border:2px solid #21537f; }
+/* youtube */
+#yt { width:304px; background:#1f1f1f; padding:0px; position:fixed; }
+#yt_ikona { position:absolute; width:45px; height:45px; background:url('../obrazki/zakladki/youtube.png') no-repeat; }
+#ramkaYt { border:2px solid #1f1f1f; padding:5px; }
+/* google plus */
+#gp { width:330px !important; background:#fff; padding:0px; position:fixed; }
+#gp_ikona { position:absolute; width:45px; height:45px; background:url('../obrazki/zakladki/google.png') no-repeat; }
+#ramkaGp { border-bottom:2px solid #004f95; border-right:2px solid #004f95; }
+/* twitter */
+#tw { width:304px; background:#60b9dd; padding:0px; position:fixed; }
+#tw_ikona { position:absolute; width:45px; height:45px; background:url('../obrazki/zakladki/twitter.png') no-repeat; }
+#ramkaTw { border:2px solid #60b9dd; }
+/* allegro */
+#allegro { width:504px; background:#ffffff; padding:0px; position:fixed; }
+#allegro_ikona { position:absolute; width:45px; height:45px; background:url('../obrazki/zakladki/allegro.png') no-repeat; }
+#ramkaAg { border:2px solid #ff5602; width:500px; }
+#ramkaAg strong { background:#ff5602; padding:4px 8px 4px 8px; color:#ffffff; display:block; font-size:110%; }
+#ramkaAg strong a { color:#ffffff; font-weight:bold; }
+#ramkaAg .komentarz { padding:8px; }
+#ramkaAg .komentarz:nth-child(odd) { background:#f4f4f4; }
+#ramkaAg span { display:inline-block; margin:0px 3px 0px 3px; }
+#ramkaAg a { color:#0083ff; }
+#ramkaAg .opisKomentarza { margin:8px 0px 0px 0px; }
+#ramkaAg .pozytywny { padding-right:25px; font-weight:bold; color:#009b00; }
+
+/* autopodpowiedzi */
+#Podpowiedzi { border:1px solid #dbdbdb; margin-top:-2px; max-height:300px; background:#ffffff; overflow-y:auto; z-index:15000; }
+#Podpowiedzi .zaznacz { font-weight:bold; color:#ff0000; }
+#Podpowiedzi table { width:100%; }
+#Podpowiedzi td { padding:8px 8px 4px 8px; border-bottom:1px solid #dbdbdb; }
+#Podpowiedzi td:last-child { text-align:center; }
+#Podpowiedzi td .Cena, #Podpowiedzi td .CenaPromocyjna, #Podpowiedzi td .CenaPoprzednia { font-size:100%; }
+#Podpowiedzi tr:last-child td { border-bottom:0px; }
+#Podpowiedzi tr:hover { background:#f3f3f3; cursor:pointer; }
+
+/* informacja o wylaczonym cookie - nie kasowac !! */
+#BrakCookie { position:fixed; left:50%; top:40%; width:460px; padding:20px; font-weight:bold; background:#ff0000; color:#ffffff; margin:0px auto; margin-left:-220px; z-index:2003; border:10px solid #f6f6f6; text-align:center; }
+
+/* linia pozioma */
+.StrTresc .LiniaPoziom { border-bottom:1px dotted #dbdbdb; }
+
+/* wspolne linie */
+.LiniaPrawa { border-right:1px dotted #dbdbdb; }
+.LiniaDolna { border-bottom:1px dotted #dbdbdb; }
+.LiniaDolnaBrak { border-bottom:0px !important; }
+.LiniaGorna { border-top:1px dotted #dbdbdb; }
+.LiniaCala { border:1px solid #dbdbdb; }
+.LiniaCalaPrzerywana { border:1px dotted #dbdbdb; }
+.LiniaOpisu { border-top:1px dotted #dbdbdb; border-bottom:1px dotted #dbdbdb; }

@@ -1,0 +1,163 @@
+$(document).ready(function() {
+
+    $.validator.addMethod(
+        "cyfryMyslnikRegex", function(value, element) {
+        return this.optional(element) || /^[0-9\A-Z\-\s]+$/i.test(value);
+    }, "{__TLUMACZ:BLAD_TYLKO_CYFRY_MYSLNIK}");
+    $.validator.addMethod("cyfryMyslnikPlusRegex", function(value, element) {
+        return this.optional(element) || /^[0-9\-+\s]+$/i.test(value);
+    }, "{__TLUMACZ:BLAD_TYLKO_CYFRY_MYSLNIK}");
+
+    $("#rejestracja").validate({
+      rules: {
+        regulamin: {required: true},
+        przetwarzanie: {required: true},
+        nick: { remote: "{__SSL:inne/rejestracja.php?nick}&tok={__TOKEN_REJESTRACJA}" },
+        imieFaktura: { required: function() { return ( ( $("input[name='osobowoscRachunek']:checked", "#rejestracja").val() == "1" ) && $('#dane_platnika').prop('checked') ) } },
+        nazwiskoFaktura: { required: function() { return ( ( $("input[name='osobowoscRachunek']:checked", "#rejestracja").val() == "1" ) && $('#dane_platnika').prop('checked') ) } },
+        ulicaFaktura: { required: function() { return $('#dane_platnika').prop('checked') } },
+        kod_pocztowyFaktura: { required: function() { return $('#dane_platnika').prop('checked') }, cyfryMyslnikRegex: true },
+        miastoFaktura: { required: function() { return $('#dane_platnika').prop('checked') } },   
+        nazwa_firmy: { required: function() { return ( $("input[name='osobowosc']:checked", "#rejestracja").val() == "0" ) } },
+        nip_firmy: { required: function() { return ( $("input[name='osobowosc']:checked", "#rejestracja").val() == "0" ) }, cyfryMyslnikRegex: true },
+        nazwa_firmyFaktura: { required: function() { return ($("input[name='osobowoscRachunek']:checked", "#rejestracja").val() == '0' && $('#dane_platnika').prop('checked')) } },
+        nip_firmyFaktura: { required: function() { return ($("input[name='osobowoscRachunek']:checked", "#rejestracja").val() == '0' && $('#dane_platnika').prop('checked')) }, cyfryMyslnikRegex: true },
+        haslopowtorz: { equalTo: "#haslo" },
+        kod_pocztowy: { cyfryMyslnikRegex: true },
+        telefon: { cyfryMyslnikPlusRegex: true },
+        peselFaktura: { digits: true, minlength: 11 },
+        pesel: { digits: true, minlength: 11 }
+      },
+      messages: {
+        imie: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        nazwisko: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        data_urodzenia: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        nazwa_firmy: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        nip_firmy: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        ulica: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        kod_pocztowy: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        miasto: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        telefon: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        regulamin: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        przetwarzanie: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        imieFaktura: {required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}'},
+        nazwiskoFaktura: {required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}'},
+        ulicaFaktura: {required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}'},
+        kod_pocztowyFaktura: {required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}'},
+        miastoFaktura: {required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}'},
+        nick: { remote: '{__TLUMACZ:BLAD_NICK_ISTNIEJE}' },
+        haslo: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        haslopowtorz: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}', equalTo: '{__TLUMACZ:BLAD_HASLA_SA_ROZNE}' },
+        peselFaktura: { digits: '{__TLUMACZ:BLAD_TYLKO_LICZBY}', minlength: '{__TLUMACZ:BLAD_ZA_MALO_ZNAKOW_FORM}' },
+        pesel: { digits: '{__TLUMACZ:BLAD_TYLKO_LICZBY}', minlength: '{__TLUMACZ:BLAD_ZA_MALO_ZNAKOW_FORM}' }
+      },
+      errorPlacement: function(error, element) {
+        if (element.hasClass('regulamin')) {
+            error.appendTo('#error-regulamin');
+        } else {
+            error.insertAfter(element);
+        }
+      },
+      
+      submitHandler: function() {
+        PreloadWlacz();
+        var sear = $('#rejestracja').serialize(); 
+        $.post("{__SSL:inne/do_rejestracji_zamowienie.php}?tok={__TOKEN_REJESTRACJA_OKNO}", { data: sear }, function(data) { 
+            PreloadWylaczSzybko();
+            if ( data == '' ) {
+                $(location).attr('href','zamowienie-potwierdzenie.html');
+            } else {           
+                $.colorbox( { html:data, maxWidth:'90%', maxHeight:'90%', scrolling:false, open:true, initialWidth:50, initialHeight:50, overlayClose:false, escKey:false, onLoad: function() {
+                   $('#cboxClose').hide();
+                }});
+            }
+        });
+      }
+	  
+    });
+
+    if ($('.datepicker').length) {
+        $('input.datepicker').Zebra_DatePicker({
+          view: 'years',
+          format: 'd-m-Y',
+          inside: false,
+          readonly_element: true,
+          show_icon: true
+        });
+    }
+    
+    if ($('.datefields').length) {
+        $('input.datefields').Zebra_DatePicker({
+          format: 'd-m-Y',
+          inside: false,
+          readonly_element: true,
+          show_icon: true
+        });
+    }       
+    
+    // sprawdza czy jest pole wojewodztwo
+    if ($('#selection').length) {
+        $("#selection").change( function() {
+          PreloadWlacz();
+          $.ajax({
+            type: "POST",
+            data: "data=" + $(this).val(),
+            url: "{__SSL:inne/wybor_wojewodztwa.php}?tok={__TOKEN_REJESTRACJA}",
+            success: function(msg){
+              PreloadWylaczSzybko();
+              if (msg != '') { 
+                $("#selectionresult").html(msg).show(); 
+              } else { 
+                $("#selectionresult").html('<em>Brak</em>'); 
+              }
+            }
+          });
+        });
+    }
+
+    // sprawdza czy jest pole wojewodztwo do platnosci
+    if ($('#selectionFirma').length) {
+        $("#selectionFirma").change( function() {
+          PreloadWlacz();
+          $.ajax({
+            type: "POST",
+            data: "data=" + $(this).val(),
+            url: "{__SSL:inne/wybor_wojewodztwa_faktura.php}?tok={__TOKEN_REJESTRACJA}",
+            success: function(msg){
+              PreloadWylaczSzybko();
+              if (msg != '') { 
+                $("#selectionresultFirma").html(msg).show(); 
+              } else { 
+                $("#selectionresultFirma").html('<em>Brak</em>'); 
+              }
+            }
+          });
+        });
+    }
+
+    // pokazuje lub ukrywa formularz na dane platnika w zamowieniu
+    $('#dane_platnika').change(function(){
+        if (this.checked) {
+            $('#DanePlatnika').slideUp();
+        } else {
+            $('#DanePlatnika').slideDown();
+        }                   
+    });
+
+    //wlacza przycisk submit jesli dziala u klienta javascript
+    $('#submitButton').removeAttr('disabled');
+    $("#submitButton").attr('class', 'przycisk');
+});
+
+function ZmienOsobowoscKoszyk(nr, typ) {
+    //
+    if ( nr == 1 ) {
+         $('#osobaFizyczna' + typ).slideDown();
+         $('#osobaPrawna' + typ).slideUp();
+    }
+    if ( nr == 2 ) {
+         $('#osobaFizyczna' + typ).slideUp();
+         $('#osobaPrawna' + typ).slideDown();
+    }
+    //
+}

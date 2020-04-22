@@ -1,0 +1,27 @@
+$(document).ready(function() {
+
+    $("#przypomnienie").validate({
+      rules: {
+        emailprzypomnienie: { required: true, remote: "{__SSL:inne/logowanie.php?przypomnienie}&tok={__TOKEN_PRZYPOMNIENIE}" },
+      },
+      messages: {
+        emailprzypomnienie: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}', remote: '{__TLUMACZ:BLAD_LOGIN_ISTNIEJE}' },
+      },
+      submitHandler: function() {
+        PreloadWlacz();
+        var sear = $('#przypomnienie').serialize(); 
+        $.post("{__SSL:inne/do_przypomnienie.php}?tok={__TOKEN_PRZYPOMNIENIE_OKNO}", { data: sear }, function(data) { 
+            PreloadWylaczSzybko();           
+            $.colorbox( { html:data, maxWidth:'90%', maxHeight:'90%', open:true, initialWidth:50, initialHeight:50, overlayClose:false, escKey:false, onLoad: function() {
+               $('#cboxClose').hide();
+            }}); 
+        });
+        return false;
+      }          
+    });
+    
+    //wlacza przycisk submit jesli dziala u klienta javascript
+    $('#submitButtonHaslo').removeAttr('disabled');
+    $("#submitButtonHaslo").attr('class', 'przycisk');
+
+});

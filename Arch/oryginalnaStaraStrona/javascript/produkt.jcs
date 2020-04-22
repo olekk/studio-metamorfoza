@@ -1,0 +1,944 @@
+$(document).ready(function() {
+
+    // ladowanie skryptu api dla filmow Youtube
+    if (typeof youtube != 'undefined') {
+
+        var tag = document.createElement('script');
+        tag.src = "//www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    }
+
+    var parametry = $('#parametry').val();
+    var SzeDuzeZdjecie = $("#ZdjeciaDuze").width();
+    var IleZdjec = $("#DodatkoweZdjecia img").length;
+    var parametrySantander = $('#parametrySantander').val();
+    
+    // nie dziala dla wersji mobilnej
+    if ( !TypPrzegladarki() && !TypRWD() ) {
+
+        $("#ZdjeciaWew").css('width', ((parseInt(IleZdjec) * parseInt(SzeDuzeZdjecie)) + 100) + 'px');
+        //
+        $("#ZdjeciaDuze").css('height',WysDuzeZdjecie + 'px');
+        var WysDuzeZdjecie = $("#ZdjeciaDuze").height();
+        
+    }
+
+    $(".ZdjecieProduktu").colorbox( { rel:'ZdjecieProduktu', returnFocus:false , current:'{__TLUMACZ:ZDJECIE} {current} / {total}' {SKALOWANIE} } );
+    
+    // powiekszanie zdjec cech na karcie produktu
+    $(".ZdjecieCechy").colorbox( { rel:'ZdjecieCechy', returnFocus:false , current:'{__TLUMACZ:ZDJECIE} {current} / {total}' {SKALOWANIE} } );
+
+    $("#DodatkoweZdjecia img").click( function() {   
+        //
+        var id = $(this).attr('id');
+        //
+        // jezeli jest rwd i nie moze byc przewijania
+        if ( TypRWD() ) {
+            //
+            $('#ZdjeciaWew a').hide();
+            $('#ZdjeciaWew #DuzeFoto' + TylkoLiczba(id)).fadeIn('fast');
+            //
+        } else {
+            //
+            $('#ZdjeciaWew').animate( { marginLeft: ((parseInt(TylkoLiczba(id)) - 1) * parseInt(SzeDuzeZdjecie)) * -1 }, 500, "SzybkoOut");
+            //            
+        }
+        //
+        $('#ZdjeciaWew a').removeClass('Wyswietlane');
+        $('#DuzeFoto' + TylkoLiczba(id)).addClass('Wyswietlane');        
+        //
+    });
+    
+    // po zmianie wielkosci ekranu wywola ponownie funkcje
+    $(window).resize(function() {
+        //
+        if ( TypRWD() ) {
+             //
+             $('#ZdjeciaWew a').hide();
+             $('#ZdjeciaWew a:first').css({ display: 'inline-block' });
+             //
+        }
+        //
+    });
+
+    $(".WszystkieRecenzje").click( function() {     
+        $.scrollTo('#ZakladkiProduktu',400);
+        // pokazuje tresc zakladki recenzji
+        WlaczZakladke( 'z_recenzje' );
+    });
+
+    // wyswietlanie kalkulatora ratalnego Santander
+    if ( $('#parametrySantander').val() != '' ) {
+        var santander = $('#parametrySantander').val();
+        var santanderTablica = santander.split(';');
+        if ( parseFloat($("#InputCenaKoncowaBrutto").val()) > parseFloat(santanderTablica[2]) && parseFloat($("#InputCenaKoncowaBrutto").val()) < parseFloat(santanderTablica[3]) ) {
+            $('#RatySantander').show();
+        } else {
+            $('#RatySantander').hide();
+        }
+    } else {
+        $('#RatySantander').remove();
+    }
+
+    // wyswietlanie kalkulatora ratalnego Lukas
+    if ( $('#parametryLukas').val() != '' ) {
+        //var lukas = $('#parametryLukas').val();
+        //var lukasTablica = lukas.split(';');
+        //if ( parseFloat($("#InputCenaKoncowaBrutto").val()) > parseFloat(lukasTablica[1]) && parseFloat($("#InputCenaKoncowaBrutto").val()) < parseFloat(lukasTablica[2]) ) {
+        //    $('#RatyLukas').show();
+        //} else {
+        //    $('#RatyLukas').hide();
+        //}
+    } else {
+        $('#RatyLukas').remove();
+    }
+
+    // wyswietlanie kalkulatora ratalnego Mbank
+    if ( $('#parametryMbank').val() != '' ) {
+        var mbank = $('#parametryMbank').val();
+        var mbankTablica = mbank.split(';');
+        if ( parseFloat($("#InputCenaKoncowaBrutto").val()) > parseFloat(mbankTablica[1]) && parseFloat($("#InputCenaKoncowaBrutto").val()) < parseFloat(mbankTablica[2]) ) {
+            $('#RatyMbank').show();
+        } else {
+            $('#RatyMbank').hide();
+        }
+    } else {
+        $('#RatyMbank').remove();
+    }
+
+    // ukrywa warstwe z informacjami o systemach ratalnych
+    $("#PlatnosciRatalne").filter(function() {
+        return this.childNodes.length === 0;
+    }).remove();
+
+    // podziel sie
+    $('#PodzielSie a').hover(
+        function(){ 
+            $(this).animate( { marginTop: '0px' }, 300);
+        },
+        function(){ 
+            $(this).animate( { marginTop: '9px' }, 300); 
+        }
+    );    
+
+    // nasza klasa
+    (function() {
+    var id = 'nk-widget-sdk';
+    var js, first_js = document.getElementsByTagName('script')[0];
+    if (document.getElementById(id)) return;
+    js = document.createElement('script'); 
+    js.id = id; js.async = true;
+    js.type = 'text/javascript';
+    js.src = 'http://0.s-nk.pl/script/packs/nk_widgets_all.js';
+    first_js.parentNode.insertBefore(js, first_js);
+    }());    
+    
+    // zmienia kolor czcionki chceto na zdefiniowana w body
+    if ( $('.chcetoChceLink').length ) {
+      var kolorBody = $('body').css('color');
+      $('.chcetoChceLink').css('color',kolorBody);
+    }
+    
+    // nie dziala dla wersji mobilnej
+    if ( !TypPrzegladarki() ) {
+    
+        // lupa na zdjeciu glownym
+        $(".ZdjecieProduktu").hover(function(){
+            //
+            if ( TypRWD() ) {
+                 $(".ZdjecieProduktu").hide();
+                 $(this).css({ display:'inline-block', opacity:1 });
+            }
+            //
+            var szerImg = $(this).width();
+            var wysImg = $(this).height();
+            //
+            $('#ZoomZdjecia').remove();
+            //
+            $(this).prepend('<span id="ZoomZdjecia" title="{__TLUMACZ:ZDJECIE_POWIEKSZENIE}"></span>');
+            //
+            $('#ZoomZdjecia').hide();
+            $('#ZoomZdjecia').css('margin-left', (szerImg / 2) - 45);
+            $('#ZoomZdjecia').css('margin-top', (wysImg / 2) - 45);
+            //
+            $('#ZoomZdjecia').fadeIn('fast');
+            //
+        }, function() {
+            //
+            $('#ZoomZdjecia').fadeOut('fast');
+            //
+        }); 
+
+    }
+
+    $('.miganie').each(function() {
+        var elem = $(this);
+        setInterval(function() {
+            elem.fadeTo('fast', 0, function() {
+                elem.fadeTo('slow', 1)
+            });
+        }, 2500);
+    });        
+
+    // zakladki 
+    $("#Zakladki li").click(function() { 
+        //
+        WlaczZakladke( $(this).attr('id') );
+        //
+        //
+    });
+
+    // jezeli ma otworzyc zakladke z cookie
+    var zakladka = '{ZAKLADKA}';
+    if ( zakladka != '' ) {
+        WlaczZakladke( 'z_' + zakladka );
+        document.cookie = 'zakladka=' + escape('') + ';path=/;expires=' + new Date(+new Date() - 5).toGMTString();
+    }
+
+    function WlaczZakladke( id ) {
+        if ($('#' + id).attr('class') != 'aktywna') {
+            //
+            $("#Zakladki li").removeClass('aktywna');
+            $('#' + id).addClass('aktywna');
+            //
+            $("#TresciZakladek div").each(function() {
+                if ( $(this).attr('class') != undefined ) {
+                    if ($(this).attr('class').indexOf("widoczna") > -1) {
+                        $(this).hide();
+                        $(this).removeClass('widoczna');
+                        $(this).addClass('ukryta');
+                    }
+                }
+            });
+            //
+            $("#TresciZakladek").find('.t' + id).addClass('widoczna');
+            $("#TresciZakladek").find('.t' + id).slideDown('fast');
+            //
+        }    
+    }     
+
+    $("#ZnizkiOdIlosci").click(function() { 
+        // odczyt id produktu
+        var elem = parametry.split(';');
+        var podzielId = elem[0].split('_');
+        //
+        PreloadWlacz();
+        $.post("inne/info_znizki.php?tok={__TOKEN_ZNIZKI}", { id: podzielId[1] }, function(data) { 
+            PreloadWylaczSzybko();
+            $.colorbox( { html:data, initialWidth:50, initialHeight:50, maxWidth:'90%', maxHeight:'90%' } );
+        });
+    });
+    
+    $(".CechaOpis").click(function() { 
+        PreloadWlacz();
+        $.post("inne/info_cecha.php?tok={__TOKEN_CECHA}", { id: TylkoLiczba( $(this).attr('id') ) }, function(data) { 
+            PreloadWylaczSzybko();
+            $.colorbox( { html:data, initialWidth:50, initialHeight:50, maxWidth:'90%', maxHeight:'90%' } );
+        });
+    });    
+    
+    $(".TxtOpis").click(function() { 
+        PreloadWlacz();
+        $.post("inne/info_pole.php?tok={__TOKEN_CECHA}", { id: TylkoLiczba( $(this).attr('id') ) }, function(data) { 
+            PreloadWylaczSzybko();
+            $.colorbox( { html:data, initialWidth:50, initialHeight:50, maxWidth:'90%', maxHeight:'90%' } );
+        });
+    });  
+
+    // usuwanie domyslnej wartosci z pol tekstowych
+    $('.UsunTekst').click( function() { 
+        if ( $(this).attr('data-text') != $(this).val() ) {
+             $(this).attr('data-text', $(this).val());
+             $(this).val(''); 
+        } 
+    });
+    $('.UsunTekst').change(function() {
+        $(this).attr('data-text', $(this).val());
+    });    
+    
+    // wgrywanie plikow na karcie produktu
+    function getDoc(frame) {
+       var doc = null;
+       
+       try {
+           if (frame.contentWindow) {
+               doc = frame.contentWindow.document;
+           }
+       } catch(err) {
+       }
+
+       if (doc) {
+           return doc;
+       }
+
+       try {
+           doc = frame.contentDocument ? frame.contentDocument : frame.document;
+       } catch(err) {
+           doc = frame.document;
+       }
+       return doc;
+    }
+
+    $("#FormKartaProduktu").submit(function(e) {
+
+      $("#wynik_" + $('#wgrywane').val()).html("<img src='szablony/{__DOMYSLNY_SZABLON}/obrazki/nawigacja/loader_maly.gif' alt='' />");
+
+      var formObj = $(this);
+      var formURL = formObj.attr("action");
+
+      if (window.FormData !== undefined) {
+      
+        var formData = new FormData(this);
+        
+        $.ajax({
+            url: formURL,
+            type: 'POST',
+            data: formData,
+            mimeType:"multipart/form-data",
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(data, textStatus, jqXHR) {
+              //
+              dane = data.split('##');
+              //
+              if ( dane[0] == '' ) {
+                  $("#wynik_" + $('#wgrywane').val()).html(dane[1]);
+                  $("#pole_txt_" + TylkoLiczba( $('#wgrywane').val() )).val(dane[2]);
+                } else {
+                  $("#wynik_" + $('#wgrywane').val()).html('<b class="blad">' + dane[0] + '</b>');
+                  $("#pole_txt_" + TylkoLiczba( $('#wgrywane').val() )).val('');
+              }
+              $('#wgrywane').val('');
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+              $("#wynik_" + $('#wgrywane').val()).html('<b class="blad">Blad przesylu danych</b>');
+              $("#pole_txt_" + TylkoLiczba( $('#wgrywane').val() )).val('');
+              $('#wgrywane').val('');
+            } 	        
+         });
+         
+         e.preventDefault();
+            
+      } else {
+
+        var iframeId = 'unique' + (new Date().getTime());
+
+        var iframe = $('<iframe src="javascript:false;" name="'+iframeId+'" />');
+
+        iframe.hide();
+
+        formObj.attr('target',iframeId);
+
+        iframe.appendTo('body');
+        iframe.load(function(e) {
+          var doc = getDoc(iframe[0]);
+          var docRoot = doc.body ? doc.body : doc.documentElement;
+          var data = docRoot.innerHTML;
+          //
+          dane = data.split('##');
+          //
+          if ( dane[0] == '' ) {
+              $("#wynik_" + $('#wgrywane').val()).html(dane[1]);
+              $("#pole_txt_" + TylkoLiczba( $('#wgrywane').val() )).val(dane[2]);
+            } else {
+              $("#wynik_" + $('#wgrywane').val()).html('<b class="blad">' + dane[0] + '</b>');
+              $("#pole_txt_" + TylkoLiczba( $('#wgrywane').val() )).val('');
+          }
+          $('#wgrywane').val('');
+        });
+      
+      }
+
+    });    
+    
+    $('body').on('change', '.wgraniePliku', function() {
+        $('#wgrywane').val( $(this).attr('id') );
+        $("#FormKartaProduktu").submit();
+    });    
+
+});
+
+function PokazYouTube() { return }
+
+function onYouTubeIframeAPIReady() {
+
+    if ( youtube != '' ) {
+        //
+        var player;
+        var filmy = youtube.split(';');
+
+        for (t = 0; t < filmy.length; t++) {
+            //
+            var param_filmy = filmy[t].split(',');
+            //
+            if ( param_filmy[1] != undefined ) {
+                //
+                var szerokosc = param_filmy[2];
+                var wysokosc = param_filmy[3];
+
+                if ( TypPrzegladarki() && !TypRWD() ) {
+                    var proporcja = param_filmy[2] / param_filmy[3];
+                    szerokosc = 270;
+                    wysokosc = Math.round(szerokosc / proporcja);
+                }
+
+                player = new YT.Player('film_' + param_filmy[0], {
+                    width: szerokosc,
+                    height: wysokosc,
+                    videoId: param_filmy[1],
+                    playerVars: {
+                        'controls' : 1,
+                        'modestbranding' : 1,
+                        'rel' : 0,
+                        'showinfo' : 0
+                    },
+                    events: {
+                        'onReady': onPlayerReady,
+                        'onStateChange': onPlayerStateChange
+                    }
+                });
+
+            }
+            //      
+        }
+        //
+    }
+}
+
+var ready = false;
+function onPlayerReady(event) {
+    ready = true;
+}
+ 
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING) {
+      // Video playing
+    } else {
+      //Video has paused
+    }
+}
+ 
+function stopVideo() {
+    player.stopVideo();
+}
+ 
+function playVideo() {
+    if(ready) player.playVideo();
+    else setTimeout(function(){ playVideo() },1000);
+}
+
+function PokazFlv() {
+    if ( flv != '' ) {
+        //
+        var filmy = flv.split(';');
+        for (t = 0; t < filmy.length; t++) {
+            //
+            var param_filmy = filmy[t].split(',');
+            //
+            if ( param_filmy[1] != undefined ) {
+                //
+                var flashvars = { width: param_filmy[2], height: param_filmy[3], movie: oD(param_filmy[1]), bgcolor:"0x000000", autoplay: "off" };
+                var params = { allowfullscreen: param_filmy[3] };
+                var attributes = {}; 
+                swfobject.embedSWF("programy/player.swf",
+                                   'flv_' + param_filmy[0], param_filmy[2], param_filmy[3], "8", null, flashvars, params, attributes);
+                //
+            }            
+        }
+        //
+    }
+}
+
+function PokazMp3() {
+    if ( mp3 != '' ) {
+        //
+        var utwory = mp3.split(';');
+        for (t = 0; t < utwory.length; t++) {
+            //
+            var param_utwory = utwory[t].split(',');
+            //
+            if ( param_utwory[1] != undefined ) {
+                //
+                var flashvars = { mp3: oD(param_utwory[1]) };
+                var params = {};
+                var attributes = {}; 
+                swfobject.embedSWF("programy/dewplayer.swf",
+                                   'mp3_' + param_utwory[0], '200', '20', "8", null, flashvars, params, attributes);            
+            }            
+        }
+        //
+    }
+}
+
+function oD(tekst) {
+    var odwRtekst = "";
+    var tekstLength = tekst.length - 1;
+    for (var i = tekstLength; i >= 0; i--) {
+        odwRtekst += tekst[i];
+    }
+    return '../{KATALOG_ZDJEC}/' + odwRtekst;
+}
+
+function ZmienCeche( id_unikalne ) {
+
+    var parametry = $('#parametry').val();
+
+    // wartosci minimalna i maksymalna rat Santander
+    var parametrySantander = $('#parametrySantander').val();
+    var santander = parametrySantander.split(';');
+
+    // wartosci minimalna i maksymalna rat MBANK
+    var parametryMbank = $('#parametryMbank').val();
+    var mbank = parametryMbank.split(';');
+
+    // wartosci minimalna i maksymalna rat Lukas
+    var parametryLukas = $('#parametryLukas').val();
+    var lukas = parametryLukas.split(';');
+
+    // id produktu z cechami
+    var IdCech = '';
+    
+    // stan magazynowy cech
+    var magazynCech = '{STAN_MAGAZYNOWY_CECH}';
+    var kupowanieMimoBrakow = '{MAGAZYN_SPRZEDAJ_MIMO_BRAKU}';
+    var katalogProduktow = '{PRODUKT_KUPOWANIE_STATUS}';
+    var typOszczedzasz = '{KARTA_PRODUKTU_CENA_KATALOGOWA_TYP}';
+    var typOszczedzaszZaokraglenie = '{KARTA_PRODUKTU_CENA_KATALOGOWA_TYP_ZAOKRAGLENIE}';
+    
+    // system punktow
+    var wartoscPunktow = {WARTOSC_PUNKTOW};
+    var walutaPrzelicznik = {WALUTA_PRZELICZNIK};
+    
+    // parametry
+    var elem = parametry.split(';');
+    
+    var cena_wyjsciowa_brutto = parseFloat(elem[1]);
+    var cena_wyjsciowa_netto = parseFloat(elem[2]);
+    
+    var cena_wyjsciowa_poprzednia = parseFloat(elem[3]);
+    var cena_wyjsciowa_katalogowa = parseFloat(elem[4]);
+    
+    var cena_przeliczona_brutto = cena_wyjsciowa_brutto;
+    var cena_przeliczona_netto = cena_wyjsciowa_netto;
+    
+    var cena_przeliczona_poprzednia = cena_wyjsciowa_poprzednia;
+    var cena_przeliczona_katalogowa = cena_wyjsciowa_katalogowa;
+    
+    var nazwa_formularza = "FormKartaProduktu";
+
+    var WartosciSelectow = new Array();
+    $("#" + nazwa_formularza + " select").each(function() {
+        WartosciSelectow[ TylkoLiczba($(this).attr('name')) ] = $(this).val();
+    });    
+    
+    $("#" + nazwa_formularza + " :radio:checked").each(function() {
+        WartosciSelectow[ TylkoLiczba($(this).attr('name')) ] = $(this).val();
+    });      
+    
+    WartosciSelectow = sortujTablice( WartosciSelectow );
+    var ileByloCech = 0;
+    
+    // jezeli nie jest wybrana cecha to ukryje kupowanie
+    var ukryj_wszystko = false;
+    var ukryj_kupowanie = false;
+    
+    $('#' + nazwa_formularza + ' #PrzyciskKupowania').hide();
+    $('#' + nazwa_formularza + ' #InfoNiedostepny').hide();  
+
+    // ile jest selectow
+    for (var klucz in WartosciSelectow) {
+
+        var tablica = WartosciSelectow[klucz].split(',');
+        ileByloCech++;
+    
+        if ( tablica[0] != '' ) {
+        
+            IdCech += 'x' + TylkoLiczba(klucz) + '-';
+            
+            // tylko jezeli poszczegolne cechy zmieniaja wartosc
+            if ( $('#TypCechy').val() == 'cechy' ) {
+            
+                // bedzie przeliczac tylko jezeli wartosc jest wieksza od 0
+                if ( TylkoLiczba(tablica[1]) > 0 ) {
+            
+                    switch( tablica[3] ) {
+                      case '$':
+                        if ( tablica[2] == '+' ) {
+                            cena_przeliczona_brutto += parseFloat( tablica[1] );
+                            cena_przeliczona_netto += parseFloat( tablica[0] );
+                            // jezeli jest cena poprzednia
+                            if ( cena_wyjsciowa_poprzednia > 0 ) {
+                                cena_przeliczona_poprzednia += parseFloat( tablica[1] );
+                            }
+                            // jezeli jest cena katalogowa
+                            if ( cena_wyjsciowa_katalogowa > 0 ) {
+                                cena_przeliczona_katalogowa += parseFloat( tablica[1] );
+                            }                            
+                        } else {
+                            cena_przeliczona_brutto -= parseFloat( tablica[1] );
+                            cena_przeliczona_netto -= parseFloat( tablica[0] );
+                            // jezeli jest cena poprzednia
+                            if ( cena_wyjsciowa_poprzednia > 0 ) {
+                                cena_przeliczona_poprzednia -= parseFloat( tablica[1] );
+                            } 
+                            // jezeli jest cena katalogowa
+                            if ( cena_wyjsciowa_katalogowa > 0 ) {
+                                cena_przeliczona_katalogowa -= parseFloat( tablica[1] );
+                            }                             
+                        }
+                        break;
+                      
+                      case '%':
+                        if ( tablica[2] == '+' ) {
+                            cena_przeliczona_brutto += cena_wyjsciowa_brutto * (parseFloat( tablica[1] ) / 100);
+                            cena_przeliczona_netto += cena_wyjsciowa_netto * (parseFloat( tablica[1] ) / 100);
+                            // jezeli jest cena poprzednia
+                            if ( cena_wyjsciowa_poprzednia > 0 ) {
+                                cena_przeliczona_poprzednia += cena_wyjsciowa_poprzednia * (parseFloat( tablica[1] ) / 100);
+                            }  
+                            // jezeli jest cena katalogowa
+                            if ( cena_wyjsciowa_katalogowa > 0 ) {
+                                cena_przeliczona_katalogowa += cena_wyjsciowa_katalogowa * (parseFloat( tablica[1] ) / 100);
+                            }                              
+                        } else {
+                            cena_przeliczona_brutto -= cena_wyjsciowa_brutto * (parseFloat( tablica[1] ) / 100);
+                            cena_przeliczona_netto -= cena_wyjsciowa_netto * (parseFloat( tablica[1] ) / 100);
+                            // jezeli jest cena poprzednia
+                            if ( cena_wyjsciowa_poprzednia > 0 ) {
+                                cena_przeliczona_poprzednia -= cena_wyjsciowa_poprzednia * (parseFloat( tablica[1] ) / 100);
+                            }
+                            // jezeli jest cena katalogowa
+                            if ( cena_wyjsciowa_katalogowa > 0 ) {
+                                cena_przeliczona_katalogowa -= cena_wyjsciowa_katalogowa * (parseFloat( tablica[1] ) / 100);
+                            }                                
+                        }
+                        break;
+                    }
+                
+                }
+                
+                IdCech += parseInt(tablica[4]);
+                
+              } else {
+                
+                IdCech += parseInt(tablica[0]);
+                
+            }    
+            
+        } else if ( tablica[0] == '' ) {
+        
+            ukryj_kupowanie = true;
+            ukryj_wszystko = true;
+            
+        }
+        
+    };
+    
+    if ( $('#TypCechy').val() == 'ceny' ) {
+         //
+         if ( opcje[IdCech] != undefined ) {
+              var cenyCech = opcje[IdCech].split(';');
+              cena_przeliczona_netto = parseFloat(cenyCech[0]);
+              cena_przeliczona_brutto = parseFloat(cenyCech[1]);
+         }
+         //
+    }
+
+    $('#' + nazwa_formularza + ' #CenaGlownaProduktuBrutto strong').html( formatWaluty(cena_przeliczona_brutto, '{SYMBOL}', '{SEPARATOR_DZIESIETNY}') );
+    
+    // jezeli jest cena netto
+    if ($('#CenaGlownaProduktuNetto').length) {
+        $('#' + nazwa_formularza + ' #CenaGlownaProduktuNetto strong').html( formatWaluty(cena_przeliczona_netto, '{SYMBOL}', '{SEPARATOR_DZIESIETNY}') );
+    }
+    
+    if ( $('#CenaPoprzednia').length ) {
+         $('#' + nazwa_formularza + ' #CenaPoprzednia strong').html( formatWaluty(cena_przeliczona_poprzednia, '{SYMBOL}', '{SEPARATOR_DZIESIETNY}') );
+    }
+    if ( $('#CenaKatalogowa').length ) {
+    
+         $('#' + nazwa_formularza + ' #CenaKatalogowa strong').html( formatWaluty(cena_przeliczona_katalogowa, '{SYMBOL}', '{SEPARATOR_DZIESIETNY}') );
+         // oszczedzasz
+         if ( $('#CenaKatalogowaOszczedzasz').length ) {
+             //
+             if ( typOszczedzasz == 'kwota' ) {
+                var wartosc_oszczedzasz_kwota = cena_przeliczona_katalogowa - cena_przeliczona_brutto;
+                $('#' + nazwa_formularza + ' #CenaKatalogowaOszczedzasz strong').html( formatWaluty(wartosc_oszczedzasz_kwota, '{SYMBOL}', '{SEPARATOR_DZIESIETNY}') );
+             }
+             if ( typOszczedzasz == 'procent' ) {
+                var wartosc_oszczedzasz_procent = (1 - (cena_przeliczona_brutto / cena_przeliczona_katalogowa)) * 100;
+                if ( typOszczedzaszZaokraglenie == 'ułamek' ) {
+                     $('#' + nazwa_formularza + ' #CenaKatalogowaOszczedzasz strong').html( wartosc_oszczedzasz_procent.toFixed(2) + '%' );
+                   } else {
+                     $('#' + nazwa_formularza + ' #CenaKatalogowaOszczedzasz strong').html( wartosc_oszczedzasz_procent.toFixed(0) + '%' );
+                }
+             }
+             //
+          }
+    }
+    
+    $('#InputWybraneCechy_' + id_unikalne).val( IdCech );
+    
+    var glowneZdjecie = $('#DuzeFoto1').find('img').attr('src');
+    
+    // ladowanie obrazka cechy
+    $.post("inne/produkt_cecha_zdjecie.php?tok={__TOKEN_PRODUKT}", { id: id_unikalne, cechy: IdCech }, function(data) {   
+        //
+        if ( data != '' ) {
+
+           if ( $(data.srednie).attr('src') != glowneZdjecie ) {
+           
+             //
+             if ( TypRWD() ) {
+                //
+                $('#ZdjeciaWew a').hide();
+                $('#ZdjeciaWew #DuzeFoto1').show();
+                //
+             } else {
+                //
+                // przesuniecie do poczatku zdjec
+                $('#ZdjeciaWew').css( { marginLeft: 0 });
+                //            
+             }             
+             //
+             // podmiana miniaturki
+             if ( $('#Foto1').length ) {
+                $('#Foto1').attr('src', data.male );
+             }
+             //
+             // podmiana zdjec
+             $('#DuzeFoto1').stop().animate({ opacity : 0.1 }, 100, function() {
+                //
+                $('#DuzeFoto1').html( data.srednie );
+                $('#DuzeFoto1').attr('href', data.duze);
+                //
+                $(this).animate({ opacity: 1 }, 200);
+                //
+             });
+             //
+           }
+           
+        }
+        //
+    }, "json");     
+
+    // dodatkowe opcje: dostepnosc, nr katalogowy, stan magazynowy
+    if ( ukryj_kupowanie == false ) {
+        //
+        PreloadWlacz();
+        $.post("inne/produkt.php?tok={__TOKEN_PRODUKT}", { id: id_unikalne, cechy: IdCech }, function(data) {          
+            PreloadWylacz();
+            //
+            if ( $('#Dostepnosc').length && data.dostepnosc != '' ) {
+                 $('#Dostepnosc').hide();
+                 $('#Dostepnosc strong').html( data.dostepnosc );
+                 $('#Dostepnosc').fadeIn();
+            }
+            if ( $('#NrKatalogowy').length && data.nrkat != '' ) {
+                 $('#NrKatalogowy').hide();
+                 $('#NrKatalogowy strong').html( data.nrkat );
+                 $('#NrKatalogowy').fadeIn();
+            } 
+            if ( $('#StanMagazynowy').length && data.ilosc != '' && magazynCech == 'tak' ) {
+                 $('#StanMagazynowy').hide();
+                 $('#StanMagazynowy strong').html( data.ilosc );
+                 $('#StanMagazynowy').fadeIn();
+            }               
+
+            // jezeli jest kontrola stanu magazynowego cech - pokaze komunikat ze produkt niedostepny z dana opcja
+            if ( magazynCech == 'tak' ) {
+                //
+                var zawartoscCech = $('#CechyProduktu').html();
+                if ( (TylkoLiczba(data.ilosc) <= 0 && kupowanieMimoBrakow == 'nie') && zawartoscCech.indexOf("<td") > 0 ) {
+                    //
+                    ukryj_kupowanie = true;
+                    //
+                  } else {
+                    //
+                    ukryj_kupowanie = false;
+                    //
+                }
+                //
+            }
+            
+            if ( data.kupowanie == 'nie' ) {
+                ukryj_kupowanie = true;
+            }          
+            
+            pokazKupowanie( ukryj_kupowanie );
+            
+        }, "json");     
+        //
+    } else {
+        pokazKupowanie( ukryj_kupowanie );
+    }
+    
+    // jezeli sklep jest jako katalog produktow ukrywa wszystko
+    if ( katalogProduktow == 'nie' ) {
+        ukryj_wszystko = true;
+    }
+
+    function pokazKupowanie( tryb ) {
+        if ( tryb == true ) {
+            //
+            $('#' + nazwa_formularza + ' #PrzyciskKupowania').hide();
+            //
+            $('#' + nazwa_formularza + ' #InfoNiedostepny').hide();
+            if ( ukryj_wszystko == false ) {
+                $('#' + nazwa_formularza + ' #InfoNiedostepny').fadeIn();
+            }
+            //
+            // punkty
+            $('#InformacjaPunkty span').html('{__TLUMACZ:PUNKTY_PAKIET}');
+            //
+          } else {
+            //
+            $('#' + nazwa_formularza + ' #InfoNiedostepny').hide();  
+            $('#' + nazwa_formularza + ' #PrzyciskKupowania').hide();  
+            if ( ukryj_wszystko == false ) {
+                $('#' + nazwa_formularza + ' #PrzyciskKupowania').fadeIn();
+            }
+            //
+            // uzupelnia danymi cene
+            $('#InputCenaKoncowaBrutto').val( cena_przeliczona_brutto );         
+            //
+            // punkty
+            var nowaIloscPunktow = (parseFloat($('#InputCenaKoncowaBrutto').val()) / walutaPrzelicznik) * wartoscPunktow;
+            var nowaIloscPunktow = Math.ceil(nowaIloscPunktow);
+            $('#InformacjaPunkty').hide();
+            $('#InformacjaPunkty span').html(nowaIloscPunktow);
+            $('#InformacjaPunkty').fadeIn();
+            //
+        }  
+    }  
+    
+    // wyswietlenie lub ukrycie kalkulatora rat Santander po zmianie cech produktu
+    if ( parametrySantander != '' ) {
+       if ( parseFloat(cena_przeliczona_brutto) > parseFloat(santander[2]) && parseFloat(cena_przeliczona_brutto) < parseFloat(santander[3]) ) {
+            $("#PlatnosciRatalne").show();
+            $('#RatySantander').show();
+        } else {
+            $('#RatySantander').hide();
+        }
+        $("#PlatnosciRatalne").filter(function() {
+            return $('#RatySantander').attr('style') === 'display: none;';
+        }).hide();
+    }
+
+    // wyswietlenie lub ukrycie kalkulatora rat Lukas po zmianie cech produktu
+    if ( parametryLukas != '' ) {
+        if ( parseFloat(cena_przeliczona_brutto) > parseFloat(lukas[1]) && parseFloat(cena_przeliczona_brutto) < parseFloat(lukas[2]) ) {
+            $("#PlatnosciRatalne").show();
+            $('#RatyLukas').show();
+        } else {
+            $('#RatyLukas').hide();
+        }
+        $("#PlatnosciRatalne").filter(function() {
+            return $('#RatyLukas').attr('style') === 'display: none;';
+        }).hide();
+    }
+
+    // wyswietlenie lub ukrycie kalkulatora rat Mbank po zmianie cech produktu
+    if ( parametryMbank != '' ) {
+        if ( parseFloat(cena_przeliczona_brutto) > parseFloat(mbank[1]) && parseFloat(cena_przeliczona_brutto) < parseFloat(mbank[2]) ) {
+            $("#PlatnosciRatalne").show();
+            $('#RatyMbank').show();
+        } else {
+            $('#RatyMbank').hide();
+        }
+        $("#PlatnosciRatalne").filter(function() {
+            return $('#RatyMbank').attr('style') === 'display: none;';
+        }).hide();
+    }
+
+}
+
+function formatWaluty( num, symbol, separator_dziesietny ) {
+    var p = num.toFixed(2).split(".");
+    return p[0].split("").reverse().reduce(function(acc, num, i, orig) {
+        return  num + (i && !(i % 3) ? " " : "") + acc;
+    }, "") + separator_dziesietny + p[1] + ' ' + symbol;
+}
+
+// sortuje cechy wg id
+function sortujTablice( obj ) {
+    var klucze = [];
+    var obiekt = {};
+
+    for(var klucz in obj){
+        if(obj.hasOwnProperty(klucz)){
+            klucze.push(klucz);
+        }
+    }
+    
+    klucze.sort();
+
+    $.each(klucze, function(i, klucz){
+        obiekt[klucz] = obj[klucz];
+    });
+    
+    return obiekt;
+};
+
+// funkcja generujaca kalkulator ratalny Santander na stronie karty produktu
+function PoliczRateSantander() {
+
+    var iWidth = 630;
+    var iHeight = 680;
+    var iX = ( screen.availWidth - iWidth ) / 2;
+    var iY = ( screen.availHeight - iHeight ) / 2;
+
+	  var wartosc = $('#InputCenaKoncowaBrutto').val();
+    var parametrySantander = $('#parametrySantander').val();
+    var santander = parametrySantander.split(';');
+    var adres = 'https://wniosek.eraty.pl/symulator/oblicz/numerSklepu/'+santander[0]+'/wariantSklepu/'+santander[1]+'/typProduktu/0/wartoscTowarow/'+wartosc;
+
+    window.open(adres, 'Policz_rate', 'height='+iHeight+', width='+iWidth+',top='+iY+',left='+iX+',directories=no,location=no,menubar=no,resizable=yes,scrollbars=yes,status=no,toolbar=no');
+
+}
+
+// funkcja generujaca kalkulator ratalny Lukas na stronie karty produktu
+function PoliczRateLukas() {
+
+    var iWidth = 820;
+    var iHeight = 680;
+    var iX = ( screen.availWidth - iWidth ) / 2;
+    var iY = ( screen.availHeight - iHeight ) / 2;
+
+    var wartosc = $('#InputCenaKoncowaBrutto').val();
+    var parametryLukas = $('#parametryLukas').val();
+    var lukas = parametryLukas.split(';');
+    var adres = 'https://ewniosek.credit-agricole.pl/eWniosek/simulator.jsp?PARAM_TYPE=RAT&PARAM_PROFILE='+lukas[0]+'&PARAM_CREDIT_AMOUNT='+wartosc;
+
+    window.open(adres, 'Policz_rate_LUKAS', 'height='+iHeight+', width='+iWidth+',top='+iY+',left='+iX+',directories=no,location=no,menubar=no,resizable=yes,scrollbars=yes,status=no,toolbar=no');
+
+}
+
+// funkcja generujaca kalkulator ratalny MBANK na stronie karty produktu
+function PoliczRateMbank() {
+
+    var iWidth = 780;
+    var iHeight = 530;
+    var iX = ( screen.availWidth - iWidth ) / 2;
+    var iY = ( screen.availHeight - iHeight ) / 2;
+
+    var wartosc = $('#InputCenaKoncowaBrutto').val();
+    var parametryMbank = $('#parametryMbank').val();
+    var mbank = parametryMbank.split(';');
+    var adres = 'http://www.mbank.pl/mbank_raty/index.html?sprzedawca='+mbank[0]+'&kwota='+wartosc;
+
+    window.open(adres, 'Policz_rate_MBANK', 'height='+iHeight+', width='+iWidth+',top='+iY+',left='+iX+',directories=no,location=no,menubar=no,resizable=yes,scrollbars=yes,status=no,toolbar=no');
+
+}
+
+// funkcja generujaca kalkulator ratalny PayU Raty na stronie karty produktu
+function PoliczRatePauYRaty() {
+
+    var wartosc = $('#InputCenaKoncowaBrutto').val();
+    var adres = 'programy/PayUraty/kalkulator.php?kwota='+wartosc;
+
+    $.colorbox({ innerWidth: "470px", innerHeight: "700px", iframe: true, transition: "elastic", open: true, href: adres, fastIframe: false });
+
+}

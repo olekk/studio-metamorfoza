@@ -1,0 +1,16 @@
+/* wyglad rodzaju boxu w liscie */
+.link { background:url('../obrazki/link.png') no-repeat left center; display:inline-block; padding:2px; padding-left:24px; color:#087000; font-weight:normal; text-decoration:none; }
+.strona { background:url('../obrazki/info_klient.png') no-repeat left center; display:inline-block; padding:2px; padding-left:24px; font-weight:normal; text-decoration:none; }
+
+/* leganda ikon */
+#legenda { margin:10px; margin-right:0px; text-align:right; }
+#legenda span { margin-left:20px; }
+
+/* wyswietlana w boxie czy module */
+.wyswietlanie_box { font-weight:bold; line-height:1.8; background:url('../obrazki/wyswietlanie_box.png') no-repeat left center; display:block; padding:8px; padding-left:25px; margin:10px 10px 0px 25px; color:#087000; text-decoration:none; }
+.wyswietlanie_modul { font-weight:bold; line-height:1.8; background:url('../obrazki/wyswietlanie_modul.png') no-repeat left center; display:block; padding:8px; padding-left:25px; margin:10px 10px 0px 25px; color:#087000; text-decoration:none; }
+.wyswietlanie_box, .wyswietlanie_modul { border-top:1px dotted #cccccc; }
+.wyswietlanie_box a, .wyswietlanie_modul a { background:url('../obrazki/edytuj.png') no-repeat left center; display:inline-block; padding:2px; padding-left:21px; font-weight:normal; }
+
+/* grupa klientow */
+.grupa_klientow { display:inline-block; padding:5px; }

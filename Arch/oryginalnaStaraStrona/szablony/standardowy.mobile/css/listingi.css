@@ -1,0 +1,67 @@
+/* listing produktow - nawigacja */
+.Listing { margin-bottom:5px; }
+.Listing #BrakProduktow { margin:10px 0px 0px 0px; text-align:center; display:inline-block; }
+.Listing .OpisListing .ZdjecieListing { float:left; margin:0px 10px 10px 0px; }
+.Listing .ListingNawigacja { background:#6f6e6e; color:#ffffff; margin:0px 0px 10px 0px; padding:10px; -moz-border-radius:6px; -webkit-border-radius:6px; -khtml-border-radius:6px; border-radius:6px; }
+.Listing .IndexStron { float:left; }
+.Listing .IndexStron b { display:inline-block; margin:0px 10px 0px 0px; }
+.Listing .IndexStron span { display:inline-block; margin:0px 0px 0px 10px; }
+.Listing .IndexStron a { color:#ffffff; font-size:140%; display:inline-block; min-width:30px; height:30px; margin:2px 5px 2px 5px; background:#828282; -webkit-border-radius:6px; -moz-border-radius:6px; border-radius:6px; -khtml-border-radius:6px; text-align:center; line-height:30px; }
+.Listing .IndexStron .Aktywna { background:#3b3b3b; color:#ffffff; font-weight:bold; }
+.Listing .SposobWyswietlania { display:none; }
+
+.Listing .Sortowanie { float:left; margin-top:10px; width:100%; }
+.Listing .Sortowanie ul { list-style-type:none; padding:0px; margin:5px 0px 0px 0px; }
+.Listing .Sortowanie li { float:left; margin:5px; }
+.Listing .Sortowanie li:first-child { line-height:24px; margin-left:0px; }
+.Listing .Sortowanie li span { float:left; line-height:24px; display:inline-block; margin:0px 2px 0px 2px; }
+.Listing .Sortowanie li span:first-child { background:url('../obrazki/nawigacja/sortowanieDol.png') no-repeat center center; width:34px; height:24px; cursor:pointer; }
+.Listing .Sortowanie li span:nth-child(3) { background:url('../obrazki/nawigacja/sortowanieGora.png') no-repeat center center; width:34px; height:24px; cursor:pointer; }
+.Listing .Sortowanie b { display:inline-block; margin:0px 10px 0px 0px; line-height:16px; }
+
+.Listing .IloscProdStronie { float:left; margin-top:10px; width:100%; }
+.Listing .IloscProdStronie b { display:inline-block; margin-right:10px; }
+.Listing .IloscProdStronie span { cursor:pointer; color:#ffffff; font-size:140%; display:inline-block; min-width:30px; height:30px; margin:2px 5px 2px 5px; background:#828282; -webkit-border-radius:6px; -moz-border-radius:6px; border-radius:6px; -khtml-border-radius:6px; text-align:center; line-height:30px; }
+.Listing .IloscProdStronie span.Tak { background:#3b3b3b; color:#ffffff; font-weight:bold; }
+
+.Porownywanie { display:none; }
+
+/* listing - filtry - wyglad filtrow i calego okna filtrow */
+.Listing .ListingFiltry { background:#6f6e6e; color:#ffffff; margin:0px 0px 10px 0px; padding:5px 10px 5px 10px; -moz-border-radius:6px; -webkit-border-radius:6px; -khtml-border-radius:6px; border-radius:6px; }
+.Listing .ListingFiltry .ZakresCen { float:left; margin:5px 20px 5px 0px; }
+.Listing .ListingFiltry .ZakresCen b { display:inline-block; margin:0px 5px 0px 0px; font-weight:normal; }
+.Listing .ListingFiltry strong { color:#ffffff; display:block; margin:10px 0px 8px 0px; font-size:120%; }
+.Listing .ListingFiltry .Rg { margin:5px 0px 8px 0px; float:right; }
+.Listing .ListingFiltry .Rg a { color:#ffffff; font-size:120%; font-weight:bold; background:url('../obrazki/nawigacja/kasuj.png') no-repeat left center; margin-right:10px; padding:2px 2px 2px 20px; }
+
+/* listing - podkategorie w listingu produktow po kliknieciu na kategorie */
+.Listing .Podkategorie { text-align:center; }
+.Listing .Podkategorie strong { color:#83ae17; display:block; margin-bottom:7px; font-size:140%; }
+.Listing .Podkategorie ul { list-style-type:none; padding:0px; margin:0px 0px 10px 0px; }
+.Listing .Podkategorie ul li { display:inline-block; vertical-align:top; text-align:center; }
+.Listing .Podkategorie ul.KategoriaBezZdjecia a { display:block; color:#ffffff; font-weight:bold; font-size:110%; padding:6px 12px 6px 12px; background:#6f6e6e; -moz-border-radius:4px; -webkit-border-radius:4px; -khtml-border-radius:4px; border-radius:4px; }
+.Listing .Podkategorie ul.KategoriaBezZdjecia li { margin:5px; }
+.Listing .Podkategorie ul.KategoriaZdjecie a { display:inline-block; font-weight:bold; font-size:110%; padding:6px 12px 6px 12px; text-align:center; }
+.Listing .Podkategorie a em { display:inline-block; margin-left:5px; font-weight:normal; font-style:normal; }
+
+/* listing produktow - wyglad recenzje wszystkie */
+.Listing .Recenzje { margin-bottom:8px; padding:10px 0px 10px 0px; }
+.Listing .Recenzje:last-child { border-bottom:0px; }
+.Listing .Recenzje .Foto { float:left; }
+.Listing .Recenzje .ProdRecenzja { text-align:left; padding-right:5px; }
+.Listing .Recenzje .ProdRecenzja a { padding:0px 0px 5px 0px; display:inline-block; }
+.Listing .Recenzje .ProdRecenzja .RecenzjaTresc { display:block; padding:5px 5px 5px 2px; margin-top:8px; text-align:left; }
+.Listing .Recenzje .ProdRecenzja .AutorData { display:block; padding:5px 5px 5px 2px; line-height:1.5; }
+
+/* listing produktow - wyglad w koszyku gratisow */
+.Gratisy .Wiersz { margin-bottom:8px; padding:10px 0px 10px 0px; }
+.Gratisy .Wiersz:last-child { border-bottom:0px; }
+.Gratisy .Wiersz { text-align:center; width:100%; margin:0px auto; position:relative; padding-top:10px; }
+.Gratisy .Wiersz .ProdCena { text-align:left; display:table; width:90%; border-collapse:collapse; }
+.Gratisy .Wiersz .Foto { display:table-cell; width:15%; min-width:80px; vertical-align:middle; text-align:left; }
+.Gratisy .Wiersz .NazwaKoszyk { display:table-cell; width:85%; vertical-align:top; }
+.Gratisy .Wiersz .NazwaKoszyk h3 a { padding:0px 10px 10px 0px; display:inline-block; }
+.Gratisy .Wiersz .InfoCena { float:left; }
+.Gratisy .Wiersz .InfoCena strong { font-size:110%; }
+.Gratisy .Wiersz .InfoCena strong:nth-child(2) { font-size:150%; }
+.Gratisy .Wiersz .InfoCena strong:last-child { font-size:130%; color:#ff0000; }

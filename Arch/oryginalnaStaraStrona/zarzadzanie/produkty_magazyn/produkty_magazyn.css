@@ -1,0 +1,40 @@
+/* obsluga okna kategorii */
+.okno_kateg { margin-bottom:10px; border:1px solid #c1c1c1; padding:2px; padding-bottom:7px; }
+.okno_naglowek { padding:7px; padding-left:5px; background:url('../obrazki/tlo.png') no-repeat right bottom; text-shadow: #fff 1px 1px 1px; font-weight:bold; color:#2b595b; }
+
+/* lista kategorii do jakich jest przypisany produkt */
+.male_kat { display:block; padding-top:5px; padding-bottom:2px; font-weight:normal; }
+
+/* nr katalogowy */
+.male_nr_kat { display:block; padding-top:5px; padding-bottom:2px; font-weight:normal; color:#5b5a5a; }
+
+/* producent */
+.male_producent { display:block; padding-top:2px; padding-bottom:2px; font-weight:normal; color:#29682c; }
+
+.pole_edycja { width:40px; text-align:center; }
+
+/* niski stan magazynowy */
+.iloscCechy { background: url("../obrazki/uwaga.png") no-repeat left center; display:inline-block; padding-left:20px; }
+
+/* definicje ceny */
+.stara_cena { text-decoration:line-through; padding-bottom:2px; font-weight:normal; color:#5b5a5a; }
+.cena { padding-left:5px; padding-right:5px; font-weight:normal; color:#ff0000; }
+
+/* edycja cech produktu */
+.cechy_naglowek { padding:10px; padding-left:0px; color:#3f5d6b; font-weight:bold; text-decoration:none; }
+
+.stany_cech { padding-bottom:30px; }
+.tbl_cechy { color: #3f5d6b; }
+.tbl_cechy .nazwa_cechy { font-weight:bold; color:#ff0000; background:#f4f2f2; padding:6px; }
+.tbl_cechy td { border:2px solid #fff; padding:2px; padding-left:7px; padding-right:7px; text-decoration:none; }
+.tbl_cechy .nagl { text-align:center; padding:8px; background:#e5e5e5; font-weight:normal; color:#3f5d6b; text-decoration:none; }
+
+/* status jezeli kategoria jest wylaczona */
+.wylKat { background: url("../obrazki/uwaga_mala.png") no-repeat left center; display:inline-block; padding:2px; padding-left:10px; }
+
+#akcja #wart_dostepnosc { padding-top:7px; font-weight:normal; text-decoration:none; display:block; float:right; }
+#akcja #wart_wysylka { padding-top:7px; font-weight:normal; text-decoration:none; display:block; float:right; }
+
+div .export { background:url('../obrazki/export.png') no-repeat left center; line-height:16px; display:inline-block; padding-left:22px; font-weight:bold; color:#016f24; text-decoration:none; }
+div .export:hover { color:#ff0000; text-decoration:none; }
+.naglowek_export { font-weight:bold; text-decoration:none; padding:8px; }

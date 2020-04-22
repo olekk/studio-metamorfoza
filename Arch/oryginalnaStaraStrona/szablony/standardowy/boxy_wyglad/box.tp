@@ -1,0 +1,13 @@
+<!-- ogolny wyglad boxu -->
+
+<!-- wyglad naglowka boxu - sprawdza czy box ma miec naglowek -->
+
+<?php if ($__pA['box_header'] == '1') { ?>
+    <h4 class="BoxNaglowek">{__NAGLOWEK_BOXU}</h4>
+<?php } ?>
+
+<!-- tresc boxu -->
+
+<div class="BoxTresc">
+    {__TRESC_BOXU}
+</div>

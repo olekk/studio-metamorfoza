@@ -1,0 +1,292 @@
+/* producenci */
+.Producenci .ProducentTbl { display:table; border-collapse: collapse; border-spacing:0; width:100%; }
+.Producenci .ProducentTbl:last-child { border-bottom:0px; }
+.Producenci .Producent { display:table-cell; vertical-align:top; padding:5px 0px 10px 0px; text-align:center; }
+.Producenci .Producent:last-child { border-right:0px; }
+.Producenci .Producent h3 { margin:10px 0px 5px 0px; }
+.Producenci .Producent em { display:inline-block; margin-left:5px; font-weight:normal; font-style:normal; color:#929090; }
+
+/* recenzje - szczegoly pojedynczej recenzji oraz napisanie recenzji */
+.StrTresc .Recenzja .OpisTekst { line-height:1.5; }
+.StrTresc .Recenzja p { margin-bottom:10px; display:block; }
+.StrTresc .Recenzja .Przyciski a { margin:10px 10px 0px 0px; }
+.StrTresc .Recenzja .OpisTekst b { font-weight:normal; display:inline-block; margin:1px 0px 0px 6px; vertical-align:top; }
+
+/* ankieta - wyniki szczegolowe ankiety */
+.StrTresc .Odpowiedzi { margin:0px auto; }
+.StrTresc .Odpowiedzi td { padding:5px; }
+.StrTresc .Slupek { width:180px; }
+.StrTresc .Slupek div { border:1px solid #83ae17; background:#83ae17; width:100px; height:14px; }
+.StrTresc .Odpowiedz { text-align:right; }
+.StrTresc .Odpowiedz strong { display:inline-block; margin-right:5px; }
+.StrTresc .sumaGlosow { text-align:center; }
+
+/* wyszukiwanie zaawansowane */
+#WyszukiwanieZaawansowane .WyszukajFraze { color:#ffffff; font-size:110%; padding:10px 15px 10px 15px; margin:0px 0px 20px 0px; background:#626262; -moz-border-radius:4px; -webkit-border-radius:4px; -khtml-border-radius:4px; border-radius:4px; -moz-box-shadow: 0 0 40px #242424; -webkit-box-shadow: 0 0 40px #242424 inset; box-shadow: 0 0 40px #242424 inset; }
+#WyszukiwanieZaawansowane .WyszukajFraze #SzukanaFraza { font-size:110%; }
+#WyszukiwanieZaawansowane p { display:block; margin:10px 5px 0px 15px; }
+#WyszukiwanieZaawansowane p b { display:inline-block; margin-top:2px; font-weight:normal; width:250px; float:left; }
+#WyszukiwanieZaawansowane .Wybor b { display:inline-block; margin-top:6px; font-weight:normal; width:250px; float:left; }
+
+/* wynik wyszukiwania */
+#WynikWyszukiwania { color:#ffffff; padding:10px 15px 10px 15px; margin:0px 0px 20px 0px; background:#626262; -moz-border-radius:4px; -webkit-border-radius:4px; -khtml-border-radius:4px; border-radius:4px; -moz-box-shadow: 0 0 40px #242424; -webkit-box-shadow: 0 0 40px #242424 inset; box-shadow: 0 0 40px #242424 inset; }
+#WynikWyszukiwania p { display:block; margin:8px 5px 8px 0px; }
+#WynikWyszukiwania p span { display:inline-block; font-weight:normal; margin-right:5px; }
+#WynikWyszukiwania p b { color:#a3d22d; display:inline-block; font-size:110%; }
+#WynikWyszukiwania .przycisk { margin:5px 0px 5px 0px; }
+
+/* tabelka w panelu klienta */
+.TabelaKlient { margin:0px; padding:0px; width:100%; }
+.TabelaKlient table { width:100%; margin:0px; padding:0px; }
+.TabelaKlient td, .TabelaKlient th { text-align:left; padding:5px; vertical-align:middle; border:1px solid #dbdbdb; border-width:0px 1px 1px 1px; }
+.TabelaKlient span.TabelaOpis { display:none; }
+.TabelaKlient .Naglowek th { color:#ffffff; background:#444444; text-align:center !important; font-weight:bold; }
+.TabelaKlient .Centruj td { text-align:center; }
+.TabelaKlient tr:nth-child(odd) { background-color:#e6e6e6; }
+.TabelaKlient td .Cena { font-style: normal; }
+.PodsumowanieWartosc .Cena { font-weight: bold; }
+.GrafikaBanneru td { padding:15px 0px 15px 0px; text-align:center; }
+
+/* szczegoly zamowienia */
+#TabelaZamowienia td:nth-child(3) { text-align:center; }
+#TabelaZamowienia td:nth-child(4), #TabelaZamowienia td:nth-child(5) { text-align:right; }
+
+/* select w panelu klienta dotyczacy punktow */
+.SelectPunkty { margin: 15px 5px 10px; }
+
+/* wyglad panelu klienta */
+.StrTresc .SekcjaTbl { margin:0px 0px 8px 5px; display:table; width:100%; line-height:1.5; border-collapse: collapse; border-spacing:0; }
+.StrTresc .Sekcja { margin:0px 0px 0px 5px; }
+.StrTresc .Sekcja .TytulSekcji, .StrTresc .SekcjaTbl .TytulSekcji { background: url("../obrazki/szablon/ok.png") no-repeat scroll left center transparent; font-size:110%; display:block; font-weight:bold; margin:0; padding-left:35px; margin-top:10px; text-decoration: none; line-height:36px; }
+.StrTresc .Sekcja .TrescSekcji { background: url("../obrazki/szablon/strzalka_prawa_panel_klienta.png") no-repeat scroll left center transparent; font-weight: normal; margin:7px;margin-left: 35px; padding-left: 25px; text-decoration: none; line-height:16px; }
+
+.StrTresc .DaneAdresowe { padding-left:10px; width:50%; }
+
+.StrTresc .Tytul { text-align:left; margin:0px 5px 20px 5px; display:block; font-weight:bold; font-size:110%; }
+.StrTresc .StatusZamowienia { display:block; margin:10px 0px 10px 0px; }
+.StrTresc .DataZlozenia { background:url('../obrazki/nawigacja/kalendarz.png') no-repeat left center; padding:2px 0px 2px 22px; }
+.StrTresc .Adresat { float:left; padding:5px; width:240px; }
+.StrTresc .Adresat strong { color:#83ae17; display:block; margin-bottom:10px; }
+.StrTresc .Szczegoly { float:left; padding:5px; width:240px; }
+.StrTresc .Szczegoly strong { color:#83ae17; display:block; margin-bottom:10px; }
+.StrTresc .Adresat ul, .StrTresc .RamkaProcent ul, .StrTresc .Szczegoly ul, .StrTresc .Sekcja ul { list-style-type:none; padding:0px 5px 5px 0px; margin-top:0px }
+.StrTresc .Adresat li, .StrTresc .Szczegoly li, .StrTresc .Sekcja li { line-height:1.5; }
+.StrTresc .SzczegolyData { margin:15px 5px 10px 5px; }
+.StrTresc .SzczegolySzerokie { float:left; padding:5px; width:70%; }
+.StrTresc .SzczegolySzerokie strong { color:#83ae17; }
+.StrTresc .SzczegolySzerokie ul { list-style-type:none; padding:10px 5px 5px 0px; margin-top:0px; }
+.StrTresc .SzczegolySzerokie li { line-height:150%; }
+.StrTresc .StatPp { margin:7px 7px 17px 35px; }
+
+/* wyswietlanie ikonkek z linkami w sekcji klienta */
+.StrTresc .Ikonki { padding:5px; text-align:right; }
+
+/* podsumowanie zamowienia */
+.PodsumowanieOpis { display:table-cell; padding-right:8px; vertical-align:middle; }
+.PodsumowanieWartosc { display:table-cell; text-align:right; padding-right:8px; vertical-align:middle; }
+.ZamowienieKomentarz { text-align:left; margin:10px 5px 10px 5px; }
+
+/* sekcja aktualnosci i galerii - wyswietlanie listy artykulow z kategorii oraz zdjec galerii */
+.StrTresc .KomorkaTbl { display:table-cell; vertical-align:top; text-align:left; position:relative; padding:10px; }
+.StrTresc .KomorkaTbl:last-child { border-right:0px; }
+.StrTresc .KomorkaTbl h2 { text-align:right; }
+.StrTresc .KomorkaTbl h2 a { text-align:left; padding:0px; display:block; margin-bottom:5px; font-weight:bold; font-size:110%; }
+.StrTresc .KomorkaTbl .DaneAktualnosci { float:none; text-align:left; margin-bottom:8px; display:block; }
+.StrTresc .KomorkaTbl .DaneAktualnosci em { display:inline-block; margin:2px 2px 2px 0px; padding-right:15px; color:#929090; font-style:normal; }
+.StrTresc .KomorkaTbl .ZdjecieGalerii { display:block; text-align:center; }
+
+/* w aktualosciach data dodania artykulu i licznik wyswietlen - pojedynczy artykul */
+.DaneAktualnosci { display:block; text-align:left; margin-bottom:15px; }
+.DaneAktualnosci em { display:inline-block; margin:2px 30px 2px 0px; color:#929090; font-style:normal; }
+.DaneAktualnosci .DataDodania { background:url('../obrazki/nawigacja/kalendarz.png') no-repeat left center; padding:2px 0px 2px 22px; }
+.DaneAktualnosci .IloscOdslon { padding:0px; }
+.ZdjecieKategAktualnosci { margin:0px 10px 10px 0px; float:left; }
+
+/* naglowki informacyjne np logowanie, rejestracja */
+.Ramka strong, .Ramka h3 { color:#83ae17; font-size:110%; }
+
+/* uzywane np przy logowaniu - podzial strony na 2 czesci */
+.StrTresc .RamkaProcent { width:50%; display:table-cell; vertical-align:top; padding-right:10px; }
+/* podziala na 3 kolumny - np panel klienta */
+.StrTresc .RamkaProcentTrzy { width:33%; display:table-cell; vertical-align:top; }
+
+/* schowek - lista produktow */
+.SchowekWartosc { display:table; border-collapse:collapse; border-spacing:0; margin:10px 0px 10px 0px; }
+.SchowekWartosc .Kom { display:table-cell; padding:0px 5px 0px 0px; vertical-align:bottom; }
+
+/* koszyk */
+#SzczegolyKoszyka { display:table; border-collapse:collapse; border-spacing:0; width:100%; }
+#KrokiZamowienia { width:20%; display:table-cell; vertical-align:top; padding-right:15px; }
+#TrescKoszyka { width:80%; display:table-cell; vertical-align:top; }
+#TrescKoszyka .StrTresc { margin-top:0px }
+.LinkPobraniaKoszykaPDF { text-align:right; margin-bottom:5px; }
+.LinkPobraniaKoszykaPDF a { background:url('../obrazki/kartaProduktu/pdf.png') no-repeat right center; display:inline-block; padding:5px 22px 5px 0px; }
+.tip { color: #444444; background:#e6e6e6; border:1px solid #929090; display:none; padding:10px; position:fixed; z-index:1000; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; width: 250px; }
+
+/* definicja wygladu kolejnych krokow realizacji zamowienia */
+.KoszykKrok { width:92%; border:1px solid #cccccc; padding:10px; margin-bottom:10px; opacity:0.6; filter:alpha(opacity=60); }
+.KoszykKrok.aktywny { opacity:1; filter:alpha(opacity=100); }
+.KoszykKrok.aktywny h5 { background:url('../obrazki/szablon/ok.png') no-repeat left center; padding:8px 0px 8px 32px; }
+.KoszykKrok h5 { font-size:120%; margin: 0 0 5px; }
+.KoszykKrok p { font-size:110%; margin: 0 0 5px; }
+.KoszykKrok a { font-size:100%; }
+
+/* koszyk - tabela produktow */
+.Koszyk { width:100%; }
+.Koszyk th { text-align:center; padding:5px; vertical-align:middle; border:1px solid #dbdbdb; }
+.Koszyk td { text-align:center; padding:5px 10px 5px 10px; vertical-align:middle; border:1px solid #dbdbdb; }
+.Koszyk .Naglowek th { color:#ffffff; background:#444444; text-align:center !important; font-weight:bold; }
+.Koszyk tr td:nth-child(2) { text-align:left; }
+.Koszyk tr td:nth-child(4), .Koszyk tr td:nth-child(6) { white-space:nowrap; }
+.Koszyk tr:last-child td { border:0px; }
+.Koszyk .UsunKoszyk { display:inline-block; cursor:pointer; background:url('../obrazki/nawigacja/kasuj.png') no-repeat center top; width:16px; height:16px; }
+.Koszyk input { text-align:center; color:#444444; border:1px solid #dbdbdb; padding:5px; -moz-border-radius:4px; -webkit-border-radius:4px; -khtml-border-radius:4px; border-radius:4px; }
+.Koszyk .SumaTekst { text-align:right !important; font-weight:bold; font-size:110%; border-left:0px; border-bottom:0px; }
+.Koszyk .Suma { background:#d6000a; color:#ffffff; padding:5px 10px 5px 10px; text-align:center !important; font-size:130%; white-space:nowrap; }
+.Koszyk .Suma .Cena { color:#ffffff; font-weight:bold; font-size:110%; }
+.Koszyk .Suma em { color:#ffffff; font-weight:bold; font-size:110%; }
+.Koszyk .Suma small { color:#ffffff; font-weight:normal; }
+.Koszyk .Przelicz { display:block; margin-top:5px; text-align:center; }
+.Koszyk .przycisk { font-size:90%; margin:0px; }
+.Koszyk .Cecha { font-size:90%; display:block; margin-top:2px; font-weight:normal; }
+.Koszyk .Cecha a { font-size:100%; font-weight:normal; }
+.Koszyk .Komentarz { font-size:90%; display:block; margin-top:5px; font-weight:normal; }
+.Koszyk .Komentarz b { font-size:90%; display:block; font-weight:bold; }
+.Koszyk .Komentarz img { float:left; margin:0px 5px 5px 0px; cursor:pointer; }
+.Koszyk .Komentarz textarea { width:100%; font-family: Arial, Tahoma, Verdana, sans-serif; }
+
+.PodsumowanieInformacja { background:url('../obrazki/szablon/info.png') no-repeat center left; padding: 5px 35px 5px; margin: 0px 0px 10px 5px; }
+.DarmowaWysylkaInformacja { background:url('../obrazki/szablon/info.png') no-repeat center left; padding:10px 35px 10px; margin:0px 0px 10px 10px; font-size:110%; }
+
+/* koszyk - box wyboru wysylki i platnosci */
+.KontenerDostawaPlatnosc { display:table; border-collapse:collapse; border-spacing:0; width:100%; margin-bottom:10px; }
+.KontenerDostawaPlatnosc .Odstep { width:5px; height:10px; }
+.DostawaWybor { background:#f3f3f3; display:table-cell; border:1px dotted #dbdbdb; width:50%; padding:0px 10px 0px 10px; }
+.PlatnoscWybor { background:#f3f3f3; display:table-cell; border:1px dotted #dbdbdb; width:50%; padding:0px 10px 0px 10px; }
+.DostawaWybor h3, .PlatnoscWybor h3 { color:#83ae17; font-size:130%; margin-bottom:0.3em; margin-top:1.0em; padding:0 5px; font-weight:normal; }
+.PlatnoscListaWyboru { padding: 10px 15px 10px 0px; }
+.DostawaListaWyboru { padding: 10px 15px 10px 0px; }
+
+.ListaWyboru { padding: 10px 15px 10px 0px; }
+.ListaTbl { display:table; border-collapse:collapse; border-spacing:0; width:100%; margin-bottom:4px; }
+.ListaTbl .ListaRadio { display:table-cell; width:7%; }
+.ListaTbl .ListaOpis { display:table-cell; width:65%; }
+.ListaTbl .ListaCena { display:table-cell; width:28%; text-align:right; font-size:110%; }
+.ListaWyboru input, .InfoPunkty input { margin:4px; padding:4px; }
+.ListaTbl .ListaOpis label { font-size:110%; padding:0px; line-height:16px; }
+.ListaTbl .ListaOpis:hover label { color:#d6000a; text-decoration:none; cursor:pointer; }
+.InfoTip { cursor: pointer; margin-left:5px; width:16px; height:16px; display:inline; }
+
+/* koszyk - podsumowanie zamowienia */
+.KontenerKoszykPodsumowanie { float:right; width:49%; }
+.KontenerKoszykPodsumowanie h3 { font-size:130%; margin:8px 0px 0px 5px; }
+.ListaTblPodsumowania { display:table; border-collapse:collapse; border-spacing:0; width:100%; margin-bottom:4px; }
+.ListaTblPodsumowania div { border-bottom:1px solid #dbdbdb; font-size:110%; display:table-cell; padding:4px; }
+.ListaPodsumowania { padding: 10px 15px 10px; }
+.ListaTblPodsumowania:last-child div { border:0px; }
+.ListaPodsumowaniaCena { border-bottom:1px solid #dbdbdb; font-size:110%; display:table-cell; text-align:right; }
+.ListaPodsumowaniaCenaUjemna { color: #ff0000; text-align:right; }
+.ListaPodsumowaniaSumaOpis { color:#d6000a; font-size:110%; }
+.ListaPodsumowaniaSumaCena { color:#d6000a; font-weight:bold; font-size:140% !important; text-align:right; }
+
+/* koszyk - informacja o punktach */
+.KontenerInfoPunkty { padding: 10px 15px 10px; text-align:left; font-size:110%; line-height:1.5; }
+.KontenerPunkty { display:table; border:1px solid #dbdbdb; width:100%; line-height:100%; }
+.KontenerPunkty h3 { color: #83ae17; font-size:130%; margin-bottom:0.3em; margin-left:10px; margin-top:1.0em; padding:0 5px; font-weight:normal; }
+.FormularzPunkty { margin:10px 10px 10px 0px; line-height:16px; }
+.FormularzPunkty .UsunPunkty { margin-left:5px; display:inline-block; cursor:pointer; background:url('../obrazki/nawigacja/kasuj.png') no-repeat center top; width:16px; height:16px; }
+#PunktyForm label.error { text-align:left; margin-left:3px; margin-top:0px; margin-bottom:10px;width:160px !important; }
+#PunktyForm div { display:inline-block; margin-right:10px; vertical-align:middle; }
+
+.KontenerKoszykPozostale { display:table; border:1px solid #dbdbdb; width:100%; line-height:100%; }
+.KontenerRaty { display:table-cell; border-right:1px solid #dbdbdb; padding:0px 10px 0 10px; width:15%; }
+.KontenerRaty div { text-align:center; margin-top:10px; }
+.KontenerRaty h5 { color:#444444; font-size:110%; font-weight:bold; margin-top:1.0em; text-align:center; }
+
+.KontenerKupon { display:table-cell; border-right:1px solid #dbdbdb; padding: 0 10px 0 20px; width:50%; }
+.KontenerKupon h5 { color:#444444; font-size:110%; font-weight:bold; margin-top:1.0em; }
+.FormularzKupon { margin:10px 10px 10px 0px; line-height:1.5; }
+.FormularzKupon p { padding-bottom:10px; }
+.FormularzKupon .Aktywuj { overflow:hidden; display: inline; margin-top:0px; text-align:center; }
+.FormularzKupon .UsunKupon { margin-left:5px; display:inline-block; cursor:pointer; background:url('../obrazki/nawigacja/kasuj.png') no-repeat center top; width:16px; height:16px; }
+#KuponRabatowyForm label.error { text-align:left; margin-left:3px; margin-top:4px; margin-bottom:10px; width:130px !important; }
+#KuponRabatowyForm div { display:inline-block; margin-right:10px; vertical-align:middle; }
+
+/* koszyk - przycisk zamowienia */
+.KontenerKoszykButton { display:table-cell; position:relative; height:110px; margin:auto; vertical-align:middle; text-align:center; }
+.KontenerKoszykButton strong { background:url('../obrazki/oknoPop/uwaga.png') no-repeat center left; display:block; text-align:left; margin:20px; padding:5px 0px 5px 42px; color:#ff0000; font-size:120%; font-weight:normal; line-height:1.5; }
+.KontenerKoszykButton strong span { white-space:nowrap; }
+
+/* gratisy */
+.Gratisy { padding:10px; margin:10px 0px 10px 0px; }
+.Gratisy .InfoGratis { background:url('../obrazki/szablon/ikona_gratisy.png') no-repeat left center; padding:4px 4px 4px 35px; font-size:110%; font-weight:bold; margin-bottom:10px; }
+
+/* cennik */
+.PozycjeCennika ul { list-style-type: none; padding: 0; margin: 0; }
+.PozycjeCennika ul li { padding:10px 0px 0px 10px; font-weight:normal; font-weight:bold; }
+.PozycjeCennika ul ul li { font-weight:normal !important; }
+.PozycjeCennika em { display:inline-block; margin-left:5px; font-weight:normal; font-style:normal; }
+.PozycjeCennika a { float:right; }
+
+/* potwierdzenie zamowienia - dane klienta */
+.KontenerDaneKlienta { display:table; border-collapse:collapse; border-spacing:0; width:100%; margin-top:10px; margin-bottom:15px; }
+.KontenerDaneKlienta .Odstep { width:5px; height:10px; }
+.DaneWysylki { background:#f3f3f3; display:table-cell; border:1px dotted #dbdbdb; width:50%; }
+.DaneFaktura { background:#f3f3f3; display:table-cell; border:1px dotted #dbdbdb; width:50%; }
+.DaneWysylki h3, .DaneFaktura h3 { color: #83ae17; font-size:130%; margin-bottom:0.3em; margin-left:10px; margin-top:1.0em; padding:0 5px; font-weight:normal; }
+.DaneWysylki .Tekst, .DaneFaktura .Tekst { padding: 10px 15px 10px; font-size:110%; line-height:1.5; }
+.DaneFaktura .Tekst div { margin-top:15px; }
+.DaneFaktura ul { list-style-type: none; margin: 0; padding: 0; }
+.DaneWysylki ul { list-style-type: none; margin: 0; padding: 0; }
+
+/* potwierdzenie zamowienia - tabela produktow w potwierdzeniu zamowienia */
+.InfoDuze { font-size:120%; line-height:1.3; }
+.KoszykPotwierdzenie { width:100%; margin-top:20px; }
+.KoszykPotwierdzenie th { text-align:center; padding:5px; vertical-align:middle; border:1px solid #dbdbdb; }
+.KoszykPotwierdzenie td { text-align:center; padding:5px 10px 5px 10px; vertical-align:middle; border:1px solid #dbdbdb; }
+.KoszykPotwierdzenie .Naglowek th { color:#ffffff; background:#444444; text-align:center !important; font-weight:bold; }
+.KoszykPotwierdzenie tr td:nth-child(1) { text-align:left; width:50%; }
+.KoszykPotwierdzenie tr td:nth-child(2), .KoszykPotwierdzenie tr td:nth-child(4) { white-space:nowrap; padding-right:20px; text-align:right !important; }
+.KoszykPotwierdzenie .Suma { border:0px; padding:5px 10px 5px 10px; font-size:160%; white-space:nowrap; font-weight:bold; }
+.KoszykPotwierdzenie .Tekst { border:0px; white-space:nowrap; font-weight:bold; text-align:right !important; }
+.KoszykPotwierdzenie .Pusta { border:0px; }
+.KoszykPotwierdzenie .Wartosc { border:0px; font-size:110%; white-space:nowrap; font-weight:normal; }
+.KoszykPotwierdzenie .WartoscUjemna { color:#ff0000; border:0px; font-size:110%; white-space:nowrap; font-weight:normal; }
+.KoszykPotwierdzenie .Cecha { font-size:90%; display:block; margin-top:2px; font-weight:normal; }
+.KoszykPotwierdzenie .Cecha  a { font-size:100%; font-weight:normal; }
+.KoszykPotwierdzenie .Komentarz { font-size:90%; display:block; margin-top:2px; font-weight:normal; }
+.KoszykPotwierdzenie .ZmienIlosc { white-space:nowrap; font-weight:normal;color:#929090; }
+.PotwierdzenieTekst { font-size:110%; font-weight:normal; margin-bottom:7px; }
+.PotwierdzenieTekst b { font-size:120%; }
+.PotwierdzenieTekst .OpisInfo { margin-bottom:8px; margin-top:10px;}
+.PotwierdzenieTekst .OpisInfoItalic { padding:8px; font-style:italic; font-size:90%; margin:10px 0px 10px 0px; border:1px dotted #dbdbdb;}
+.PotwierdzenieTekst span { margin:0px; }
+.PotwierdzenieTekst h3 { font-size:100% }
+
+.ZmienDane { margin:0px; margin-top:15px; margin-right:10px; float:right; }
+.UwagiZamowienie { margin-top:8px; }
+.UwagiZamowienie textarea { width:100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.UwagiZamowienie b { display:block; margin:5px 0px 10px 0px; }
+
+.PolaZamowienie { margin:15px 0px 10px 0px; }
+.PotwierdzenieAkceptacje { max-width:50%; float:right; text-align:right; }
+.PotwierdzenieAkceptacje .Odstep { margin-top:15px; }
+.PotwierdzenieAkceptacje .PotwierdzenieOpis { margin-right:35px; padding-top:2px; }
+.PotwierdzenieAkceptacje .errorPotwierdzenie { float:right; white-space:nowrap; margin-right:35px; }
+.PrzyciskiPotwierdzenie { text-align:right; margin:20px 0px 10px 0px; }
+
+/* podziekowanie za zlozone zamowienie */
+.Podziekowanie { margin:0px 5px 20px 5px; font-size:160%; font-weight:bold !important; }
+
+/* podsumowanie zamowienia - szczegoly */
+.KontenerSzczegoly { line-height:2; margin-bottom:25px; }
+.KontenerSzczegoly #podsumowanieZamowienia { font-size:110%; list-style-type:none; margin:0; padding:0; margin-top:10px; margin-left:5px; }
+.KontenerSzczegoly #podsumowanieZamowienia li { clear:both; margin: 0; padding: 1px 0; margin-top:3px; }
+.KontenerSzczegoly #podsumowanieZamowienia li strong { float:left; width:200px; }
+.PlatnoscInfo { font-size:110%; margin:10px 0 10px 0; border:1px dotted #cccccc; padding:5px; }
+
+/* podsumowanie zamowienia - zgoda do systemow ratalnych */
+.WyrazamZgode { padding: 8px; font-size:110%; font-style:normal; }
+
+/* strona bledu platnosci elektronicznych */
+.KomunikatBledu { color:#ff0000; font-weight:bold; padding: 7px 7px 7px 7px; border:1px dotted #dbdbdb; }

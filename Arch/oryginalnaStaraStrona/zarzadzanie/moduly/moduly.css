@@ -1,0 +1,33 @@
+.cmxform .ms-container { background:transparent url('../obrazki/arrow.png') no-repeat 307px 33px; margin-left:265px; margin-top:-20px; }
+.cmxform .ms-container:after { content:"."; display:block; height:0; line-height:0; font-size:0; clear:both; min-height:0; visibility:hidden; }
+.cmxform .ms-container .ms-selectable, .ms-container .ms-selection { background:#fff; border:1px #ccc solid; float:left; }
+.cmxform .ms-container { margin-left:270px; }
+.cmxform .ms-selected { display:none; }
+.cmxform .ms-container .ms-selectable { margin-right:40px; }
+.cmxform .ms-container ul { margin:0; list-style-type:none; }
+.cmxform .ms-container ul.ms-list { width:300px; height:80px; padding:1px 0px; overflow-y:auto; }
+
+.cmxform .ms-container .ms-selectable li.ms-elem-selectable,
+.cmxform .ms-container .ms-selection li.ms-elem-selected { border-bottom:1px #eee solid; padding:3px 10px; color:#555; }
+
+.cmxform .ms-container .ms-selection li.ms-elem-selected { padding-left:22px; color:#101010; }
+
+.cmxform .ms-container .ms-selectable li.disabled,
+.cmxform .ms-container .ms-selection li.disabled { background-color:#eee; color:#aaa; }
+
+.cmxform .ms-container li.ms-elem-selectable:not(.disabled):hover,
+.cmxform .ms-container .ms-selection li:not(.disabled):hover { cursor:pointer; background-color:#eee; color:#000; }
+
+.cmxform .ms-container .ms-selection li:not(.disabled):hover { background:#eee url('../obrazki/delete.png') no-repeat 3px 1px; }
+
+.cmxform h4 { font-size:11px; background:#e7e7e7; text-align:center; line-height:22px; }
+
+#modulyForm label { width:255px; }
+#modulyForm label.error { margin-left:275px; }
+
+/* tabela do opisu cen */
+.tbl_opis { border:1px solid #b3b3b3; width:90%; }
+.tbl_opis td { padding:6px; padding-left:8px; text-decoration:none; border-bottom:1px dotted #b3b3b3; }
+.tbl_opis_naglowek td { padding:2px; font-weight:bold; color:#3f5d6b; text-decoration:none; border:0px; }
+.tbl_opis span { display:block; padding:7px; background:#e5e5e5; font-weight:bold; color:#3f5d6b; text-decoration:none; }
+

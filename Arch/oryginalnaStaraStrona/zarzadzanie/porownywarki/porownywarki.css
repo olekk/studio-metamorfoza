@@ -1,0 +1,63 @@
+#pola { margin-left:22px; margin-bottom:10px; border:1px solid #c1c1c1; width:400px; padding-bottom:10px; padding-top:5px; background:#f6f7f6; }
+
+/* wyglad listy plikow */
+.lista_plikow { margin:10px; }
+.lista_plikow ul { list-style-type: none; margin:0px; padding:0px; }
+.lista_plikow li { margin:0px; padding:0px; }
+.lista_plikow span { display:inline-block; background:url('../obrazki/csv.gif') no-repeat left center; padding:5px; padding-left:22px; margin-left:5px; font-weight:normal; text-decoration:none; }
+
+.naglowek_csv { font-weight:bold; text-decoration:none; padding:8px; padding-top:14px; padding-bottom:4px; }
+.poli { margin:10px; margin-top:5px; }
+
+.csvTbl { width:100%; }
+.csvTbl td { padding:12px; vertical-align:top; }
+
+#procentTrwajace { line-height:20px; margin-top:10px; font-weight:bold; text-decoration:none; }
+#procentTrwajace span { color:#ff0000; font-size:12px; }
+
+#procentZakonczone { line-height:20px; margin-top:10px; font-weight:bold; text-decoration:none; }
+#procentZakonczone span { color:#ff0000; font-size:12px; }
+
+#wgrany_produkt { margin-top:10px; background:url('../obrazki/klepsydra.png') no-repeat left center; padding-left:22px; line-height:20px; display:inline-block; font-weight:bold; color:#035266; text-decoration:none; }
+#wgrany_produkt span { font-size:12px; color:#ff0000; }
+
+#awarie { margin-top:20px; background:url('../obrazki/awaria.png') no-repeat left center; padding:15px; padding-left:40px; line-height:16px; text-align:left; font-weight:normal; color:#ff0000; text-decoration:none; }
+
+.lista_export { margin-top:15px; margin-left:5px; }
+.lista_export span { margin:6px; margin-top:5px; background:url('../obrazki/csv.png') no-repeat left center; display:inline-block; line-height:40px; height:40px; padding-left:50px; padding-right:0px; font-weight:normal; text-decoration:none; }
+
+/* nr katalogowy */
+.male_nr_kat { display:block; padding-top:5px; padding-bottom:2px; font-weight:normal; color:#5b5a5a; }
+
+/* producent */
+.male_producent { display:block; padding-top:2px; padding-bottom:2px; font-weight:normal; color:#29682c; }
+
+/* cecha */
+.male_cecha { display:block; padding-top:2px; padding-bottom:2px; font-weight:normal; color:#5b5a5a; }
+
+#producent { padding:15px; padding-top:8px; }
+.pkc td { padding:1px; }
+
+.catSelect { width:150px; }
+
+#Mapowanie table { width:100%; }
+#Mapowanie td { padding:3px 8px 3px 8px; border-bottom:1px solid #dbdbdb; line-height:18px; }
+#Mapowanie td:first-child { text-align:left; border-right:1px dotted #dbdbdb; white-space: nowrap; }
+#Mapowanie td:last-child { text-align:center; border-left:1px dotted #dbdbdb; white-space:nowrap; }
+#Mapowanie tr:last-child td { border-bottom:0px; }
+#Mapowanie td img { padding-top:3px; }
+#Mapowanie td span { float:left; display:inline-block; width:10px; height:18px; margin-right:8px; }
+#Mapowanie td span:last-child { background:url('../obrazki/kat.png') no-repeat left center; }
+
+#UkrytaSciezka { display:none; }
+#Drzewo_0 { position:absolute; margin-top:20px; margin-left:0px; width:200px; border:1px solid #ccc; padding:5px; line-height:1.5; }
+#Drzewo_1 { position:absolute; margin-top:20px; margin-left:220px; width:200px; border:1px solid #ccc; padding:5px; line-height:1.5; display:none; }
+#Drzewo_2 { position:absolute; margin-top:20px; margin-left:440px; width:200px; border:1px solid #ccc; padding:5px; line-height:1.5; display:none; }
+#Drzewo_3 { position:absolute; margin-top:20px; margin-left:660px; width:200px; border:1px solid #ccc; padding:5px; line-height:1.5; display:none; }
+#Drzewo_4 { position:absolute; margin-top:20px; margin-left:880px; width:200px; border:1px solid #ccc; padding:5px; line-height:1.5; display:none; }
+.gogshop input { margin-right:7px; }
+.gogshop .bezMarg { margin-top:0px !important; margin-right:0px; padding:5px; float:right; }
+
+#WybranaKategoria { color:#ff0000; font-weight:bold; font-size:12px; }
+#WybranaKategoria .lf { padding-top:5px; }
+#WybranaKategoria #Wynik { margin-left:15px !important; }

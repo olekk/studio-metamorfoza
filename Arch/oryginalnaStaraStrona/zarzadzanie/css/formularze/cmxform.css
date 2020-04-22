@@ -1,0 +1,74 @@
+.cmxform { font-family: Arial, Tahoma, sans-serif; font-size:11px; }
+
+/* wyglad przyciskow */
+.cmxform input.przyciskNon, button.przyciskNon { font-family: Tahoma, Arial, sans-serif; margin-top:10px; margin-left:10px; background:url('../../obrazki/tlo.gif') repeat-x center top; cursor:pointer; border:1px solid #ccc; font-size:11px; }
+.cmxform input.przyciskNon:hover, button.przyciskNon:hover { background:url('../../obrazki/tlo_on.gif') repeat-x center bottom; cursor:pointer; border:1px solid #bababa; font-size:11px; color:#000; }
+
+/* to samo co wyzej ale bez margin */
+.cmxform input.przyciskBut { font-family: Tahoma, Arial, sans-serif; margin-left:10px; background:url('../../obrazki/tlo.gif') repeat-x center top; cursor:pointer; border:1px solid #ccc; font-size:11px; }
+.cmxform input.przyciskBut:hover { background:url('../../obrazki/tlo_on.gif') repeat-x center bottom; cursor:pointer; border:1px solid #bababa; font-size:11px; color:#000; }
+
+.poleForm { padding:2px; border:1px solid #cccccc; }
+.poleForm .naglowek { padding:8px; text-shadow: #fff 1px 1px 1px; background:url('../../obrazki/tlo.png') repeat-x left bottom; font-weight:bold; color:#2b595b; }
+.pozycja_edytowana { padding:8px; padding-bottom:5px; }
+
+.cmxform label { font-size: 11px; font-weight: normal; color: #3f5d6b; display: inline-block; line-height: 1.5; vertical-align: top; cursor: pointer; width:165px; padding-left:15px; padding-top:4px; padding-bottom:4px; }
+.cmxform label.error, label.error { font-size:11px; color: red; font-weight: normal; background:transparent url(../../obrazki/blad.png) no-repeat left center; padding-left:20px; display:block; margin-left: 185px; width:400px; }
+
+.info_tab_content label { width:166px; padding-left:0px; }
+.info_tab_content label.error { display:block; margin-left: 170px; }
+
+.info_content label { width:161px; padding-left:0px; }
+.info_content label.error { display:block; margin-left: 170px; }
+
+.cmxform table { padding: 3px 10px 4px; }
+
+.cmxform p { list-style: none; margin: 0; padding: 3px 10px 4px; }
+div.error { display: none; }
+.cmxform input.submit { margin-left: 200px; }
+
+.cmxform input { border:1px solid #ccc; font-size: 11px; font-family: Arial, Tahoma, sans-serif; padding:5px; -moz-box-shadow:0 0 10px #eee inset; -webkit-box-shadow:0 0 10px #eee inset; box-shadow:0 0 10px #eee inset; -moz-border-radius:4px; -webkit-border-radius:4px; -khtml-border-radius:4px; border-radius:4px; }
+
+.cmxform textarea { border:1px solid #ccc; font-size:11px; font-family: Arial, Tahoma, sans-serif; padding:5px; -moz-box-shadow:0 0 10px #eee inset; -webkit-box-shadow:0 0 10px #eee inset; box-shadow:0 0 10px #eee inset; -moz-border-radius:4px; -webkit-border-radius:4px; -khtml-border-radius:4px; border-radius:4px; }
+
+/* wylaczenie dla ckeditora */
+.cmxform .cke_source { padding:0px; }
+
+.cmxform select { border:1px solid #ccc; font-size:11px; font-family: Arial, Tahoma, sans-serif; padding:5px; -moz-box-shadow:0 0 10px #eee inset; -webkit-box-shadow:0 0 10px #eee inset; box-shadow:0 0 10px #eee inset; -moz-border-radius:4px; -webkit-border-radius:4px; -khtml-border-radius:4px; border-radius:4px;    }
+
+.cmxform date { border:1px solid #ccc; font-size:11px; font-family: Arial, Tahoma, sans-serif; padding:5px; -moz-box-shadow:0 0 10px #eee inset; -webkit-box-shadow:0 0 10px #eee inset; box-shadow:0 0 10px #eee inset; -moz-border-radius:4px; -webkit-border-radius:4px; -khtml-border-radius:4px; border-radius:4px; }
+
+.cmxform input.przyciskForm { border: 0px; padding: 0px; cursor:pointer; }
+.cmxform input.przyciskForm:focus { border: 0px; padding: 0px; cursor:pointer; }
+.cmxform input.checkbox { border: none }
+
+.cmxform input:focus { border: 1px solid #b9b9b9; color:#000; background:#f6f7f3; }
+.cmxform select:focus { border: 1px solid #b9b9b9; color:#000; background:#f6f7f3; }
+.cmxform textarea:focus { border: 1px solid #b9b9b9; color:#000; background:#f6f7f3; }
+
+.cmxform input.error { border: 1px solid #fb4a4a; }
+.cmxform .gray * { color: gray; }
+
+.cmxform label.required { font-size: 11px; font-weight: normal; display: inline-block; line-height: 1.5; vertical-align: top; cursor: pointer; color: #3f5d6b; background:transparent url(../../obrazki/gwiazdka.png) no-repeat scroll center right; }
+
+/* wyswietlenie tekstu na czerwono */
+.cmxform SPAN.red { color: red; }
+
+/*\*//*/ .cmxform legend { display: inline-block; } /* IE Mac legend fix */
+
+/* wskaznik sily hasla */
+.cmxform #haselko {list-style: none; margin: 0; padding: 3px 10px 4px;}
+/*.cmxform #haselko label.error { display: none !important; }*/
+
+.cmxform div.WierszPola { list-style: none; margin: 0; padding: 3px 10px 4px; }
+.cmxform div.OpisPola { font-size: 11px; font-weight: normal; color: #3f5d6b; display: inline-block; vertical-align: top; width:165px; padding-left:15px; padding-top:4px; padding-bottom:4px; float: left; }
+.cmxform div.InfoPola { font-size: 11px; font-weight: bold; color: #3f5d6b; display: inline-block; vertical-align: top; padding-left:10px; padding-top:2px; padding-bottom:2px; }
+.cmxform div.InfoPolaBezBold {	font-size: 11px; font-weight: normal; color: #3f5d6b; display: inline-block; vertical-align: top; padding-left:10px; padding-top:2px; padding-bottom:2px; }
+
+ .cmxform input.readonly, textarea.readonly { border:1px solid #ccc; font-size: 11px; font-family: Arial, Tahoma, sans-serif; padding:5px; color: #757575; -moz-box-shadow:0 0 10px #d2d2d2 inset; -webkit-box-shadow:0 0 10px #d2d2d2 inset; box-shadow:0 0 10px #d2d2d2 inset; -moz-border-radius:4px; -webkit-border-radius:4px; -khtml-border-radius:4px; border-radius:4px; }
+
+.cmxform input.readonly:focus, textarea.readonly:focus { border: 1px solid #ccc; color:#000; background:#fff; }
+.cmxform legend { color: #3f5d6b; font-weight: bold; padding-left:5px;padding-right:5px; }
+.cmxform fieldset { border:1px solid #dcdcdc; padding:0px;}
+.cmxform input.klient, textarea.klient { border:1px solid #ccc; font-size: 11px; font-family: Arial, Tahoma, sans-serif; padding:5px; color: #ff0000; -moz-box-shadow:0 0 10px #d2d2d2 inset; -webkit-box-shadow:0 0 10px #d2d2d2 inset; -moz-border-radius:4px; -webkit-border-radius:4px; -khtml-border-radius:4px;  border-radius:4px; }
+

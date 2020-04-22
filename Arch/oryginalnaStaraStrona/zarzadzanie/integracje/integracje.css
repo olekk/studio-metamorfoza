@@ -1,0 +1,40 @@
+.naglowek_csv { font-weight:bold; text-decoration:none; padding:8px; padding-top:14px; padding-bottom:4px; }
+.poli { margin:10px; margin-top:5px; }
+
+.csvTbl { width:100%; }
+.csvTbl td { padding:12px; vertical-align:top; }
+
+.obramowanie_tabeliSpr { border:1px solid #c1c1c1; padding:2px; margin-top:10px; }
+
+.pozycja_off td { padding:5px; padding-top:5px; padding-bottom:5px; background:url('../obrazki/tlo_lista.png') repeat right bottom; }
+.pozycja_off { border-top:2px solid #fff; font-weight:normal; cursor:pointer; }
+.pozycja { font-weight:normal; }
+.pozycja a { font-weight:normal; text-decoration:none; }
+.pozycja a:hover { font-weight:normal; color:#ff0000; text-decoration:none; }
+
+.pomoc { float:left; width: 24px;}
+
+.cmxform label.error, label.error {
+	margin-left: 0px;    
+	width:400px;
+}
+
+.cmxform td.allegro { padding:3px; border:1px solid #e7e7e7;}
+
+.cmxform .jqueryFileTree label { margin: 0px; padding: 0px; }
+
+.cmxform optgroup { font-style:normal; font-size: 11px; font-weight: bold; color: #3f5d6b }
+
+.sledzenie .div_naglowek td { padding-left:10px; }
+.sledzenie_opis div { float:left; padding:8px; width:70%; }
+.sledzenie_opis img { float:right; padding:8px; }
+.sledzenie .pozycja_off label { width:220px; padding-left:0px; }
+.sledzenie .pozycja_off label.error { display:block; margin-left: 0px; }
+.sledzenie_opis a { font-weight:bold; text-decoration:none; }
+.sledzenie_opis a:hover { font-weight:bold; color:#ff0000; text-decoration:none; }
+.sledzenie .maleInfo { margin-left:0px; color:#7a7a7a; }
+
+.pobierzKomentarze { color:#ff0000; margin:0px 0px 0px 3px; background:url('../obrazki/export.png') no-repeat left center; padding:2px 0px 2px 20px; display:inline-block; }
+.pobierzKomentarze:hover { color:#000 !important; }
+.DataKomentarzy { margin:8px 0px 3px 0px; background:url('../obrazki/kalendarz.png') no-repeat left center; margin-left:2px; padding:6px 0px 2px 20px; display:block; color:#777777; }
+#pobranieAllegro { margin-left:20px;display:inline-block }

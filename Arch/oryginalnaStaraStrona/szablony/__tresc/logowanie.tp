@@ -1,0 +1,110 @@
+<!-- wyglad naglowka strony -->
+
+<h1 class="StrNaglowek">
+    <span>{__TLUMACZ:NAGLOWEK_LOGOWANIE}</span>
+</h1>
+
+<!-- tresc strony -->
+
+<section class="StrTresc">
+
+    <?php $Zalogowany = $__pA; ?>
+
+    <!-- sprawdza czy klient jest zalogowany - jezeli nie wyswietli okno logowania -->
+
+    <?php if ( $Zalogowany == 'nie' ) { ?>
+    
+    <div class="TabelaTbl">
+    
+        <!-- ramka z formularzem logowania -->
+
+        <div class="RamkaProcent Ramka">
+
+            <strong>{__TLUMACZ:POSIADASZ_KONTO_ZALOGUJ_SIE}</strong>
+            
+            <br /><br />
+            
+            <form action="{__SSL:logowanie.html}" method="post" id="logowanie" class="cmxform"> 
+            
+                <p>
+                    <span>{__TLUMACZ:ADRES_EMAIL_LOGOWANIE} <em class="required"></em></span>
+                    <input type="text" size="35" style="width:80%" name="email" id="email" />
+                </p>
+                
+                <p>
+                    <span>{__TLUMACZ:HASLO_LOGOWANIE} <em class="required"></em></span>
+                    <input type="password" size="35" style="width:80%" name="haslo" id="haslo" />
+                </p>
+
+                <p>
+                
+                    <!-- przycisk wyslania formularza -->
+                    <input type="submit" id="submitButton" class="przyciskWylaczony" value="{__TLUMACZ:PRZYCISK_ZALOGUJ}" disabled="disabled" />
+                    
+                </p>
+
+            </form>
+
+        </div> 
+
+        <!-- ramka przypomnienia hasla -->        
+        
+        <div class="RamkaProcent Ramka">
+
+            <strong>{__TLUMACZ:ODZYSKIWANIE_HASLA}</strong>
+            
+            <br /><br />
+            
+            {__TLUMACZ:ODZYSKIWANIE_HASLA_TRESC}
+            
+            <br /><br />
+            
+            <form action="{__SSL:logowanie.html}" method="post" id="przypomnienie" class="cmxform"> 
+            
+                <p>
+                    <span>{__TLUMACZ:ADRES_EMAIL_PRZYPOMNIENIE} <em class="required"></em></span>
+                    <input type="text" size="35" style="width:80%" name="emailprzypomnienie" id="emailprzypomnienie" />
+                </p>
+                    
+                <p>
+                
+                    <!-- nie kasowac -->
+                    <input type="hidden" name="adres_ip" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>" />
+                    <input type="hidden" name="nazwa_hosta" value="<?php echo gethostbyaddr($_SERVER['REMOTE_ADDR']); ?>" />
+                    
+                    <!-- przycisk wyslania formularza -->
+                    <input type="submit" id="submitButtonHaslo" class="przyciskWylaczony" value="{__TLUMACZ:PRZYCISK_WYSLIJ}" disabled="disabled" />
+                    
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+    
+    <?php } ?>
+    
+    <!-- jezeli klient jest zalogowany i uruchomi logowanie to wyswietli sie komunikat -->
+
+    <?php if ( $Zalogowany == 'tak' ) { ?>
+    
+        <p class="Informacja">
+            {__TLUMACZ:ZALOGOWANY_OPIS}
+        </p>
+        
+        <!-- przycisk powrotu do strony glownej -->
+        
+        <a href="/" class="przycisk Prawy">{__TLUMACZ:PRZYCISK_DO_STRONY_GLOWNEJ}</a>   
+        
+        <div class="cl"></div>
+    
+        <?php 
+    } 
+    
+    unset($Zalogowany);
+    ?>
+    
+</section>
+
+

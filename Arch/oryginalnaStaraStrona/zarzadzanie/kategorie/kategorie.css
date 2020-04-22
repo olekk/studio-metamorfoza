@@ -1,0 +1,17 @@
+/* obsluga okna kategorii */
+.kateg { background: url("../obrazki/kat.gif") no-repeat left center; padding-left:20px; height:30px; line-height:30px; display:inline-block; }
+.katgl { font-weight:bold; }
+
+#ilosc_kat { font-weight:bold; clear:both; padding:7px; }
+#ilosc_kat span { font-size: 14px; font-weight:bold; color:#ff0000; clear:both; }
+
+.listing_tbl_podkategorie { width:100%; border-bottom:0px; border-right:1px solid #fff; }
+.listing_tbl_podkategorie td { border:0px; border-bottom:2px solid #fff; }
+
+.imgCursor img { cursor:pointer; }
+
+#ZapiszKategorie { display:none; }
+
+.listing_tbl_podkategorie td  { border-bottom:0px; }
+
+.kategorie_kolor { width:17px; height:17px; display:inline-block; }

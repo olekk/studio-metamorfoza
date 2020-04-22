@@ -1,0 +1,65 @@
+/* ------------ okno przegladarki ------------ */
+#przegladarka { position: fixed; width: 100%; height: 100%; top:0px; left:0px; z-index:9996; display:none; }
+#przegladarka_tlo { z-index:9997; position:fixed; top:0px; left:0px; width:100%; height:100%; background:url('../obrazki/tlo_strony.png'); filter:alpha(opacity=90);-moz-opacity:0.9;opacity:0.9; }
+#listPlik_strona { z-index:9998; position:fixed; top:50%; left:50%; margin-left:-480px; margin-top:-300px; width:960px; height:580px; -moz-border-radius:15px; -webkit-border-radius:15px; -khtml-border-radius:15px; border-radius:15px; background:#fff; border:8px solid #0e0e0e; }
+
+#ckPrzeg #przegladarka { display:block; }
+#listPlik_ckedit { z-index:9998; width:960px; background:#fff; border:0px; margin:0px auto; }
+
+/* ------------ wyglad listy plikow ------------ */
+#lista_plikowAjax { margin:10px; margin-top:5px; width:934px; height:520px; overflow-y:scroll; border:1px solid #e0e0e0; }
+.lista_plikow { margin:10px; }
+.tblLista { margin-left:10px; margin-top:10px; width:614px; }
+.tblLista td { padding:3px; border-bottom:1px dotted #c0d9e6; }
+.tblLista span { display:inline-block; background:url('../obrazki/plik.png') no-repeat left center; padding:5px; padding-left:25px; margin-left:5px; color:#1a6d88; font-family: Tahoma, Verdana, Arial, sans-serif; font-size: 11px; font-weight:normal; text-decoration:none; }
+.tblLista .podg { cursor:pointer; background:url('../obrazki/image_cechy.png') no-repeat left center; }
+.tblLista .podg:hover { color:#ff0000; cursor:pointer; }
+.tblLista .podgnoimg { cursor:pointer; background:url('../obrazki/plik.png') no-repeat left center; }
+.tblLista .podgnoimg:hover { color:#ff0000; cursor:pointer; }
+.tblLista .folder a, .tblLista .folder span { cursor:pointer; display:inline-block; background:url('../obrazki/folder.png') no-repeat left center; padding:5px; padding-left:22px; margin-left:5px; color:#3a3a3a; font-family: Tahoma, Verdana, Arial, sans-serif; font-size: 11px; font-weight:normal; text-decoration:none; }
+.tblLista .folder a:hover, .tblLista .folder span:hover { color:#ff0000; text-decoration:none; }
+.tblLista .powrot a, .tblLista .powrot span { cursor:pointer; display:inline-block; background:url('../obrazki/folder_powrot.png') no-repeat left center; padding:5px; padding-left:22px; margin-left:5px; color:#3a3a3a; font-family: Tahoma, Verdana, Arial, sans-serif; font-size: 11px; font-weight:normal; text-decoration:none; }
+.tblLista .powrot a:hover, .tblLista .powrot span:hover { color:#ff0000; text-decoration:none; }
+.tblLista .rozmiar { text-align:right; color:#3a3a3a; font-family: Tahoma, Verdana, Arial, sans-serif; font-size: 11px; font-weight:normal; text-decoration:none; }
+.tblLista .dat { text-align:center; color:#3a3a3a; font-family: Tahoma, Verdana, Arial, sans-serif; font-size: 11px; font-weight:normal; text-decoration:none; }
+.TyNaglowek td { white-space:nowrap;  background:#f1f1f1; padding:8px; padding-right:4px; font-family: Tahoma, Verdana, Arial, sans-serif; font-size: 11px; font-weight:bold; color:#ca0000; text-decoration:none; }
+.tblLista .kas { text-align:center; }
+.tblPodglad { width:270px; border:1px solid #eaeaea; }
+.tblPodgladAjax { width:270px; border:1px solid #eaeaea; }
+.zamknij { cursor:pointer; display:inline-block; background:url('../obrazki/zamknij.png') no-repeat left center; padding:5px; padding-left:20px; margin-left:5px; color:#11878e; font-family: Tahoma, Verdana, Arial, sans-serif; font-size: 11px; font-weight:normal; text-decoration:none; }
+.zamknij:hover { color:#ff0000; }
+.tblLista .podgtp { cursor:pointer; background:url('../obrazki/edytuj.png') no-repeat left center; }
+.tblLista .podgtp:hover { color:#ff0000; cursor:pointer; }
+
+.tblLista .edycja { cursor:pointer; background:url('../obrazki/edytuj.png') no-repeat left center; margin-left:5px; padding: 5px 5px 5px 22px; color:#1A6D88;}
+.tblLista .edycja:hover { color:#ff0000; cursor:pointer; }
+
+/* ------------ podglad ------------ */
+#podglad { padding:10px; text-align:center; color:#c9c9c9; }
+#podglad span { font-family: Tahoma, Verdana, Arial, sans-serif; font-size: 11px; font-weight:normal; color:#3a3a3a; text-decoration:none; display:block; padding:4px; text-align:center }
+
+#sciezka_plikow { margin:17px; color:#1a6d88; font-family: Tahoma, Verdana, Arial, sans-serif; font-size: 11px; font-weight:bold; text-decoration:none; }
+#sciezka_plikow span { color:#1a8843; font-weight:bold; display:inline-block; padding-right:3px; }
+#sciezka_plikowAjax { padding:5px; color:#1a6d88; font-family: Tahoma, Verdana, Arial, sans-serif; font-size: 11px; font-weight:bold; text-decoration:none; }
+#sciezka_plikowAjax span { color:#1a8843; font-weight:bold; display:inline-block; padding-right:3px; }
+
+.tblLista .infe { padding:0px; float:left; margin:3px; margin-right:7px; cursor:pointer; background:url('../obrazki/info_male.png') no-repeat; width:16px; height:16px; }
+.tblLista input { padding:0px; float:left; margin:6px; cursor:pointer; }
+
+#nowyFol, #nowyPlik, #szukaniePliku { margin:0px auto; }
+#nowyFol td, #nowyPlik td, #szukaniePliku td { padding:8px; text-align:center; vertical-align:middle; }
+#nowyFol button, #nowyPlik button, #szukaniePliku button { margin:0px; margin-right:12px; padding:4px; }
+#nowyFol input, #szukaniePliku input { margin-left:12px; padding:4px; border:1px solid #d2d0d0; background:#f7f6f6; font-weight:normal; }
+
+#ajaxFix { position:fixed; margin-top:10px; margin-left:0px; height:500px; overflow:hidden; }
+#ajaxFix .butAj { margin-left:0px; }
+
+#wgrywanyPlik td { text-align:left; padding-left:12px; }
+#wgrywanyPlik #upload_wrap { width:200px; margin-left:0px; margin-top:5px; }
+#wgrywanyPlik #ladowanie { margin-top:5px; }
+#wgrywanyPlik input { padding:4px; border:1px solid #d2d0d0; background:#f7f6f6; }
+#wgrywanyPlik .ostrzezenie { margin-bottom:5px; }
+
+#wybierzZdjecia { cursor:pointer; text-align:center; background:#ebebeb; color:#ffffff; padding:10px; font-size:11px; display:none; margin-bottom:10px; }
+#wybierzZdjecia span { color:#ff0000; }
+#wybierzZdjecia:hover { background:#e8e8e8; }

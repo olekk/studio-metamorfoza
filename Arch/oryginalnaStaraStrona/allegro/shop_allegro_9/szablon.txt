@@ -1,0 +1,126 @@
+<style type="text/css" media="screen">
+#TloStrony { background: url('[SERWER]/tlo_body.png') top left; color: #333333; width:100%; margin:0px; border:0px; font-family: Arial, Tahoma, Verdana, sans-serif; font-size:12px; }
+#PasekGora { width:100%; height:40px; background:url('[SERWER]/pasek_gora.png') repeat-x top left; }
+#TloNaglowka { width:100%; height:260px; background:url('[SERWER]/tlo_pasek_gora.png') repeat-x top left; }
+#Naglowek { width:990px; margin:0px auto; }
+#TloStrony h2, #TloStrony h3, #TloStrony h4 { font-family: Arial, Tahoma, Verdana, sans-serif; }
+
+#GorneMenu { width:100%; height:51px; background:url('[SERWER]/tlo_gornego_menu.png') repeat-x; text-align:center; }
+#GorneMenu h3 { margin:0px; padding:0px; display:inline-block; }
+#GorneMenu a { height:51px; line-height:50px; color: #666666; font-size:18px; font-weight:normal; display:inline-block; text-decoration:none; padding:0px 25px 0px 25px; }
+#GorneMenu a:hover { color:#ffffff; background:#000000; }
+#GorneMenu h3:first-child a:hover { color:#ffffff; background:#000000; }
+
+#SrodekAukcji { width:990px; margin:0px auto; margin-top:15px; }
+#LewaKolumna { float:left; overflow:hidden; width:260px; }
+#LewaKolumnaPrzerwa { margin-right:15px; }
+#PrawaKolumna { float:left; overflow:hidden; width:709px; background:url("[SERWER]/tlo_modul_srodek.png") repeat-y top left; border-right:1px solid #cccccc; border-bottom:1px solid #cccccc; padding:10px;}
+
+.BoxNaglowek { font-family: Arial; background:url('[SERWER]/tlo_naglowek_boksu.png') repeat-x left center; margin:0px; padding: 9px 0px 9px 0px; color:#e6e6e6; font-size:14px; font-weight:normal; }
+.BoxNaglowek span { background: url("[SERWER]/strzalka.png") no-repeat scroll left center; color: #aaaaac; margin-left:15px; padding-left:20px; text-transform:uppercase; }
+
+.BoxTresc { background:url("[SERWER]/tlo_box_srodek.png") repeat-y top left; overflow:hidden; margin-bottom:10px; padding:15px; border-right:1px solid #cccccc; border-bottom:1px solid #cccccc; }
+
+.StrNaglowek { background: url("[SERWER]/tlo_naglowek_modul.png") repeat-x scroll left center; margin-bottom:10px; color:#5D717E; font-size:22px; font-weight:normal; text-transform: uppercase; text-align: center;}
+.StrNaglowek span { font-family: Arial; display:inline-block; background: none repeat scroll 0 0 #ffffff; padding: 0 10px;}
+
+.StrTresc { margin-top:10px; margin-bottom:10px; padding:10px; overflow:hidden; text-align:center; }
+.StrTresc .NazwaProduktu { font-size:17px; margin-bottom:20px; }
+
+#Stopka { height: 40px; line-height: 36px; font-size:14px; color:#ffffff; text-shadow:1px 1px 0px #515151; background: url("[SERWER]/pasek_gora.png") repeat-x left top; border-top: 1px solid #cccccc; text-align:center; }
+
+</style>
+
+<div id="TloStrony">
+
+    <!-- naglowek szablonu -->
+
+    <div id="PasekGora"></div>
+
+    <div id="TloNaglowka">
+    
+        <div id="Naglowek">
+        
+            <img src="[SERWER]/naglowek.jpg" alt="" />
+            
+        </div>
+        
+    </div>
+    
+    <!-- gorne menu -->
+    
+    <div id="GorneMenu">
+    
+        <h3><a href="http://www.allegro.pl/show_user_auctions.php?uid=[ID_ALLEGRO]&amp;showing_type=gal">Nasze aukcje</a></h3><h3><a href="http://www.allegro.pl/show_user.php?uid=[ID_ALLEGRO]">Komentarze</a></h3><h3><a href="http://www.allegro.pl/my_page.php?uid=[ID_ALLEGRO]">O nas</a></h3><h3><a href="http://www.allegro.pl/email_to_user.php?uid=[ID_ALLEGRO]">Napisz do nas</a></h3>                 
+    
+    </div>
+
+    <div id="SrodekAukcji">
+    
+        <!-- lewa kolumna z boxami -->
+    
+        <div id="LewaKolumna">
+        
+            <div id="LewaKolumnaPrzerwa">
+        
+                <!-- wyglad boxu -->
+            
+                <h4 class="BoxNaglowek"><span>Przykładowy nagłówek</span></h4>
+                
+                <div class="BoxTresc">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                    Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. 
+                    Cras vel lorem. Etiam pellentesque aliquet tellus. 
+                    Phasellus pharetra nulla ac diam. Quisque semper justo at risus.
+                </div>
+
+                <!-- wyglad boxu -->
+            
+                <h4 class="BoxNaglowek"><span>Przykładowy nagłówek</span></h4>
+                
+                <div class="BoxTresc">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                    Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. 
+                    Cras vel lorem. Etiam pellentesque aliquet tellus. 
+                    Phasellus pharetra nulla ac diam. Quisque semper justo at risus.
+                </div>
+
+                <!-- wyglad boxu -->
+            
+                <h4 class="BoxNaglowek"><span>Przykładowy nagłówek</span></h4>
+                
+                <div class="BoxTresc">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                    Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. 
+                    Cras vel lorem. Etiam pellentesque aliquet tellus. 
+                    Phasellus pharetra nulla ac diam. Quisque semper justo at risus.
+                </div>
+
+            </div>
+        
+        </div>
+        
+        <div id="PrawaKolumna">
+        
+          <h2 class="StrNaglowek"><span>Dzisiaj na aukcji oferujemy</span></h2>
+          
+          <div class="StrTresc">
+          
+                <div class="NazwaProduktu">[NAZWA]</div>
+                [OPIS]
+                <br /><br /><br />
+                [ZDJECIA]
+
+          </div>
+
+        </div>
+        
+        <div style="clear:both"></div>
+
+    </div>
+    
+    <div id="Stopka">... dziękujemy i zapraszamy ponownie ...</div>
+
+</div>
+
+<div style="clear:both"></div>

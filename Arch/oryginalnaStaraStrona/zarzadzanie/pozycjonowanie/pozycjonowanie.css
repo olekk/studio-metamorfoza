@@ -1,0 +1,46 @@
+#pola { margin-left:22px; margin-bottom:10px; border:1px solid #c1c1c1; width:400px; padding-bottom:10px; padding-top:5px; background:#f6f7f6; }
+
+#import { width:800px; margin:10px; margin-top:20px; }
+
+#suwak { width:500px; height:12px; background:#fff; border:1px solid #b3b3b3; overflow:hidden; }
+#suwak #suwak_aktywny { background:url('../obrazki/_loader_newsletter.png') left center; width:0px; height:10px; }
+
+#procent { line-height:20px; margin-top:10px; font-weight:bold; text-decoration:none; }
+#procent span { color:#ff0000; font-size:12px; }
+
+#procentTrwajace { line-height:20px; margin-top:10px; font-weight:bold; text-decoration:none; }
+#procentTrwajace span { color:#ff0000; font-size:12px; }
+
+#procentZakonczone { line-height:20px; margin-top:10px; font-weight:bold; text-decoration:none; }
+#procentZakonczone span { color:#ff0000; font-size:12px; }
+
+#zaimportowano { margin:10px; background:url('../obrazki/newsletter_wyslano.png') no-repeat left center; padding-left:40px; line-height:32px; display:inline-block; font-weight:bold; color:#04a001; text-decoration:none; }
+#zaimportowano a { color:#ff0000; text-decoration:none; }
+#zaimportowano a:hover { text-decoration:none; }
+
+#wgrany_produkt { margin-top:10px; background:url('../obrazki/klepsydra.png') no-repeat left center; padding-left:22px; line-height:20px; display:inline-block; font-weight:bold; color:#035266; text-decoration:none; }
+#wgrany_produkt span { font-size:12px; color:#ff0000; }
+
+#awarie { margin-top:20px; background:url('../obrazki/awaria.png') no-repeat left center; padding:15px; padding-left:40px; line-height:16px; text-align:left; font-weight:normal; color:#ff0000; text-decoration:none; }
+
+/* tabela */
+.tblEdycja { width:100%; margin:10px; }
+.tblEdycja td { padding:5px; }
+.tblEdycja .lewa { width:45%; vertical-align:top; color: #3f5d6b; line-height:25px; }
+.tblEdycja .prawa { width:55%; color: #3f5d6b; vertical-align:top; line-height:30px; }
+.tblEdycja .prawa input { margin-right:5px; }
+.tblEdycja strong { color:#045c1a; }
+.tblEdycja .prawa .calkowita { margin-right:5px; }
+
+#daneXML { margin:10px; color:#922b02; }
+#daneXMLPlik { padding:15px; line-height:25px; font-weight:bold; }
+#daneXMLPlik span { color:#808281; display:inline-block; width:100px; font-weight:normal; }
+#daneXMLPlik a { color:#922b02; text-decoration:none; }
+#daneXMLPlik a:hover { color:#ff0000; text-decoration:none; }
+#daneXMLPlik img { display:block; margin-bottom:15px;  }
+#daneXMLPlik .ostrzezenie { display:block; margin-top:8px; color:#ff0000; font-size:11px; }
+#daneXMLPlik td { padding:5px; padding-right:25px; vertical-align:top; }
+#daneXMLPlik .linia { padding:0px; height:2px; border-bottom:1px dotted #ccc; }
+#daneXMLPlik .maleInfo { color:#808281; display:inline-block; width:400px; font-weight:normal; padding:0px; margin:5px; padding-left:20px; }
+
+.tytulMeta { background:url('../obrazki/www_meta.png') no-repeat left center; padding:7px; padding-left:32px; color:#216cb0; font-weight:bold; margin:5px 0px 15px 10px; }

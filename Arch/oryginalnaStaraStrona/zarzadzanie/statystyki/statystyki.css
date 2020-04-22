@@ -1,0 +1,105 @@
+.tblStatystyki { width:980px; margin:0px auto; }
+.tblStatystyki td { vertical-align:middle; padding:4px; border:1px dotted #c0d9e6; }
+
+/* link produktu */
+.tblStatystyki .linkProd { width:90%; }
+.tblStatystyki .linkProd a { background: url("../obrazki/zobacz.png") no-repeat left center; padding:2px; display:inline-block; padding-left:25px; text-align:left; font-weight:normal; text-decoration:none; }
+.tblStatystyki .linkProd a:hover { color:#ff0000; }
+
+/* wyglad kolejnosci */
+.poKolei { text-align:center; font-weight:normal; color:#0683b2; text-decoration:none; }
+
+/* wyglad wyniku */
+.wynikStat { white-space: nowrap; text-align:right; font-weight:bold; color:#048b14; text-decoration:none; }
+.wynikStat span { font-weight:normal; color:#9d9d9d; display:inline-block; padding-right:8px; padding-left:3px; }
+
+.wyczyscStat { text-align:center; }
+
+.NadWykres { margin:0px auto; width:980px; }
+#wykres { margin:10px; z-index:0; margin:0px auto; }
+
+.legenda { margin:10px; }
+.legendaLinia { margin-right:10px; background: url("obrazki/linia.png") no-repeat left center; padding:2px; display:inline-block; padding-left:35px; text-align:left; font-weight:normal; color:#3a7901; text-decoration:none; }
+.legendaSlupek { margin-right:10px; background: url("obrazki/slupek.png") no-repeat left center; padding:2px; display:inline-block; padding-left:35px; text-align:left; font-weight:normal; color:#365a7a; text-decoration:none; }
+
+/* wykres sprzedazy */
+.MalyWykres { width:450px; margin:0px auto; margin-bottom:25px; margin-left:30px; float:left; }
+.DuzyWykres { width:980px; margin:0px auto; margin-bottom:25px; }
+
+#wyborJezyka { margin:10px; }
+#wyborJezyka td { padding-right:7px; }
+#wyborJezyka span { font-weight:bold; color:#696969; display:inline-block; }
+#wyborJezyka img { border:1px solid #d8d8d8; border-bottom:1px solid #939393; border-right:1px solid #939393; }
+#wyborJezyka .aktywny { font-weight:normal; text-decoration:none; display:inline-block; -webkit-opacity: 1; -moz-opacity: 1; opacity: 1; }
+#wyborJezyka .nieaktywny { font-weight:normal; text-decoration:none; display:inline-block; -webkit-opacity: 0.4; -moz-opacity: 0.4; opacity: 0.4; }
+
+#zakresDat { margin:10px; margin-top:8px; float:left; font-weight:bold; color:#696969; }
+#zakresDat span { display: inline-block; font-weight:bold; padding-right:5px; }
+
+/* raport kategorii */
+.NazwaNaglowek { background:#f1f1f1 }
+.NazwaNaglowek td { padding:8px; text-align:left; font-weight:normal; text-decoration:none; }
+.NazwaNaglowek span { font-weight:bold; color:#116985; }
+.tblStatystyki .nrKat { padding-left:10px; padding-right:10px; text-align:left; font-weight:normal; color:#898989; text-decoration:none; }
+.tblStatystyki .inne { padding-left:10px; padding-right:10px; text-align:center; font-weight:normal; text-decoration:none; }
+.tblStatystyki .znizki { line-height:18px; width:35%; padding-left:10px; padding-right:10px; text-align:right; font-weight:normal; text-decoration:none; }
+.tblStatystyki .znizki span { display:inline-block; width:60px; font-weight:bold; color:#347f94; }
+.tblStatystyki .znizki strong { font-weight:bold; color:#834c43; }
+.tblStatystyki .znizki table { border:0px; width:100%; }
+.tblStatystyki .znizki td { padding:1px; border:0px; text-align:right; }
+.tblStatystyki .walutaZam { white-space: nowrap;  padding-left:10px; padding-right:10px; text-align:right; font-weight:normal; text-decoration:none; }
+.tblStatystyki .nazwa { padding-left:10px; padding-right:10px; text-align:left; font-weight:normal; color:#647e86; text-decoration:none; }
+.tblStatystyki .wybierzInny { white-space: nowrap;  text-align:right; }
+.tblStatystyki .wybierzInny a { background:url('../obrazki/kasuj.png') no-repeat left center; padding-left:22px; font-weight:bold; color:#016f24; text-decoration:none; }
+.tblStatystyki .wybierzInny a:hover { color:#ff0000; text-decoration:none; }
+.tblStatystyki .statZdjecie { width:60px; }
+.tblStatystyki .statZdjecie div { background:#fff; border:1px solid #c1c1c1; margin:2px; text-align:center; padding:8px; margin:0px auto; }
+.linkCecha { display:block; padding-top:3px; padding-bottom:3px; font-weight:normal; color:#797979; text-decoration:none; }
+
+/* wybor sposobu w okresowym raporcie */
+#wybor { font-weight:bold; color:#696969; margin-left:10px; margin-bottom:15px; margin-top:5px; }
+#wybor span { display: inline-block; font-weight:bold; padding-right:5px; }
+
+/* do drzewa produktow - rozwiazanie jak w rabatach dla produktow */
+#wynik_produktow_raport_produkty { margin-top:20px; margin-left:10px; width:720px; }
+#wynik_produktow_raport_produkty span { display:block; padding-bottom:10px; font-weight:bold; }
+/* lista produktow */
+.wynik_naglowek { display:block; font-weight:bold; padding-left:3px; }
+.wynik_naglowek_dodanie { display:block; padding:10px; padding-left:5px; font-weight:bold; color:#ff0000; }
+.wynik_naglowek_brak { display:block; padding-top:30px; font-weight:bold; }
+#wynik_przewijany { width:710px; max-height:400px; overflow-y:scroll; border:1px solid #c1c1c1; }
+.tbl_produkt { color: #3f5d6b; width:100%; border:0px; }
+.tbl_produkt td { border:3px solid #fff; text-align:center; }
+.tbl_produkt .prot td { background:#f4f2f2; padding:4px; text-decoration:none; }
+.tbl_produkt span { white-space:nowrap; display:block; padding:5px; background:#e5e5e5; font-weight:normal; color:#3f5d6b; text-decoration:none; }
+
+/* zamowienia wg typu */
+.TblNaglowek { font-weight:bold; text-align:left; }
+
+/* ------------ dolny pasek podstron bez ajaxa ------------ */
+#dolne_strony { width:980px; text-align:left; margin:0px auto; margin-top:10px; margin-bottom:8px;  }
+.a_buts_off { -moz-border-radius:4px; -webkit-border-radius:4px; -khtml-border-radius:4px; border-radius:4px; margin:2px; padding:8px; padding-top:5px; padding-bottom:5px; background:#9d9d9d; font-family: Verdana, Tahoma, Arial, sans-serif; font-size: 11px; font-weight:bold; color:#fff; text-decoration:none; display:inline-block; }
+.a_buts_off:hover { background:#525252; text-decoration:none; }
+.a_buts_on { -moz-border-radius:4px; -webkit-border-radius:4px; -khtml-border-radius:4px; border-radius:4px; margin:2px; padding:8px; padding-top:5px; padding-bottom:5px; background:#525252; font-family: Verdana, Tahoma, Arial, sans-serif; font-size: 11px; font-weight:bold; color:#fff; text-decoration:none; display:inline-block; }
+.a_buts_on:hover { background:#525252; text-decoration:none; }
+#ileStr { display:block; text-align:left; font-weight:bold; clear:both; padding:3px; }
+
+#producent { margin:10px; margin-top:0px; border:1px solid #c1c1c1; width:400px; padding-bottom:10px; padding-top:5px; background:#f6f7f6; }
+#producent  a { font-weight:bold; text-decoration:none; display:block; padding:3px; padding-left:10px; }
+#producent  a:hover { font-weight:bold; color:#ff0000; text-decoration:none; text-decoration:none; }
+
+#wyszukaj span { padding-right:3px; }
+div .export { background:url('../obrazki/export.png') no-repeat left center; line-height:16px; display:inline-block; padding-left:22px; font-weight:bold; color:#016f24; text-decoration:none; }
+div .export:hover { color:#ff0000; text-decoration:none; }
+
+#wynikStatystyka { display:none; margin-top:15px; }
+#prel { margin:10px; line-height:24px; }
+#prel img { float:left; margin-right:15px; }
+
+.wyszukaj_radio { margin-top:2px; }
+.wyszukaj_checkbox { margin-top:8px; float:left; }
+
+.naglowekWaluta { margin:10px 0px 5px 10px; text-align:center; font-size:12px; }
+
+/* sciezka do kategorii */
+.sciezkaKat { color:#848383 !important; display:inline !important; width:auto !important; font-weight:normal !important; }

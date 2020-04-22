@@ -1,0 +1,88 @@
+<!-- wyglad naglowka strony -->
+
+<h1 class="StrNaglowek">
+    <span>{__TLUMACZ:NAGLOWEK_SZCZEGOLY_REKLAMACJI}</span>
+</h1>
+
+<!-- tresc strony -->
+
+<section class="StrTresc">
+
+    <?php $DaneStatusy = $__pB; ?>
+    
+    <!-- data reklamacji i status -->
+
+    <div class="SzczegolyData">
+   
+        <em class="DataZlozenia"><b>{__DATA_MODYFIKACJI}</b></em> 
+        <em class="StatusZamowienia">{__TLUMACZ:STATUS_REKLAMACJI}: <b>{__STATUS_ZGLOSZENIA}</b></em>
+        
+    </div>
+
+    <div class="SekcjaTbl">
+    
+        <!-- numer reklamacji, tytul, data zgloszenia -->
+
+        <div class="RamkaProcent">
+        
+            <ul>
+                <li>{__TLUMACZ:NUMER_REKLAMACJI}:<b> {__ID_ZGLOSZENIA}</b></li>
+                <li>{__TLUMACZ:TYTUL_REKLAMACJI}:<b> {__TYTUL_ZGLOSZENIA}</b></li>
+                <li>{__TLUMACZ:DATA_REKLAMACJI}:<b> {__DATA_ZGLOSZENIA}</b></li>
+            </ul>
+            
+        </div>
+        
+        <!-- dane klienta -->
+
+        <div class="RamkaProcent">
+        
+             <ul>
+                <li>{__TLUMACZ:IMIE_I_NAZWISKO_KLIENTA}:<b> {__NAZWA_KLIENTA}</b></li>
+                <li>{__TLUMACZ:ADRES_EMAIL_KLIENTA}:<b> {__EMAIL_KLIENTA}</b></li>
+                <li>{__TLUMACZ:NUMER_ZAMOWIENIA_REKLAMOWANEGO}:<b> {__NUMER_ZAMOWIENIA}</b></li>
+            </ul>
+            
+        </div>
+
+    </div>
+
+    <div class="Sekcja">
+    
+        <div class="TytulSekcji">{__TLUMACZ:HISTORIA_REALIZACJI_REKLAMACJI}</div>
+        
+        <!-- generowanie historii statusow reklamacji -->
+        
+        <?php foreach ( $DaneStatusy as $Status ) { ?>
+        
+            <div class="TrescScr LiniaPoziom">
+            
+                <div class="SzczegolyData">
+                
+                    <em class="DataZlozenia"><b><?php echo date('d-m-Y H:i:s',strtotime($Status['data_dodania'])); ?></b></em> 
+                    <em class="StatusZamowienia">{__TLUMACZ:STATUS_REKLAMACJI}: <b><?php echo Reklamacje::pokazNazweStatusuReklamacji($Status['id_statusu'],$_SESSION['domyslnyJezyk']['id']); ?></b></em>
+                    
+                </div>
+                
+                <div class="ZamowienieKomentarz"><?php echo $Status['komentarz']; ?></div>
+                
+            </div>
+            
+        <?php } ?>
+
+    </div>
+
+    <!-- przyciski -->
+
+    <a class="przycisk Lewy" onclick="history.go(-1)">{__TLUMACZ:PRZYCISK_COFNIJ}</a>
+    <a href="/" class="przycisk Prawy">{__TLUMACZ:PRZYCISK_DO_STRONY_GLOWNEJ}</a>   
+    
+    <div class="cl"></div>
+    
+    <?php
+    unset($DaneStatusy);
+    ?>
+
+</section>
+
+

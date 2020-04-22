@@ -1,0 +1,21 @@
+CKEDITOR.plugins.setLang('youtube', 'pl', {
+	button : 'Fodaj Youtube Video',
+	title : 'Dodaj Youtube Video',
+	txtEmbed : 'Wstaw kod tutaj',
+	txtUrl : 'Wstaw adres URL filmu',
+	txtWidth : 'Szerokość',
+	txtHeight : 'Wysokość',
+	chkRelated : 'Pokaż na końcu sugerowane filmy',
+	txtStartAt : 'Uruchom od (ss lub mm:ss lub hh:mm:ss)',
+	chkPrivacy : 'Włącz roszerzony tryb prywatności',
+	chkOlderCode : 'Użyj starej wersji kodu',
+	noCode : 'Musisz wstawić kod lub adres URL',
+	invalidEmbed : 'Wstawiony kod jest niepoprawny',
+	invalidUrl : 'Wstawiony adres jest niepoprawny',
+	or : 'lub',
+	noWidth : 'Wstaw szeroość',
+	invalidWidth : 'Szerokośćjest nieprawidłowa',
+	noHeight : 'Wstaw wysokość',
+	invalidHeight : 'Wyokość jest nieprawidłowa',
+	invalidTime : 'Niepoprawny czas uruchomienia'
+});

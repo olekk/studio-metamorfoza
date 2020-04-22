@@ -1,0 +1,183 @@
+/* ikona allegro przy zakladce */
+.a_href_info_zakl span { position:absolute; margin:-2px 0px 0px 5px; width:46px; height:17px; background:url('../obrazki/logo/logo_allegro_male.png') no-repeat left bottom; display:inline-block; }
+#zakl_id_21 .maleSukces { margin-left:10px; padding-left:22px; }
+#zakl_id_21 .maleInfo { color:#a3a3a3; }
+
+/* okno kategorii allegro */
+.catSelect { width:150px; }
+
+ul.jqueryFileTree { font-size: 11px; line-height: 18px; padding: 0px; margin: 0px; }
+ul.jqueryFileTree li { list-style: none; padding: 0px; padding-left: 20px; margin: 0px; white-space: nowrap; }
+ul.jqueryFileTree a { color: #3f5d6b; text-decoration: none; }
+ul.jqueryFileTree a:hover { text-decoration: underline; }
+
+.jqueryFileTree li.directory { background: url(../obrazki/folder.png) left top no-repeat; }
+.jqueryFileTree li.expanded { background: url(../obrazki/folder_otwarty.png) left top no-repeat; }
+.jqueryFileTree li.file { background: url(../obrazki/plik.png) left top no-repeat; }
+.jqueryFileTree li.wait { background: url(../obrazki/spinner.gif) left top no-repeat; }
+
+#catsPL { display:none; }
+.treeBox { width:350px; margin:0px 0px 5px 175px; height:300px; border:1px solid #c1c1c1; overflow:auto; padding:5px; background:#f6f7f6; }
+.cmxform .jqueryFileTree label { margin:0px; padding:0px; }
+
+#drzewo_allegro { cursor:pointer; padding:2px 0px 2px 20px; background:url('../obrazki/kategoria.png') no-repeat left center; display:inline-block; margin:3px 0px 3px 2px; }
+#drzewo_allegro:hover { color:#ff0000; }
+
+#wybrana_kategoria { display:none; padding-bottom:0px; }
+#wybrana_kategoria .maleInfo { color:#348dd8; display:inline-block !important; margin-left:0px !important; padding:0px !important; line-height:15px; padding-left:25px !important; font-size: 11px; text-decoration:none; }
+
+/* obsluga okna kategorii */
+.okno_kateg { margin-bottom:10px; border:1px solid #c1c1c1; padding:2px; padding-bottom:7px; }
+.okno_naglowek { padding:7px; padding-left:5px; background:url('../obrazki/tlo.png') no-repeat right bottom; text-shadow: #fff 1px 1px 1px; font-weight:bold; color:#2b595b; }
+
+/* lista kategorii do jakich jest przypisany produkt */
+.male_kat { display:block; padding-top:5px; padding-bottom:2px; font-weight:normal; }
+
+/* nr katalogowy */
+.male_nr_kat { display:block; padding-top:5px; padding-bottom:2px; font-weight:normal; color:#5b5a5a; }
+
+/* producent */
+.male_producent { display:block; padding-top:2px; padding-bottom:2px; font-weight:normal; color:#29682c; }
+
+/* info o aukcji */
+.info_allegro { padding-top:5px; width:100px; height:30px; }
+.info_allegro div { display:none; position:absolute; margin:-5px 0px 0px 55px; background:#ffffff; padding:10px; border:1px dotted #ff0000; z-index:500; }
+.info_allegro td { padding:3px 6px 3px 6px !important; background:#ffffff !important; color:#3f5d6b; border:1px solid #c1c1c1; text-align:center; }
+.info_allegro td:nth-child(3) { white-space: nowrap; }
+.info_allegro tr:first-child td { padding:5px 6px 5px 6px !important; background:#f0f0f0 !important; font-weight:normal; text-decoration:none; }
+.info_allegro a { color:#3f5d6b; }
+.info_allegro a:hover { color:#ff0000; }
+.info_allegro span { white-space: nowrap; display:block; }
+.info_allegro b { display:block; margin-bottom:2px; color:#3f5d6b; }
+.info_allegro .czas { color:#939393; font-size:10px; margin-bottom:5px; }
+
+.cen_prod { width:80px; text-align:left; }
+
+/* ceny */
+.cena { font-weight:normal; line-height:18px; }
+.waluta { font-weight:normal; color:#8f8f8f; line-height:15px; text-align:right; margin:3px; margin-right:6px; }
+.waluta span { font-weight:bold; color:#1d7100; line-height:15px; }
+
+.opcje { color:#6779a7; white-space: nowrap; font-weight:normal; }
+
+/* edycja produktu */
+.tbl_cena { color: #3f5d6b; }
+.tbl_cena td { padding:2px; text-decoration:none; }
+.tbl_cena_naglowek { font-weight:bold; color:#3f5d6b; text-decoration:none; }
+.tbl_cena span { display:block; padding:5px; background:#e5e5e5; font-weight:normal; color:#3f5d6b; text-decoration:none; }
+
+/* zdjecia */
+.ramka_foto { margin-left:8px; border:1px solid #c1c1c1; padding:2px; }
+.tbl_foto { color: #3f5d6b; width:100%; }
+.tbl_foto td { padding:2px; text-decoration:none; text-align:center; height:70px; }
+.tbl_foto_naglowek td { height:auto; }
+.tbl_foto span { display:block; text-align:center; padding:8px; margin-bottom:5px; background:#e5e5e5; font-weight:normal; color:#3f5d6b; text-decoration:none; }
+.tbl_foto span.zdjecie_tbl { background:#ffffff; border:1px solid #e5e5e5; }
+.tbl_foto input { width:93%; }
+
+/* mp3 */
+.tbl_mp3 { color: #3f5d6b; width:100%; }
+.tbl_mp3 td { padding:2px; text-decoration:none; text-align:center; height:40px; }
+.tbl_mp3_naglowek td { height:auto; }
+.tbl_mp3 span { display:block; text-align:center; padding:8px; margin-bottom:5px; background:#e5e5e5; font-weight:normal; color:#3f5d6b; text-decoration:none; }
+.tbl_mp3 input { width:95%; }
+
+.modul { border:1px dotted #c1c1c1; margin:2px; margin-top:5px; margin-bottom:5px; padding:5px; color: #3f5d6b; }
+.modul .dat { display:inline-block; width:100px; }
+.modul div { padding:4px; }
+
+#lista_cech .ramka_cech { border:1px solid #c1c1c1; padding:2px; padding-top:3px; overflow-x:auto; max-width:815px; }
+.cechy_naglowek { padding:10px; padding-top:0px; color:#3f5d6b; font-weight:bold; text-decoration:none; }
+.cechy td { padding-left:10px; color:#3f5d6b; }
+
+.polaTxt { margin:4px 0px 4px -2px; }
+.polaTxt td { padding-left:10px; color:#3f5d6b; }
+.polaTxt span { color:#a1a1a1; }
+
+/* edycja cech produktu */
+.tbl_cechy { color: #3f5d6b; width:100%; }
+.tbl_cechy .nazwa_cechy { font-weight:bold; color:#ff0000; background:#f4f2f2; padding:6px; padding-left:15px; }
+.tbl_cechy .nazwa_cechy_kasuj { font-weight:bold; color:#ff0000; background:#f4f2f2; padding:6px; }
+.tbl_cechy td { border:2px solid #fff; padding:2px; padding-left:7px; padding-right:7px; text-decoration:none; }
+.tbl_cechy .nagl { text-align:center; padding:8px; background:#e5e5e5; font-weight:normal; color:#3f5d6b; text-decoration:none; }
+
+.cechy_info { padding:10px; }
+
+.nagl_linki { margin:5px; margin-bottom:10px; text-align:left; padding:8px; background:#ebe9e9; font-weight:bold; color:#1e749d; text-decoration:none; }
+.nagl_linki span { font-size:12px; color:#ff0000; }
+
+#znizka_ramka { border:1px dotted #c1c1c1; padding:10px; margin-left:23px; margin-top:20px; width:70%; }
+#znizka_tytul { color: #3f5d6b; text-decoration:none; font-weight:bold; padding-bottom:10px; }
+.znizka { padding-top:8px; color: #3f5d6b; }
+
+/* niski stan magazynowy */
+.niskiStan { color:#ff0000; }
+
+/* opis ilosc dla jm */
+#opis_ilosci { color:#3f5d6b; margin-left:195px; margin-bottom:8px; display:none; line-height:16px; }
+
+/* status jezeli kategoria jest wylaczona */
+.wylKat { background: url("../obrazki/uwaga_mala.png") no-repeat left center; display:inline-block; padding:2px; padding-left:10px; }
+
+/* padding dla ajaxa */
+.padAjax { padding:10px; display:inline-block; }
+
+/* wybor z listy */
+.cmxform .ms-container { background: transparent url('../obrazki/arrow.png') no-repeat 287px 53px; margin-left:182px; margin-top:-20px;}
+.cmxform .ms-container:after {content: "."; display: block; height: 0; line-height: 0; font-size: 0; clear: both; min-height: 0; visibility: hidden;}
+.cmxform .ms-container .ms-selectable, .ms-container .ms-selection { background: #fff; border: 1px #ccc solid; float: left;}
+.cmxform .ms-selected { display:none;}
+.cmxform .ms-container .ms-selectable{margin-right: 40px;}
+.cmxform .ms-container ul{ margin: 0; list-style-type: none;}
+.cmxform .ms-container ul.ms-list{ width: 280px; height: 200px; padding: 1px 0px; overflow-y: auto;}
+.cmxform .ms-container .ms-selectable li.ms-elem-selectable,.cmxform .ms-container .ms-selection li.ms-elem-selected{ border-bottom: 1px #eee solid; padding: 3px 10px; color: #555;}
+.cmxform .ms-container .ms-selection li.ms-elem-selected{ padding-left: 22px;color: #101010;}
+.cmxform .ms-container .ms-selectable li.disabled,.cmxform .ms-container .ms-selection li.disabled{ background-color: #eee; color: #aaa;}
+.cmxform .ms-container li.ms-elem-selectable:not(.disabled):hover,.cmxform .ms-container .ms-selection li:not(.disabled):hover{ cursor: pointer; background-color: #eee; color: #000;}
+.cmxform .ms-container .ms-selection li:not(.disabled):hover{ background: #eee url('../obrazki/delete.png') no-repeat 3px 1px;}
+.cmxform h4{  font-size:11px; background: #e7e7e7; text-align:center; line-height: 22px;}
+
+/* wylaczenie kupowania */
+.bez_kupowania { display:block; text-align:center; background: url("../obrazki/bez_kupowania.png") no-repeat center top; height:20px; }
+
+.wylaczony { color:#acacac; }
+
+/* link do wyswietlania kombinacji cech */
+#kombinacje { line-height:1.5; font-size:12px; margin:10px; font-weight:bold; color:#1d6a34; background: url("../obrazki/kategoria.png") no-repeat left center; padding:8px 0px 8px 25px; cursor:pointer; }
+#kombinacje:hover { color:#ff0000; }
+#kombinacje span { color:#8e8e8e; font-size:11px; display:block; }
+
+.ramka_cech_rodzaj { margin:0px 0px 25px 8px; border:1px solid #c1c1c1; padding:4px; line-height:1.8; }
+#wyborRodzajuCechy { font-weight:bold; color:#3f5d6b; background:#e5e5e5; padding:8px; }
+
+.poziom { margin:3px 0px 3px 0px; white-space: nowrap; }
+
+.sort_zdjecie { width:20px !important; text-align:center; }
+
+.cmxform .modul label.error, label.error { font-size:11px; color: red; font-weight: normal; background:transparent url(../obrazki/blad.png) no-repeat left center; padding-left:20px; display:block; margin-left: 100px; width:180px; }
+
+/* ikonki */
+.pole_obrazek { background:url(../obrazki/image_cechy.png) no-repeat left center; padding:2px 0px 2px 30px !important; color:#1e749d !important; }
+.pole_tekst { background:url(../obrazki/plik.png) no-repeat left center; padding:2px 0px 2px 25px !important; color:#1e749d !important; }
+.slownik_pola { vertical-align:middle; display:inline-block; margin-left:5px; width:16px; height:16px; background:url('../obrazki/lista_wojewodztw.png') no-repeat; cursor:pointer; }
+.pozycje_slownika { display:none; margin:5px 0px 0px 169px; max-height:100px; }
+
+/* szybka edycja produktu */
+.edycja_prd { padding-right:15px; position:relative; }
+.edycja_prd .edpr { width:12px; height:12px; display:inline-block; background:url(../obrazki/edytuj_male.png) no-repeat; position:absolute; right:5px; bottom:0px; cursor:pointer; filter:alpha(opacity=30); -moz-opacity:0.3; opacity:0.3; }
+.edycja_prd:hover .edpr { filter:alpha(opacity=100); -moz-opacity:1; opacity:1; }
+.edycja_prd input, .edycja_prd textarea, .edycja_prd select { margin:3px 0px 3px 0px; }
+.edycja_prd .przycisk_ajax { margin:-10px 0px 5px 0px; }
+
+/* pamietanie kategorii */
+#pozycje_ikon input { float:left; margin-left:10px; }
+.pamietaj_kat { display:inline-block; padding:2px 0px 0px 5px; }
+
+/* obrazki do cech */
+.rozwin_foto { text-align:center; }
+.rozwin_foto img { cursor:pointer; }
+.zdjecie_cechy { height:26px; float:right; }
+.zapisz_obraz { background: url("../obrazki/export.png") no-repeat left center; width:16px; height:16px; display:inline-block; margin:4px 0px 0px 8px; cursor:pointer; float:right; }
+.usun_obraz { background: url("../obrazki/kasuj.png") no-repeat left center; width:16px; height:16px; display:inline-block; margin:4px 0px 0px 8px; cursor:pointer; float:right; }
+.zapis_obrazka { margin:4px 0px 0px 8px; float:left; }
+.cecha_zdjecie { background:#f1f1f1; padding:8px 10px 8px 10px; display:none; }

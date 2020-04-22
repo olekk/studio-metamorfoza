@@ -1,0 +1,9 @@
+.polFor { margin-top:10px; margin-bottom:10px; }
+
+.nagl_formi { margin:5px; margin-bottom:10px; text-align:left; padding:8px; background:#ebe9e9; font-weight:bold; color:#1e749d; text-decoration:none; }
+.nagl_formi span { font-size:12px; color:#ff0000; }
+
+.opis_znacznikow { position:absolute; margin-top:-10px; margin-left:660px; width:300px; }
+
+/* grupa klientow */
+.grupa_klientow { display:inline-block; padding:5px; }

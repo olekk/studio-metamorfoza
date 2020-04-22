@@ -1,0 +1,28 @@
+/* obsluga okna kategorii */
+.okno_kateg { margin-bottom:10px; border:1px solid #c1c1c1; padding:2px; padding-bottom:7px; }
+.okno_naglowek { padding:7px; padding-left:5px; background:url('../obrazki/tlo.png') no-repeat right bottom; text-shadow: #fff 1px 1px 1px; font-weight:bold; color:#2b595b; }
+
+/* lista kategorii do jakich jest przypisany produkt */
+.male_kat { display:block; padding-top:5px; padding-bottom:2px; font-weight:normal; }
+
+/* nr katalogowy */
+.male_nr_kat { display:block; padding-top:5px; padding-bottom:2px; font-weight:normal; color:#5b5a5a; }
+
+/* producent */
+.male_producent { display:block; padding-top:2px; padding-bottom:2px; font-weight:normal; color:#29682c; }
+
+#wynik_produktow_nasz_hit { margin-top:10px; margin-left:10px; margin-bottom:20px; width:660px; }
+#wynik_produktow_nasz_hit span { display:block; padding-bottom:10px; font-weight:bold; }
+
+/* lista produktow */
+.wynik_naglowek { display:block; padding-top:11px; font-weight:bold; padding-left:3px; }
+.wynik_naglowek_dodanie { display:block; padding:10px; font-weight:bold; color:#ff0000; }
+.wynik_naglowek_brak { display:block; padding-top:40px; font-weight:bold; }
+#wynik_przewijany { width:660px; max-height:200px; overflow-y:scroll; border:1px solid #c1c1c1; }
+.tbl_produkt { color: #3f5d6b; width:100%; border:0px; }
+.tbl_produkt td { border:3px solid #fff; text-align:center; }
+.tbl_produkt .prot td { background:#f4f2f2; padding:4px; text-decoration:none; }
+.tbl_produkt span { white-space:nowrap; display:block; padding:5px; background:#e5e5e5; font-weight:normal; color:#3f5d6b; text-decoration:none; }
+
+/* status jezeli kategoria jest wylaczona */
+.wylKat { background: url("../obrazki/uwaga_mala.png") no-repeat left center; display:inline-block; padding:2px; padding-left:10px; }

@@ -1,0 +1,221 @@
+/* nazwa firmy */
+.firma { font-weight:bold; color:#098206; }
+.zamKlient { margin-right:25px; }
+
+/* cena */
+.infocena { color:#8f0a0a; font-weight:bold; }
+
+/* utworzona wysylka */
+.utworzonaWysylka { padding-left:8px; }
+
+.LinEdytuj { float:right;padding-left:20px;height:16px;background: url('../obrazki/edytuj.png') center left no-repeat; }
+.LinEdytuj a { font-weight: normal; color:#7a7b7a; text-decoration: none; }
+.LinEdytuj a:hover { font-weight: normal; color:#ff0000; text-decoration: none; }
+
+/* wyglad opiekuna */
+.opiekun { font-weight: normal; color:#51c95a; text-decoration: none; font-size:10px; display:block; text-align:center; padding-top:8px; }
+.opiekun span { font-weight: bold; color:#445b6e; text-decoration: none; font-size:10px; display:block; text-align:center; padding-top:3px; }
+
+.zakSzczegolowe { margin-bottom:10px; }
+
+#infoTbl td { padding:6px; padding-left:10px; background:url('../obrazki/tlo_lista.png') repeat right bottom; }
+#infoTbl tr { border-top:2px solid #fff; font-weight:normal; }
+#infoTbl td:last-child { padding:3px; padding-left:10px; font-weight:bold; width:70%; }
+.InfoNormal { font-weight:normal !important; }
+.InfoNormal span:first-child { display:inline-block; padding-top:3px; }
+.InfoNormal span:last-child, .InfoSpan span:last-child { float:right; cursor:pointer; margin-right:15px; margin-top:2px; display:inline-block; width:5%; text-align:right; }
+.InfoSpan span:first-child { display:inline-block; margin-top:3px; }
+.InfoSpan span form, .InfoNormal span form { display:inline-block; margin-top:-13px; }
+.InfoBold { font-weight:bold; }
+#comments, .zamowienie_pole { width:80%; float:left; }
+#comments textarea, .zamowienie_pole textarea { margin-top:15px; }
+#comments .przyciskNon, .zamowienie_pole .przyciskNon { display:block; margin:5px 0px 5px 0px; }
+.InfoNormal input { width:400px; }
+
+.IkoDiv { float:right; margin-right:10px; }
+.IkoDiv img { margin-right:5px; margin-top:5px; }
+
+#infoTblWysylka tr:nth-child(n+2), #infoTblPlatnik tr:nth-child(n+2) { border-top:2px solid #fff }
+#infoTblWysylka tr:nth-child(n+2) td { padding:6px; padding-left:10px; background:url('../obrazki/tlo_lista.png') repeat right bottom; font-weight:normal; }
+#infoTblWysylka tr:nth-child(n+2) td:last-child { padding:3px; padding-left:10px; font-weight:bold; width:60%; }
+#infoTblPlatnik tr:nth-child(n+2) td { padding:6px; padding-left:10px; background:url('../obrazki/tlo_lista.png') repeat right bottom; font-weight:normal; }
+#infoTblPlatnik tr:nth-child(n+2) td:last-child { padding:3px; padding-left:10px; font-weight:bold; width:60%; }
+#infoTblPodsumowanie tr:nth-child(n+2) td:last-child { font-size:12px; padding-left:10px; padding-right:10px; background:url('../obrazki/tlo_lista.png') repeat right bottom; }
+#infoTblProdukty td { text-align:center; }
+#infoTblProdukty .tblZoom td { white-space:normal; text-align:left; }
+#infoTblProdukty .tblZoom .ZoomProdukt { width:100%; }
+#infoTblProdukty .tblZoom .ZoomProdukt td { background:transparent; }
+#infoTblProdukty .tblZoom .ZoomProdukt tr:nth-child(even) { background:#f1f1f1; }
+#infoTblProdukty .podglad_zoom { width:635px; }
+#infoTblProdukty .okno_zoom { width:635px; }
+#infoTblHistoria td { text-align:center; padding:6px; padding-left:10px; padding-right:10px; }
+#infoTblDokumenty td { text-align:center; }
+
+.LinkProduktu { font-weight:bold; display:inline-block; margin-bottom:3px; color:#0a6290; font-size:12px; }
+
+.list_poj tr:nth-child(n+2) { border-top:2px solid #fff }
+.list_poj tr:nth-child(n+2) td { padding:6px; padding-left:10px; background:url('../obrazki/tlo_lista.png') repeat right bottom; font-weight:normal; }
+.list_poj tr:nth-child(n+2) td:last-child { padding:3px; padding-left:10px; font-weight:bold; width:80%; }
+
+.srodekTbl td { text-align:center; }
+
+td.pozycjaInfoBold { padding:3px; padding-left:10px; font-weight: bold; }
+
+/* producent */
+.male_producent { display:block; padding-top:2px; padding-bottom:2px; font-weight:normal; color:#29682c; }
+
+/* obsluga okna kategorii */
+.okno_kateg { border:1px solid #c1c1c1; padding:2px; padding-bottom:7px; }
+.okno_naglowek { padding:7px; padding-left:5px; background:url('../obrazki/tlo.png') no-repeat right bottom; text-shadow: #fff 1px 1px 1px; font-weight:bold; color:#2b595b; }
+
+/* lista kategorii do jakich jest przypisany produkt */
+.male_kat { display:block; padding-top:5px; padding-bottom:2px; font-weight:normal; }
+
+/* nr katalogowy */
+.male_nr_kat { display:block; padding-top:2px; padding-bottom:2px; font-weight:normal; color:#5b5a5a; }
+.pozycja_off td b:first-child { padding-bottom:5px; display:inline-block; }
+.pozycja_off td span b { padding:0px !important; }
+
+/* producent */
+.male_producent { display:block; padding-top:2px; padding-bottom:2px; font-weight:normal; color:#29682c; }
+
+#wynik_produktow_zamowienie_produkt { margin-top:10px; margin-left:10px; margin-bottom:20px; width:660px; }
+#wynik_produktow_zamowienie_produkt span { display:block; padding-bottom:10px; font-weight:bold; }
+#wybrany_produkt { padding:7px; padding-top:0px; margin-bottom:10px; }
+#wynik_produktow_lista { margin-top:10px; margin-left:10px; margin-bottom:20px; width:660px; }
+#wynik_produktow_lista span { display:block; padding-bottom:10px; font-weight:bold; }
+
+/* lista produktow i klientow */
+.wynik_naglowek { display:block; padding-top:11px; font-weight:bold; padding-left:3px; }
+.wynik_naglowek_dodanie { display:block; padding:10px; padding-left:5px; font-weight:bold; color:#ff0000; }
+.wynik_naglowek_brak { display:block; padding-top:40px; font-weight:bold; }
+#wybierz_klienta { width:990px; max-height:300px; overflow-y:scroll; }
+#wynik_przewijany { width:660px; max-height:500px; overflow-y:scroll; border:1px solid #c1c1c1; }
+.tbl_produkt { color: #3f5d6b; width:100%; border:0px; }
+.tbl_produkt td { border:3px solid #fff; text-align:center; }
+.tbl_produkt .prot td { background:#f4f2f2; padding:4px; text-decoration:none; }
+.tbl_produkt span { white-space:nowrap; display:block; padding:5px; background:#e5e5e5; font-weight:normal; color:#3f5d6b; text-decoration:none; }
+#wybierz_klienta td:first-child, #wybierz_klienta td:nth-child(2), #wybierz_klienta td:nth-child(6), #wybierz_klienta td:nth-child(7) { text-align:center; }
+#wybierz_klienta td { text-align:left; }
+#wybierz_klienta .firma { font-weight:bold; color:#098206; display:block; margin-bottom:3px; }
+#wybierz_klienta .maly_mail { background: url('../obrazki/maly_mail.gif') left center no-repeat; padding:4px; padding-left:15px; color:#064661; display:inline-block; }
+.dlugiInput { width:300px !important; }
+
+#dodajZamowienie { display:none; }
+
+/* status jezeli kategoria jest wylaczona */
+.wylKat { background: url("../obrazki/uwaga_mala.png") no-repeat left center; display:inline-block; padding:2px; padding-left:10px; }
+
+.pr td { border:0px; padding:2px; background:transparent; text-decoration:none; }
+.pr1 { width:15%; text-align:center; }
+.pr2 { width:20%; text-align:center; }
+.pr3 { width:55%; }
+.pr4 { width:10%; text-align:center; }
+
+.faktura { border: 1px dotted #c1c1c1;}
+.faktura_naglowek { border: 1px dotted #c1c1c1; border-left:0px; border-right:0px; padding:8px; font-weight:bold; text-align:center;}
+.faktura_produkt { border: 1px dotted #c1c1c1; border-left:0px; border-right:0px; padding:5px; font-weight:normal;}
+
+.delete-wpr { position: relative;}
+.delete { display: block; color: red; text-decoration: none; font-weight: bold; font-family: Verdana; font-size: 12px; }
+.deleteText { display: block; color: black; text-decoration: none; font-weight: normal; }
+
+.faktura_numer { font-size: 14px; font-weight:bold; }
+
+/* leganda ikon */
+#legenda { margin-right:0px; text-align:right; }
+#legenda span { line-height:16px; }
+#legenda .pobranaproforma { margin-left:20px; display:inline-block; background: url("../obrazki/maly_dolar.png") no-repeat left center; padding-left:25px; }
+#legenda .stalyklient { margin-left:20px; display:inline-block; background: url("../obrazki/medal.png") no-repeat left center; padding-left:25px; }
+#legenda .gosc { margin-left:20px; display:inline-block; background: url("../obrazki/gosc.png") no-repeat left center; padding-left:25px; }
+#legenda .algro { margin-left:20px; display:inline-block; background: url("../obrazki/allegro_lapka.png") no-repeat left center; padding-left:25px; }
+#legenda .recz { margin-left:20px; display:inline-block; background: url("../obrazki/raczka.png") no-repeat left center; padding-left:25px; }
+
+#apiForm label.error { display:block; margin-left: 185px; width:250px;}
+
+#apiForm input.readonly { font-weight:bold; color:red; border:0px solid #ccc; font-size: 11px; padding:0px;
+    -moz-box-shadow:0 0 0px #eee inset;
+    -webkit-box-shadow:0 0 0px #eee inset;
+    box-shadow:0 0 0px #eee inset;
+    -moz-border-radius:0px; 
+    -webkit-border-radius:0px; 
+    -khtml-border-radius:0px; 
+    border-radius:0px;    
+}
+#apiForm label.readonly { font-size: 11px; font-weight: normal; color: #3f5d6b; display: inline-block; vertical-align: top; line-height: 1.0; cursor: pointer; width:120px; padding-left:5px; padding-top:3px; padding-bottom:0px; }
+#apiForm .paczka label.error { display:block;margin-left: 0px;text-align:left; width: 120px; }
+
+#apiForm optgroup { font-style:normal; font-size: 11px; font-weight: bold; color: #3f5d6b }
+
+.paczka { color: #3F5D6B; text-align:left; font-weight:normal;}
+
+.cmxform .ms-container { background: transparent url('../obrazki/arrow.png') no-repeat 225px 53px; margin-left:0px; margin-top:2px; }
+.cmxform .ms-container:after { content: "."; display: block; height: 0; line-height: 0; font-size: 0; clear: both; min-height: 0; visibility: hidden; }
+.cmxform .ms-container .ms-selectable, .ms-container .ms-selection { margin:8px; background: #fff; border: 1px #ccc solid; float: left; width:207px; font-weight: normal; }
+.cmxform .ms-selected { display:none; }
+.cmxform .ms-container .ms-selectable { margin-right: 40px; }
+.cmxform .ms-container ul { margin: 0; list-style-type: none; }
+.cmxform .ms-container ul.ms-list { width: 207px; height: 150px; padding: 1px 0px; overflow-y: auto; }
+.cmxform .ms-container .ms-selectable li.ms-elem-selectable,
+.cmxform .ms-container .ms-selection li.ms-elem-selected { border-bottom: 1px #eee solid; padding: 3px 10px; color: #555; }
+
+.cmxform .ms-container .ms-selection li.ms-elem-selected { padding-left: 22px; color: #101010; }
+.cmxform .ms-container .ms-selectable li.disabled, .cmxform .ms-container .ms-selection li.disabled { background-color: #eee; color: #aaa; }
+
+.cmxform .ms-container li.ms-elem-selectable:not(.disabled):hover,
+.cmxform .ms-container .ms-selection li:not(.disabled):hover { cursor: pointer; background-color: #eee; color: #000; }
+
+.cmxform .ms-container .ms-selection li:not(.disabled):hover {  background: #eee url('../obrazki/delete.png') no-repeat 3px 1px; }
+.cmxform h4 { font-size:11px; background:#e7e7e7; text-align:center; line-height: 22px; }
+
+.cmxform .uppydowner { text-align:center; }
+
+.minus, .plus  { border:1px solid #ccc; background:url('../obrazki/tlo.gif') repeat-x center top; color:#000; padding: 3px 5px;margin: 0 2px;font-weight: bold; position: relative; top: 0px; cursor:pointer; }
+.punkty label { color:#ff0000 !important; }
+.ramkaPunkty { display:table; margin:8px 10px 8px 10px; width:100%; } 
+.ramkaPunkty div { display:table-cell; border-top:1px dotted #ccc; border-bottom:1px dotted #ccc; padding:8px 0px 8px 0px; vertical-align:top; }
+.ramkaPunkty p { padding-left:0px !important; } 
+
+.status_zamowienia_kolor { width:17px; height:17px; display:inline-block; }
+
+/* pobranie faktury proforma */
+.vatProforma { display:block; font-weight:normal; padding-top:2px; }
+.malaProforma { background: url("../obrazki/maly_dolar.png") no-repeat center center; height:16px; min-width:16px; text-align:center; margin-top:5px; display:block; }
+
+/* tabela pobran pliow elektronicznych */
+.online td:first-child, .online td:last-child { text-align:center; }
+.limit_wyczerpany { font-style:normal; background: url("../obrazki/uwaga.png") no-repeat left center; display:inline-block; padding:2px 0px 0px 20px; font-size: 11px; color:#b45c5c; text-decoration:none; margin-left:10px; }
+
+/* do maila zamowienia */
+.wyslijMail td:first-child { padding-left:12px; }
+.wyslijMail input { margin-bottom:5px; }
+.wyslijMail .error { margin-left:0px !important; }
+.mailWyslano { margin:10px; margin-left:15px; background:url('../obrazki/newsletter_wyslano.png') no-repeat left center; padding:5px; padding-left:40px; line-height:20px; display:inline-block; font-weight:bold; color:#04a001; text-decoration:none; }
+
+/* informacja o uwagach do kleinta */
+.malaUwaga { background: url("../obrazki/uwaga_mala.png") no-repeat center center; height:16px; min-width:16px; text-align:center; margin-top:5px; display:block; }
+
+/* wycena wysylek FURGONETKA */
+.infoWycena { padding:0 10px 0 20px; }
+
+/* dodawanie reczne klienta */
+#dodajKlienta  { background: url("../obrazki/dodaj.png") no-repeat left center; font-weight:bold; cursor:pointer; padding:5px 0px 5px 20px; color:#016f24; margin:10px; display:inline-block; }
+#dodajKlienta:hover { color:#ff0000; }
+#dodawanieKlienta { margin-top:10px; display:none; }
+.dodawanieKlient { width:995px; margin:0px 10px 5px 8px; }
+.dodawanieKlient p { padding-left:0px !important; }
+.bezRejestracji { display:none; }
+.dodawanieKlient .pozycja_edytowana { padding-left:0px !important; }
+.dodawanieKlient label.error { max-width:200px !important; }
+.uwagiKlienta { margin:10px; width:90%; }
+
+/* dodawanie reczne produktu */
+#dodajProdukt { background: url("../obrazki/dodaj.png") no-repeat left center; font-weight:bold; cursor:pointer; padding:5px 0px 5px 20px; color:#016f24; margin:10px 10px 10px 15px; display:inline-block; }
+#dodajProdukt:hover { color:#ff0000; }
+
+#ladujKomentarz { display:none; position:absolute; margin:-27px 0px 5px 540px; }
+
+/* male info o roznym vat przy laczeniu zamowien */
+.malyVat { float:right; font-size:10px; font-weight:bold; background:#ff0000; -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px; -khtml-border-radius:3px; padding:3px 4px 3px 4px; color:#ffffff; display:inline-block; margin-right:8px; }
+.zamowieniePolaczono { background:url('../obrazki/newsletter_wyslano.png') no-repeat left center; padding-left:40px; line-height:32px; display:inline-block; font-weight:bold; color:#04a001; text-decoration:none; margin:10px; }
+.zamowieniePolaczono span { color:#ff0000; text-decoration:none; }

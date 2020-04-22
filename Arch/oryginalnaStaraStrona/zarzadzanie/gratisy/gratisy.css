@@ -1,0 +1,28 @@
+/* lista produktow */
+.wynik_naglowek { display:block; font-weight:bold; padding-left:3px; }
+.wynik_naglowek_dodanie { display:block; padding:10px; padding-left:5px; font-weight:bold; color:#ff0000; }
+.wynik_naglowek_brak { display:block; font-weight:bold; }
+#wynik_przewijany { width:540px; max-height:400px; overflow-y:scroll; border:1px solid #c1c1c1; }
+.tbl_produkt { color: #3f5d6b; width:100%; border:0px; }
+.tbl_produkt td { border:3px solid #fff; text-align:center; }
+.tbl_produkt .prot td { background:#f4f2f2; padding:4px; text-decoration:none; }
+.tbl_produkt span { white-space:nowrap; display:block; padding:5px; background:#e5e5e5; font-weight:normal; color:#3f5d6b; text-decoration:none; }
+
+.warunek { background:url('../obrazki/rozwin_menu.png') no-repeat left center; padding:2px 0px 2px 17px; display:block; line-height:1.4; }
+.warunek b { color:#ff0000; font-weight:normal; }
+
+#wynik_produktow_gratisy { margin-left:10px; width:560px; }
+#wynik_produktow_gratisy span { display:block; padding-bottom:10px; font-weight:bold; }
+
+.ramkaWarunki { border-top:1px dotted #ccc; padding:8px 0px 8px 0px; margin:8px 10px 8px 10px; } 
+.ramkaWarunki p { padding-left:0px !important; }
+.ramkaWarunki b { font-weight:bold; color:#3f5d6b; text-decoration:none; display:block; margin-top:5px; margin-bottom:10px; }
+.ramkaWarunki strong { padding:5px; padding-left:0px; display:inline-block; }
+
+#producenci { line-height:1.4; margin-left:165px; border:1px solid #c1c1c1; padding:10px; width:530px; max-height:400px; overflow-y:scroll; }
+#produkty { line-height:1.4; margin-left:165px; border:1px solid #c1c1c1; padding:10px; width:530px; max-height:400px; overflow-y:scroll; }
+
+#listaWarunkow { display:block; line-height:1.5; color:#0e7379; margin-left:165px; border:1px solid #c1c1c1; padding:10px; width:530px; max-height:400px; overflow-y:scroll; }
+
+/* grupa klientow */
+.grupa_klientow { display:inline-block; padding:5px; }

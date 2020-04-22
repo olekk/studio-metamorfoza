@@ -1,0 +1,108 @@
+/* wyglad listy plikow */
+.lista_plikow { margin:10px; }
+.lista_plikow ul { list-style-type:none; margin:0px; padding:0px; }
+.lista_plikow li { margin:0px; padding:0px; }
+.lista_plikow span { display:inline-block; background:url('../obrazki/csv.gif') no-repeat left center; padding:5px; padding-left:22px; margin-left:5px; text-decoration:none; }
+
+.naglowek_csv { font-weight:bold; text-decoration:none; padding:8px; padding-top:14px; padding-bottom:4px; }
+.poli { margin:10px; margin-top:5px; }
+
+.csvTbl { width:100%; }
+.csvTbl td { padding:12px; vertical-align:top; }
+
+#procentTrwajace { line-height:20px; margin-top:10px; font-weight:bold; text-decoration:none; }
+#procentTrwajace span { color:#ff0000; font-size:12px; }
+
+#procentZakonczone { line-height:20px; margin-top:10px; font-weight:bold; text-decoration:none; }
+#procentZakonczone span { color:#ff0000; font-size:12px;}
+
+#wgrany_produkt { margin-top:10px; background:url('../obrazki/klepsydra.png') no-repeat left center; padding-left:22px; line-height:20px; display:inline-block; font-weight:bold; color:#035266; text-decoration:none; }
+#wgrany_produkt span { font-size:12px; color:#ff0000; }
+
+#awarie { margin-top:20px; background:url('../obrazki/awaria.png') no-repeat left center; padding:15px; padding-left:40px; line-height:16px; text-align:left; color:#ff0000; text-decoration:none; }
+
+.lista_export { margin-top:15px; margin-left:5px; }
+.lista_export span { margin:6px; margin-top:5px; background:url('../obrazki/csv.png') no-repeat left center; display:inline-block; line-height:40px; height:40px; padding-left:50px; padding-right:0px; text-decoration:none; }
+
+/* nr katalogowy */
+.male_nr_kat { display:block; padding-top:5px; padding-bottom:2px; color:#5b5a5a; }
+
+/* producent */
+.male_producent { display:block; padding-top:2px; padding-bottom:2px; color:#29682c; }
+
+/* cecha */
+.male_cecha { display:block; padding-top:2px; padding-bottom:2px; color:#5b5a5a; }
+
+#producent { padding:15px; padding-top:8px; }
+.pkc td { padding:1px; }
+
+.catSelect { width:150px; }
+
+ul.jqueryFileTree { font-size:11px; line-height:18px; padding:0px; margin:0px; }
+ul.jqueryFileTree li { list-style:none; padding:0px; padding-left:20px; margin:0px; white-space:nowrap; }
+ul.jqueryFileTree a { color:#3f5d6b; text-decoration:none; }
+ul.jqueryFileTree a:hover { text-decoration:underline; }
+
+.jqueryFileTree li.directory { background:url(../obrazki/folder.png) left top no-repeat; }
+.jqueryFileTree li.expanded { background:url(../obrazki/folder_otwarty.png) left top no-repeat; }
+.jqueryFileTree li.file { background:url(../obrazki/plik.png) left top no-repeat; }
+.jqueryFileTree li.wait { background:url(../obrazki/spinner.gif) left top no-repeat; }
+
+#catsPL { display:none; }
+.treeBox { width:350px; margin:5px 0px 5px 240px; height:200px; border:1px solid #c1c1c1; overflow:auto; padding:5px; background:#f6f7f6; }
+.cmxform .jqueryFileTree label { margin:0px; padding:0px; }
+
+#drzewo_allegro { cursor:pointer; padding:2px 0px 2px 20px; background:url('../obrazki/kategoria.png') no-repeat left center; display:inline-block; margin:3px 0px 3px 230px; }
+#drzewo_allegro:hover { color:#ff0000; }
+
+.obramowanie_tabeliSpr { border:1px solid #c1c1c1; padding:2px; }
+
+.pozycja_offAllegro td { padding:5px; padding-top:5px; padding-bottom:5px; background:url('../obrazki/tlo_lista.png') repeat right bottom; }
+.pozycja_offAllegro { border-top:2px solid #fff; cursor:pointer; }
+.pozycjaAllegro { }
+.pozycjaAllegro a { text-decoration:none; }
+.pozycjaAllegro a:hover { color:#ff0000; text-decoration:none; }
+
+#aukcje_lista td { text-align:center; }
+
+.pomoc { float:left; width:24px; }
+.pomoc img { float:left; margin-top:3px; }
+
+.cmxform label.error, label.error { margin-left:0px; width:400px; }
+
+.cmxform td.allegro { padding:3px; border:1px solid #e7e7e7;}
+
+.cmxform .jqueryFileTree label { margin:0px; padding:0px; }
+
+.accordion { text-shadow:#fff 1px 1px 1px; font-weight:bold; color:#2b595b; }
+.accordion td { padding:7px; padding-left:5px; background:url('../obrazki/tlo.png') no-repeat right bottom; cursor:pointer; text-align:left; }
+.accordion div { float:left; padding-left:5px; }
+
+.blad { text-decoration:none; background:url('../obrazki/awaria.png') no-repeat left center; font-size:120%; padding:10px 10px 10px 45px; margin:20px 10px 10px 10px; max-width:500px; }
+.ok { text-decoration:none; background:url('../obrazki/info_duze.png') no-repeat left center; font-size:120%; padding:10px 10px 10px 45px; margin:20px 10px 10px 10px; max-width:500px; }
+
+#wystawianie { padding-right:10px; padding-left:10px; color:#3f5d6b; text-decoration:none; }
+
+#pozycje_ikon .serwer { margin:0px; padding:0px; margin-left:5px; background:url('../obrazki/serwer.png') no-repeat top left; line-height:16px; padding-left:22px; font-weight:bold; text-decoration:none; }
+
+.allegro_logowanie label { width:80px !important; }
+.allegro_logowanie label.error { width:200px !important; margin-left:80px  !important; }
+
+#ukryte_id { display:none; }
+
+.szare { display:block; padding-top:5px; color:#919191; }
+
+/* zoom informacji o aukcji */
+.sprzedazAllegro .podglad_zoom { width:735px; text-align:left; }
+
+.brakSynch { width:16px; height:16px; background:url('../obrazki/uwaga.png') no-repeat; display:inline-block; margin-bottom:8px; }
+#brakSynchronizacji { text-align:right; margin-bottom:8px; }
+#brakSynchronizacji span { font-size:12px; background:url('../obrazki/uwaga.png') no-repeat left center; display:inline-block; font-weight:bold; color:#ff0000; padding:4px 0px 2px 23px; margin-bottom:8px; }
+
+/* informacja jezeli stan magazynowy jest mniejszy od ilosci na allegro */
+.magazyn_blad { background:url('../obrazki/uwaga_mala.png') no-repeat left center; padding:2px 0px 1px 15px; color:#ff0000; font-weight:bold; display:inline-block; }
+
+/* lista aukcji - np przy akcji */
+.listaAukcji a, .listaAukcji span { background:url('../obrazki/allegro_lapka.png') no-repeat left center; padding:6px 0px 4px 22px; font-weight:bold; display:inline-block; }
+.listaAukcji a { font-weight:bold; }
+.listaAukcji span { font-weight:normal; }

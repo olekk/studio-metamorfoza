@@ -1,0 +1,64 @@
+<!-- wyglad naglowka strony -->
+
+<h1 class="StrNaglowek">
+    <span>{__TLUMACZ:PLIKI_ONLINE} - {__TLUMACZ:NAGLOWEK_HISTORIA_ZAMOWIENIA} - {__NUMER_ZAMOWIENIA}</span>
+</h1>
+
+<!-- tresc strony -->
+
+<section class="StrTresc">
+
+    <!-- czy mozna pobrac pliki czy jest zly status -->
+    
+    <?php if ( is_array($__pA) ) { ?>
+
+        <div class="Ramka Sekcja">
+        
+            <div class="TytulSekcji">{__TLUMACZ:PLIKI_DO_POBRANIA}</div>
+
+            <?php
+            $PlikiZamowienia = $__pA;
+            
+            foreach ($PlikiZamowienia as $Plik ) {
+            ?>
+            
+            <div class="TrescSekcji">
+            
+                <a href="<?php echo $Plik['plik_pobrania']; ?>"><?php echo $Plik['nazwa_pliku']; ?></a>
+                
+            </div>    
+            
+            <?php
+            unset($PlikiZamowienia);
+            }
+            ?>
+            
+        </div>
+    
+    <?php } else { ?>
+    
+        <p class="Informacja">
+            {__BLAD_POBIERANIA_PLIKOW}
+        </p>    
+    
+    <?php } ?>
+
+    <div class="cl"></div>
+    
+    <!-- przycisk powrotu do panelu klienta - tylko jezeli klient jest zalogowany -->
+    
+    <?php 
+    $Zalogowany = $__pB; 
+    
+    if ( $Zalogowany == 'tak' ) {
+    ?>
+
+    <a href="{__SSL:panel-klienta.html}" class="przycisk Prawy">{__TLUMACZ:PRZYCISK_PANEL_KLIENTA}</a>   
+    
+    <?php } ?>
+
+    <div class="cl"></div>
+
+</section>
+
+

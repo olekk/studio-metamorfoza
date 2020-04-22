@@ -1,0 +1,796 @@
+$(document).ready(function() {
+
+    // scroll strony
+    if ( pokazCookie('scroll') != '' && parseInt(pokazCookie('scroll')) > 0 ) {
+         //
+         $('body').scrollTo( parseInt(pokazCookie('scroll')) );         
+         //
+      } else {
+         //
+         $('body').scrollTo( 0 );
+         //
+    }
+    usunCookie('scroll');
+
+    // okno preloadera
+    $('body').prepend('<div id="Preload"><div id="StatusTlo"><div id="IkonaLoader"></div></div></div>');
+
+    if ( !TypPrzegladarki() ) {
+
+        // ikony nawigacyjne - do przewijana gora i dol
+        $('body').prepend('<div id="doGory"></div>');
+        $('body').prepend('<div id="doDolu"></div>');
+    
+        if ( $(window).width() > $('#Strona').width() + 160 ) {
+             if ( $(document).height() > $(window).height() ) { $('#doDolu').show(); }
+        }
+    
+        $(window).scroll( function() {
+            if ( $(window).width() > $('#Strona').width() + 160 ) {
+                if ($(this).scrollTop() > 100 ) {
+                    $('#doGory').fadeIn();
+                } else {
+                    $('#doGory').fadeOut();
+                }
+                if ($(document).height() - $(this).scrollTop() == $(window).height()) {
+                    $('#doDolu').fadeOut();
+                } else {
+                    $('#doDolu').fadeIn();
+                }
+            }
+        });    
+
+        // ukrywanie ikon scrolla przy skalowaniu ekranu
+        $(window).resize(function() {
+            if ( $(window).width() > $('#Strona').width() + 160 ) {
+                $('#doGory').show();
+                $('#doDolu').show();
+               } else {
+                $('#doGory').hide();
+                $('#doDolu').hide();          
+            }
+        });      
+    
+        $('#doGory').click(function () { $.scrollTo(0, 400); });
+        $('#doDolu').click(function () { $.scrollTo('100%', 400); });   
+
+        $.AutoUzupelnienie( 'InSzukaj', 'Podpowiedzi', 'inne/autouzupelnienie.php?tok={__TOKEN_AUTOUZUPELNIENIE}', 50, 270, 'Wyszukiwanie' );
+    
+    }
+    
+    // usuniecie ramki, zaokraglen z inputow
+    $("form input:radio").css( { border: 0, borderRadius: 0, padding: 0, height: 'auto' } );
+    $("form input:checkbox").css( { border: 0, borderRadius: 0, padding: 0, height: 'auto' } );
+
+    $('.okno, #PodzielSie a').click(function() {
+        $(this).target = "_blank";
+        window.open($(this).prop('href'));
+        return false;
+    });    
+
+    $(".formCzysc").submit(function() {
+      Formularz = $(this);
+      if (Formularz.attr("method") == 'get') {
+          //
+          Formularz.find('input').each(function() {
+              if ($(this).val() == '') {
+                $(this).attr('disabled', true);
+              }      
+          });      
+          //         
+      }
+    }); 
+    
+    $(".ulamek").change(	
+        function () {
+            var wart = $(this).val();
+                if (wart != '') {
+                regexp = eval("/,/g");
+                wart = wart.replace(regexp,".");         
+                if (isNaN(wart)) {
+                    $(this).val('');
+                   } else {
+                    wart = parseFloat(wart);
+                    $(this).val( wart );
+                }
+            }
+        }
+    );      
+
+    $('.Flaga').click(function () {
+        PreloadWlacz(); $.post("inne/zmien_jezyk.php?tok={__TOKEN_JEZYK}", { jezyk: TylkoLiczba($(this).attr("id")) }, function(){ window.location.reload(); });
+    });    
+      
+    $('#WybierzWalute').change(function () {
+        PreloadWlacz(); $.post("inne/zmien_walute.php?tok={__TOKEN_WALUTA}", { waluta: $('#WybierzWalute').val() }, function(){ window.location.reload(); });
+    });    
+      
+    $('#WybierzProducenta').change(function () {
+        PreloadWlacz(); document.location = $(this).val();
+    });        
+    
+    textZastap($('#InSzukaj')); 
+    textZastap($('#InBoxSzukaj')); 
+    textZastap($('#emailNewsletter'));
+    textZastap($('#emailNewsletterModul'));
+    
+    // do rozwijanego boxu kategorii
+    $(".BoxKategorieRozwijane .Rozwin").click( function(){      
+        var ido = $(this).attr("id");
+        if ($("#r"+ido).css('display') == 'none') {        
+            $(this).removeClass('Plus');
+            $(this).addClass('Minus');        
+            $("#r"+ido).slideDown("fast");
+          } else { 
+            $("#r"+ido).slideUp("fast", function(){   
+                $("#"+ido).removeClass('Minus');
+                $("#"+ido).addClass('Plus');
+            });
+        }
+    });   
+    
+    // do wysuwanego boxu kategorii    
+    var ukryjWysuwane = false;
+    sprawdzEkranBoxWysuwane();
+    //
+    $(window).resize(function() {
+        sprawdzEkranBoxWysuwane();
+    });
+    
+    // sprawdza czy sa wyswietlane produkty - jezeli jest aktywny komunikat z brakiem produktow to ukrywa diva z sortowaniem , stronami itd
+    if ($('#BrakProduktow').length) {
+        $(".ListingNawigacja").hide();
+        $(".ListingFiltry").hide();
+    }
+
+    // ukrywa warstwe z informacjami o platnosci w podsumowaniu zamowienia
+    $("#PlatnoscInformacjaPodsumowanie").filter(function() {
+        return this.childNodes.length === 0;
+    }).hide();
+
+    // ukrywa warstwe z informacjami o platnosci elektronicznej w podsumowaniu zamowienia
+    $("#PlatnoscElektronicznaPodsumowanie").filter(function() {
+        return this.childNodes.length === 0;
+    }).hide();
+
+    // ukrywa warstwe z informacjami o bledzie dokonywanej platnosci
+    $("#PlatnoscBladTresc").filter(function() {
+        return this.childNodes.length === 0;
+    }).hide();
+
+    // ukrywa warstwe z informacjami o bledzie dokonywanej platnosci
+    $("#PlatnoscBladInfo").filter(function() {
+        return document.getElementById('PlatnoscBladTresc').childNodes.length === 0;
+    }).hide();
+
+    // ukrywa warstwe z informacjami o bledzie dokonywanej platnosci
+    $("#WysylkaLokalizacjaPotwierdzenie").filter(function() {
+        return this.childNodes.length === 0;
+    }).remove();
+
+    // ukrywa warstwe z informacjami o bledzie dokonywanej platnosci
+    $("#WysylkaInformacjaPotwierdzenie").filter(function() {
+        return this.childNodes.length === 0;
+    }).remove();
+
+    // usuwa warstwe ze skryptami afiliacyjnymi jezeli nie sa wlaczone
+    $("#SkryptyAfiliacja").filter(function() {
+        return this.childNodes.length === 0;
+    }).remove();
+
+    //wlacza przycisk submit jesli dziala u klienta javascript - w boxie wyszukiwanie
+    $('#submitSzukaj').removeAttr('disabled');
+    $("#submitSzukaj").attr('class', 'przycisk'); 
+  
+    // ukrywanie pol inputa do wpisania ilosci przy kupowaniu jezeli jest wylaczona opcja w listingach i modulach
+    var ukryjInput = '{__UKRYWANIE_INPUTOW_ILOSCI}';
+    if ( ukryjInput == 'nie' ) {
+         $('.Zakup input').hide();
+         $('.Zakup em').hide();
+    }
+    
+    if ( !TypPrzegladarki() ) {
+
+        // lupa na zdjeciach w listingu
+        var lupa = '{__LISTING_LUPA}';
+        if ( lupa == 'tak' ) {
+            //
+            $(".Zoom").hover(function(){
+                //
+                var szerImg = $(this).width();
+                var wysImg = $(this).height();
+                //
+                // musi byc wieksza od ikony
+                if ( parseInt(szerImg) > 50 && parseInt(wysImg) > 50 ) {
+                    //
+                    $('#ZoomChwilowe').remove();
+                    //
+                    $(this).prepend('<span id="ZoomChwilowe" title="{__TLUMACZ:PRZYCISK_ZOBACZ_SZCZEGOLY_PRODUKTU}"></span>');
+                    //
+                    $('#ZoomChwilowe').hide();
+                    $('#ZoomChwilowe').css('margin-left', (szerImg / 2) - 18);
+                    $('#ZoomChwilowe').css('margin-top', (wysImg / 2) - 18);
+                    //
+                    $('#ZoomChwilowe').fadeIn('fast');
+                    //
+                }
+                //
+            }, function() {
+                //
+                if ( $('#ZoomChwilowe').length ) {
+                     $('#ZoomChwilowe').fadeOut('fast');
+                }
+                //
+            });
+            //
+        }
+        
+    }
+    
+    // sprawdza czy jest obsluga cookie
+    var cookieEnabled = (navigator.cookieEnabled) ? true : false;
+    if (typeof navigator.cookieEnabled == "undefined" && !cookieEnabled) { 
+        document.cookie="testCookie";
+        cookieEnabled = (document.cookie.indexOf("testCookie") != -1) ? true : false;
+    }
+    if (cookieEnabled == false) {
+         $('.DoKoszyka, .DoKoszykaKartaProduktu, #PrzyciskSchowek span, .Schowek').removeAttr('onclick');
+    }
+    
+    PrzeskalujColorbox();
+
+});
+
+// wlacza okno preloader
+function PreloadWylacz() {    
+    $("#StatusTlo").fadeOut('fast');
+    $("#Preload").delay(300).fadeOut('fast');
+}
+function PreloadWylaczSzybko() {    
+    $("#StatusTlo").hide();
+    $("#Preload").hide();
+}
+function PreloadWlacz() {
+    $("#StatusTlo").show(); 
+    $("#Preload").show(); 
+}
+
+// zmiana sposobu wyswietlania listingu produktow
+function lista(id) {
+    $('#wyswietlanie').val(id);
+    $('#sposobwyswietlania').submit();
+}
+
+// zmiana sortowania w listingu produktow
+function sortow(id) {
+    $('#sortowanie').val(id);
+    $('#sposobsortowania').submit();
+}
+
+// zmiana ilosci produktow w listingu produktow
+function str_prod(ile, miejsce) {
+    $('#ilosc_na_stronie').val(ile);
+    $('#iloscprodstrony').submit();
+}
+
+// wycina z ciagu tylko liczbe
+function TylkoLiczba(str){
+    objReg = /^\d+(\.\d+)?$/;
+    var arr = str.split("");
+    var str_return = "";
+    for ( var i = 0; i < arr.length; i++ ){
+        if ( arr[i].match(objReg) ) { str_return += arr[i]; }
+    }
+    return str_return;
+}
+
+// do wyszukiwania - sprawdza dlugosc wpisanego wyrazenia
+function sprSzukaj(formularz, pole){
+    //
+    Formularz = $(formularz);
+    Formularz.find('input').each(function() {
+        if ($(this).val() == '') {
+          $(this).attr('disabled', true);
+        }      
+    }); 
+    //
+    var ciagSzukania = $('#' + pole).val();
+    ciagSzukania = ciagSzukania.replace(/\%/g,'');
+    //
+    if (ciagSzukania == '{__TLUMACZ:WPISZ_SZUKANA_FRAZE}') {
+        $('#' + pole).val('');
+        ciagSzukania = '';
+    }
+    //
+    if (ciagSzukania.length < 2) {
+    
+        $.colorbox( { html:'<div id="PopUpInfo">{__TLUMACZ:BLAD_ZA_MALO_ZNAKOW} <b>2</b></div>', initialWidth:50, initialHeight:50, maxWidth:'90%', maxHeight:'90%' } );
+        
+        Formularz.find(':input').attr('disabled', false);
+        $('#' + pole).focus();
+        return false;
+    }
+    return true;
+}
+
+// w inputach - przywraca ciag po focusie
+function textZastap(input){
+    var oryginalyCiag = input.val();
+    input.focus( function(){
+        if( $.trim(input.val()) == oryginalyCiag ){ input.val(''); }
+    });
+    input.blur( function(){
+        if( $.trim(input.val()) == '' ){ input.val(oryginalyCiag); }
+    });
+}
+
+// sprawdza poprawnosc wpisanej ilosc szt do kupienia
+function SprIlosc(pole, min, ulamki) {
+    //
+    var zaokraglenie = 0;
+    if (ulamki == 0) {
+        zaokraglenie = 2;
+    }
+    //
+    var wynik = pole.value; 
+    // zamienia przecinek na kropke
+    regexp = eval("/,/g");
+    wynik = wynik.replace(regexp,".");         
+    //
+    // czy jest liczba
+    if (isNaN( wynik )) {
+        if (min > 0) {
+            wynik = min;
+          } else {
+            wynik = 1;
+        }
+        pole.value = wynik.toFixed(zaokraglenie);
+        return;
+    }    
+    // czy jest wieksze od 0
+    if (parseFloat( wynik ) <= 0) {
+        if (min > 0) {
+            wynik = min;
+          } else {
+            wynik = 1;
+        }
+        pole.value = wynik.toFixed(zaokraglenie);
+        return;    
+    }
+    //
+    wynik = parseFloat(wynik);
+    pole.value = wynik.toFixed(zaokraglenie);
+    
+    return;
+}
+
+// funkcja dodawania do schowka
+function DoSchowka(id) {
+    var akcjaKoszyka = '{__AKCJA_SCHOWKA}';
+    
+    PreloadWlacz();
+    $.post("inne/do_schowka.php?tok={__TOKEN_SCHOWEK_DODAJ}", { id: id }, function(data) { 
+        if ( akcjaKoszyka == 'okno popup' ) {
+             PreloadWylaczSzybko();       
+             $.colorbox( { html:data, maxWidth:'90%', maxHeight:'90%', open:true, initialWidth:50, initialHeight:50, overlayClose:false, escKey:false, onLoad: function() {
+               $('#cboxClose').hide();
+             }});  
+        }
+        // jezeli inna akcja niz wyswietlenie popup z informacja
+        if ( akcjaKoszyka == 'przejdź do schowka' ) {
+             document.location = 'schowek.html';
+        }
+        if ( akcjaKoszyka == 'pozostań na stronie' ) {
+             window.location.reload();
+        }         
+    });
+}
+
+// funkcja usuwania ze schowka
+function UsunZeSchowka(id) {
+    var akcjaKoszyka = '{__AKCJA_SCHOWKA}';
+    
+    PreloadWlacz();
+    $.post("inne/do_schowka.php?tok={__TOKEN_SCHOWEK_USUN}", { id: id, akcja: 'usun' }, function(data) { 
+        if ( akcjaKoszyka == 'okno popup' ) {
+             PreloadWylaczSzybko();      
+             $.colorbox( { html:data, maxWidth:'90%', maxHeight:'90%', open:true, initialWidth:50, initialHeight:50, overlayClose:false, escKey:false, onLoad: function() {
+               $('#cboxClose').hide();
+             }});
+           } else {
+             window.location.reload();
+        }         
+    });
+}
+
+// funkcja usuwa caly schowek klienta
+function UsunCalySchowek() {
+    PreloadWlacz();
+    $.post("inne/schowek_usun.php?tok={__TOKEN_SCHOWEK_USUN}", {}, function() { 
+        //
+        window.location.reload();
+        //
+    });    
+}
+
+// funkcja animacji koszyka
+function DoKoszyka(id, przelicz, iloscCech, miejsce) {
+    //
+    var koszykAnimacja = '{__KOSZYK_ANIMACJA}';
+    //
+    if ( przelicz == 'dodaj' && koszykAnimacja == 'tak' && !TypPrzegladarki() && iloscCech == 0 ) {
+        //
+        var element = '';
+        var elem_byl = false;
+        if ( $('.Wyswietlane img').length) {
+             element = $('.Wyswietlane img');
+             elem_byl = true;
+        }
+        if ( $('#fot_' + id).length ) {
+             element = $('#fot_' + id);
+             elem_byl = true;
+        }
+        //
+        if ( elem_byl == true && $('#BrakAnimacjiKoszyka').length == 0 ) {
+            //
+            // obrazek produktu
+            var fotoProduktu = $(element).attr('src');
+            //
+            // wspolrzedne polozenia obrazka
+            var produktX = $(element).offset().left;
+            var produktY = $(element).offset().top;  
+            //
+            // stworzenie kopii obrazka
+            $('body').prepend('<span id="AnimacjaKoszyka" style="z-index:500;position:absolute;top:' + produktY + 'px;left:' + produktX + 'px;"><img src="' + fotoProduktu + '" alt="" /></span>');
+            //
+            // wspolrzedne polozenia koszyka
+            var koszykX = $('#Koszyk').offset().left;
+            var koszykY = $('#Koszyk').offset().top;     
+            //
+            $('#AnimacjaKoszyka').stop().animate( {opacity: 0, left: koszykX, top: koszykY, width: 50, height: 50}, 1200, function() {
+                $('#AnimacjaKoszyka').remove();
+                DodajDoKoszyka(id, przelicz, miejsce);
+            });
+            //
+        } else {
+            //
+            DodajDoKoszyka(id, przelicz, miejsce);
+            //
+        }
+        //
+      } else {
+        //
+        DodajDoKoszyka(id, przelicz);
+        //
+    }
+    //
+    return false;
+}
+
+// funkcja dodawania do koszyka
+function DodajDoKoszyka(id, przelicz, miejsce) {
+    // sprawdzi czy dodanie produktu nie bylo z zakladki akcesoria dodatkowe
+    var zakladka = '';
+    if ( $('#z_akcesoria').length ) {
+        if ( $('#z_akcesoria').attr('class') == 'aktywna') {
+            var zakladka = 'akcesoria';
+        }
+    }
+    
+    // okreslanie ilosci
+    var ilosc = 1;
+    if ( parseFloat($('#ilosc_' + id).val()) > 0 ) {
+        ilosc = $('#ilosc_' + id).val();
+    }
+    
+    PreloadWlacz();
+    var podzielId = id.split('_');
+    //
+    var ciagCech = '';
+    if ( $('#InputWybraneCechy_' + id).length ) {
+        var ciagCech = $('#InputWybraneCechy_' + id).val();
+    }
+    var komentarz = '';
+    if ( $('#FormKartaProduktu #komentarz_' + id).length ) {
+        var komentarz = $('#FormKartaProduktu #komentarz_' + id).val();
+    }
+    // pola tekstowe
+    var polaTxt = '';
+    if ( $('#PoleTekstoweProduktu span').length && $('#PoleTekstoweProduktu').attr('data-id') == 'PoleId_' + id ) {
+        //
+        $('#PoleTekstoweProduktu span').each( function() {
+            //
+            idTxt = TylkoLiczba($(this).attr("id"));
+            //
+            if ( $('#pole_txt_' + idTxt).attr('class') != 'UsunTekst' || ( $('#pole_txt_' + idTxt).attr('class') == 'UsunTekst' && $('#pole_txt_' + idTxt).attr('data-text') != '' ) ) {
+                //
+                if ( $('#pole_txt_' + idTxt).val() != '' ) {
+                    //
+                    polaTxt += '{#{' + $(this).html() + '|*|' + $('#pole_txt_' + idTxt).val();
+                    //
+                    if ( $('#plik_' + idTxt).length ) {
+                        polaTxt += '|*|plik';
+                      } else {
+                        polaTxt += '|*|txt';
+                    }
+                    //
+                    polaTxt += '}#}';
+                    //
+                }
+                //
+            }
+            //
+        });
+        //
+    }
+    //
+    // sprawdzanie ilosci inputa
+    $.post("inne/do_koszyka_ilosc.php?tok={__TOKEN_KOSZYK_DODAJ_ILOSC}", { id: podzielId[1], ilosc: ilosc, cechy: ciagCech, akcja: przelicz }, function(data) {
+        //
+        if ( data[0].ilosc != '' ) {
+            $('#ilosc_' + id).val( data[0].ilosc );
+            //       
+            PreloadWylaczSzybko();
+            $.colorbox( { html: '<div id="PopUpInfo">' + data[0].komunikat + '</div>', maxWidth:'90%', maxHeight:'90%', open:true, initialWidth:50, initialHeight:50 } ); 
+            //
+        } else {
+            //
+            // jezeli jest wszystko ok z iloscia to dodaje do koszyka
+            // jezeli jest dodanie do koszyka
+            if ( przelicz == 'dodaj' ) {
+                //
+                $.post("inne/do_koszyka.php?tok={__TOKEN_KOSZYK_DODAJ}", { id: podzielId[1], ilosc: ilosc, cechy: ciagCech, komentarz: komentarz, txt: polaTxt, wroc: zakladka, miejsce: miejsce }, function(data) { 
+                    //
+                    akcjaKoszyka(data);
+                    //
+                });           
+                //
+            }
+            if ( przelicz == 'przelicz' ) {
+                //
+                $.post("inne/koszyk_przelicz.php?tok={__TOKEN_KOSZYK_DODAJ_PRZELICZ}", { id: podzielId[1], ilosc: ilosc, cechy: ciagCech }, function(data) { 
+                    //
+                    akcjaKoszyka(data);
+                    //
+                });              
+                //
+            }   
+            if ( przelicz == 'gratis' ) {
+                //
+                $.post("inne/do_koszyka.php?tok={__TOKEN_KOSZYK_GRATIS}", { id: podzielId[1], ilosc: ilosc, cechy: '', komentarz: '', txt: '', wroc: '', akcja: 'gratis', cena: $('#produkt_cena_' + id).val() }, function(data) { 
+                    //
+                    akcjaKoszyka(data);
+                    //
+                });            
+                //
+            }
+            
+        }
+        //
+    }, "json");
+
+    return false;
+}
+
+function akcjaKoszyka(tekst) {
+    var akcjaKoszyka = '{__AKCJA_KOSZYKA}';
+    var saCechy = tekst.indexOf('KonieczneCechy');
+    var jestGratis = tekst.indexOf('TylkoGratis');
+
+    if ( akcjaKoszyka == 'okno popup' || saCechy > 0 || jestGratis > 0 ) {
+         PreloadWylaczSzybko();                    
+         $.colorbox( { html:tekst, maxWidth:'90%', maxHeight:'90%', open:true, initialWidth:50, initialHeight:50, overlayClose:false, escKey:false, onLoad: function() {
+           $('#cboxClose').hide();
+         }});
+    }    
+    // jezeli inna akcja niz wyswietlenie popup z informacja
+    if ( akcjaKoszyka == 'przejdź do koszyka' && saCechy < 0 ) {
+         document.location = 'koszyk.html';
+    }
+    if ( akcjaKoszyka == 'pozostań na stronie' && saCechy < 0 ) {
+         ustawScroll();
+         window.location.reload();
+    }  
+}
+
+function klikSWFBanner(id) {
+    var banner = id;
+    var url = "reklama.php?id="+banner;
+    $(location).attr('href',url);
+}
+
+// procedura zakupu na raty Santander
+function SantanderRegulamin() {
+    var adres = 'https:/www.santanderconsumer.pl/raty-jak-kupic';
+    $.colorbox({ innerWidth: "850px", innerHeight: "550px", iframe: true, transition: "elastic", open: true, href: adres, fastIframe: false });
+}
+
+
+// procedura zakupu na raty Credit Agricole
+function LukasProcedura(id_sklepu) {
+    var identyfikatorSklepu = id_sklepu;
+    var adres = 'https://ewniosek.credit-agricole.pl/eWniosek/procedure.jsp?PARAM_TYPE=RAT&PARAM_PROFILE='+identyfikatorSklepu+'';
+    $.colorbox({ innerWidth: "850px", innerHeight: "550px", iframe: true, transition: "elastic", open: true, href: adres, fastIframe: false });
+}
+
+// procedura zakupu na raty MBANK Raty
+function MbankProcedura(id_sklepu) {
+    var identyfikatorSklepu = id_sklepu;
+    var adres = 'http://www.mbank.pl/mbank_raty/internetowy/?sprzedawca='+identyfikatorSklepu+'';
+    window.open(adres, 'directories=0,location=1,menubar=0,resizable=0,scrollbars=0,status=0,toolbar=0');
+}
+
+// procedura zakupu na raty PayU
+function PayURatyProcedura() {
+    var adres = 'programy/PayUraty/index.html';
+    $.colorbox({ innerWidth: "920px", innerHeight: "90%", iframe: true, transition: "elastic", open: true, href: adres, fastIframe: false });
+}
+
+// funkcja pokazuje tip w koszyku
+function PokazTip( klasaCss ) {
+    //
+    $(klasaCss).hover(
+        function () {
+            $(".tip").hide();
+            tip = $(this).find('.tip');
+            tip.show(); // pokazanie chmurki
+        },
+        function () {
+            tip.hide(); // ukrycie chmurki
+            $(".tip").hide();
+        }
+    );
+        
+    $(klasaCss).mousemove( function(e) {
+        var mousex = e.clientX - 20; // wspolrzedna X
+        var mousey = e.clientY - 31 - tip.height(); // wspolrzedna Y
+        var tipWidth = tip.width(); // szerokosc chmurki
+        var tipHeight = tip.height(); // wysokosc chmurki
+
+        var tipVisX = $(window).width() - (mousex + tipWidth);
+        var tipVisY = $(window).height() - (mousey + tipHeight);
+ 
+        if ( tipVisX < 10 ) { 
+            mousex = e.clientX - tipWidth - 10;
+        } if ( tipVisY < 10 ) { 
+            mousey = e.clientY - tipHeight - 10;
+        }
+        // pozycja chmurki wzgledem kursora
+        tip.css({  top: mousey, left: mousex });
+
+    }); 
+    //
+}
+
+// detekcja czy szablon mobilny
+function TypPrzegladarki() {
+    if ( $('#MobileWersja').length ) {
+        return true;
+      } else {
+        return false;
+    }
+}
+
+function TypRWD() {
+    if ( $('#RwdWersja').length ) {
+        return true;
+      } else {
+        return false;
+    }
+}
+
+// weryfikacja formularzy Captcha
+function WeryfikacjaCaptcha(value) {
+    $.get("inne/captcha_odswiez.php", { weryfikacja: value }, function(data) {
+        if (data == 'OK') {
+            $('#submitButton').removeAttr('disabled');
+            $('#submitButton').attr('class', 'przycisk');
+        } else {
+            $('#submitButton').attr('disabled', 'disabled');
+            $('#submitButton').attr('class', 'przyciskWylaczony');
+        }
+    });
+}
+
+function OdswiezCaptcha() {
+    $('#weryfikacjaImg').attr('src',"inne/captcha.php?"+Math.random());
+    $('#weryfikacja').focus();
+    $('#weryfikacja').val('');
+    $('#submitButton').attr('disabled', 'disabled');
+    $('#submitButton').attr('class', 'przyciskWylaczony');
+}
+
+function PrzeskalujColorbox() {
+    //
+    if ( TypPrzegladarki() || TypRWD() ) {
+        //
+        // tylko dla rwd - zmiana wielkosci okna colorbox po przekalowaniu
+        // tworzy zmienna do przechowywania czasu
+        var czasResize;
+
+        // jezeli jest zmiana wielkosci ekranu
+        $(window).resize(function() {
+
+            if (czasResize) {  
+                clearTimeout(czasResize) 
+            };
+            // tworzy zmienna czasu z opoznieniem
+            czasResize = setTimeout(function() {
+                // sprawdza szerokosc strony
+                var mojaSzerokosc = ($('#Strona').width() * 0.9), procentowaSzerokosc = .90;    
+                // jezeli colorbox jest widoczny
+                if ($('#cboxOverlay').is(':visible')) {  
+                    // przeskalowuje okno
+                    $.colorbox.resize({ width: ( $(window).width() > ( mojaSzerokosc+20) )? mojaSzerokosc : Math.round( $(window).width() * procentowaSzerokosc ) });
+                    // przeskalowuje zdjecie wewnatrz colorboxa
+                    $('.cboxPhoto').css( {
+                        width: $('#cboxLoadedContent').innerWidth(),
+                        height: 'auto'
+                    });
+                    $('#cboxLoadedContent').height( $('.cboxPhoto').height() );
+                    //
+                    $.colorbox.resize();
+                    //
+                }
+            }, 300) ;   
+
+        });
+        //
+    }
+}
+
+function sprawdzEkranBoxWysuwane() {
+    if ( $('#Strona').length ) {
+         if ( $('#Strona').outerWidth() < 799 && TypRWD() ) {
+              ukryjWysuwane = true;
+           } else {
+              ukryjWysuwane = false;
+         }
+    }
+    //
+    var SzerLewejKol = $('#LewaKolumnaPrzerwa').width();
+    $(".BoxKategorieWysuwane .Pokaz").hover(     
+    function(){      
+        var ido = $(this).attr("id"); if ($("#r"+ido).css('display') == 'none' && ukryjWysuwane == false) { $("#r"+ido).css( { marginLeft : SzerLewejKol - 60, width : SzerLewejKol } ); $("#r"+ido).slideDown("fast"); }; },
+    function(){ 
+        var ido = $(this).attr("id"); if ($("#r"+ido).css('display') == 'block' && ukryjWysuwane == false) { $("#r"+ido).slideUp("fast"); }       
+    }); 
+}  
+
+function ustawScroll(akcja) {
+    var aktualnyScroll = $(document).scrollTop();
+    ustawCookie('scroll', aktualnyScroll, 1); 
+}
+
+function stronaReload() {
+    ustawScroll();
+    window.location.reload();
+}
+
+function ustawCookie(nazwa, wartosc, dni) {
+    if (dni) {
+        var data = new Date();
+        data.setTime(data.getTime() + (dni*24*60*60*1000));           
+        var expires = "; expires=" + data.toGMTString();
+    } else {
+        var expires = "";
+    }
+    document.cookie = nazwa + "=" + wartosc + expires + "; path=/";
+}
+
+function pokazCookie(nazwa) {
+    if (document.cookie != "") { 
+        var cookies=document.cookie.split("; "); 
+        for ( i = 0; i < cookies.length; i++ ) { 
+            var nazwaCookie=cookies[i].split("=")[0]; 
+            var wartoscCookie=cookies[i].split("=")[1];
+            if ( nazwaCookie === nazwa ) {
+                return unescape(wartoscCookie);
+            }
+        }
+    }
+}
+
+function usunCookie(nazwa) {                
+    ustawCookie(nazwa, '', -1);
+}

@@ -1,0 +1,16 @@
+$(document).ready(function() {
+    $("#pisanie_recenzji").validate({
+      rules: {
+        autor: { required: true, minlength: 3 },
+        opinia: { required: true, minlength: 10 }
+      },
+      messages: {
+        autor: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}', minlength: '{__TLUMACZ:BLAD_ZA_MALO_ZNAKOW} 3' },
+        opinia: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}', minlength: '{__TLUMACZ:BLAD_ZA_MALO_ZNAKOW} 10' }
+      }     
+    });
+    
+    //wlacza przycisk submit jesli dziala u klienta javascript
+    //$('#submitButton').removeAttr('disabled');
+    //$("#submitButton").attr('class', 'przycisk');    
+});

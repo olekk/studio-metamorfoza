@@ -1,0 +1,16 @@
+/* obsluga okna informacji dostepnosci dla porownywarek */
+.okno_porownywarek { border:1px solid #c1c1c1; padding:10px; line-height:16px; vertical-align:top; }
+.okno_porownywarek span { display:block; padding-bottom:5px; font-size: 12px; font-weight:normal; color:#ff0000; }
+
+.nbp { background:url('../obrazki/odswiez.png') no-repeat left center; line-height:24px; display:inline-block; padding-left:30px; font-weight:bold; color:#016f24; text-decoration:none; }
+.nbp:hover { color:#ff0000; text-decoration:none; }
+
+div .export { background:url('../obrazki/export.png') no-repeat left center; line-height:16px; display:inline-block; padding-left:22px; font-weight:bold; color:#016f24; text-decoration:none; }
+div .export:hover { color:#ff0000; text-decoration:none; }
+
+div .import { background:url('../obrazki/import.png') no-repeat left center; line-height:16px; display:inline-block; padding-left:22px; font-weight:bold; color:#016f24; text-decoration:none; }
+div .import:hover { color:#ff0000; text-decoration:none; }
+
+.naglowek_export { font-weight:bold; text-decoration:none; padding:8px; }
+
+.usun_zalacznik { vertical-align:middle; display:inline-block; margin-left:5px; width:16px; height:16px; background:url('../obrazki/kasuj.png') no-repeat; cursor:pointer; }

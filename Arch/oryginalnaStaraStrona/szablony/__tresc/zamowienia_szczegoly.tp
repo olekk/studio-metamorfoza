@@ -1,0 +1,249 @@
+<!-- wyglad naglowka strony -->
+
+<h1 class="StrNaglowek">
+    <span>{__TLUMACZ:NAGLOWEK_HISTORIA_ZAMOWIENIA} - {__NUMER_ZAMOWIENIA}</span>
+</h1>
+
+<!-- tresc strony -->
+
+<section class="StrTresc">
+
+    <?php
+    $Zamowienie = $__pA;
+    ?>
+    
+    <!-- data zamowienia i status -->
+
+    <div class="SzczegolyData Lf">
+
+        <em class="DataZlozenia"><b>{__DATA_ZAMOWIENIA}</b></em> 
+        <em class="StatusZamowienia">{__TLUMACZ:KLIENT_STATUS_ZAMOWIENIA}: <b>{__STATUS_ZAMOWIENIA}</b></em>
+        
+    </div>
+    
+    <!-- pdf zamowienia i faktura -->
+
+    <div class="Ikonki">
+        {__PDF_ZAMOWIENIE}
+        {__PDF_FAKTURA}
+    </div>
+
+    <div class="cl"></div>
+    
+    <!-- platnosc, wysylka, opiekun zamowienia -->
+
+    <div class="Sekcja">
+
+        <ul id="podsumowanie_zamowienia">
+            <li><strong>{__TLUMACZ:KLIENT_RODZAJ_PLATNOSCI}:</strong> {__METODA_PLATNOSCI}</li>
+            <li><strong>{__TLUMACZ:KLIENT_RODZAJ_DOSTAWY}:</strong> {__WYSYLKA_MODUL}</li>
+            <li><strong>{__TLUMACZ:KLIENT_OPIEKUN_ZAMOWIENIA}:</strong> {__OPIEKUN_ZAMOWIENIA}</li>
+        </ul>
+    </div>
+    
+    <!-- informacje o platnosci -->
+
+    <div class="PlatnoscInfo" id="PlatnoscInformacjaPodsumowanie">{__PLATNOSC_INFO}</div>
+
+    <div class="KontenerDaneKlienta">
+    
+        <!-- dane do wysylki -->
+
+        <div class="DaneWysylki">
+
+            <h3>{__TLUMACZ:ADRES_WYSYLKI}</h3>
+
+            <div class="Tekst">
+
+                <ul>
+                    <li>{__DOSTAWA_NAZWA}</li>
+                    <li>{__DOSTAWA_FIRMA}</li>
+                    <li>{__DOSTAWA_ULICA}</li>
+                    <li>{__DOSTAWA_KOD_POCZTOWY} {__DOSTAWA_MIASTO}</li>
+                    <li>{__DOSTAWA_KRAJ}</li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="Odstep"></div>
+        
+        <!-- dane do faktury -->
+
+        <div class="DaneFaktura">
+
+            <h3>{__TLUMACZ:DANE_PLATNIKA}</h3>
+
+            <div class="Tekst">
+
+                <ul>
+                   <li>{__PLATNIK_NAZWA}</li>
+                   <li>{__PLATNIK_FIRMA}</li>
+                   <li>{__PLATNIK_NIP}</li>
+                   <li>{__PLATNIK_ULICA}</li>
+                   <li>{__PLATNIK_KOD_POCZTOWY} {__PLATNIK_MIASTO}</li>
+                   <li>{__PLATNIK_KRAJ}</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+    <!-- produkty zamowienia -->
+
+    <div class="TabelaKlient">
+
+        <table id="TabelaZamowienia">
+
+            <tr class="Naglowek">
+                <th style="width:50px;text-align:center;">{__TLUMACZ:INFO_FOTO}</th>
+                <th>{__TLUMACZ:NAZWA_PRODUKTU}</th>
+                <th>{__TLUMACZ:ILOSC_PRODUKTOW}</th>
+                <th>{__TLUMACZ:CENA_BRUTTO}</th>
+                <th>{__TLUMACZ:WARTOSC_BRUTTO}</th>
+            </tr>
+
+            <?php
+            foreach ( $Zamowienie->produkty as $Produkt ) {
+            
+                $ParametryProduktu = '';
+
+                if ( $Produkt['czas_wysylki'] != '' ) {
+                    $ParametryProduktu .= '<br />'.$GLOBALS['tlumacz']['CZAS_WYSYLKI'].': <b>'.$Produkt['czas_wysylki'].'</b>';
+                }
+                if ( $Produkt['gwarancja'] != '' ) {
+                    $ParametryProduktu .= '<br />'.$GLOBALS['tlumacz']['GWARANCJA'].': <b>'.$Produkt['gwarancja'].'</b>';
+                }
+                if ( $Produkt['stan'] != '' ) {
+                    $ParametryProduktu .= '<br />'.$GLOBALS['tlumacz']['STAN_PRODUKTU'].': <b>'.$Produkt['stan'].'</b>';
+                }
+
+                $CechaProduktu = '';
+                if ( isset($Produkt['attributes']) && count($Produkt['attributes']) > 0 ) {
+                
+                    foreach ( $Produkt['attributes'] as $cecha ) {
+                        $CechaProduktu .= $cecha['cecha'] . ':  <b>'. $cecha['wartosc'] . '</b><br />';
+                    }
+                    
+                }
+                
+                $KomentarzProduktu = '';
+                if ( $Produkt['komentarz'] != '' ) $KomentarzProduktu .= '{__TLUMACZ:KOMENTARZ_PRODUKTU} <b>'.$Produkt['komentarz'] . '</b><br />';
+                
+                $PolaTekstowe = '';
+                if (!empty($Produkt['pola_txt'])) {
+                  //
+                  $PoleTxt = Funkcje::serialCiag($Produkt['pola_txt']);
+                  if ( count($PoleTxt) > 0 ) {
+                      foreach ( $PoleTxt as $WartoscTxt ) {
+                          // jezeli pole to plik
+                          if ( $WartoscTxt['typ'] == 'plik' ) {
+                              $PolaTekstowe .= $WartoscTxt['nazwa'] . ': <a href="inne/wgranie.php?src=' . base64_encode(str_replace('.',';',$WartoscTxt['tekst'])) . '"><b>' . $GLOBALS['tlumacz']['WGRYWANIE_PLIKU_PLIK'] . '</b></a></span><br />';
+                            } else {
+                              $PolaTekstowe .= $WartoscTxt['nazwa'] . ': <b>' . $WartoscTxt['tekst'] . '</b></span><br />';
+                          }                                          
+                      }
+                  }
+                  unset($PoleTxt);
+                  //
+                }
+                
+                echo '<tr>
+                    <td>'.$Produkt['zdjecie_produktu'].'</td>
+                    <td><h3>'.$Produkt['link'].'</h3>' . $CechaProduktu . $PolaTekstowe . $KomentarzProduktu .  $ParametryProduktu . '</td>
+                    <td><span class="TabelaOpis">{__TLUMACZ:ILOSC_PRODUKTOW}:</span>'.$Produkt['ilosc'].'</td>
+                    <td><span class="TabelaOpis">{__TLUMACZ:CENA_BRUTTO}:</span>'.$GLOBALS['waluty']->WyswietlFormatCeny($Produkt['cena_koncowa_brutto'], $GLOBALS['waluty']->waluty[$Zamowienie->info['waluta']]['id'], true).'</td>
+                    <td><span class="TabelaOpis">{__TLUMACZ:WARTOSC_BRUTTO}:</span>'.$GLOBALS['waluty']->WyswietlFormatCeny($Produkt['cena_koncowa_brutto'] * $Produkt['ilosc'], $GLOBALS['waluty']->waluty[$Zamowienie->info['waluta']]['id'], true).'</td>
+                </tr>';
+                
+                unset($CechaProduktu, $KomentarzProduktu, $Producent, $PolaTekstowe, $ParametryProduktu);
+                
+            }
+            ?>
+        </table>
+
+    </div>
+            
+    <br />
+    
+    <!-- podsumowanie zamowienia -->
+
+    <div class="SekcjaTbl">
+
+        <?php
+        foreach ( $Zamowienie->podsumowanie as $Podsumowanie ) {
+            ?>
+            <div class="WierszTbl">
+
+                <div class="PodsumowanieOpis"><?php echo $Podsumowanie['tytul']; ?></div>
+                <div class="PodsumowanieWartosc"><span class="Cena"><?php echo $Podsumowanie['tekst']; ?></span></div>
+
+            </div>
+            <?php
+        }
+        ?>
+
+    </div>
+
+    <!-- sprzedaz elektroniczna - link do przejscia do strony pobierania plikow -->
+    
+    <?php if ( $Zamowienie->sprzedaz_online ) { ?>
+    
+    <div class="Ramka Sekcja">
+    
+        <div class="TytulSekcji">{__TLUMACZ:PLIKI_ONLINE}</div>
+        
+        <div class="TrescSekcji">
+        
+            <a href="{__LINK_POBRANIA_PLIKOW}">{__TLUMACZ:LINK_PLIKOW_ONLINE}</a>
+            
+        </div>
+        
+    </div>
+    
+    <?php } ?>
+
+    <div class="Ramka Sekcja">
+
+        <div class="TytulSekcji">{__TLUMACZ:HISTORIA_REALIZACJI_ZAMOWIENIA}</div>
+        
+        <!-- generowanie historii statusow zamowienia -->
+
+        <?php
+        foreach ( $Zamowienie->statusy as $Status ) {
+            ?>
+            
+            <div class="TrescSekcji">
+            
+                <div class="TrescScr LiniaPoziom">
+
+                    <div class="SzczegolyData">
+
+                        <em class="DataZlozenia"><b><?php echo $Status['data_dodania']; ?></b></em> 
+                        <em class="StatusZamowienia">{__TLUMACZ:KLIENT_STATUS_ZAMOWIENIA}: <b><?php echo $Status['status_nazwa']; ?></b></em>
+
+                    </div>
+
+                    <div class="ZamowienieKomentarz"><?php echo $Status['komentarz']; ?></div>
+
+                </div>
+            
+            </div>
+            <?php
+        }
+        ?>
+
+    </div>
+    
+    <!-- przyciski -->
+
+    <a class="przycisk Lewy" onclick="history.go(-1)">{__TLUMACZ:PRZYCISK_COFNIJ}</a>
+    <a href="{__SSL:panel-klienta.html}" class="przycisk Prawy">{__TLUMACZ:PRZYCISK_PANEL_KLIENTA}</a>
+
+    <div class="cl"></div>
+
+</section>
+
+

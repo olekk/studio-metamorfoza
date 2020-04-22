@@ -1,0 +1,89 @@
+/* wyglad rodzaju boxu w liscie */
+.plik { background:url('../obrazki/plikphp.png') no-repeat left center; display:inline-block; padding:2px; padding-left:24px; color:#087000; font-weight:normal; text-decoration:none; }
+.strona { background:url('../obrazki/www.png') no-repeat left center; display:inline-block; padding:2px; padding-left:24px; font-weight:normal; text-decoration:none; }
+.kodjava { background:url('../obrazki/script.png') no-repeat left center; display:inline-block; padding:2px; padding-left:24px; color:#985703; font-weight:normal; text-decoration:none; }
+
+/* leganda ikon */
+.legenda, #legenda { margin:10px; margin-right:0px; text-align:right; }
+.legenda span, #legenda span { margin-left:15px; }
+
+/* okno edycji */
+#ekr_edit { position: fixed; width: 100%; height: 100%; top:0px; left:0px; z-index:9996; display:none; }
+#edit_tlo { z-index:9997; position:fixed; top:0px; left:0px; width:100%; height:100%; background:#000; filter:alpha(opacity=60);-moz-opacity:0.6;opacity:0.6; }
+#edytuj_stale { z-index:9998; position:fixed; top:35%; left:50%; }
+#edytuj_okno { padding:15px; text-align:center; width:500px; background:#fff; margin-left:-250px; border:1px solid #c1c1c1; -moz-border-radius:15px; -webkit-border-radius:15px; -khtml-border-radius:15px; border-radius:15px; }
+.zamknij_box { float:right; cursor:pointer; }
+#edytuj_okno strong { font-size:14px; color:#1f82a3; display:block; text-align:center; }
+#edytuj_okno strong.OknaRozwijane { margin-top:8px; }
+
+/* ustawienia wygladu strony glownej */
+.wyglad_tbl { margin:0px auto; width:700px; margin-bottom:10px; margin-top:10px; }
+#wyglad_lewa { min-height:20px; border:1px dotted #9e9f9e; z-index:0; }
+#wyglad_prawa { min-height:20px; border:1px dotted #9e9f9e; z-index:0; }
+#wyglad_srodek_srodek, #wyglad_srodek_gora, #wyglad_srodek_dol { min-height:20px; border:1px dotted #9e9f9e; z-index:0; }
+#wyglad_srodek_srodek { width:500px; float:left; margin-left:10px; margin-top:10px; }
+.wyglad_srodek_boxy { width:85px; border:1px dotted #9e9f9e; background:url('../obrazki/napis_boxy.png') no-repeat center center; padding:20px 0px 20px 0px; min-height:130px; margin-top:10px; }
+#wyglad_gorne_menu { min-height:20px; border:1px dotted #9e9f9e; z-index:0; }
+#wyglad_dolne_menu { min-height:20px; border:1px dotted #9e9f9e; z-index:0; }
+#wyglad_stopka_pierwsza { min-height:20px; border:1px dotted #9e9f9e; z-index:0; }
+#wyglad_stopka_druga { min-height:20px; border:1px dotted #9e9f9e; z-index:0; }
+#wyglad_stopka_trzecia { min-height:20px; border:1px dotted #9e9f9e; z-index:0; }
+#wyglad_stopka_czwarta { min-height:20px; border:1px dotted #9e9f9e; z-index:0; }
+#wyglad_stopka_piata { min-height:20px; border:1px dotted #9e9f9e; z-index:0; }
+
+.dodaj_box { padding:10px; }
+.dodaj_modul { padding:10px; }
+.dodaj_modul span, .dodaj_box span { display:inline-block; margin-right:10px; vertical-align:middle; }
+.dodaj_gorne_menu { padding:10px; }
+.dodaj_dolne_menu { padding:10px; }
+.dodaj_stopka { padding:10px; }
+
+.info_lewa { width:345px; float:left; margin-right:5px; z-index:0; }
+.info_prawa { width:345px; float:left; margin-left:5px; z-index:0; }
+
+.box { text-align:left; margin:10px; padding:10px; padding-right:5px; border:1px dotted #9e9f9e; font-weight:bold; text-decoration:none; }
+.box:hover { cursor:move; border:1px dotted #ff0000; }
+.box img { cursor:pointer; padding-right:5px; }
+.box a { display:inline-block; float:right; }
+#wyglad_prawa .box a { float:left; }
+.box span { display:inline-block; width:170px; }
+.box strong { font-weight:normal; color:#7d7d7d; display:block; margin-top:5px; }
+.box strong .Polozenie { display:block; margin-top:5px; color:#136c04; padding:0px !important; }
+.strzalka { float:right; }
+.skasuj { float:right; }
+.box .iplik { background:url('../obrazki/plikphp.png') no-repeat; background-position: left; padding:2px; padding-left:25px; }
+.box .istrona { background:url('../obrazki/www.png') no-repeat; background-position: left; padding:2px; padding-left:25px; }
+.box .ikodjava { background:url('../obrazki/script.png') no-repeat; background-position: left; padding:2px; padding-left:25px; }
+.box .rplik { background:url('../obrazki/plikphp.png') no-repeat; background-position: right; padding:2px; padding-right:25px; }
+.box .rstrona { background:url('../obrazki/www.png') no-repeat; background-position: right; padding:2px; padding-right:25px; }
+.box .rkodjava { background:url('../obrazki/script.png') no-repeat; background-position: right; padding:2px; padding-right:25px; }
+
+.stala { text-align:left; margin:10px; padding:10px; padding-right:5px; border:1px dotted #9e9f9e; font-weight:bold; text-decoration:none; }
+.stala:hover { cursor:move; border:1px dotted #ff0000; }
+.stala img { cursor:pointer; padding-right:5px; }
+.stala a { display:inline-block; float:right; }
+.stala span { display:inline-block; width:500px; }
+.stala span span { display:block; font-weight:normal; color:#7d7d7d; margin-top:5px; }
+.stronainfo { display:inline-block; background: url("../obrazki/info_klient.png") no-repeat left center; padding:2px; padding-left:25px; }
+.galeria { display:inline-block; background: url("../obrazki/image_cechy.png") no-repeat left center; padding:2px; padding-left:25px; }
+.formularz { display:inline-block; background: url("../obrazki/lista_wojewodztw.png") no-repeat left center; padding:2px; padding-left:25px; }
+.artykul_kategoria { display:inline-block; background: url("../obrazki/kategoria_aktualnosci.png") no-repeat left center; padding:2px; padding-left:25px; }
+.produkt_kategoria { display:inline-block; background: url("../obrazki/kategoria_produktow.png") no-repeat left center; padding:2px; padding-left:25px; }
+.artykul { display:inline-block; background: url("../obrazki/artykul.png") no-repeat left center; padding:2px; padding-left:25px; }
+.rozwijane { display:inline-block; background: url("../obrazki/kategoria.png") no-repeat left center; padding:2px; padding-left:25px; }
+
+#infoAjax { margin-left:2px; margin-bottom:10px; background: url("../obrazki/uwaga.png") no-repeat left center; display:inline-block; padding:2px; padding-left:20px; color:#787777; }
+
+#szablony { width:780px; margin:0px auto; margin-top:15px; }
+#szablony td { padding-bottom:45px; text-align:center; font-weight:normal; }
+#szablony div { text-align:center; margin-top:10px; }
+#szablony img { border:5px solid #fff; -moz-box-shadow: 0 0 5px 5px #ccc; -webkit-box-shadow: 0 0 5px 5px #ccc; box-shadow: 0 0 15px 5px #ccc; width:250px; height:175px; }
+
+#OpisSzablonow { margin-left:185px; margin-top:-20px; display:block; line-height:1.5; font-size:11px; color:#1b7c8d; }
+
+/* ustawienia szablonu mobilnego */
+.SzablonMobilny label { width:280px !important; }
+
+#podstrony .maleInfo { margin-left:187px; margin-top:-20px; line-height:1.5; }
+
+.tytul_rwd { font-weight:bold; color:#016f24; margin:15px 0px 10px 25px; font-size:12px; }

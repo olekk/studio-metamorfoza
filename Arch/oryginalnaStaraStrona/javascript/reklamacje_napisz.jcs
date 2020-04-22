@@ -1,0 +1,34 @@
+$(document).ready(function() {
+
+    $("#zmowienieDropDown").change(onSelectAkcja);
+
+    $("#reklamacja").validate({
+      rules: {
+        temat: { required: true },
+        zamowienie_id: { required: true },
+      },
+      messages: {
+        temat: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        wiadomosc: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+        zamowienie_id: { required: '{__TLUMACZ:BLAD_WYMAGANE_POLE}' },
+      }      
+    });
+
+    //wlacza przycisk submit jesli dziala u klienta javascript
+    $('#submitButton').removeAttr('disabled');
+    $("#submitButton").attr('class', 'przycisk');
+});
+
+function onSelectAkcja(){
+
+	var ZamowienieID = $("#zmowienieDropDown").attr("value");
+	if (ZamowienieID > 0){
+		var Tekst = '<a class="pdf pdfIkona" href="zamowienia-szczegoly-pdf-'+ZamowienieID+'.html">{__TLUMACZ:ZOBACZ_SZCZEGOLY}</a>';
+		$("#linkPDF").html(Tekst);
+		$('#szczegoly').slideDown();
+	} else {
+		$('#szczegoly').slideUp();
+	}
+
+}
+
