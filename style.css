@@ -69,18 +69,6 @@ a {
 .kafel {
   overflow: hidden;
   position: relative; }
-  .kafel .kosmetyka {
-    background-image: url(img/cover/kosmetyka.jpg); }
-  .kafel .wizaz {
-    background-image: url(img/cover/wizaz.jpg); }
-  .kafel .makijaz {
-    background-image: url(img/cover/makijaz.jpg); }
-  .kafel .cennik {
-    background-image: url(img/cover/cennik.jpg); }
-  .kafel .kontakt {
-    background-image: url(img/cover/kontakt.jpg); }
-  .kafel .mapa {
-    background-image: url(img/cover/mapa.jpg); }
   .kafel .cover {
     position: absolute;
     z-index: 50;
@@ -94,10 +82,17 @@ a {
     color: white;
     text-shadow: 0px 0px 10px black;
     text-align: center;
-    transition: all .5s ease-in;
-    -webkit-box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.75); }
+    transition: all .5s ease-in; }
+    .kafel .cover::after {
+      -webkit-box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+      box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+      content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      width: 100%; }
     .kafel .cover:hover {
       cursor: pointer; }
       .kafel .cover:hover::before {
@@ -118,6 +113,16 @@ a {
       -webkit-box-shadow: inherit;
       -moz-box-shadow: inherit;
       box-shadow: inherit; }
+    .kafel .cover img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%; }
+    .kafel .cover div {
+      z-index: 40;
+      position: absolute;
+      text-align: center;
+      width: 100%; }
   .kafel article {
     position: relative;
     z-index: 40;

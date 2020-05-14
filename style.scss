@@ -118,12 +118,14 @@ a
     overflow: hidden;
     //transition: height 1s ease-in;
 
-    .kosmetyka { background-image: url(img/cover/kosmetyka.jpg); }
-    .wizaz { background-image: url(img/cover/wizaz.jpg); }
-    .makijaz { background-image: url(img/cover/makijaz.jpg); }
-    .cennik { background-image: url(img/cover/cennik.jpg); }
-    .kontakt { background-image: url(img/cover/kontakt.jpg);}
-    .mapa { background-image: url(img/cover/mapa.jpg);}
+    // .kosmetyka { background-image: url(img/cover/kosmetyka.jpg); }
+    // .wizaz { background-image: url(img/cover/wizaz.jpg); }
+    // .makijaz { background-image: url(img/cover/makijaz.jpg); }
+    // .cennik { background-image: url(img/cover/cennik.jpg); }
+    // .kontakt { background-image: url(img/cover/kontakt.jpg);}
+    // .mapa { background-image: url(img/cover/mapa.jpg);}
+
+    
 
 
     position: relative;
@@ -145,10 +147,18 @@ a
         text-align: center;
         transition: all .5s ease-in;
 
-        -webkit-box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
-        box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
-
+        &::after
+        {
+            -webkit-box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
+            box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
+            content: '';
+            display: block;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
         //border: 100px white solid;
 
         &:hover
@@ -181,8 +191,20 @@ a
             -moz-box-shadow: inherit;
             box-shadow: inherit;
         }
-        
 
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+        }
+
+        div {
+            z-index: 40;
+            position: absolute;
+            text-align: center;
+            width: 100%;
+        }
     }
 
     article
